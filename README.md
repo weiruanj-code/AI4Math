@@ -1,7 +1,7 @@
 # AI4Math
 
-An open collection of AI-assisted mathematical research manuscripts by
-YINGFENG JIANG. Each paper is placed directly in its own top-level directory
+An open collection of AI-assisted mathematical research manuscripts. Each
+paper is placed directly in its own top-level directory
 so that source files, compiled PDFs, notes, and future revisions can be
 separated cleanly.
 
@@ -46,14 +46,6 @@ tropical realization. Outside the saturated $PGL_2$ case, the extension is an
 explicit orbit-summed classification and rational $K_0$ interpolation, not a
 relative represented-shell theorem.
 
-#### Search keywords
-
-`PGL2`, orbital integrals, affine Springer fibers, quadratic orders, positive
-loop groups, norm-one torus, Kummer local systems, Haar measure, geometric
-Frobenius, Verdier duality, orientation reciprocity, residual towers, rank-one
-groups, unramified absolute A1, rational K0, polyhedral skeletonization,
-shell generating functions.
-
 The paper directory contains the detailed summary, citation suggestion,
 build instructions, and the latest source/PDF pair.
 
@@ -81,28 +73,38 @@ extensions, an unrestricted common algebraic coefficient source, or an
 equivalence with the ordinary unrigidified Artin fan. Proper-image and larger
 coefficient-source issues remain explicit obstructions.
 
-#### Search keywords
+## Search keywords
 
-`Kummer realizations`, `Verdier duality`, nearby cycles, continuous cohomology,
-pro-l inertia, finite-root stacks, infinite root stacks, adic coefficients,
-Artin stacks, Iwasawa cohomology, analytic compact support, logarithmic
-geometry, semistable nodes, finite-carrier traces, six operations.
+This is the merged search index for all papers in the repository. When adding
+a future paper, append only genuinely new terms that are not already listed.
+
+`PGL2`, `PGL_2`, orbital integrals, affine Springer fibers, quadratic orders,
+positive loop groups, norm-one torus, Kummer realizations, Kummer local
+systems, Kummer torsors, Haar measure, geometric Frobenius, Verdier duality,
+orientation reciprocity, residual towers, rank-one groups, unramified absolute
+A1, rational K0, polyhedral skeletonization, shell generating functions,
+nearby cycles, vanishing cycles, continuous cohomology, pro-l inertia,
+finite-root stacks, infinite root stacks, adic coefficients, Artin stacks,
+Iwasawa cohomology, analytic compact support, tame nearby cycles, logarithmic
+geometry, semistable nodes, finite-carrier traces, six operations, derived
+categories.
 
 ## Adding future papers
 
 Create one lowercase, search-friendly directory directly under the repository
 root for each manuscript. Every paper directory should contain:
 
-1. a `README.md` with `Main content`, `Scope and limitations`, and `Search
-   keywords`, together with the title, author, status, citation suggestion,
-   and build instructions;
+1. a `README.md` with `Main content`, `Scope and limitations`, and the
+   paper-specific summary, together with the title, status, citation
+   suggestion, and build instructions;
 2. the stable source file(s), normally `.tex` or `.md`;
 3. the latest compiled PDF when one is available.
 
-Then add the same three summary sections to that paper's entry in this root
-README. Keep review reports, temporary compilation folders, and unrelated
-drafts outside the published paper directory unless they are intentionally
-part of that paper's public record.
+Then add the same two summary sections to that paper's entry in this root
+README, and add only new search terms to the merged keyword index above. Keep
+review reports, temporary compilation folders, and unrelated drafts outside
+the published paper directory unless they are intentionally part of that
+paper's public record.
 
 ## License and attribution
 
@@ -110,7 +112,8 @@ Unless a file states otherwise, the original manuscript text, PDFs, LaTeX
 source, and README material in this repository are released under the
 [Creative Commons Attribution 4.0 International license (CC BY 4.0)](https://creativecommons.org/licenses/by/4.0/).
 You may copy, redistribute, translate, adapt, and reuse them, including
-commercially, provided that you credit the author, link to the license, and
+commercially, provided that you provide appropriate attribution, link to the
+license, and
 indicate changes. Third-party works cited by a paper retain their own
 licenses.
 

@@ -2,8 +2,6 @@
 
 **Continuous cohomology, nearby cycles, and finite-root traces**
 
-Author: **YINGFENG JIANG**
-
 This directory contains the LaTeX source and compiled PDF of a local
 three-realization manuscript for a semistable node with smooth disc
 directions.
@@ -60,12 +58,13 @@ pdflatex -interaction=nonstopmode -halt-on-error three_realization_submission.te
 
 ## Citation
 
-YINGFENG JIANG, *Local Kummer Realizations and Verdier Duality: Continuous
-cohomology, nearby cycles, and finite-root traces*, AI4Math, 2026.
+*Local Kummer Realizations and Verdier Duality: Continuous cohomology, nearby
+cycles, and finite-root traces*, AI4Math, 2026.
 
 ## License
 
 The original manuscript material in this directory is released under
 [CC BY 4.0](../LICENSE). Reusers may copy, redistribute, and adapt it,
-including commercially, provided that they credit the author, link to the
+including commercially, provided that they provide appropriate attribution,
+link to the
 license, and indicate changes.

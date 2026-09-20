@@ -2,8 +2,6 @@
 
 **Quadratic Residual Towers, Haar--Frobenius Comparison, and the Unramified Absolute-$A_1$ Theorem**
 
-Author: **YINGFENG JIANG**
-
 This directory contains the LaTeX source and compiled PDF of a research
 manuscript on a rank-one geometric and arithmetic model for orbital
 reciprocity. The repository-wide index is one level above this directory.
@@ -79,14 +77,14 @@ skeletonization, shell generating functions.
 
 ## Citation
 
-YINGFENG JIANG, *From Represented $PGL_2$ Orbit Shells to Rank-One Orientation
-Reciprocity*, AI4Math, 2026. Please also link to this paper directory when
-redistributing or adapting the manuscript.
+*From Represented $PGL_2$ Orbit Shells to Rank-One Orientation Reciprocity*,
+AI4Math, 2026. Please also link to this paper directory when redistributing or
+adapting the manuscript.
 
 ## License
 
 The original manuscript material in this directory is released under
 [CC BY 4.0](../LICENSE). Reusers may copy, redistribute, and adapt it,
-including commercially, provided that they credit the author, link to the
-license, and indicate changes.
+including commercially, provided that they provide appropriate attribution,
+link to the license, and indicate changes.
 
