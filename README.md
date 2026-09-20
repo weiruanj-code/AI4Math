@@ -57,6 +57,37 @@ shell generating functions.
 The paper directory contains the detailed summary, citation suggestion,
 build instructions, and the latest source/PDF pair.
 
+### Local Kummer Realizations and Verdier Duality
+
+**Continuous cohomology, nearby cycles, and finite-root traces**
+
+Folder: [`three_realization_submission/`](three_realization_submission/)
+
+#### Main content
+
+For a fixed semistable node with smooth disc directions, this paper constructs
+a geometric inverse system of traces from genuine finite-root shriek
+pushforwards. Its integral limit is compared with the derived dual of
+continuous inertia cochains, nearby costalks, and analytic compact support,
+while retaining finite group bars, coefficient maps, module actions, and
+integral torsion.
+
+#### Scope and limitations
+
+The results concern the stated local semistable/Kummer chart and selected
+perfect cartesian adic coefficient systems. The paper does not define a shriek
+functor on the bare infinite-root fibre, nor claim global weak base-inertia
+extensions, an unrestricted common algebraic coefficient source, or an
+equivalence with the ordinary unrigidified Artin fan. Proper-image and larger
+coefficient-source issues remain explicit obstructions.
+
+#### Search keywords
+
+`Kummer realizations`, `Verdier duality`, nearby cycles, continuous cohomology,
+pro-l inertia, finite-root stacks, infinite root stacks, adic coefficients,
+Artin stacks, Iwasawa cohomology, analytic compact support, logarithmic
+geometry, semistable nodes, finite-carrier traces, six operations.
+
 ## Adding future papers
 
 Create one lowercase, search-friendly directory directly under the repository
@@ -86,4 +117,3 @@ licenses.
 This collection contains research manuscripts rather than Lean-certified
 formalizations. Mathematical claims should be independently checked before
 being relied upon.
-
