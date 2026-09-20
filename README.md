@@ -1,8 +1,9 @@
 # AI4Math
 
 An open collection of AI-assisted mathematical research manuscripts by
-YINGFENG JIANG. Each paper lives in its own directory so that source files,
-compiled PDFs, notes, and future revisions can be separated cleanly.
+YINGFENG JIANG. Each paper is placed directly in its own top-level directory
+so that source files, compiled PDFs, notes, and future revisions can be
+separated cleanly.
 
 ## Repository structure
 
@@ -10,12 +11,10 @@ compiled PDFs, notes, and future revisions can be separated cleanly.
 AI4Math/
 ├── README.md                         # repository-wide index
 ├── LICENSE                           # CC BY 4.0
-└── papers/
-    ├── README.md                     # paper-directory conventions
-    └── universal_quadratic_pgl2_orbit_shells/
-        ├── README.md                 # paper summary and keywords
-        ├── universal_quadratic_pgl2_orbit_shells.tex
-        └── universal_quadratic_pgl2_orbit_shells.pdf
+└── universal_quadratic_pgl2_orbit_shells/
+    ├── README.md                     # paper summary and search metadata
+    ├── universal_quadratic_pgl2_orbit_shells.tex
+    └── universal_quadratic_pgl2_orbit_shells.pdf
 ```
 
 ## Paper index
@@ -25,30 +24,54 @@ AI4Math/
 **Quadratic Residual Towers, Haar--Frobenius Comparison, and the Unramified
 Absolute-$A_1$ Theorem**
 
-- Folder: [`papers/universal_quadratic_pgl2_orbit_shells/`](papers/universal_quadratic_pgl2_orbit_shells/)
-- Summary: represented quadratic $PGL_2$ orbit shells, residual towers,
-  norm-one tori, Haar/Frobenius comparison, orientation reciprocity, and a
-  rational $K_0$ shadow for the unramified absolute-$A_1$ case.
-- Keywords: `PGL2`, orbital integrals, affine Springer fibers, quadratic
-  orders, Kummer local systems, Haar measure, geometric Frobenius, Verdier
-  duality, rank-one reciprocity, rational K0.
+Folder: [`universal_quadratic_pgl2_orbit_shells/`](universal_quadratic_pgl2_orbit_shells/)
 
-The paper directory contains the detailed summary, scope, limitations,
-citation suggestion, keywords, and compilation instructions.
+#### Main content
+
+The paper studies represented positive-loop orbit shells in a universal
+quadratic $PGL_2$ family. It constructs a finite residual tower whose first
+layer is the norm-one torus, compares quadratic order lattices with orbit
+sheaves, and relates quotient Haar masses to compact geometric-Frobenius
+traces. It then derives rank-one orientation reciprocity for the normalized
+orbital generating series and a rational $K_0$ shadow in the unramified
+absolute-$A_1$ setting.
+
+#### Scope and limitations
+
+The strongest geometric statements concern the universal quadratic
+equal-characteristic loop family and represented fppf orbit sheaves. The paper
+does not claim a general affine-Springer quotient, cross-shell incidence
+theory, convolution theorem, Rees completion, or unrestricted global
+tropical realization. Outside the saturated $PGL_2$ case, the extension is an
+explicit orbit-summed classification and rational $K_0$ interpolation, not a
+relative represented-shell theorem.
+
+#### Search keywords
+
+`PGL2`, orbital integrals, affine Springer fibers, quadratic orders, positive
+loop groups, norm-one torus, Kummer local systems, Haar measure, geometric
+Frobenius, Verdier duality, orientation reciprocity, residual towers, rank-one
+groups, unramified absolute A1, rational K0, polyhedral skeletonization,
+shell generating functions.
+
+The paper directory contains the detailed summary, citation suggestion,
+build instructions, and the latest source/PDF pair.
 
 ## Adding future papers
 
-Create one lowercase, search-friendly directory under `papers/` for each
-manuscript. Every paper directory should contain:
+Create one lowercase, search-friendly directory directly under the repository
+root for each manuscript. Every paper directory should contain:
 
-1. a `README.md` with the title, author, abstract-style summary, status,
-   limitations, keywords, citation suggestion, and build instructions;
+1. a `README.md` with `Main content`, `Scope and limitations`, and `Search
+   keywords`, together with the title, author, status, citation suggestion,
+   and build instructions;
 2. the stable source file(s), normally `.tex` or `.md`;
 3. the latest compiled PDF when one is available.
 
-Then add one short entry to this index. Keep review reports, temporary
-compilation folders, and unrelated drafts outside the published paper
-directory unless they are intentionally part of that paper's public record.
+Then add the same three summary sections to that paper's entry in this root
+README. Keep review reports, temporary compilation folders, and unrelated
+drafts outside the published paper directory unless they are intentionally
+part of that paper's public record.
 
 ## License and attribution
 

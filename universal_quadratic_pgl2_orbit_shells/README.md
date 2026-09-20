@@ -86,7 +86,7 @@ redistributing or adapting the manuscript.
 ## License
 
 The original manuscript material in this directory is released under
-[CC BY 4.0](../../LICENSE). Reusers may copy, redistribute, and adapt it,
+[CC BY 4.0](../LICENSE). Reusers may copy, redistribute, and adapt it,
 including commercially, provided that they credit the author, link to the
 license, and indicate changes.
 
