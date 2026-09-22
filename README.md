@@ -11,10 +11,18 @@ separated cleanly.
 AI4Math/
 ├── README.md                         # repository-wide index
 ├── LICENSE                           # CC BY 4.0
-└── universal_quadratic_pgl2_orbit_shells/
+├── universal_quadratic_pgl2_orbit_shells/
+│   ├── README.md                     # paper summary and search metadata
+│   ├── universal_quadratic_pgl2_orbit_shells.tex
+│   └── universal_quadratic_pgl2_orbit_shells.pdf
+├── three_realization_submission/
+│   ├── README.md                     # paper summary and search metadata
+│   ├── three_realization_submission.tex
+│   └── three_realization_submission.pdf
+└── semistable_morita_refinement/
     ├── README.md                     # paper summary and search metadata
-    ├── universal_quadratic_pgl2_orbit_shells.tex
-    └── universal_quadratic_pgl2_orbit_shells.pdf
+    ├── semistable_morita_refinement.tex
+    └── semistable_morita_refinement.pdf
 ```
 
 ## Paper index
@@ -29,22 +37,16 @@ Folder: [`universal_quadratic_pgl2_orbit_shells/`](universal_quadratic_pgl2_orbi
 #### Main content
 
 The paper studies represented positive-loop orbit shells in a universal
-quadratic $PGL_2$ family. It constructs a finite residual tower whose first
-layer is the norm-one torus, compares quadratic order lattices with orbit
-sheaves, and relates quotient Haar masses to compact geometric-Frobenius
-traces. It then derives rank-one orientation reciprocity for the normalized
-orbital generating series and a rational $K_0$ shadow in the unramified
-absolute-$A_1$ setting.
+quadratic $PGL_2$ family. It constructs a residual tower, compares quadratic
+order lattices with orbit sheaves, and derives rank-one orientation reciprocity
+with a rational $K_0$ shadow.
 
 #### Scope and limitations
 
-The strongest geometric statements concern the universal quadratic
-equal-characteristic loop family and represented fppf orbit sheaves. The paper
-does not claim a general affine-Springer quotient, cross-shell incidence
-theory, convolution theorem, Rees completion, or unrestricted global
-tropical realization. Outside the saturated $PGL_2$ case, the extension is an
-explicit orbit-summed classification and rational $K_0$ interpolation, not a
-relative represented-shell theorem.
+The main geometric statements are restricted to the universal quadratic
+equal-characteristic loop family and represented fppf orbit sheaves. General
+affine-Springer quotients, cross-shell incidence, convolution, Rees completion,
+and unrestricted global tropical realization are not claimed.
 
 The paper directory contains the detailed summary, citation suggestion,
 build instructions, and the latest source/PDF pair.
@@ -73,6 +75,29 @@ extensions, an unrestricted common algebraic coefficient source, or an
 equivalence with the ordinary unrigidified Artin fan. Proper-image and larger
 coefficient-source issues remain explicit obstructions.
 
+### Morita Coefficients, Incidence, and Semistable Refinement
+
+**A supported comparison for a subdivided annulus**
+
+Folder: [`semistable_morita_refinement/`](semistable_morita_refinement/)
+
+#### Main content
+
+For a thickness-two nodal model and its explicit blow-up, the paper computes
+the charts, exceptional support, and tube subdivision. It develops supported
+Morita comparisons for geometric and finite logarithmic coefficients, including
+generation, recollement, attaching maps, Verdier partners, minimal diagonal
+kernels, fixed-thickness refinements, and a one-modification bridge to the
+companion Kummer realization.
+
+#### Scope and limitations
+
+The proved comparisons are pairwise or organized over a fixed coarse support
+index. The paper does not claim an unrestricted coherent support profile,
+arbitrary model or base-change independence, full relative-product
+convolution, a general base-inertia/logarithmic comparison, or integral
+supported refinement.
+
 ## Search keywords
 
 This is the merged search index for all papers in the repository. When adding
@@ -87,7 +112,11 @@ nearby cycles, vanishing cycles, continuous cohomology, pro-l inertia,
 finite-root stacks, infinite root stacks, adic coefficients, Artin stacks,
 Iwasawa cohomology, analytic compact support, tame nearby cycles, logarithmic
 geometry, semistable nodes, finite-carrier traces, six operations, derived
-categories.
+categories, Morita coefficients, supported comparison, semistable refinement,
+subdivided annuli, thickness-two nodal models, exceptional curves, fs log
+blow-ups, Fujiwara--Kato acyclicity, costalk support, cellular Morita data,
+incidence diagrams, integer-cut models, coarse support diagrams, minimal
+diagonal kernels.
 
 ## Adding future papers
 

@@ -1,0 +1,3178 @@
+\documentclass[11pt]{article}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern,amsmath,amssymb,amsthm,mathtools}
+\usepackage[a4paper,margin=28mm]{geometry}
+\usepackage[colorlinks=true,linkcolor=blue,urlcolor=blue]{hyperref}
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{corollary}[theorem]{Corollary}
+\theoremstyle{definition}
+\newtheorem{definition}[theorem]{Definition}
+\newtheorem{target}[theorem]{Target}
+\theoremstyle{remark}
+\newtheorem{remark}[theorem]{Remark}
+\newtheorem{example}[theorem]{Example}
+\newcommand{\Perf}{\operatorname{Perf}}
+\newcommand{\RHom}{R\operatorname{Hom}}
+\newcommand{\Spec}{\operatorname{Spec}}
+\newcommand{\thick}{\operatorname{thick}}
+\title{Morita Coefficients, Incidence, and Semistable Refinement\\
+\large A supported comparison for a subdivided annulus}
+\author{YINGFENG JIANG}
+\date{20 September 2026 --- explicit comparison maps}
+\begin{document}
+\maketitle
+\begin{abstract}
+We formulate a supported Morita comparison for an explicit modification
+of a thickness-two nodal model.  The modification introduces an exceptional
+projective line and two thickness-one nodes.  We compute its charts and
+identify the complete inverse-image support, including the smooth part of
+the exceptional component.  Using standard generation and recollement mechanisms for actual rational
+unipotent coefficients on the algebraic normal pair, we establish unit generation, a finite-descent generator, explicit link
+reconstruction, closure under the supported operations, and duality of
+the attaching datum.  We also realize its unit and localization projectors
+by geometric diagonal kernels.  A $K_0$ obstruction shows that the full
+exceptional constructible category cannot itself be refinement invariant.
+We also identify the modification as an fs log blow-up and apply
+Fujiwara--Kato acyclicity to obtain an actual finite-coefficient
+logarithmic Morita comparison, before forgetting base inertia.
+For geometric rational unipotent coefficients we identify the actual
+nearby image on the exceptional curve by an intrinsic costalk-vanishing
+condition, and identify its actual complete-support partner by nearby
+Verdier duality.  This gives a module-valued star comparison and its
+supported partner for the single modification.  For each fixed thickness
+$xy=t^m$, we give pairwise supported Morita comparisons for integer
+cut models over the same base.  Their branchwise coefficient categories
+have geometric generators, and the specified proper maps compare
+ambient attaching maps, localization triangles, Verdier partners and
+minimal diagonal kernels.  The coefficient passage is constructed in
+selected adic systems before rationalization.  On the common rational
+unipotent source, an explicit one-modification bridge identifies these
+maps with the companion paper's local Kummer realization and trace
+pairing, with node support interpreted as a costalk.  For a fixed coarse support index we organize the fibrewise-cartesian
+ambient categories, localization, tensor, duality and minimal kernel
+actions into a coherent refinement diagram, and extend the local
+realization bridge naturally to that diagram.  An unrestricted
+support/correspondence profile remains a separate target.  Neither this target nor arbitrary model or
+base-change independence is claimed as proved.  The logarithmic
+finite-coefficient comparison and the geometric rational nearby
+comparison have different sources; base inertia, analytic realization
+and integral supported refinement are not identified between them.
+\end{abstract}
+
+\section{The supported comparison and its scope}
+Let $R$ be a complete strictly henselian discrete valuation ring with
+uniformizer $t$, algebraically closed residue field $k$ of characteristic
+$p$, and fraction field $K$.  Fix $\ell\ne p$ and a complete algebraically
+closed valued extension $\Omega/K$.  Put
+\[
+ X=\Spec R[x,y]/(xy-t^2),\qquad Y=V(x,y,t),
+ \qquad \mu:X'=\operatorname{Bl}_{(x,t)}X\longrightarrow X.
+\]
+We keep the base $R$ fixed.  Thus the first example works also when $p=2$;
+no claim about a tame quadratic base extension is required.  The singular
+model $X$ is a toroidal nodal model of thickness two, not the regular
+thickness-one model of the preceding local-realization paper.
+
+\begin{target}[The general supported refinement problem]\label{target:refinement}
+Construct from intrinsically characterized actual nearby-admissible
+geometric coefficient categories a cellular Morita datum $\mathcal C(X,Y)$ and $\mathcal C(X',\mu^{-1}Y)$, together with a
+comparison induced by $\mu$.  Prove that the comparison is a Morita
+equivalence after the specified cellular descent, compatible with
+restriction, costalk, the localization attaching maps and Verdier duality.
+Identify its stratumwise cochain algebras and dualizing bimodules with the
+local realizations wherever the latter's hypotheses have been verified.
+Prove compatibility with compositions of the allowed modifications and
+finite geometric descent, and with a diagonal unit and the basic
+normal-pair correspondence.
+\end{target}
+The intended invariant is the entire coefficient datum on the stratified
+model: the stratum categories and their $A^*$-algebras, the supported
+$A^!$-partners, actual restriction/costalk/localization functors and
+attaching cells, and normal inertia.  Supported functors may have
+different source and target support categories; they are not all
+endomorphisms of a single coefficient category.  In this sense the
+intended comparison has the schematic form
+\[
+ \mu_*^{\mathrm{cell}}\mathcal C_{\Sigma_{X'}}
+       \simeq_{\mathrm{Mor}}\mathcal C_{\Sigma_X}.
+\]
+Here $\Sigma$ records actual strata and their incidence geometry.
+Theorem~\ref{thm:cellular-refinement} proves pairwise equivalences for
+integer-cut models of a fixed $xy=t^m$, with the stated geometric
+rational coefficients and complete inverse-image supports.  It includes
+the specified module, support and attachment maps.  It does not establish
+the displayed schematic formula as an equivalence of fully coherent
+profiles; that stronger construction is Target~\ref{target:enhanced-profile}.
+
+The local finite-coefficient inputs are the explicit geometry and
+Nakayama's Kummer calculation.  Lemma~\ref{lem:selected-adic-comparisons}
+constructs the selected adic comparisons; Theorem~\ref{thm:cell-reconstruction}
+proves geometric generation; Lemma~\ref{lem:cell-algebra-unit} constructs
+the algebra and supported module mates; and
+Lemma~\ref{lem:fibre-cartesian-ambient} compares arbitrary retained
+attaching maps.  These supply the pairwise theorem and
+Corollary~\ref{cor:cell-kernels}.  The logarithmic finite-coefficient
+comparison is a separate application of Fujiwara--Kato acyclicity.
+Proposition~\ref{prop:one-modification-realization-bridge} connects
+the one-modification comparison to the companion paper's already
+proved rational unipotent interface, including the specified
+coefficient functor, module actions and support types.
+Theorem~\ref{thm:anchored-coherent-descent} organizes these maps on a
+fixed coarse support index; Corollary~\ref{cor:family-realization-bridge}
+places the coefficient interface in the same diagram.  In this paper
+``canonical'' refers to this specified cut/support system, not to a
+higher model-independent pseudofunctor on arbitrary correspondences.
+
+\paragraph{Inputs and contribution.}
+Fujiwara--Kato log-blow-up acyclicity and Nakayama's constant nearby
+calculation are external inputs, in the form recorded by Illusie
+\cite{IllusieOverview}.  Achinger--Ogus describe exterior cohomology
+and connecting/monodromy data \cite[PDF version, \S6.3]{AchingerOgus};
+we use this as background, not as an adic or module comparison input.
+Scherotzke--Sibilla--Talpo's Morita invariance concerns coherent
+parabolic coefficients \cite{SSTMcKay}, not the constructible
+coefficients used here.  Recollement, thick generation from finite
+filtrations, one-generator Morita reconstruction and transport of an
+operation diagram along equivalences are standard mechanisms.
+
+The geometric comparisons supplied here are the actual two-branch
+Kummer maps with their coefficient actions, the intrinsic admissible
+nearby image on the complete exceptional support, and the comparison
+of arbitrary retained attachments across coarse fibres.  We organize
+these specified maps, their supported partners and the minimal kernel
+diagrams over a fixed coarse support index, and identify the common
+coefficient interface with the fixed companion manuscript.
+This is the contribution claimed, without a priority claim for the
+standard mechanisms or for general model independence.
+
+\paragraph{Kummer classes and Tate twists.}
+For an invertible coordinate $z$, the notation $[z]$ means its actual
+Kummer class in $H^1(-,\Lambda_r(1))$ at finite precision and in
+$H^1(-,Q(1))$ after the specified adic passage and rationalization.
+Calling this a degree-one generator means the induced isomorphism
+$Q(-1)\to H^1(-,Q)$ in the rank-one situations below, not a scalar
+basis of untwisted cohomology.  The Kummer morphism is
+$Q\to Q(1)[1]$.  Identities such as $[w]=-[z]$ are identities in
+twisted cohomology and of these induced maps.  We do not choose a
+trivialization $Q(1)\simeq Q$; compatible roots of the uniformizer
+used for coordinate transport do not constitute such a trivialization.
+
+\section{A modification that changes the model}
+\begin{proposition}[Charts and the exceptional support]\label{prop:charts}
+The modification $\mu$ is proper and is an isomorphism on the generic
+fibre.  It has affine charts
+\[
+ U_x=\Spec R[x,v]/(xv-t),\quad y=xv^2,
+ \qquad U_t=\Spec R[u,y]/(uy-t),\quad x=tu.
+\]
+On their overlap $u=v^{-1}$.  The complete scheme-theoretic inverse image
+of $Y$ is a reduced exceptional curve $E\simeq\mathbf P^1_k$.
+The special fibre of $X'$ has two nodes $q_0,q_\infty$ on $E$, and
+$E^\circ=E\setminus\{q_0,q_\infty\}\simeq\mathbf G_{m,k}$.
+\end{proposition}
+\begin{proof}
+The ring $B=R[x,y]/(xy-t^2)$ embeds in $K[x,x^{-1}]$ by $y=t^2/x$.
+The $x$-chart of the blowup is the subalgebra $B[t/x]$ of its fraction
+field.  Setting $v=t/x$ gives $xv=t$ and $y=xv^2$.  This identifies it
+with the displayed $R$-flat domain; using the subalgebra description
+removes the spurious torsion that would result from retaining only the
+uncancelled equation $x(y-xv^2)=0$.  Similarly the $t$-chart is $B[x/t]$,
+with $u=x/t$ and $uy=t$.  The two ratio coordinates are inverse on the
+overlap.  Properness follows from the projective Rees construction, and
+$(x,t)$ is the unit ideal after inverting $t$.
+
+On $U_x$ the ideal $(x,y,t)$ pulls back to $(x)$; on $U_t$ it pulls back
+to $(y)$.  These give $\Spec k[v]$ and $\Spec k[u]$, glued by $uv=1$.
+Thus the inverse image is the reduced $\mathbf P^1$, with no support
+components omitted.  The special fibres have equations $xv=0$ and
+$uy=0$.  Their two intersections are $q_0=(x,v)$ and
+$q_\infty=(u,y)$.  These equations also verify that the new nodes have
+thickness one and that the models are regular there.
+\end{proof}
+
+Let $T=]Y[_X$ denote the tube in the generic fibre of the $t$-adic
+completion.  Normalize the valuation by $w(t)=1$.
+\begin{proposition}[The full tube under subdivision]\label{prop:tubes}
+The generic-fibre identification carries $]\mu^{-1}Y[_{X'}$ onto $T$.
+In the $x$ coordinate,
+\[
+ T=\{\,|t|^2<|x|<1\,\}.
+\]
+The tubes of $q_0,E^\circ,q_\infty$ partition $T$ by the conditions
+\[
+ 0<w(x)<1,\qquad w(x)=1,\qquad 1<w(x)<2,
+\]
+respectively.  The middle domain has coordinate $u=x/t$ with $|u|=1$
+and reduction in $\mathbf G_{m,k}$.
+\end{proposition}
+\begin{proof}
+Specialization commutes with the formal morphism, so membership in the
+tube of the complete inverse image is equivalent to specialization in
+$Y$.  Alternatively, $|x|<1$ and $|y|<1$ give $|t|^2<|x|<1$ directly.
+On $U_x$, specializing to $q_0$ requires $|x|,|v|<1$ and $xv=t$, giving
+the first interval.  On $U_t$, specializing to $q_\infty$ requires
+$|u|,|y|<1$ and $uy=t$, giving the last interval.  Specialization to
+$E^\circ$ requires $u$ and $u^{-1}$ integral, hence $|x|=|t|$.
+\end{proof}
+\begin{remark}
+This partition is not an open analytic cover.  In particular it supplies
+no ordinary open-cover Cech descent proof.  The middle domain cannot be
+discarded, and compact-support duality for boundaryless open annuli
+cannot be copied onto it without checking its support convention.
+The rank-zero relative normal direction on $E^\circ$ does not erase its
+residue $\mathbf G_m$ geometry or the monodromy of its coefficients.
+\end{remark}
+
+\section{A logarithmic refinement comparison already available}
+\begin{proposition}[The modification is an fs log blow-up]
+\label{prop:log-blowup}
+Equip $X$ with the chart $P\to R[x,y]/(xy-t^2)$, where
+\[
+ P=\langle a,b,c\mid a+b=2c\rangle,\qquad
+ a\mapsto x,\quad b\mapsto y,\quad c\mapsto t.
+\]
+Then $P$ is fine, saturated, sharp, with torsion-free groupification.
+The ordinary blow-up $\mu$ in Proposition~\ref{prop:charts}, equipped
+with its displayed chart log structures, is the fs log blow-up of
+$J=(a,c)\subset P$.  The induced morphism
+\[
+ p:E^{\log}\longrightarrow Y^{\log}
+\]
+on the complete inverse-image support is again that log blow-up after
+strict base change.  The logarithmic structures here are induced from
+the models, rather than the trivial structures on their underlying schemes.
+\end{proposition}
+\begin{proof}
+Represent $a=(1,0)$, $c=(0,1)$ and $b=(-1,2)$ in $\mathbf Z^2$.  Then
+\[
+ P=\{(m,n)\in\mathbf Z^2:n\geq0,\ 2m+n\geq0\}.
+\]
+Indeed for $m\geq0$ write $(m,n)=ma+nc$; for $m<0$ write it as
+$(-m)b+(n+2m)c$.  This proves saturation as well as the asserted
+presentation and groupification.
+
+The log blow-up chart where $a$ generates the ideal has monoid
+$P+\mathbf N(c-a)=\mathbf Na+\mathbf N(c-a)$, with
+$c=a+(c-a)$ and $b=a+2(c-a)$.  It is already saturated and free.
+The other chart has monoid
+$P+\mathbf N(a-c)=\mathbf N(a-c)+\mathbf Nb$, where
+$c=(a-c)+b$ and $a=2(a-c)+b$.  Both changes of lattice basis have
+unimodular determinant.  On imposing $c\mapsto t$ their rings are
+exactly $xv=t$ and $uy=t$.  Thus the saturation in the definition of
+fs log blow-up introduces no further modification.  The chart
+construction and universal property are those of
+\cite[\S6.1]{IllusieOverview}.
+
+Give $Y$ the pulled-back log structure, so $Y^{\log}\to X^{\log}$ is
+strict.  Its fs fibre product with $X'$ has the ordinary underlying
+fibre product and the induced log structure.  Proposition~\ref{prop:charts}
+identifies the underlying scheme with the full reduced $E$.
+The universal property of invertibility of the pulled-back ideal
+shows that this base change is the same log blow-up on $Y^{\log}$.
+\end{proof}
+
+\begin{theorem}[A finite-coefficient logarithmic Morita comparison]
+\label{thm:log-refinement}
+Let $\Lambda_r=\mathbf Z/\ell^r$.  For either $f=\mu$ or $f=p$, use
+the actual Kummer-etale topoi of its source and target.  Then
+\[
+ F\longrightarrow Rf_*f^*F
+\]
+is an equivalence for every $F\in D^+(-_{\mathrm{ket}},\Lambda_r)$.
+Consequently $f^*$ is fully faithful on this category.  In particular,
+putting
+\[
+ \mathsf T_r(Z)=\thick_{D(Z_{\mathrm{ket}},\Lambda_r)}(\Lambda_r),
+\]
+actual pullback induces a Morita equivalence
+$\mathsf T_r(Z)\simeq\mathsf T_r(Z')$ and identifies the derived
+endomorphism algebras of their units by the actual pullback map.
+For $r=1$, $\mathsf T_1(Z)$ is also the geometrically described category
+of bounded complexes with finite unipotent locally constant cohomology
+on the indicated Kummer-etale topos.
+\end{theorem}
+\begin{proof}
+Proposition~\ref{prop:log-blowup} verifies the fs log blow-up hypothesis.
+The ideal is coherent and nonempty at every geometric stalk; where a
+generator becomes a unit the blow-up is simply the identity.  The
+Fujiwara--Kato acyclicity theorem in
+\cite[Theorem 6.2]{IllusieOverview} therefore applies, and states
+precisely that the displayed adjunction unit is invertible for these
+bounded-below torsion complexes.  It is stronger than an equality of
+global cohomology groups.  The unit belongs to the actual derived
+adjunction on complexes of sheaves; its being a quasi-isomorphism
+makes it an equivalence in the stable localization as well.  Adjunction
+now gives, on the specified objects,
+\[
+ \operatorname{Map}(f^*F,f^*G)
+ \simeq\operatorname{Map}(F,Rf_*f^*G)
+ \simeq\operatorname{Map}(F,G).
+\]
+
+Pullback is exact, sends the unit to the unit, and preserves retracts.
+Its fully faithful image on the thick unit subcategory is closed under
+finite cones and retracts and contains the target unit; hence it is
+exactly the target thick unit subcategory.  The induced algebra map is
+an equivalence since it is this same comparison on the generator.
+For $r=1$, finite locally constant sheaves are finite-dimensional
+representations of the topos fundamental group on each connected
+component.  The filtration, kernel/cokernel and Postnikov argument of
+Proposition~\ref{prop:unit-generation} applies verbatim to unipotent
+locally constant $\mathbf F_\ell$-sheaves.  This gives the geometric
+description independently of the thick-subcategory notation.
+For $r>1$ we make no such assertion for every finite module: the theorem
+uses the explicitly selected finite-cell subcategory $\mathsf T_r$.
+\end{proof}
+
+\begin{corollary}[What coherence follows at this stage]
+\label{cor:log-coherence}
+These comparisons commute with derived coefficient reduction on
+$\mathsf T_r$, preserve tensor products and duals of these finite-cell
+objects, and are compatible with compositions of actual log blow-ups.
+Precisely, put
+\[
+ \mathsf T_{\mathrm{sys}}(Z)=
+ \varprojlim_{r,\,-\otimes^L_{\Lambda_{r+1}}\Lambda_r}\mathsf T_r(Z).
+\]
+This is a limit of stable categories.  An object has specified reduction
+equivalences and all their composition cells; no uniform amplitude is
+implicit.  Pullback induces an equivalence of these system categories.
+This is not an assertion about the ordinary inverse-limit sheaf.
+\end{corollary}
+\begin{proof}
+Inverse image on module sheaves is exact and strong monoidal; its
+derived extension-of-scalars comparison is the usual associativity of
+tensor.  Reduction takes the unit to the unit and therefore preserves
+the thick subcategories.  Their objects are dualizable, being built
+from the unit by finite cones and retracts, so the same inverse image
+preserves their duals and evaluation maps.  For $g$ followed by $f$,
+the unit of the composite adjunction is the composite of their units,
+with the canonical composition cell for inverse image.  This proves
+compatibility of the specified equivalences, not merely the existence
+of some equivalence for each modification.  For the limit statement, the transition is derived scalar extension;
+it preserves the unit, finite cones and retracts, hence $\mathsf T_r$.
+For a chain of coefficient maps its comparison with pullback is the
+associativity map of the same derived tensor product.  The unit and
+associativity identities for tensor define a natural transformation of
+the entire diagrams of categories.  Its components are equivalences
+by Theorem~\ref{thm:log-refinement}; taking their categorical limit is
+therefore an equivalence.  This proof does not use a sheafwise limit
+or assert coefficient base change for arbitrary direct images.
+\end{proof}
+
+\begin{corollary}[The ordinary direct-image shadow]
+\label{cor:log-ordinary-shadow}
+Write $\varepsilon_Z:Z_{\mathrm{ket}}\to\underline Z_{\acute et}$
+for the morphism forgetting the logarithmic site and $\underline f$
+for the underlying scheme map.  The actual log-refinement unit induces
+\[
+ R\varepsilon_{Z,*}F\xrightarrow{\sim}
+ R\underline f_*R\varepsilon_{Z',*}f^*F.
+\]
+For $f=p$ the right side is the direct image from the complete exceptional
+curve, with its logarithmic coefficient realization retained.
+\end{corollary}
+\begin{proof}
+The natural square of forgetful and direct-image morphisms gives
+$\varepsilon_Z\circ f=\underline f\circ\varepsilon_{Z'}$.
+Apply $R\varepsilon_{Z,*}$ to the actual unit of
+Theorem~\ref{thm:log-refinement} and use composition of derived right
+adjoints.  This identifies the displayed map and its inverse, naturally
+in $F$.  No non-strict Kummer-etale proper base-change assertion is
+needed for this argument.
+\end{proof}
+This shadow is not a full-faithfulness assertion for the ordinary
+realization, and it is not a comparison of ordinary exceptional
+restrictions.  Nor has $R\varepsilon_*$ here been identified with the
+neutralized relative nearby functor.
+
+This is a genuine comparison for a nontrivial model modification, using
+an existing geometric theorem.  Its scope is crucial.  On $Y^{\log}$
+the characteristic group is $P^{\rm gp}$ of rank two, and the base
+class $c$ is still retained.  Although $P^{\rm gp}/\mathbf Zc$ has
+rank one, passing to a neutralized relative log fibre and identifying
+its coefficient and support realizations is an additional step.
+Also $E^{\log}$ is not ordinary $E_{\acute et}$: forgetting logarithmic
+inertia can destroy full faithfulness.  No ordinary cellular Morita
+invariance, exceptional functor, Verdier-support comparison or
+common-refinement independence is obtained merely by erasing these
+qualifications.  In particular tensor duality here is not a proof of
+Verdier duality with geometric supports.
+
+\section{Geometric coefficients and their generators}
+\subsection{The ambient category and geometric input}
+Put $Q=\mathbf Q_\ell$.  For the finite-type $k$-schemes below we use the
+stable category of constructible adic complexes, with rationalized
+coefficients, and its bounded subcategory $D_c^b(-,Q)$.  Mapping objects,
+fibres and adjunctions are taken in this enhancement, not in its homotopy
+category alone.  The scheme case of adic six operations and its enhanced
+version are the external foundations \cite{LOAdic,LZEnhanced}.
+We use their localization, projection and Verdier duality maps.  These
+are not assertions about an analytic specialization morphism or an
+infinite-root exceptional functor.
+
+The additional geometric inputs are the Kummer computation for
+$\mathbf G_m\hookrightarrow\mathbf A^1$ and codimension-one purity,
+recorded in \cite[\S6.4, Theorems 7.1--7.2]{IllusieOverview}.  They are
+stated there with invertible finite coefficients.  In the uses below
+the constant computations have finite free cohomology in degrees zero
+and one (purity in degree two), with the usual compatible reductions;
+taking the adic system and then rationalizing gives the stated $Q$
+computations.  No general interchange of adic limits with arbitrary
+sheaf cohomology is being assumed.
+
+\paragraph{External hypotheses and coefficient passage.}
+The base trait is complete noetherian and hence excellent; all model
+schemes used here are separated of finite type over it, and all
+support schemes are of finite type over the algebraically closed
+residue field.  The integer $\ell$ is invertible throughout.
+Fujiwara--Kato is used only on the Kummer-etale site, with a coherent
+nonempty log ideal on an fs locally noetherian scheme and
+$D^+(-,\Lambda_r)$ coefficients, as checked in
+Theorem~\ref{thm:log-refinement}.  No ordinary full faithfulness follows
+from that theorem.  Nakayama's constant comparison is used for the
+vertical fs log smooth charts verified in
+Lemma~\ref{lem:constant-nearby} and
+Proposition~\ref{prop:all-thickness-nearby}, first with $\Lambda_r$.
+Geometric nearby cycles are taken after geometric generic base change;
+forgetting their Galois action is not taking inertia invariants.
+
+Ordinary proper base change is used only for the proper scheme maps
+and their cartesian support squares, on bounded constructible
+complexes.  Proper nearby comparison uses the same proper model maps.
+Their exceptional comparisons are Verdier mates, with dualizing
+complexes relative to the geometric points.  Gabber's theorem is
+used in the geometric form recorded in
+\cite[Corollary 3.2, Remark 3.3]{LuZhengNearby}; the finite-level
+constant source is bounded constructible of finite Tor dimension,
+a subclass of the stated bounded-above constructible domain.
+
+For passing these constant comparisons to $Q$, form the systems of
+actual $\Lambda_r$ complexes and maps in the constructible adic
+formalism of \cite{LOAdic,LZEnhanced}.  The Kummer and purity
+calculations have compatible derived reductions and uniformly bounded
+finite free stalk cohomology.  Their supported constant partners are
+obtained by the finite-level duality maps; finite constructible Tor
+amplitude is preserved in this use.  The resulting adic systems have
+conservative coefficient reductions, so the levelwise equivalences
+are adic equivalences; rationalization gives the $Q$ comparisons.
+This does not mean an unrestricted sheafwise inverse limit commutes
+with every six operation.  For other objects of the rational
+unipotent source, the comparison maps are already defined in that
+formalism.  Their functors are exact (contravariantly for duality),
+and the locus where a given map is an equivalence is closed under
+finite cones and retracts.  The proved generation by $Q$, using
+finite filtrations and bounded Postnikov towers below, is precisely
+the extension argument.  It neither presupposes integral generation
+of every rational coefficient nor proves an integral cellular theorem.
+
+\begin{lemma}[The coefficient systems used in the comparisons]
+\label{lem:selected-adic-comparisons}
+For the constant coefficients on the gap models and their finite
+stratified supports, the nearby, branch and proper comparison maps
+used below define maps of constructible adic systems.  Their algebra
+and module structures are those of these systems before rationalization.
+Reduction is conservative on the systems, on their commutative algebras,
+and on their module objects.  The constant global cochain algebras on
+the allowed supports also have their specified derived reductions.
+\end{lemma}
+\begin{proof}
+Use the enhanced adic category
+\[
+ \mathcal D_a(Z)=\varprojlim_r\mathcal D(Z,\Lambda_r),\qquad
+ \Lambda_r=\mathbf Z/\ell^r,
+\]
+with derived extension of scalars as transition, and then its bounded
+constructible part.  This is the construction of
+\cite[\S1.2, (1.1)--(1.7), Proposition 1.2.1]{LZAdic}; comparison with
+adic complexes is \cite[Theorem 1.3.6]{LZAdic}.  The tensor structure
+and inverse image are levelwise, as is shriek direct image on the
+stated finite-type, invertible-coefficient scheme domain.  Right
+adjoints are the adic right adjoints, not arbitrary sheafwise limits.
+In particular proper direct image is levelwise because it equals
+shriek direct image.  Our schemes are noetherian, finite dimensional
+and separated of finite type over the excellent trait or its geometric
+points, and $\ell$ is invertible; these are within that scheme domain.
+
+For clarity put $E_Z=-\otimes^L_{\Lambda_{r+1}}\Lambda_r$.
+In the geometric generic/special diagram defining nearby cycles,
+write $j$ for the generic map and $i$ for special inverse image.
+The coefficient comparison is the mate
+\[
+ c_r:E_XRj_{*,r+1}\longrightarrow Rj_{*,r}E_\eta
+\]
+of the composite
+\[
+ j_r^*E_XRj_{*,r+1}\simeq E_\eta j_{r+1}^*Rj_{*,r+1}
+       \xrightarrow{E_\eta\epsilon}E_\eta.
+\]
+Applying $i^*$ and its scalar-extension identification gives
+\[
+ \rho_r:E_{X_s}R\Psi\Lambda_{r+1}\longrightarrow R\Psi\Lambda_r.
+\]
+All mates are taken in the same coefficient-parameterized enhanced
+categories.  Tensoring the counits gives the counit for each finite
+arity, so $c_r$ and $\rho_r$ are lax symmetric-monoidal transformations,
+with substitution and composition cells inherited from those counits.
+At the unit they are commutative-algebra maps; on coefficients they
+are module maps.  If $a:N\to Rj_{U,*}j_U^*N$ is an open unit, its
+naturality reads
+\[
+ a_r\rho_r=(Rj_{U,*,r}j_U^*\rho_r)\,c_{U,r}\,E(a_{r+1}),
+\]
+where the inverse-image/scalar identifications are understood.
+For proper comparison $\theta:N_I\to Ru_*N_J$, the corresponding
+identity is
+$\theta_r\rho_{I,r}=(Ru_*\rho_{J,r})c_{u,r}E(\theta_{r+1})$.
+Both identities are pastings of the same unit/counit squares.
+For a supported evaluation $N^\vee\otimes W\to\omega(-1)[-2]$,
+the coefficient square is
+\[
+\begin{array}{ccc}
+ E(N^\vee_{r+1}\otimes W_{r+1})&\longrightarrow&E\omega_{r+1}(-1)[-2]\\
+ \downarrow&&\downarrow\\
+ N^\vee_r\otimes W_r&\longrightarrow&\omega_r(-1)[-2].
+\end{array}
+\]
+Here $N^\vee_r$ denotes the nearby coefficient dual input in the
+pairing, not an assertion that all nearby sheaves are tensor dualizable.
+The left arrow is the two coefficient comparisons and the right arrow
+is dualizing coefficient change.  Commutativity follows from evaluation
+and trace naturality.  Their equivalence on the selected constants is
+checked below; it is not required to construct this square.
+
+At precision $r$ form $R\Psi\Lambda_r$, its actual open-unit maps,
+Kummer morphisms, cup products, and proper comparison.  A coefficient
+map gives the natural transformation obtained by scalar extension and
+the same adjunction units.  Successive coefficient maps compose by
+derived tensor associativity, so these maps define a section, rather
+than a list of unrelated objects.  Its cartesianness is a separate
+check: on a smooth stratum it is the constant reduction map; at a
+node and a branch link it is the reduction of the unit and primitive
+Kummer class in Proposition~\ref{prop:all-thickness-nearby}.  The
+underlying complexes there have finite free cohomology in $[0,1]$,
+so derived reduction has these same reduced generators and the
+specified comparison is an equivalence.  The finitely many strata
+are conservative on constructible complexes.  The earlier thickness-
+one and thickness-two uses follow from Lemma~\ref{lem:constant-nearby};
+neither local calculation requires this adic lemma.
+
+The algebra maps are defined by the finite-level cup product and unit,
+not lifted from cohomology.  Their coefficient squares are the cup-
+product naturality squares.  Limits of commutative algebra objects
+and of algebra/module pairs are created on their underlying diagrams.
+Thus the resulting cartesian section is an algebra, with its modules,
+in $\mathcal D_a$.  A map between such objects is an equivalence
+exactly when all its underlying coefficient evaluations are; no
+faithfulness assertion about cohomology as an algebra is used.
+
+For the global cochain assertion, ordinary recollement expresses
+$R\Gamma(S,H_S)$ as a finite homotopy pullback of the open-stratum
+cochains, node cochains and branch links.  This statement applies
+at finite precision before any Morita reconstruction.  The open
+terms are the actual cochains of $\mathbf G_m$, whose Kummer
+calculation has compatible free reduction in degrees zero and one;
+the other terms were just checked.  Derived scalar extension preserves
+finite homotopy limits in a stable category.  Applying it to this
+specified pullback, including its attaching arrows, proves the
+global reduction assertion.  This is not inferred by commuting
+stalks with $R\Gamma$ or with an inverse limit.
+
+For supported constants, form the finite-level Gabber evaluation
+maps and then exceptional restriction.  Their reduction compatibility
+can be checked by localization: smooth pieces have the purity factor
+$(1)[2]$, and closed pieces are the duals of the bounded free link
+fibres.  Finite duals, these localization triangles and their
+coefficient maps commute with reduction.  Thus the supported systems
+and the comparison of their pairings are cartesian as well.  Proper
+support comparisons then use the levelwise proper direct image
+above.  This only proves the claim for the constructed constants
+and the finite operations on them.
+
+Rationalize these systems.  Other geometric rational unipotent
+coefficients are covered by Proposition~\ref{prop:unit-generation}:
+the already defined exact natural transformations extend equivalences
+from the unit to finite cones and retracts.  Multilinear comparisons
+are extended one variable at a time.  No integral lattice for every
+rational object, or general integral cellular equivalence, is inferred.
+\end{proof}
+
+\begin{definition}[Geometric unipotent coefficients]
+For a connected smooth stratum $Z$, a finite-rank lisse $Q$-sheaf is
+\emph{unipotent} if it has a finite filtration by lisse subsheaves with
+constant successive quotients.  Let $\mathcal U^b(Z)$ be the full
+subcategory of $D_c^b(Z,Q)$ whose cohomology sheaves have this property.
+For a geometric point put $\mathcal U^b(Z)=\Perf(Q)$.
+\end{definition}
+This is an absolute geometric starting domain.  For a relative version,
+one must specify a base category and replace constant quotients by its
+actual pullbacks.  The relative claim is not proved by the results below.
+
+\begin{lemma}[The one-object Morita argument]\label{lem:morita}
+Let $\mathcal D$ be an idempotent-complete stable linear category, with
+object $G$ and algebra $A=\RHom(G,G)$.  The functor $\RHom(G,-)$ identifies
+$\thick(G)$ with $\Perf(A)$, using right $A$-modules by precomposition.
+\end{lemma}
+\begin{proof}
+On $G$ the comparison of mapping objects is the regular-module Yoneda
+identification.  Exactness, finite sums and retracts extend it in each
+variable to $\thick(G)$, proving full faithfulness.  The image contains
+$A$ and is closed under finite cones, shifts and retracts; these generate
+exactly $\Perf(A)$.
+\end{proof}
+
+\begin{proposition}[Geometric unit generation]\label{prop:unit-generation}
+For the connected smooth strata used here,
+\[
+ \mathcal U^b(Z)=\thick_{D_c^b(Z,Q)}(Q_Z)
+ \simeq \Perf(A_Z),\qquad A_Z=R\Gamma(Z,Q).
+\]
+This category is stable, idempotent-complete, and closed under tensor
+products and lisse duals.  Pullback between the specified smooth strata
+preserves it.
+\end{proposition}
+\begin{proof}
+Lisse sheaves correspond to finite-dimensional continuous representations.
+Kernels and cokernels of maps between unipotent representations are
+unipotent: intersect a unipotent filtration with an invariant subspace
+and take its images in the quotient.  Extensions are unipotent by
+concatenating filtrations.  The corresponding lisse sheaves have the
+same properties.  The long exact cohomology sequence of a cone therefore
+shows that $\mathcal U^b(Z)$ is stable; an idempotent summand has cohomology
+an idempotent summand of the original representation and remains in the
+category.  Thus $\thick(Q_Z)\subseteq\mathcal U^b(Z)$.
+
+Conversely a unipotent sheaf is built from constant finite-dimensional
+sheaves by its actual short exact sequences and their extension
+triangles.  A bounded complex with these cohomology sheaves is then
+built by its finite Postnikov tower.  This proves the reverse inclusion
+without defining the category by generation.  Tensor filtrations and
+the reversed dual filtration prove the tensor and dual assertions on
+sheaves; finite truncations prove them on bounded complexes.  Pullback
+preserves the lisse filtration.  Apply Lemma~\ref{lem:morita} for the
+Morita equivalence.
+\end{proof}
+\begin{remark}
+The argument concerns kernels of maps \emph{between lisse sheaves}.
+Lisse sheaves are not a Serre subcategory of all constructible sheaves:
+$j_!Q_U\subset Q_Z$ for a proper dense open $U$ need not be lisse.
+In particular unit generation on a stratum does not prove closure
+under supported extension into the whole curve.
+\end{remark}
+
+\subsection{Keeping finite descent}
+\begin{proposition}[A generator with finite geometric descent]
+\label{prop:finite-descent}
+Let a finite group $\Delta$ act on a specified scheme with invariant
+stratification, and let $\mathcal C$ be one of the geometrically defined
+categories below, invariant under pullback.  If $\mathcal C=\thick(G)$,
+then its category $\mathcal C^{h\Delta}$ of actual equivariant objects
+is generated by $G_\Delta=\operatorname{Ind}_\Delta(G)$ and hence is
+Morita equivalent to $\Perf(\RHom_{\mathcal C^{h\Delta}}
+(G_\Delta,G_\Delta))$.  The underlying object of $G_\Delta$ is
+$\bigoplus_{\delta\in\Delta}\delta^*G$.
+\end{proposition}
+\begin{proof}
+Use the derived category of sheaves with their geometric descent data;
+finite induction and coinduction agree, as finite sums and products
+agree.  For an equivariant object $F$, the counit
+$\operatorname{Ind}\operatorname{For}(F)\to F$ has an equivariant
+section: sum the inverse descent isomorphisms into its components and
+divide by $|\Delta|$.  Their composite is the identity, including the
+coherent descent structure.  Since $Q$ has characteristic zero this is
+valid even if $\ell$ divides $|\Delta|$.
+The underlying object of $F$ lies in $\thick(G)$; induction is exact and
+preserves retracts, so $\operatorname{Ind}\operatorname{For}(F)$ lies
+in $\thick(G_\Delta)$.  Its retract $F$ does too.  The reverse inclusion
+follows from the geometric category's stability.  Lemma~\ref{lem:morita}
+finishes the proof.  Equivalently these constructions take place in the
+homotopy-coherent descent category, where the finite induction monad
+is the same geometric descent monad.
+\end{proof}
+For the quotient stack this is its actual equivariant coefficient
+category.  The proposition retains representations that would be lost
+by using only the equivariant trivial object.  It does not prove integral
+averaging or descent between different refinements.
+
+\section{The link of an actual normal pair}
+Let $C$ be either $\mathbf A^1_k$ with $Z=\{0\}$, or
+$E=\mathbf P^1_k$ with $Z=\{0,\infty\}$.  In both cases put
+$U=C\setminus Z\simeq\mathbf G_m$, with immersions $j:U\to C$ and
+$i:Z\to C$.  Define the \emph{actual link functor}
+\[
+ L=i^*Rj_*:\mathcal U^b(U)\longrightarrow D(Z,Q),
+ \qquad L_a=i_a^*Rj_* \quad (a\in Z).
+\]
+Its definition uses a geometric direct image; it is not an exterior
+insertion operator.
+
+\begin{proposition}[The local Kummer link]\label{prop:link}
+For every endpoint $a$, $B_a=L_a(Q_U)$ is perfect over $Q$, with
+$H^0(B_a)=Q$ and $H^1(B_a)=Q(-1)$ and no other cohomology.  The actual
+restriction map
+\[
+ \kappa_a:A_U=R\Gamma(U,Q)\longrightarrow B_a
+\]
+is an equivalence of cochain algebras.  For every $V\in\mathcal U^b(U)$
+its coefficient version $R\Gamma(U,V)\to L_a(V)$ is an equivalence.
+In particular $L$ takes values in $\Perf(Q)^Z$.
+\end{proposition}
+\begin{proof}
+The geometric stalk of $Rj_*$ is computed on the punctured strict
+henselization at $a$.  The Kummer computation cited above gives the
+asserted local cohomology and the global cohomology of $\mathbf G_m$.
+The actual restriction is the identity in degree zero.  In degree one,
+the Kummer class of the coordinate $z$ has residue $1$ at zero and
+$-1$ at infinity, where the local coordinate is $z^{-1}$.  Consequently
+the same restriction map is an isomorphism in every degree.  It is a
+map of cochain algebras because it is induced by restriction on the
+sites, so the cohomology calculation proves the asserted equivalence;
+no formality of either algebra is required.
+
+The coefficient restriction is a natural transformation of exact
+functors, constructed before comparing their values.  Its equivalence
+locus is closed under finite cones and retracts and contains $Q_U$.
+Proposition~\ref{prop:unit-generation} therefore proves the assertion
+for all $V$.  This also proves perfectness and boundedness of the actual
+link on the whole chosen category.
+\end{proof}
+
+\begin{proposition}[A geometric supported residue]\label{prop:residue}
+For $(\mathbf A^1,\{0\})$, the localization boundary
+\[
+ H^1(\mathbf G_m,Q)\longrightarrow H^2_{\{0\}}(\mathbf A^1,Q)
+\]
+is nonzero and is an isomorphism.  With the purity normalization by the
+effective divisor $\{0\}$ it sends the Kummer coordinate class to its
+cycle class.  For an arbitrary unipotent lisse coefficient $V$ on $U$,
+localization also gives the canonical equivalence
+\[
+ i^!j_!V\simeq L(V)[-1].
+\]
+\end{proposition}
+\begin{proof}
+Homotopy invariance gives $H^{>0}(\mathbf A^1,Q)=0$; purity gives
+$i^!Q_{\mathbf A^1}=Q(-1)[-2]$.  The localization long exact sequence
+therefore gives the first isomorphism.  Kummer boundary and the cycle
+class of a parameter give the stated normalization, as in the cited
+codimension-one computation.
+
+For the second assertion use the actual triangle
+$j_!V\to Rj_*V\to i_*L(V)\to$.  The object $i^!Rj_*V$ is zero:
+for every $W$ its maps from $W$ are maps $i_*W\to Rj_*V$, equivalently
+maps $j^*i_*W\to V$, which vanish.  Applying $i^!$ to this triangle
+identifies its connecting map $L(V)\to i^!j_!V[1]$ as an equivalence.
+This determines both the supported object and its attaching map.
+\end{proof}
+
+\begin{example}[A coefficient with nontrivial monodromy]
+\label{ex:jordan}
+Fix compatible Kummer roots of $z$ and a generator of the relative
+$\mathbf Z_\ell(1)$.  Let $V$ be the actual rank-two local system from
+the continuous Kummer representation
+\[
+ T=\begin{pmatrix}1&1\\0&1\end{pmatrix}
+ \quad\hbox{on }Qe_1\oplus Qe_2.
+\]
+The integral lattice is stable, and its reductions factor through finite
+Kummer covers, so this specifies a geometric adic local system.  The
+punctured-trait link is continuous inertia cohomology, computed by
+\[
+ L_0(V)\simeq [\,V\xrightarrow{T-1}V\,]
+ \quad\hbox{in degrees }0,1,
+\]
+after the generator choice trivializes the Tate line.  This is the
+procyclic resolution: the augmentation ideal of
+$\mathbf Z_\ell[[\mathbf Z_\ell]]$ is generated by the chosen
+$\gamma-1$, with the two-term free resolution of the trivial module.
+For this tame coefficient wild inertia contributes no higher
+$\ell$-cohomology; the prime-to-$\ell$ part is exact and acts trivially.
+The Kummer punctured-trait description is that of
+\cite[\S4.7]{IllusieOverview}.
+Thus $H^0(L_0(V))=Qe_1$ and
+$H^1(L_0(V))=(V/(T-1)V)(-1)$, a one-dimensional space generated by the
+class of $e_2$ with the Tate line restored.  At infinity the action is
+$T^{-1}$, not a second independently chosen monodromy.
+Proposition~\ref{prop:residue} gives
+\[
+ H^1(i_0^!j_!V)=Qe_1,\qquad
+ H^2(i_0^!j_!V)=(V/(T-1)V)(-1).
+\]
+In particular the actual supported boundary remains nonzero for a
+nonconstant coefficient.  The complex has been obtained from the
+geometric link and its localization map, not assigned as its definition.
+\end{example}
+
+\section{Constructible reconstruction and operation closure}
+\begin{definition}[The stratified source]
+Let $\mathcal C(C,Z)$ be the full subcategory of $D_c^b(C,Q)$ consisting
+of $F$ for which $j^*F\in\mathcal U^b(U)$ and
+$i^*F\in\Perf(Q)^Z$.  These are conditions on restrictions of actual
+constructible complexes.  No closure under exceptional operations is
+included in the definition.
+\end{definition}
+
+\begin{theorem}[Actual gluing and its Morita presentation]
+\label{thm:gluing}
+There is an equivalence of stable categories between $\mathcal C(C,Z)$
+and triples
+\[
+ (V,W,\alpha),\qquad V\in\mathcal U^b(U),\quad W\in\Perf(Q)^Z,
+ \quad\alpha:W\longrightarrow L(V).
+\]
+The arrow and the compatibility of morphisms are homotopy coherent.
+Under this equivalence,
+\[
+ i^!F=\operatorname{fib}(W\xrightarrow{\alpha}L(V)).
+\]
+The category is generated by the actual constructible object
+\[
+ G_C=j_!Q_U\oplus\bigoplus_{a\in Z}i_{a,*}Q,
+\]
+and is Morita equivalent to $\Perf(A_C)$ with
+$A_C=\RHom_C(G_C,G_C)$.
+\end{theorem}
+\begin{proof}
+For $F$ set $V=j^*F$, $W=i^*F$, and let $\alpha$ be the restriction
+of the adjunction unit $F\to Rj_*j^*F$.  Conversely form in the ambient
+stable sheaf category
+\[
+ F(V,W,\alpha)=Rj_*V\mathop{\times}^{h}_{i_*L(V)}i_*W.
+\]
+Its two restrictions are $V$ and $W$.  Proposition~\ref{prop:link}
+and the localization triangle for $Rj_*V$ show that it is bounded and
+constructible in the stated source.  The canonical comparison from an
+original $F$ to this pullback is an equivalence after $j^*$ and $i^*$;
+these functors are jointly conservative by localization.  This proves
+reconstruction, naturally on objects and morphisms.  Explicitly the
+mapping spectrum between two triples is the fibre of
+\[
+ \operatorname{Map}_U(V,V')\oplus\operatorname{Map}_Z(W,W')
+ \longrightarrow\operatorname{Map}_Z(W,L(V')),
+ \qquad (f,g)\longmapsto L(f)\alpha-\alpha'g.
+\]
+Thus the comparison retains the required homotopies, not just commuting
+squares in a triangulated category.  Applying $i^*$ to
+$i_*i^!F\to F\to Rj_*V$ gives the stated fibre formula.
+
+The geometric definition is stable and closed under retracts by its
+restriction conditions and Proposition~\ref{prop:unit-generation}.
+The triangle $j_!V\to F\to i_*W$ and that proposition show that every
+$F$ is in $\thick(G_C)$.  Each summand of $G_C$ satisfies the defining
+geometric conditions, proving the reverse inclusion.  Apply
+Lemma~\ref{lem:morita}.
+\end{proof}
+
+The full derived endomorphism algebra has the following blocks, including
+the nonzero off-diagonal ones:
+\[
+\begin{aligned}
+ \RHom(j_!Q,j_!Q)&=A_U, &
+ \RHom(j_!Q,i_{a,*}Q)&=0,\\
+ \RHom(i_{a,*}Q,j_!Q)&=B_a[-1], &
+ \RHom(i_{a,*}Q,i_{b,*}Q)&=
+ \begin{cases}Q&a=b,\\0&a\ne b.\end{cases}
+\end{aligned}
+\]
+The first two formulas use $j_!\dashv j^*$; the third uses
+Proposition~\ref{prop:residue}; disjoint closed supports give the last.
+The $A_U$-action on $B_a$ is induced by the actual link functor and
+$\kappa_a$.  Thus these are derived blocks with geometric composition,
+not merely a matrix of graded cohomology groups.
+
+In the right-module Morita convention the link is
+\[
+ M\longmapsto M\otimes^L_{A_U}B_a,
+ \qquad M=\RHom_U(Q_U,V),
+\]
+where $B_a$ has its left $A_U$-action induced by $L_a$ on endomorphisms.
+The natural evaluation comparison is an equivalence on $Q_U$, hence
+on its thick closure.  Together with the mapping formula above this
+identifies the coefficient-valued attaching functor itself.
+
+\begin{proposition}[The supported operations really preserve the source]
+\label{prop:operations}
+For these pairs, $j^*,i^*,i^!,j_!,Rj_*,i_*$ preserve the corresponding
+categories $\mathcal C(C,Z)$, $\mathcal U^b(U)$ and $\Perf(Q)^Z$.
+The global source is closed under tensor products and Verdier duality.
+\end{proposition}
+\begin{proof}
+The restriction assertions follow from the geometric conditions.
+For $j_!V$, $i_*W$ and $Rj_*V$ the triples of
+Theorem~\ref{thm:gluing} are respectively
+\[
+ (V,0,0),\qquad (0,W,0),\qquad (V,L(V),\mathrm{id}).
+\]
+Their membership follows from the proved perfectness of $L(V)$.
+The formula for $i^!$ is a fibre of perfect complexes.  Tensor products
+are checked on the two strata, where Proposition~\ref{prop:unit-generation}
+and ordinary finite-dimensional tensor products apply.
+
+On $U$ smooth-curve duality is
+$D_U V=V^\vee(1)[2]$, which preserves $\mathcal U^b(U)$; on $Z$ it is
+ordinary $Q$-duality.  The actual identities
+$D_Cj_!=Rj_*D_U$ and $D_Ci_*=i_*D_Z$ put the duals of all summands of
+$G_C$ in $\mathcal C(C,Z)$.  Exactness, retracts and the proved generation
+show that $D_C$ preserves the whole category.  Constructible Verdier
+biduality proves that it is an anti-equivalence.  Thus support closure
+and duality are consequences, not defining assumptions.
+\end{proof}
+Every construction is equivariant for geometric automorphisms of the
+pair, including permutation of endpoints.  Consequently these closure
+statements also hold with finite geometric descent, using
+Proposition~\ref{prop:finite-descent}.  This statement concerns a fixed
+pair with its actual action, not arbitrary comparison of atlases.
+
+\subsection{Duality of the whole attaching datum}
+\begin{proposition}[Duality on reconstructed triples]\label{prop:dual-triple}
+For a triple $(V,W,\alpha)$ put $C_\alpha=\operatorname{fib}(\alpha)$.
+Its Verdier dual has triple
+\[
+ \bigl(D_UV,D_Z C_\alpha,\alpha^D\bigr),
+ \qquad
+ \alpha^D:D_Z C_\alpha\longrightarrow D_ZL(V)[1]
+                      \simeq L(D_UV).
+\]
+The first arrow is the boundary of the dual of
+$C_\alpha\to W\to L(V)$.  The equivalence on the right is canonical.
+\end{proposition}
+\begin{proof}
+The restrictions of $D_CF$ are $D_Uj^*F$ and $D_Zi^!F$, giving the two
+stated objects.  Moreover actual Verdier exchange and localization give
+\[
+ D_ZL(V)=D_Zi^*Rj_*V
+ \simeq i^!j_!D_UV\simeq L(D_UV)[-1].
+\]
+Dualize the actual localization triangle of $F$.  Its restriction to
+$Z$ identifies the resulting unit with the displayed boundary, which
+therefore is the attaching map of $D_CF$.  Biduality and the unit/counit
+identities give the coherence of this operation on morphisms.
+\end{proof}
+
+For $F=Q_{\mathbf A^1}$ the triple has $V=Q_U$, $W=Q$ and
+$\alpha:Q\to B_0$ the actual degree-zero unit.  Its fibre is
+$Q(-1)[-2]$, recovering purity; setting $\alpha=0$ would give a
+different costalk.  This is a direct check that attaching data cannot
+be dropped from the comparison.
+
+On the open stratum the cochain algebra and its supported partner are
+\[
+ A_U=R\Gamma(U,Q),\qquad
+ P_U=R\Gamma_c(U,Q)\simeq D_Q A_U(-1)[-2].
+\]
+For a unipotent lisse $V$, geometric smooth-curve duality gives
+\[
+ R\Gamma_c(U,V)\simeq D_Q R\Gamma(U,V^\vee)(-1)[-2].
+\]
+The comparison uses the actual evaluation and compact-support trace.
+Cup-product associativity makes evaluation balanced for the two
+$A_U$-actions; dualizing the regular actions gives the corresponding
+base-linear dualizing bimodule.  The adjunction identities in
+Proposition~\ref{prop:dual-triple} show how this partner enters the
+localization maps.  These are statements about the algebraic pair;
+identification with analytic and relative-root supported realizations
+across the modification remains a separate geometric comparison.
+In particular we assert neither $A_U\simeq P_U$ nor a Calabi--Yau
+identification of the full algebra $A_C$ with its linear dual.
+
+\subsection{Two intrinsically described support categories}
+\begin{proposition}[The star and shriek pieces of the recollement]
+\label{prop:clean-pieces}
+Inside the proved ambient category define by geometric vanishing
+\[
+ \mathcal C_* =\{F:i^!F=0\},\qquad
+ \mathcal C_! =\{F:i^*F=0\}.
+\]
+Then $Rj_*:\mathcal U^b(U)\simeq\mathcal C_*$ and
+$j_!:\mathcal U^b(U)\simeq\mathcal C_!$ are equivalences, with inverse
+$j^*$.  Verdier duality exchanges these categories.  The canonical map
+$j_!V\to Rj_*V$ has cone $i_*L(V)$ and retains the nonzero link.
+For $C=E$ proper, their integrated values are respectively
+$R\Gamma(U,V)$ and $R\Gamma_c(U,V)$.
+\end{proposition}
+\begin{proof}
+In the reconstruction theorem $i^!F=0$ says exactly that
+$\alpha:W\to L(V)$ is an equivalence, which identifies the triple
+with $(V,L(V),\mathrm{id})$.  The condition $i^*F=0$ says $W=0$
+and gives $(V,0,0)$.  These arguments give both essential surjectivity
+and the functors on maps; alternatively full faithfulness is the
+open-immersion adjunction.  The Verdier exchanges and the displayed
+localization triangle were proved above.  Properness of $E$ and
+composition of direct images give the integrated identities.
+\end{proof}
+These are intrinsic categories on a fixed algebraic pair, and each has
+$K_0=\mathbf Z$.  They are useful candidates for the star and supported
+pieces of a nearby realization.  Membership of the actual nearby image requires a separate geometric
+calculation of its endpoint attaching maps.  This calculation is carried
+out in Theorem~\ref{thm:actual-nearby-image}, and the actual supported
+partner in Theorem~\ref{thm:actual-support-image}.  The present
+proposition itself is not a definition of nearby cycles.
+
+Nor is $\mathcal C_*$ a tensor subcategory for the ordinary ambient
+tensor product.  For $F=Rj_*Q_U$, its endpoint stalk is $B_a$.  The
+attaching map of $F\otimes F$ is, after the canonical identifications,
+$B_a\otimes_Q B_a\to B_a$, the multiplication induced by restriction.
+Its source has nonzero $H^2=Q(-2)$ whereas its target has zero $H^2$.
+Thus it is not an equivalence and $F\otimes F\notin\mathcal C_*$.
+If tensor operations on a star realization are represented using the
+stratum tensor and $Rj_*$, their relation to geometric tensor operations
+must be separately proved; the ambient tensor cannot be substituted.
+
+\section{A minimal geometric kernel action}
+Here take $C=E=\mathbf P^1_k$.  Let $\Delta:C\to C\times C$ be the
+diagonal and $p_1,p_2$ the projections.  In the actual constructible
+category on the product consider just the kernels
+\[
+ K_{\rm id}=\Delta_*Q_C,\qquad
+ K_U=\Delta_*j_!Q_U,\qquad K_Z=\Delta_*i_*Q_Z.
+\]
+They are allowed to be constructible along the diagonal, rather than
+lisse on the product.  Set
+$\Phi_K(F)=Rp_{2,!}(p_1^*F\otimes^L K)$.
+
+\begin{proposition}[Unit and normal-pair projectors]\label{prop:kernels}
+These kernels act on $\mathcal C(C,Z)$ by
+\[
+ \Phi_{K_{\rm id}}=\mathrm{id},\qquad
+ \Phi_{K_U}=j_!j^*,\qquad \Phi_{K_Z}=i_*i^*.
+\]
+Their kernel localization triangle induces the actual localization
+triangle of these functors.  Under the Morita equivalence of
+Theorem~\ref{thm:gluing} these actions are tensor with the bimodules
+$\RHom(G_C,\Phi_K G_C)$; the unit is the regular bimodule $A_C$.
+\end{proposition}
+\begin{proof}
+For a constructible $H$ on $C$, the diagonal projection formula gives
+$p_1^*F\otimes\Delta_*H=\Delta_*(F\otimes H)$.  Since
+$p_2\Delta=\mathrm{id}$ and $\Delta$ is proper,
+$\Phi_{\Delta_*H}(F)=F\otimes H$ with its actual natural map.
+Take $H=Q_C,j_!Q_U,i_*Q_Z$ and use the open and closed projection
+formulas.  Proposition~\ref{prop:operations} proves preservation of
+the specified source.  Applying the exact diagonal and kernel action
+to $j_!Q_U\to Q_C\to i_*Q_Z$ proves the triangle assertion, including
+its boundary map.
+
+For any of these exact functors $T$, its action on endomorphisms gives
+a left $A_C$-action on $\RHom(G_C,TG_C)$, commuting with the right action
+by precomposition.  Evaluation constructs the natural tensor comparison;
+it is an equivalence on the generator and hence on all perfect modules.
+For $T=\mathrm{id}$ this is the regular bimodule and its identity action.
+\end{proof}
+This proves a minimal kernel interface on the fixed algebraic pair.
+It does not prove compatibility of these kernels with refinement, nor
+closure or associativity for all relative-product convolution kernels.
+
+\section{Why the full exceptional category cannot be invariant}
+\begin{proposition}[An obstruction to unrestricted refinement descent]
+\label{prop:K0-obstruction}
+For the exceptional curve with its three strata,
+\[
+ K_0\bigl(\mathcal C(\mathbf P^1,\{0,\infty\})\bigr)=\mathbf Z^3.
+\]
+The bounded unipotent local coefficient category of one connected
+node, with constant simple coefficient, has $K_0=\mathbf Z$; in
+particular this holds for unipotent continuous $\mathbf Z_\ell(1)$
+representations in their geometric derived category.  These two
+categories are not Morita equivalent.
+\end{proposition}
+\begin{proof}
+For $F$ take the Euler ranks of its restrictions to $U$, $0$, and
+$\infty$.  They define a homomorphism to $\mathbf Z^3$.  The classes
+of $j_!Q_U,i_{0,*}Q,i_{\infty,*}Q$ map to its standard basis.
+Localization expresses $[F]$ as the sum of the open and closed
+contributions.  On the open, finite unipotent filtrations and the
+Postnikov tower express every class as its Euler rank times $[Q_U]$;
+the point contributions have the same elementary property.  Thus the
+three classes generate with no relations.  The identical filtration
+argument at the old node, together with Euler rank one of its constant
+coefficient, gives $\mathbf Z$.  Morita equivalence of these small
+idempotent-complete stable categories would preserve $K_0$.
+\end{proof}
+Even proper integration forgets the problem: $R\Gamma(E,i_{0,*}Q)$ and
+$R\Gamma(E,i_{\infty,*}Q)$ are both $Q$, but the mapping spectrum between
+the two disjoint skyscrapers on $E$ is zero.  Integration cannot be
+fully faithful on the constructed category.
+
+Consequently $\mathcal C(C,Z)$ is a proved ambient recollement category,
+not yet the desired refinement-invariant source.  Target~\ref{target:refinement}
+must use a \emph{geometrically characterized nearby-admissible subdatum}
+and prove its reconstruction.  Its characterization must retain the
+actual specialization maps and the required extension data.  Defining
+it to be the image of the old category would prove neither an intrinsic
+criterion nor independence of the old model.
+
+There is a further constraint: requiring that a refinement-invariant
+full stable subcategory of $\mathcal C(E,Z)$ contain the constant object on all of $E$ and be closed
+under the ambient projectors $j_!j^*$ and each $i_{a,*}i_a^*$ forces it
+to contain all three generators above.  Thus the required supported
+operations must be typed with their own support categories; they cannot
+all be endofunctors of a single category with the old node's $K_0$.
+This is an obstruction to that formulation, not to a correctly typed
+multi-support Morita datum.  The formulation of support transport is
+therefore part of the remaining theorem.
+
+The costalks used in the recollement proof are those of the endpoints
+inside $E$.  They are not the exceptional restriction along
+$E\hookrightarrow X'_s$.  The following section constructs that
+additional comparison from the actual nearby-duality theorem and
+verifies admissibility by the actual Kummer attaching maps.
+
+\section{Actual nearby coefficients on the exceptional curve}
+Fix an algebraic closure $\bar K\subset\Omega$, and use geometric
+nearby cycles, with the base Galois action forgotten in this section.
+Identify $X'_{\bar\eta}=X_{\bar\eta}=\mathbf G_{m,\bar K}$ by $x$.
+The source is the actual category
+$\mathcal V=\mathcal U^b(\mathbf G_{m,\bar K})$ of
+Proposition~\ref{prop:unit-generation}.  Write
+\[
+ \kappa:E\hookrightarrow X'_s,\qquad
+ N(F)=\kappa^*R\Psi_{X'}F,\qquad
+ \mathcal S(F)=j^*N(F),\qquad
+ \alpha(F):i^*N(F)\longrightarrow L(\mathcal S(F)).
+\]
+Here $\alpha$ is the restriction of the actual open-immersion unit
+$N(F)\to Rj_*j^*N(F)$.  These functors and this map are defined before
+any equivalence is asserted.  On $E^\circ$ use coordinate $u=x/t$;
+thus $q_\infty$ is $u=0$ and $q_0$ is $v=u^{-1}=0$.
+
+\begin{lemma}[The constant nearby calculation and its maps]
+\label{lem:constant-nearby}
+On the smooth locus of $X'_s$, $R\Psi_{X'}Q=Q$.  At a node with chart
+$zw=t$, geometric nearby cohomology is $Q$ in degree zero and
+$Q(-1)$ in degree one, generated by the Kummer class of $z$; there
+is no other cohomology.  At the old point of $xy=t^2$, the same
+statement holds with generator the Kummer class of $x$.
+These identifications are compatible with Kummer classes of units on
+smooth open neighbourhoods.
+\end{lemma}
+\begin{proof}
+The chart for a new node is $\mathbf N\to\mathbf N^2$ with
+$1\mapsto(1,1)$.  For the old node it is $\mathbf N\to P$ with
+$1\mapsto c$.  Its group quotient is freely generated by $a$ modulo
+$c$, and its underlying scheme is exactly the toric base change.
+Thus the logarithmic chart criterion gives a vertical fs log smooth
+morphism in both cases.  In particular the relation $a+b=2c$ does
+not introduce torsion in $P^{\rm gp}/\mathbf Zc$.
+
+Apply Nakayama's constant log-local-acyclicity theorem and the
+classical comparison, in \cite[Theorem 8.3, Corollary 8.4]{IllusieOverview}.
+The Kummer calculation of the resulting geometric log fibre gives
+exterior powers of the relative rank-one characteristic group, with
+its Tate twist (\cite[\S5]{IllusieOverview}).  The degree-one map is the actual
+Kummer boundary of the indicated monomial.  At a smooth point the
+relative group is zero and smooth local acyclicity gives the degree-zero
+unit.  These assertions may first be made with $\mathbf Z/\ell^r$;
+the displayed cohomology groups are free and compatible with reduction,
+so the adic constant computation gives the asserted rational result.
+The Kummer maps themselves are functorial, rather than chosen
+isomorphisms of the resulting vector spaces.  For a unit $h$ on a
+smooth neighbourhood its finite torsors $z^{\ell^r}=h$ are etale
+there; smooth specialization identifies their Kummer boundary with
+that of the specialized unit.  This verifies the compatibility used
+below.
+\end{proof}
+
+\begin{theorem}[Intrinsic admissibility of the actual nearby image]
+\label{thm:actual-nearby-image}
+The functor $\mathcal S$ is an equivalence
+$\mathcal V\simeq\mathcal U^b(E^\circ)$, strong monoidal on this
+source.  For every $F\in\mathcal V$ the actual attaching map $\alpha(F)$
+is an equivalence, and the actual unit gives
+\[
+ N(F)\xrightarrow{\sim}Rj_*\mathcal S(F).
+\]
+Consequently $N$ identifies $\mathcal V$ with the intrinsically defined
+category $\mathcal C_*=\{H\in\mathcal C(E,Z):i^!H=0\}$.
+\end{theorem}
+\begin{proof}
+First take $F=Q$.  The smooth neighbourhood of $E^\circ$ is
+$\Spec R[u,u^{-1}]$, so $\mathcal S(Q)=Q_{E^\circ}$ by the actual
+smooth specialization unit.  At $q_0$, the source of $\alpha_a(Q)$
+has its degree-one generator represented by $v=t/x$ on the geometric
+generic fibre.  This class restricts, under the same specialization
+construction, to the Kummer class of the unit $v$ on the punctured
+strict neighbourhood of $q_0$ in $E$.  The latter generates $H^1(B_a)$.
+At $q_\infty$ the identical argument uses $u=x/t$.
+
+More explicitly, apply the exact nearby functor to the Kummer morphism
+$Q\to Q(1)[1]$ on the generic fibre, and precompose with its constant
+specialization unit.  Naturality of the open unit defining $\alpha$
+identifies the image with the Kummer morphism on the smooth open
+stratum.  The finite unit torsors there extend etale over
+$R[u,u^{-1}]$ or $R[v,v^{-1}]$, so the last assertion of
+Lemma~\ref{lem:constant-nearby} identifies this morphism before taking
+cohomology.  The residue calculation of Proposition~\ref{prop:link}
+then shows that its degree-one map is an isomorphism.  In the common
+coordinate $x$, the signs are negative at $q_0$ and positive at
+$q_\infty$: $[x]=-[v]$ and $[x]=[u]$ after the geometric base class
+$[t]$ vanishes.  Degree zero is the identity by the same unit, and
+there are no other degrees.  Thus $\alpha(Q)$ is an equivalence.
+
+Now use the already defined natural transformation $N\to Rj_*\mathcal S$.
+Its equivalence locus is thick.  Both its values and those of
+$\mathcal S$ on $Q$ are bounded in the required categories by the
+constant computation; exactness and retracts give the same property
+on $\mathcal V=\thick(Q)$.  This proves the comparison for every
+coefficient without assuming a lisse comparison theorem for those
+coefficients.  Membership in $\mathcal C_*$ follows from
+Theorem~\ref{thm:gluing}.
+
+It remains to check that $\mathcal S$ is an equivalence, rather than
+just a functor into that stratum category.  Its map on the endomorphism
+algebra of $Q$ is the actual specialization map
+\[
+ R\Gamma(\mathbf G_{m,\bar K},Q)\longrightarrow
+ R\Gamma(E^\circ,Q).
+\]
+It is the identity in degree zero and sends the Kummer class of $x$
+to that of $u$.  Indeed $x=tu$ and compatible roots of $t$ in $\bar K$
+identify the generic torsors with those of $u$; the latter extend over
+the smooth neighbourhood.  Both algebras have cohomology only in
+degrees zero and one, so this actual algebra map is an equivalence.
+Unit generation on both sides proves full faithfulness and essential
+surjectivity.  Finally nearby cycles have their natural lax monoidal
+map; on $E^\circ$ its unit map is an equivalence by smooth local
+acyclicity.  The tensor comparison is an equivalence on $(Q,Q)$,
+then on all pairs in the two thick closures by exactness in each
+variable.  This proves the stated strong monoidal property of
+$\mathcal S$, not of $N$ for the ambient tensor on $E$.
+\end{proof}
+
+\begin{proposition}[The tensor product appropriate to the star image]
+\label{prop:relative-star-tensor}
+Let $H=Rj_*Q_U$ with its actual commutative algebra structure on $E$.
+The forgetful functor from the thick subcategory generated by $H$ in
+$H$-module sheaves to ordinary sheaf complexes is an equivalence onto
+$\mathcal C_*$.  Thus the latter has a canonical tensor product
+$\otimes_H$ realized by module sheaves, with unit $H$, and
+\[
+ N(F)\otimes_H N(G)\xrightarrow{\sim}N(F\otimes_Q G).
+\]
+For a supported coefficient one likewise has
+\[
+ N(F)\otimes_H j_!\mathcal S(G)
+       \simeq j_!\bigl(\mathcal S(F)\otimes_Q\mathcal S(G)\bigr).
+\]
+These statements use a relative tensor, not the non-closed ordinary
+$Q_E$-tensor product exhibited earlier.
+\end{proposition}
+\begin{proof}
+The algebra $H$ is defined by the lax monoidal right adjoint $Rj_*$,
+and $j^*H=Q_U$.  For the module generator,
+\[
+ \RHom_{H\text{-}\mathrm{Mod}(E)}(H,H)=R\Gamma(E,H)
+      \simeq\RHom_E(H,H).
+\]
+The last equivalence is induced by $Q_E\to H$.  Since its open
+restriction is the identity, its cone is
+\[
+ i_*\operatorname{cofib}\bigl(Q_Z\longrightarrow L(Q_U)\bigr)
+       \simeq \bigoplus_{a\in Z}i_{a,*}Q(-1)[-1].
+\]
+Indeed applying $i^*$ gives exactly the displayed endpoint cofibres.
+For any closed coefficient $C$, adjunction gives
+$\RHom_E(i_*C,H)=\RHom_Z(C,i^!H)=0$.  Applying this to the actual
+cone proves the required equivalence.  The larger object $i_*L(Q_U)$
+is instead the cone of $j_!Q_U\to Rj_*Q_U$.
+The forgetful map on generator endomorphisms is exactly this
+equivalence, since evaluation of an $H$-linear endomorphism at its
+unit gives the same section.  The two-variable thick-generation
+argument proves full faithfulness on the thick module subcategory.
+Its image is $\thick_E(H)=\mathcal C_*$, by the already proved
+open reconstruction.  This supplies the claimed module realization
+without merely transporting an abstract tensor across an equivalence.
+
+The module tensor is exact in each variable and takes $(H,H)$ to
+$H$, so it preserves this thick subcategory.  The actual lax tensor
+comparison for $Rj_*$ factors over $H$ and is an equivalence on
+$(Q_U,Q_U)$.  Generation in each variable proves it for all unipotent
+coefficients.  The comparison $N\to Rj_*\mathcal S$ is the
+open-adjunction unit and respects these module actions; together with
+the proved monoidality of $\mathcal S$ this gives the first formula.
+Finally the relative open projection formula, with $j^*H=Q_U$, gives
+the second formula and its actual $H$-action on the supported object.
+No unrestricted ordinary tensor closure has been added as an axiom.
+\end{proof}
+
+\subsection{The actual complete-support partner}
+\begin{theorem}[Exceptional support on the modified model]
+\label{thm:actual-support-image}
+For $F\in\mathcal V$, the actual exceptional restriction satisfies
+\[
+ \kappa^!R\Psi_{X'}F\xrightarrow{\sim}j_!\mathcal S(F).
+\]
+This identifies the supported functor with $\mathcal C_!$ and exchanges
+it with the star functor of Theorem~\ref{thm:actual-nearby-image} under
+geometric Verdier duality.  The comparisons are those induced by
+nearby duality and the actual open-immersion adjunctions.
+\end{theorem}
+\begin{proof}
+Use the geometric nearby-duality theorem of Gabber in the formulation
+of \cite[Corollary 3.2, Remark 3.3]{LuZhengNearby}, with dualizing
+complexes relative to the geometric generic and special points.
+It gives $D_{X'_s}R\Psi F=R\Psi D_{X'_{\bar\eta}}F$.  The model is
+separated of finite type over the complete excellent trait, and the
+source consists of bounded constructible lisse perfect complexes.
+The cited construction is induced by evaluation and the six-operation
+trace, so it supplies the comparison of pairings as well as of objects.
+We use its geometric version; no assertion about taking wild-inertia
+invariants or about a full sliced vanishing-cycle functor is needed.
+For the present rational source it suffices to establish this
+canonical comparison on $Q$ and its thick closure.  On $Q$, the
+semistable constant computations have uniformly bounded finite free
+cohomology at every coefficient precision.  The finite-coefficient
+nearby-duality maps are compatible with coefficient reduction and
+evaluation, giving the adic and then rational comparison in the
+constructible formalism.  The equivalence locus of the two exact
+contravariant functors is closed under finite cones and retracts,
+so Proposition~\ref{prop:unit-generation} extends it to $\mathcal V$.
+This argument does not exchange duality with an arbitrary ambient
+inverse limit of sheaves.
+
+Write $D_\eta F=F^\vee(1)[2]$ on the smooth generic curve.  Proper
+closed-immersion Verdier exchange and the preceding theorem give
+\[
+ \kappa^!R\Psi F
+ \simeq D_E\kappa^*R\Psi D_\eta F
+ \simeq D_E Rj_*\mathcal S(D_\eta F)
+ \simeq j_!\mathcal S(F).
+\]
+For the last step, strong monoidality preserves lisse duals and
+their evaluation, while exactness preserves shifts.  On the smooth
+neighbourhood $\Spec R[u,u^{-1}]$ of $E^\circ$, the finite etale
+sheaves $\mu_{\ell^r}$ specialize by their actual smooth pullbacks.
+These identifications commute with $\mu_{\ell^{r+1}}\to\mu_{\ell^r}$
+and the coefficient evaluation maps.  The selected adic passage and
+rationalization therefore give $\mathcal S(Q(1))\simeq Q(1)$
+canonically, without choosing a basis of the Tate line.  Together
+these identifications give $\mathcal S(D_\eta F)\simeq
+D_{E^\circ}\mathcal S(F)$, compatibly with evaluation.
+All arrows come from these adjunctions and their Verdier mates, and
+therefore retain the evaluation and localization compatibilities.
+The support on the left is $E\hookrightarrow X'_s$, not the endpoint
+support $Z\hookrightarrow E$ used to prove the intrinsic gluing theorem.
+\end{proof}
+
+\begin{theorem}[One modification: star modules and supported values]
+\label{thm:one-modification}
+Let $i_Y:Y\hookrightarrow X_s$ and put
+\[
+ B(F)=i_Y^*R\Psi_XF,\qquad A_Y=B(Q),\qquad
+ B_!(F)=i_Y^!R\Psi_XF.
+\]
+The actual cochain algebra map
+$A_\eta=R\Gamma(\mathbf G_{m,\bar K},Q)\to A_Y$ is an equivalence.
+The functor $B$, with its natural $A_Y$-module structure, identifies
+$\mathcal V$ with $\Perf(A_Y)$.  For this actual modification the
+proper nearby and proper base-change maps give
+\[
+ B(F)\xrightarrow{\sim}R\Gamma(E,N(F)),\qquad
+ B_!(F)\xrightarrow{\sim}R\Gamma(E,\kappa^!R\Psi_{X'}F)
+                  \simeq R\Gamma_c(E^\circ,\mathcal S(F)).
+\]
+Together with Theorems~\ref{thm:actual-nearby-image} and
+\ref{thm:actual-support-image}, these give a Morita equivalence
+$\Perf(A_Y)\simeq\mathcal C_*$ with its actual supported partner.
+They do not give an equivalence with the full $\mathcal C(E,Z)$.
+\end{theorem}
+\begin{proof}
+The restriction map $R\Gamma(X_{\bar\eta},F)\to B(F)$ is constructed
+by geometric nearby specialization.  On $Q$ it preserves the unit
+and sends $[x]$ to the primitive relative Kummer class at the old
+node, by Lemma~\ref{lem:constant-nearby}.  It is therefore an
+algebra equivalence; no factor of two occurs since $a$ generates
+$P^{\rm gp}/\mathbf Zc$.  Exactness and unit generation extend this
+actual comparison to $F$, with its cup-product module action.  The
+usual Morita identification for $\mathcal V$ then proves the first
+assertion.  Forgetting this module structure would not give a fully
+faithful functor into $D(Q)$.
+
+The map $\mu$ is proper and $\mu_{\bar\eta}$ is the identity.
+Classical proper nearby base change gives
+$R\Psi_XF\simeq R\mu_{s,*}R\Psi_{X'}F$.  Proper base change along
+$i_Y$ identifies its ordinary restriction with the first displayed
+integral on the complete inverse image $E$.  Taking its Verdier mate
+gives the exceptional proper base-change comparison and hence the
+second integral.  Inserting Theorem~\ref{thm:actual-support-image}
+and using properness of $E$ gives the compact-support expression.
+Naturality of nearby restriction, cup products, the proper trace and
+their adjunctions identifies these with the same coefficient maps
+already used in the Morita comparison.
+
+On $\mathcal C_*$, $R\Gamma(E,-)$ with its cochain action is the
+Morita functor for the generator $Rj_*Q$: the map
+$Q_E\to Rj_*Q$ induces
+$\RHom_E(Rj_*Q,H)\simeq\RHom_E(Q_E,H)$ because $i^!H=0$.
+Thus the integral comparison here retains a full module-valued
+reconstruction on the proved admissible subcategory.  This explains
+why it avoids the disjoint-skyscraper obstruction rather than
+contradicting it.
+\end{proof}
+
+\begin{corollary}[Supplied compatible finite descent]
+\label{cor:nearby-finite-descent}
+Suppose a finite group $\Delta$ is supplied with compatible
+$R$-automorphisms of $X$ and $X'$, preserving $Y$ and $E$, commuting
+with $\mu$, and preserving the chosen geometric base.  The comparisons
+in Theorems~\ref{thm:actual-nearby-image}--\ref{thm:one-modification}
+then induce equivalences with this actual finite descent retained.
+The Morita generators are induced generators as in
+Proposition~\ref{prop:finite-descent}, rather than only equivariant
+trivial coefficients.
+\end{corollary}
+\begin{proof}
+Generic restriction, geometric nearby cycles, the immersions of the
+invariant strata, and proper direct image form equivariant functors
+with their geometric composition cells.  All comparison maps used
+above are their units, base-change maps or Verdier mates.  They
+therefore define equivariant natural equivalences, whose limits over
+$B\Delta$ are equivalences of the actual descent categories.  The
+source and target geometric conditions are invariant under pullback,
+so Proposition~\ref{prop:finite-descent} supplies the stated generators.
+This argument neither exchanges a root-level colimit with $B\Delta$
+nor constructs a lift of an arbitrary group action to the modification.
+\end{proof}
+
+The supported value is equivalently
+$D_Q B(F^\vee)(-1)[-2]$, by the actual duality comparisons above.
+For the Jordan coefficient of Example~\ref{ex:jordan} it has one
+one-dimensional group in each of degrees one and two, paired with
+the kernel and coinvariant groups of the dual local system.  This
+checks the supported shift without changing the coefficient to a
+constant one.
+
+The scope is one fixed modification and geometric rational unipotent
+coefficients.  The two endpoint attaching maps, their Verdier partners
+and the complete inverse-image support have now been compared.
+The next section extends the pairwise comparisons to the stated
+supports and minimal kernels in the fixed-thickness integer-cut family.
+The geometry supplies common refinements; simultaneous higher profile
+coherence remains a separate target.  Arbitrary model refinements, retained base Galois
+actions, unsupplied descent lifts and comparison with the absolute
+logarithmic finite-coefficient theorem require further results.  The ordinary tensor obstruction for
+$\mathcal C_*$ remains valid: the stratum functor $\mathcal S$ is strong monoidal, and the actual
+star image uses the separately verified relative tensor $\otimes_H$
+of Proposition~\ref{prop:relative-star-tensor}.
+
+\section{Cellular refinement for a fixed thickness}
+\subsection{The local input for every integer thickness}
+\begin{proposition}[All-thickness nearby algebras and branch maps]
+\label{prop:all-thickness-nearby}
+For every $d\geq1$, give $T_d=\Spec R[z,w]/(zw-t^d)$ the chart
+$P_d=\langle a,b,c:a+b=dc\rangle$, with $a\mapsto z$, $b\mapsto w$
+and $c\mapsto t$.  Over the standard log trait this is a vertical fs
+log smooth scheme.  For $\Lambda_r=\mathbf Z/\ell^r$, its geometric
+constant nearby stalk at the node has cohomology $\Lambda_r$ and
+$\Lambda_r(-1)$ in degrees zero and one, and zero otherwise.  The
+class $[z]$ is primitive.  The actual open-adjunction map to the link
+on the branch with punctured coordinate $z$ sends it to $[z]$; on
+the other branch $[w]=-[z]$ maps to its primitive coordinate class.
+These are equivalences of the actual cochain algebras.  The same
+statements hold adically and over $Q$, including when $p$ divides $d$.
+\end{proposition}
+\begin{proof}
+In coordinates $a=(1,0)$, $c=(0,1)$, $b=(-1,d)$, the monoid is
+exactly the integral cone $n\geq0$, $dh+n\geq0$: for $h<0$ write
+$(h,n)=(-h)b+(n+dh)c$, and for $h\geq0$ use $ha+nc$.
+It is fine and saturated, its group is $\mathbf Za\oplus\mathbf Zc$,
+and the group map $\mathbf Z\to P_d^{\rm gp}$ has zero kernel and
+free cokernel $\mathbf Za$.  The scheme map to the chart base change
+$\Spec R\times_{\Spec\mathbf Z[\mathbf N]}\Spec\mathbf Z[P_d]$
+is an isomorphism.  These verify the log smooth chart criterion,
+without an invertibility condition on $d$.  Inverting $c$ makes both
+$a$ and $b$ invertible, so the structure is vertical; the generic
+fibre has trivial log structure.
+
+Apply \cite[Theorem 8.3 and Corollary 8.4]{IllusieOverview} with
+invertible finite coefficients.  On the geometric log fibre the
+relative characteristic group is $P_d^{\rm gp}/\mathbf Zc=\mathbf Za$.
+Its prime-to-$p$ Kummer inertia has the rank-one exterior cohomology
+computed in \cite[\S5]{IllusieOverview}.  The resulting degree-one
+class is the Kummer boundary of $z$, not $d[z]$.  This proves the
+stalk assertion; on either smooth branch open the relative group is
+zero and smooth local acyclicity gives $\Lambda_r$.
+
+To identify the map, apply nearby cycles to the generic Kummer
+morphism $\Lambda_r\to\Lambda_r(1)[1]$ of $z$ and precompose with
+the specialization unit.  On $D(z)=\Spec R[z,z^{-1}]$ the torsor
+$h^{\ell^r}=z$ is etale.  Smooth specialization and naturality of the
+open-adjunction unit identify its boundary on the punctured strict
+branch with $[z]$.  This computes the actual map in degree one; in
+degree zero it preserves the unit.  The identical argument on $D(w)$
+uses $w$.  On the geometric generic fibre $[t]=0$, hence
+$[w]=d[t]-[z]=-[z]$.  Both source and target have only the two stated
+cohomology groups, so the algebra maps are equivalences.  No
+formality of either algebra is used.
+
+This computation is functorial in the monomial maps of the models.
+In particular $x=t^a z=t^b/w$ gives $[x]=[z]=-[w]$ after passage to
+the geometric generic fibre.  A change by a smooth unit is handled
+by the same etale torsor naturality, with its actual specialized unit
+class retained.  Pullbacks under the cut contractions below are
+these monomial maps; their proper direct-image units will be compared
+in Lemma~\ref{lem:cell-algebra-unit}.  We do not infer a shriek
+comparison from this stalk computation.  Finally $p\mid d$ introduces
+no relative group torsion and changes none of these arguments: only
+$\ell$ is required to be invertible.
+
+For the coefficient passage, the finite-level Kummer maps commute
+with reduction.  At nodes their cohomology is finite free in the
+fixed range $[0,1]$, and on smooth strata in degree zero.  Thus the
+actual systems have derived reduction equal to the lower-precision
+system; their stalk cohomology towers are Mittag--Leffler.  In the
+constructible adic formalism their reductions detect equivalences.
+The compatible finite-level algebra comparisons consequently give
+an adic equivalence and then its rationalization.  This passage uses
+the constructed constant system, not inverse limits of arbitrary
+constructible sheaves.
+\end{proof}
+
+\begin{lemma}[Naturality of the selected branch maps]
+\label{lem:branch-map-naturality}
+The branch maps in Proposition~\ref{prop:all-thickness-nearby} are
+maps of cochain algebras obtained by open adjunction.  Their
+coefficient versions are module maps.  For the monomial model maps
+of Proposition~\ref{prop:cut-models}, they give the open-unit squares
+and the two-step attachment comparison of
+Lemma~\ref{lem:fibre-cartesian-ambient}, with both branch signs retained.
+\end{lemma}
+\begin{proof}
+At precision $r$, define every map by applying the open-adjunction
+unit to the nearby complex, then restricting to the chosen branch.
+For a refinement $u$, let $F_u$ denote module pullback and let
+$\chi_u:F_uRj_*\to Rj'_*F_U$ be adjoint to the open counit.
+Thus the actual square is
+\[
+\begin{array}{ccc}
+ F_uN_I(F)&\longrightarrow&N_J(F)\\
+ \downarrow&&\downarrow\\
+ F_uRj_*j^*N_I(F)&\xrightarrow{\chi_u}&Rj'_*j'^*N_J(F).
+\end{array}
+\]
+The upper map is the nearby mate constructed in
+Lemma~\ref{lem:cell-algebra-unit}.  The bottom arrow includes $Rj'_*$ of the open
+restriction of that upper comparison, after $\chi_u$.  To check the square, apply open
+restriction and take the adjoint: both composites become the same
+open counit followed by the same nearby pullback.  Restricting this
+square to a closed fibre gives the attachment square, without
+assuming the external link is cartesian on that fibre.
+
+On a gap $[a,b]$, the coordinate equalities
+$x=t^az=t^b/w$ give, on the geometric generic fibre,
+\[
+ [x]=[z],\qquad [w]=-[x].
+\]
+For a refined gap $[a',b']\subset[a,b]$, pullback sends
+$z$ to $t^{a'-a}z'$ and $w$ to $t^{b-b'}w'$.  Naturality of the
+Kummer connecting morphism therefore gives the same two classes,
+with the same signs.  This checks both branches of the actual square,
+not just the rank of its degree-one groups.  Multiplication by a
+smooth unit contributes its own specialized Kummer class; it is not
+silently discarded.  Base constants disappear here only after
+geometric generic base change.
+
+For $I\subset J\subset K$, the exponents add and the mate of
+$\chi_vF_v\chi_u$ is the composite open counit, which is the mate
+of $\chi_{uv}$.  Their canonical adjunction comparison therefore
+gives $\chi_{uv}=\chi_vF_v\chi_u$ with the specified composition cell.
+The closed restriction gives the two-step formula for the branch
+attachments, including the two branches at an internal node.
+All maps were defined before the Kummer computation.  They are
+algebra maps at the unit by the finite-arity counit calculation in
+Lemma~\ref{lem:cell-algebra-unit}, and module maps on coefficients.
+The loci of equivalence for these exact natural transformations
+are thick.  Unit generation therefore proves the assertions for
+nontrivial rational unipotent coefficients as well, without
+splitting their extensions.  The coefficient passage is
+Lemma~\ref{lem:selected-adic-comparisons}.  This verifies these
+specified maps and their two-step composition, not the simultaneous
+higher coherence of all supported and kernel operations.
+\end{proof}
+
+\subsection{An actual family closed under common refinement}
+Fix an integer $m\geq2$ and put $X_m=\Spec R[x,y]/(xy-t^m)$.
+The coefficient source remains
+$\mathcal V=\mathcal U^b(\mathbf G_{m,\bar K})$; geometric nearby
+cycles in this section forget the base Galois action.  For a set
+$I\subset\{1,\ldots,m-1\}$ write
+\[
+ 0=a_0<a_1<\cdots<a_r<a_{r+1}=m,\qquad
+ d_i=a_{i+1}-a_i.
+\]
+Define $X_I$ by gluing the charts
+\[
+ \Spec R[z_i,w_i]/(z_iw_i-t^{d_i}),\qquad
+ z_i=x/t^{a_i},\quad w_i=t^{a_{i+1}}/x,
+\]
+with $w_{i-1}=z_i^{-1}$ on the consecutive principal-open overlaps.
+The induced nonconsecutive overlaps lie in the common generic fibre.  Let
+$E_I=X_I\times_{X_m}Y$, where $Y=V(x,y,t)$.
+For $I=\varnothing$, this means $X_I=X_m$ and $E_I=Y$.
+
+\begin{proposition}[Models, complete support, and their maps]
+\label{prop:cut-models}
+These are actual proper toroidal modifications of $X_m$, with identical
+geometric generic fibres.  For $I\ne\varnothing$, $E_I$ is a reduced
+chain of $r$ projective lines.  Its strata are $r$ copies $U_i$ of
+$\mathbf G_m$ and the $r+1$ nodes $q_i$ of the ambient special fibre;
+the two outside nodes are smooth points of the chain itself.
+For $I\subset J$ there is a canonical proper map
+$\mu_{JI}:X_J\to X_I$, and
+$\mu_{KI}=\mu_{JI}\mu_{KJ}$ for $I\subset J\subset K$.
+The complete inverse image of $E_I$ is $E_J$.
+Common refinements are supplied by $I\cup J$.
+\end{proposition}
+\begin{proof}
+On a gap of thickness $d$, inserting a cut at $e$, $0<e<d$, is the
+blow-up of $(z,t^e)$ in $A=R[z,w]/(zw-t^d)$.  Its Rees algebra
+is $A[zs,t^es]\subset A[s]$; the two standard opens have rings
+$A[t^e/z]$ and $A[z/t^e]$ inside the fraction field.  With
+$v=t^e/z$ and $u=z/t^e$, respectively, their fraction-ring charts are
+\[
+ R[z,v]/(zv-t^e),\quad w=t^{d-e}v,
+ \qquad R[u,w]/(uw-t^{d-e}),\quad z=t^eu.
+\]
+There is no extra component from an uncancelled equation.  The monoid
+$P_d=\langle a,b,c:a+b=dc\rangle$ is the saturated cone
+$\{(h,n):n\geq0,dh+n\geq0\}$, with $a=(1,0)$, $c=(0,1)$,
+$b=(-1,d)$.  The two blow-up monoids are already saturated copies
+of $P_e$ and $P_{d-e}$.  Thus this is also the actual fs log blow-up;
+no root extension of the base is required.
+
+Iterating gives the displayed gap charts.  If $[a',b']\subset[a,b]$
+is a refined gap, the map to the old chart is
+$z\mapsto t^{a'-a}z'$ and $w\mapsto t^{b-b'}w'$.
+These formulas agree on overlaps and compose identically.  Each
+insertion is a blow-up and hence proper; the resulting glued models
+are independent of insertion order by these formulas.  The chart formulas construct the identifications for different
+insertion orders.  These identifications are unique once fixed on the
+dense generic fibre, since the sources are reduced and the targets
+are separated.  The common generic fibre alone does not construct them.
+
+On an interior gap the ideal of $Y$ pulls back to $(t)$; on the first
+and last gaps it pulls back to $(t,z_0)$ and $(t,w_r)$, respectively.
+The reduced special fibres of the gap charts and their inverse
+coordinate overlaps therefore give precisely the stated chain.
+The empty cut set gives the point instead.  Equality of complete
+inverse-image supports follows from composition of these ideal
+pullbacks.  Finally the displayed formulas construct all maps to the
+model for $I\cup J$, proving the common-refinement assertion as an
+actual scheme statement.
+\end{proof}
+
+The family is deliberately restricted to integer cuts of this fixed
+thickness.  Gaps of length one are regular semistable charts; larger
+gaps are toroidal nodes of the stated thickness.  This theorem neither
+inserts another regular node into a thickness-one chart over the same
+base nor treats arbitrary ramified base extensions.
+
+\subsection{Intrinsic cellular coefficients with branchwise admissibility}
+Put $\kappa_I:E_I\to(X_I)_s$ and define the actual commutative
+nearby algebra and complete-support module
+\[
+ H_I=\kappa_I^*R\Psi_{X_I}Q,\qquad
+ W_I=\kappa_I^!R\Psi_{X_I}Q.
+\]
+On $U_i$ the algebra $H_I$ is $Q$.  At a node write $A_q=i_q^*H_I$.
+For an incident branch $U_i$ write $B_{qi}$ for its punctured-strict-
+neighbourhood cochain algebra.  The actual open-adjunction unit gives
+$\lambda_{qi}:A_q\to B_{qi}$.
+
+\begin{lemma}[The branch algebras and their coefficient functors]
+\label{lem:branch-algebras}
+Every $A_q$ has cohomology $Q$ and $Q(-1)$ in degrees zero and one.
+Both actual algebra maps
+\[
+ A_q\xrightarrow{\lambda_{qi}}B_{qi}
+ \xleftarrow{\kappa_{qi}}A_i=R\Gamma(U_i,Q)
+\]
+are equivalences.  The coefficient link is consequently an equivalence
+$\mathcal U^b(U_i)\to\Perf(A_q)$, with the $A_q$-action obtained by
+restriction along $\lambda_{qi}$.
+\end{lemma}
+\begin{proof}
+For every gap, $P_d^{\rm gp}/\mathbf Zc$ is generated by $a$.
+Proposition~\ref{prop:all-thickness-nearby} therefore supplies the
+all-gap calculation, with its primitive Kummer class and no factor of $d$.
+The branch coordinates are $x/t^{a_i}$ and their inverses.  The actual
+Kummer-morphism argument in Theorem~\ref{thm:actual-nearby-image}
+computes each $\lambda_{qi}$, independently on the two branches at
+an internal node.  On the other side, $\kappa_{qi}$ is the actual
+restriction from $\mathbf G_m$ to a punctured strict neighbourhood,
+as in Proposition~\ref{prop:link}.  Their naturality as actual maps,
+including coefficient extensions and the two branch signs, is
+Lemma~\ref{lem:branch-map-naturality}.  Both preserve the unit and take
+the primitive degree-one class to a generator, with the sign of the
+local coordinate.  They are therefore algebra equivalences.
+The coefficient link, as a module-valued functor, is extension of
+scalars along the second map followed by restriction along the first;
+the specified evaluation map is
+\[
+ R\Gamma(U_i,V_i)\otimes^L_{A_i}B_{qi}\longrightarrow L_{qi}(V_i).
+\]
+It is $B_{qi}$-linear, and then $A_q$-linear by restriction along
+$A_q\to B_{qi}$.  It is an equivalence at the unit and hence on
+its thick closure by exactness.
+Thus it is an equivalence of the stated categories, not just a
+comparison of underlying cohomology complexes.
+\end{proof}
+
+Let $S\subset E_I$ be a locally closed union of the stated strata.
+Write $H_S=H_I|_S$ and use actual $H_S$-module sheaves.  Empty supports
+are assigned the zero category.  The incidence graph of a nonempty $S$
+has a vertex for each included $U_i$ and $q$, and an edge for each
+included branch incidence; it is a finite forest.
+
+\begin{definition}[The cellular coefficient category]\label{def:cell-category}
+Let $\mathcal C_I(S)$ consist of bounded constructible $H_S$-modules
+with the following geometric conditions.  Their restriction $V_i$ to
+$U_i$ has unipotent lisse cohomology.  Their node restriction $M_q$
+is perfect over $A_q$.  For every included branch the component
+\[
+ M_q\longrightarrow L_{qi}(V_i)
+\]
+of the actual attaching map is an equivalence of $A_q$-modules.
+The module actions and these arrows are part of the actual sheaf
+module structure; no condition refers to an image from the old model.
+\end{definition}
+
+At an internal node with two branches it is the two individual maps
+that are invertible.  The combined map
+$M_q\to L_{q,i}(V_i)\oplus L_{q,i+1}(V_{i+1})$
+is diagonal up to those identifications, and need not be invertible.
+Thus the one-component criterion $i^!F=0$ must not be imposed on the
+whole chain.  Nor do we forget the $A_q$-actions and demand full
+faithfulness in the category of ordinary node complexes.  Branchwise
+admissibility is a geometric condition to be checked on the actual maps;
+perfectness of an integrated cochain module alone does not imply it.
+
+\begin{theorem}[Cellular reconstruction before invariance]
+\label{thm:cell-reconstruction}
+The category $\mathcal C_I(S)$ is the homotopy limit of its forest of
+stratum categories and the actual branch link equivalences of
+Lemma~\ref{lem:branch-algebras}.  It is the thick subcategory generated
+by $H_S$ in $H_S$-module sheaves.  Hence
+\[
+ \mathcal C_I(S)\simeq\Perf(R\Gamma(S,H_S)).
+\]
+For $S=E_I$, the actual functor
+$N_I(F)=\kappa_I^*R\Psi_{X_I}F$, with its $H_I$-action, is an
+equivalence $\mathcal V\simeq\mathcal C_I(E_I)$.
+\end{theorem}
+\begin{proof}
+Use the open union of the included $U_i$ and its finite closed
+complement of nodes in $S$.  Recollement in module sheaves reconstructs
+an object as
+\[
+ Rj_*V\mathop{\times}^{h}_{i_*L(V)}i_*M.
+\]
+Here $j:U\to S$ is the included open-stratum union, $i:Z\to S$
+its closed node complement and $L=i^*Rj_*$.  The $H_S$-action on
+$Rj_*V$ uses $H_S\to Rj_*j^*H_S$, and the closed module uses
+$H_S\to i_*i^*H_S$.  Forgetting the module action creates limits
+and detects equivalences, so the underlying pullback can be checked
+on sheaf complexes.  Its mapping spectra, however, are module mapping
+spectra, not arbitrary $Q$-linear mapping spectra.
+The selected open coefficients have bounded constructible links by
+unit generation and Lemma~\ref{lem:branch-algebras}.  Each perfect
+$A_q$-module has bounded finite-dimensional underlying $Q$-cohomology,
+since $A_q$ does and finite cones and retracts preserve that property.
+The finite pullback therefore stays in the stated bounded
+constructible category.  No unbounded-module assertion is used.
+The generator endomorphism identification has type
+\[
+ \RHom_{H_S\text{-}\mathrm{Mod}(S)}(H_S,H_S)
+        \simeq R\Gamma(S,H_S).
+\]  At a node the
+punctured strict neighbourhood is the disjoint union of its included
+branches, so $L(V)$ is their finite product.  The module mapping
+spectrum is the fibre of the same difference map as in
+Theorem~\ref{thm:gluing}, now with $A_q$-linear maps at each node.
+These statements follow from the actual adjunctions and prove enhanced
+reconstruction, including the homotopies of attaching squares.
+
+Imposing the individual equivalences in Definition~\ref{def:cell-category}
+therefore gives exactly the asserted homotopy limit of categories.
+Removing a leaf of a tree forgets an object determined, with a
+contractible space of choices, by an equivalence across its single
+incident edge.  Evaluation at any vertex of a connected tree is
+consequently an equivalence of stable categories.  For a forest the
+result is a finite product of these categories.  By
+Lemma~\ref{lem:branch-algebras}, $H_S$ evaluates to a generator at
+each vertex.  Its finite product components split by the component
+idempotents, so it generates the entire forest category.  Conversely
+$H_S$ satisfies all the geometric conditions, and those conditions
+are stable under finite cones and retracts.  This proves the thick
+identification and then the Morita assertion.  The empty and isolated-
+node cases have the same statement with zero or one vertex.
+
+For actual $N_I(F)$, each branch admissibility map is a natural
+transformation of exact functors on $\mathcal V$.  Its value on $Q$
+is $\lambda_{qi}$, already proved invertible, and its node module on
+$Q$ is $A_q$.  Unit generation proves the conditions for every $F$.
+At any smooth component stratum the actual specialization functor is
+an equivalence by the coordinate calculation $[x]\mapsto[x/t^{a_i}]$
+of Theorem~\ref{thm:actual-nearby-image}.  Evaluation on that vertex
+and the tree reconstruction prove the last assertion.  With no cuts
+use the old-node module calculation with $P_m$ instead.  Thus the
+geometric admissibility criterion was verified before identifying
+the image; the image was not used as its definition.
+\end{proof}
+
+\begin{example}[An internal node is not a terminal node]
+\label{ex:internal-cell}
+Let $q$ be an internal node of a chain with at least two components.
+After identifying both branch algebras with $A_q$ by their actual
+Kummer maps, the attaching map of $H_I$ is
+\[
+ A_q\xrightarrow{(1,1)}A_q\oplus A_q.
+\]
+The localization triangle on the chain therefore gives
+\[
+ i_q^!H_I\simeq A_q[-1],
+\]
+where an ordering of the branches identifies the quotient map with
+$(b_1,b_2)\mapsto b_2-b_1$.  At an outside node only one branch is
+present, so the same costalk is zero.  These assertions follow from
+the actual link and localization triangle; the internal boundary is
+nonzero, including for nonconstant coefficient modules.
+
+In particular the complete-support module is not generally extension
+by zero from the disjoint smooth strata.  Nearby Verdier duality gives
+at an internal node
+\[
+ i_q^*W_I\simeq D_Q(A_q[-1])(-1)[-2]
+                  =D_QA_q(-1)[-1],
+\]
+which has nonzero cohomology in degrees zero and one.  At an outside
+node its stalk is zero.  Thus the one-component formula
+$W=j_!Q$ cannot be copied onto a longer chain; the cellular supported
+module retains the internal gluing.
+\end{example}
+
+\subsection{Support categories and the data to be compared}
+We distinguish internal module duality from geometric Verdier duality:
+\[
+ M^{\vee_{H_S}}=R\mathcal Hom_{H_S}(M,H_S),\qquad
+ D_SM=R\mathcal Hom_Q(M,\omega_S),\qquad
+ \widetilde D_SM=D_SM(-1)[-2].
+\]
+Here $\mathcal Hom$ denotes the sheaf internal Hom; its global sections
+are taken only when explicitly written.  Module duality is an
+anti-equivalence on the finite-cell category $\mathcal C_I(S)$.
+Verdier duality uses the geometric dualizing complex $\omega_S$, not
+$H_S$, and gives the anti-equivalence
+$\widetilde D_S:\mathcal C_I(S)^{\mathrm{op}}\to\mathcal C_I^!(S)$,
+with the inverse obtained by the same normalized duality.  The same
+convention applies to the two ambient types.  The action on a dual
+is the contragredient action, identifying the opposite algebra through
+commutativity.  The normalization is involutive because duality reverses
+both Tate twists and shifts.  The covariant expression
+$\widetilde D_S(M^{\vee_{H_S}})$ composes two contravariant functors;
+it does not identify these two dualities.
+
+For $k_S:S\hookrightarrow E_I$ define
+\[
+ W_S=k_S^!W_I=(\kappa_Ik_S)^!R\Psi_{X_I}Q.
+\]
+This is an actual support object.  Geometric nearby duality identifies
+it, with its $H_S$-action, as
+\[
+ W_S\simeq D_S H_S(-1)[-2].
+\]
+Let $\widetilde D_S=D_S(-1)[-2]$; this is an involutive duality on
+constructible $H_S$-modules, using the commutativity of $H_S$ to
+identify the opposite action.  Let $\mathcal C_I^!(S)$ be its image
+on $\mathcal C_I(S)$, equivalently the modules whose normalized
+Verdier dual satisfies Definition~\ref{def:cell-category}.
+
+\begin{proposition}[Actual supported partners and typed operations]
+\label{prop:cell-support}
+Both categories are realized in actual module sheaves, and
+\[
+ M\longmapsto W_S\otimes^L_{H_S}M
+ \simeq \widetilde D_S(M^{\vee_{H_S}})
+\]
+is an equivalence $\mathcal C_I(S)\simeq\mathcal C_I^!(S)$.
+For $S=E_I$ and $M=N_I(F)$ its value is
+$\kappa_I^!R\Psi_{X_I}F$.
+For an inclusion of allowed supports, ordinary restriction preserves
+$\mathcal C_I$, and exceptional restriction preserves
+$\mathcal C_I^!$.  Tensor over $H_S$, its action on the supported
+partner, and their evaluation maps are preserved on these categories.
+\end{proposition}
+\begin{proof}
+The formula for $W_S$ is Gabber nearby duality followed by actual
+Verdier exchange for $\kappa_Ik_S$, with the generic curve shift and
+Tate twist.  It applies to every gap just as in
+Theorem~\ref{thm:actual-support-image}.  Thus it is a geometric
+identification of the already defined costalk.
+For a finite-cell $H_S$-module, the evaluation comparison from
+$W_S\otimes_{H_S}M$ to $\widetilde D_S(M^{\vee_{H_S}})$ is an
+equivalence on $H_S$ and hence on its thick closure.  The right side
+is a composite of two dualities, so gives the asserted equivalence.
+For actual nearby coefficients the natural mixed projection and
+nearby cup-product map gives
+$W_I\otimes_{H_I}N_I(F)\to\kappa_I^!R\Psi F$.
+It is balanced for the actual $H_I$-action, is the identity at $F=Q$,
+and hence is an equivalence throughout the geometrically generated
+source.  No unrestricted exceptional projection formula is assumed
+to be invertible on arbitrary constructible coefficients.
+
+Restriction takes $H_T$ to $H_S$, so the proved generation theorem
+shows it preserves the star categories.  Verdier exchange gives the
+exceptional assertion for their supported partners.  Relative tensor
+and evaluation preserve finite-cell modules by exactness and the unit
+calculation.  The same argument proves the mixed action on $W_S$.
+\end{proof}
+
+We now specify the \emph{cellular datum} $\mathfrak C_I$.  It consists
+of the categories $\mathcal C_I(S),\mathcal C_I^!(S)$ for the allowed
+supports, their actual algebras $H_S$, supported modules $W_S$ and
+Morita presentations, restriction and exceptional restriction with
+their composition cells, and the actual extension/localization diagrams
+in the ambient module categories.  In particular, for an open/closed
+decomposition $T=U\sqcup Z$, it retains
+\[
+ j_!j^*M\longrightarrow M\longrightarrow i_*i^*M\longrightarrow,
+ \qquad
+ i_*i^!P\longrightarrow P\longrightarrow Rj_*j^*P\longrightarrow,
+\]
+where $M\in\mathcal C_I(T)$ and $P\in\mathcal C_I^!(T)$.
+Extension terms are not asserted to belong to $\mathcal C_I(T)$:
+they have their own support type and live in the displayed ambient
+module category.  The datum includes their mapping objects through
+recollement, the branch inertia algebras and maps, and the Verdier
+exchange of these triangles.  Thus an invariance assertion for this
+datum includes the restriction/link functors and boundary maps, not
+only the value of $R\Gamma(E_I,-)$.
+
+The ambient category needed here can itself be specified without using
+all constructible modules.  Let $\mathcal A_I(S)$ have the same stratum
+conditions as Definition~\ref{def:cell-category}, but allow arbitrary
+$A_q$-linear attaching maps.  Recollement proves that it is generated
+by $j_{i,!}Q_{U_i}$ and $i_{q,*}A_q$.  It contains the displayed star
+localization terms; its normalized Verdier dual contains the dual
+terms.  All their mapping spectra are the actual module mapping
+spectra.  The following fibrewise statement ensures that these maps,
+including off-diagonal extension maps, are also compared under
+refinement.
+The roles can be summarized as
+\[
+ \mathcal C_I(S)\subset\mathcal A_I(S),\qquad
+ \mathcal C_J(S')\subset\mathcal A_{J|I}(S')\subset\mathcal A_J(S').
+\]
+The first category requires every included branch map to be invertible;
+the middle fine category requires this only within coarse fibres;
+the ambient categories permit arbitrary attachments.  The cartesian
+categories carry the coefficient equivalence, while the middle
+ambient category retains the coarse localization maps.
+
+\subsection{The proper cellular comparison}
+Let $I\subset J$, and put $u:E_J\to E_I$.  For an allowed support
+$S\subset E_I$ use its \emph{complete} inverse image $S'=u^{-1}S$,
+with the pulled-back scheme structure.  Its strata have the preceding
+forest description; nilpotent structure, if present, does not change
+the etale module-sheaf category.  The map $u_S:S'\to S$ is proper.
+
+\begin{lemma}[The actual algebra unit under contraction]
+\label{lem:cell-algebra-unit}
+The nearby pullback map and its adjoint give
+\[
+ u_S^*H_S\longrightarrow H_{S'},\qquad
+ H_S\xrightarrow{\sim}Ru_{S,*}H_{S'}.
+\]
+The second is an equivalence of actual algebras, natural for
+restrictions of supports and for composition of the model maps.
+There is also a natural equivalence
+$W_S\simeq Ru_{S,*}W_{S'}$ with its $H_S$-action.
+\end{lemma}
+\begin{proof}
+We construct the map at each finite precision, then apply
+Lemma~\ref{lem:selected-adic-comparisons}.  Write $f:X_J\to X_I$,
+and let $j_I,j_J$ denote the geometric generic maps in the nearby
+construction.  The special pullback of the mate
+\[
+ f^*Rj_{I,*}F\longrightarrow Rj_{J,*}f_\eta^*F
+\]
+is the nearby pullback map.  The mate itself is adjoint to
+\[
+ j_J^*f^*Rj_{I,*}F
+       \simeq f_\eta^*j_I^*Rj_{I,*}F
+       \xrightarrow{f_\eta^*\epsilon}f_\eta^*F.
+\]
+These formulas can be made before geometric generic base change and
+are compatible with it.  For any finite tuple of coefficients,
+tensoring these counits and then multiplying is the counit for the
+tensor of the tuple.  Thus the mate commutes with every finite-arity
+lax tensor operation, including the nullary unit and substitution.
+At $F=\Lambda_r$ it is a map in commutative algebras, and for other
+$F$ it is a map in modules over that algebra.  This constructs the
+lift; it is not inferred from a cohomology isomorphism.
+
+The adjoint $\theta:H_S\to Ru_{S,*}H_{S'}$ is the classical proper
+nearby comparison.  Indeed composition of direct images gives
+$Rf_*Rj_{J,*}=Rj_{I,*}Rf_{\eta,*}$, and ordinary proper base change
+moves the special restriction past $Rf_*$.  Here $f_\eta$ is the
+identity.  This derives the required proper nearby theorem from
+ordinary proper base change (SGA~4, Expose XII, Theorem 5.1), without
+an additional stack-nearby assertion.  Base changing again to the
+complete inverse image of $S$ gives $\theta$, hence its underlying
+equivalence and its equivalence in commutative algebras.
+
+Write $F_u=u_H^*$ and $G_u=Ru_*$.  Their module projection map is
+specified by the adjoint of the evaluation map
+\[
+ F_u(M\otimes_{H_S}G_uP)\simeq
+ F_uM\otimes_{H_{S'}}F_uG_uP
+ \xrightarrow{1\otimes\epsilon}F_uM\otimes_{H_{S'}}P.
+\]
+Its adjoint is the $H_S$-linear projection map
+\[
+ \pi_{M,P}:M\otimes_{H_S}G_uP\longrightarrow
+                 G_u(F_uM\otimes_{H_{S'}}P).
+\]
+Fix $P$ in the domain of these operations.  For $M=H_S$ this map is
+\[
+ G_uP\xrightarrow{\eta_{G_uP}}G_uF_uG_uP
+       \xrightarrow{G_u\epsilon_P}G_uP=G_uP,
+\]
+whose composite is the identity by the adjunction triangle identity.
+Thus $\pi_{M,P}$ is invertible on $\thick(H_S)$ by exactness; the
+counit $\epsilon_P$ itself need not be invertible on an arbitrary
+ambient object.  Taking $P=H_{S'}$ gives the comparison for $G_uF_uM$;
+taking $P=W_{S'}$ gives the selected supported-action comparison.
+
+For the supported map first use the finite-level nearby duality
+pairing to identify $W_S=\widetilde D_SH_S$.  The proper duality
+map is adjoint to the pairing
+\[
+ G_uH_{S'}\otimes G_u\widetilde D_{S'}H_{S'}
+ \longrightarrow G_u(H_{S'}\otimes\widetilde D_{S'}H_{S'})
+ \longrightarrow G_u\omega_{S'}(-1)[-2]
+ \xrightarrow{\mathrm{Tr}_u}\omega_S(-1)[-2].
+\]
+It gives $G_uW_{S'}\simeq\widetilde D_SG_uH_{S'}\simeq W_S$.
+Moving an element of $H_S$ from one input of this pairing to the
+other gives the same map: this is associativity of the algebra
+map $u^*H_S\to H_{S'}$ and the evaluation action.  Equivalently the
+two composites from $H_S\otimes G_uW_{S'}$ to $W_S$ agree.  This
+proves the $H_S$-linear mate and its compatibility with evaluation.
+Reduction and rationalization are those of
+Lemma~\ref{lem:selected-adic-comparisons}, including the pairings.
+
+For an open or closed support restriction the maps are formed from
+the same counits after base change.  Applying its restriction to
+the displayed projection and pairing formulas gives their support
+squares.  In particular the open-unit square, whose closed
+restriction is the attaching map, is a square of modules; its
+explicit mate is Equation~\eqref{eq:actual-pullback-attachment}.
+This proves the individual module and support comparisons used below.
+It does not by itself construct a single coherent diagram containing
+all six-operation and kernel variances at once.
+\end{proof}
+
+\begin{lemma}[Comparison of the ambient gluing maps]
+\label{lem:fibre-cartesian-ambient}
+Let $\mathcal A_{J|I}(S')$ be the full subcategory of
+$\mathcal A_J(S')$ whose restriction to the complete inverse image
+of each coarse stratum belongs to its intrinsic cartesian category
+of Definition~\ref{def:cell-category}.  Then actual module pullback
+and direct image induce mutually inverse equivalences
+\[
+ \mathcal A_I(S)\simeq\mathcal A_{J|I}(S').
+\]
+In particular this compares the full mapping spectra of the extension
+and localization terms for coarse supports, not only their restrictions.
+\end{lemma}
+\begin{proof}
+\emph{Adjunction and the fibre category.}
+Work first in the ambient derived categories of module sheaves.  The
+algebra map $u_S^*H_S\to H_{S'}$ gives the genuine adjunction
+\[
+ F=u_H^*=H_{S'}\otimes^L_{u_S^*H_S}u_S^*(-)
+ \quad\dashv\quad
+ G=Ru_{S,*},
+\]
+where $G$ restricts the action along $H_S\to Ru_{S,*}H_{S'}$.
+The unit is the sheaf pullback/direct-image unit followed by the
+algebra map; the counit is induced by the direct-image evaluation
+$u_S^*Ru_{S,*}P\to P$ and the $H_{S'}$-action.
+
+Over a coarse open stratum $u$ is an isomorphism.  Over a coarse node
+$q$ write $u_q:Z_q\to q$ for its complete fibre.  The restricted left
+adjoint is
+\[
+ F_q(M)=H_{Z_q}\otimes^L_{A_q}M.
+\]
+The actual algebra unit gives $A_q\simeq Ru_{q,*}H_{Z_q}$.
+For $M\in\Perf(A_q)$, projection on the free module and then finite
+cones and retracts proves that $M\to Ru_{q,*}F_q(M)$ is an
+equivalence.  Hence $F_q$ is fully faithful.  Its thick image
+contains $H_{Z_q}$, which generates the intrinsic cartesian fibre
+category by Theorem~\ref{thm:cell-reconstruction}.  Thus $F_q$ is
+an equivalence onto that category, with counit invertible there.
+This proves the fibre statement without any arbitrary attaching maps.
+
+\emph{Transport of arbitrary attachments.}
+Let $j:U\to S$ be the union of coarse open strata and $i:Z\to S$
+the closed node union.  Use $j',i'$ for their complete inverse images.
+The map over $U$ is the identity.  Put
+\[
+ L(V)=i^*Rj_*V,\qquad L'(V)=i'^*Rj'_*V,\qquad
+ F_Z=\prod_q F_q,\quad G_Z=Ru_{Z,*}.
+\]
+Ordinary proper base change and composition of right adjoints give
+an actual natural equivalence
+\[
+ \lambda_V:G_ZL'(V)\xrightarrow{\sim}i^*G Rj'_*V
+                    \xrightarrow{\sim}i^*Rj_*V=L(V).
+\]
+It uses the actual algebra map of Lemma~\ref{lem:cell-algebra-unit}.
+The object $L'(V)$ need not be cartesian inside the exceptional
+fibres: an external branch can contribute only at a terminal point.
+The adjunction $F_Z\dashv G_Z$ below is therefore used on the full
+ambient module categories, even though $F_Z$ is an equivalence only
+on the specified fibre subcategories.
+
+We verify which attachment is induced by actual pullback.
+Let $\nu_E:E\to Rj_*j^*E$ be the localization unit, and define
+\[
+ \chi_V:F Rj_*V\longrightarrow Rj'_*V
+\]
+to be adjoint, under $j'^*\dashv Rj'_*$, to
+$j'^*F Rj_*V\simeq j^*Rj_*V\to V$.
+The last arrow is the open counit.  This defines $\chi$ on all
+objects and morphisms, independently of generation.  Base change
+for module pullback identifies $i'^*F=F_Zi^*$; set
+$\kappa_V=i'^*\chi_V:F_ZL(V)\to L'(V)$.
+The two maps
+\[
+ F E\xrightarrow{F\nu_E}F Rj_*V\xrightarrow{\chi_V}Rj'_*V,
+ \qquad
+ F E\xrightarrow{\nu'_{FE}}Rj'_*j'^*FE=Rj'_*V
+\]
+are the same: under the open adjunction both correspond to the
+identity of $V$.  This is an equality of natural transformations
+via the adjunction equivalence of mapping spaces.  Hence the
+actual pullback of $(V,M,\alpha)$ has attachment
+\[
+ \beta_{\mathrm{geom}}=\kappa_V\circ F_Z\alpha.
+\]
+
+We next identify $\kappa$, rather than assuming it is the required
+mate.  Denote the ambient units by $\eta$ and $\eta_Z$.  Consider
+\[
+ Rj_*V\xrightarrow{\eta}GF Rj_*V
+          \xrightarrow{G\chi_V}G Rj'_*V\simeq Rj_*V.
+\]
+The right-adjoint composition $G Rj'_*\simeq Rj_*$ is the one
+from the common open immersion; over $U$, both $F$ and $G$ are
+the identity.  Thus the composite restricts to the identity of $V$.
+Full faithfulness of $Rj_*$ identifies its mapping space with that
+of $V$, so the composite is the identity, with its canonical homotopy.
+Applying $i^*$, and the proper base-change square that carries
+$\eta$ to $\eta_Z$, gives
+\[
+ \lambda_V\circ G_Z\kappa_V\circ\eta_{Z,L(V)}
+                         =\operatorname{id}_{L(V)}.
+\]
+The adjoint of $\kappa_V$ is consequently $\lambda_V^{-1}$.
+Writing the adjunction counit as $\epsilon_Z$ proves the explicit
+identity
+\begin{equation}
+ \kappa_V=\epsilon_{Z,L'(V)}\circ F_Z(\lambda_V^{-1}),\qquad
+ \beta_{\mathrm{geom}}
+ =\epsilon_{Z,L'(V)}\circ F_Z(\lambda_V^{-1}\alpha).
+ \label{eq:actual-pullback-attachment}
+\end{equation}
+This construction does not require $L'(V)$ to lie in the cartesian
+fibre category.  Conversely, the adjoint of a fine attachment,
+followed by $\lambda$, recovers $\alpha$.  The already proved fibre
+equivalence identifies its closed object with $F_ZM$.  The triangle
+identities therefore give inverse assignments on attachments and
+on their full mapping spaces.
+
+For clarity, the mapping spectrum between coarse triples is
+\[
+ \operatorname{fib}\left(
+  \operatorname{Map}(V,V')\oplus\operatorname{Map}(M,M')
+  \xrightarrow{\ (f,g)\mapsto L(f)\alpha-\alpha'g\ }
+  \operatorname{Map}(M,L(V'))\right).
+\]
+The fine expression has $F_ZM,F_ZM'$ and $L'(V')$ in place of the
+closed objects and link.  Fibre full faithfulness identifies the
+second summand, and the ambient adjunction identifies
+\[
+ \operatorname{Map}(F_ZM,L'(V'))
+   \simeq\operatorname{Map}(M,G_ZL'(V'))
+   \simeq\operatorname{Map}(M,L(V')).
+\]
+Naturality of the mates identifies the difference maps.  Thus the
+whole mapping spectra agree, including off-diagonal terms, and every
+fine triple in the stated category is reconstructed from a coarse
+one.  This proves full faithfulness and essential surjectivity of
+actual $F$, not just of an abstract generator correspondence.
+Equivalently its actual unit can be checked on all coarse strata by
+proper base change: it is the identity on $U$ and the already proved
+unit $M_q\to Ru_{q,*}F_qM_q$ on each $q$.  The strata are jointly
+conservative on the underlying sheaf complexes.
+
+\emph{Two refinements and a nontrivial fibre.}
+For $S''\xrightarrow{v}S'\xrightarrow{u}S$, use the same coarse
+open $U$ and its complete inverse images.  Write $F_u,F_v$ for
+module pullback and keep the analogous closed restrictions.
+The definition by the open counit gives
+\[
+ \chi_{uv,V}=\chi_{v,V}\circ F_v\chi_{u,V},\qquad
+ \kappa_{uv,V}=\kappa_{v,V}\circ F_{v,Z}\kappa_{u,V}
+\]
+under $F_{uv}=F_vF_u$.  Indeed both composites are adjoint to the
+identity over $U$.  Likewise the right-adjoint composition gives
+$\lambda_{uv}=\lambda_u\circ G_{u,Z}\lambda_v$.
+Consequently an arbitrary attachment satisfies
+\[
+ \beta_{uv}(\alpha)=\kappa_{v,V}F_{v,Z}(\kappa_{u,V}F_{u,Z}\alpha)
+                  =\beta_v(\beta_u(\alpha)).
+\]
+These comparison homotopies are obtained in the functor adjunctions,
+so for three refinements their associativity is that of composition
+and its mates.  They are not choices made after an objectwise test.
+
+For a concrete fibre with an internal node take thickness $6$,
+$I=\{1,5\}$, $J=\{1,2,4,5\}$ and $K=\{1,2,3,4,5\}$.
+The coarse node between cuts $1$ and $5$ has in the $J$ model a
+complete fibre containing the components at $2$ and $4$ and their
+internal node.  Choose arbitrary open coefficients $V$ on the two
+coarse branches, $M\in\Perf(A_q)$, and an arbitrary
+$\alpha:M\to L(V)$; no invertibility or diagonal condition is imposed.
+Its fine closed coefficient is $H_{Z_q}\otimes_{A_q}^LM$, while
+$L'(V)$ is supported at the two external attachment points and
+vanishes on the fibre's interior, including the internal node.
+Equation~\eqref{eq:actual-pullback-attachment} therefore transports
+both arbitrary external attachments without making this link
+cartesian.  Adding cut $3$ refines the internal node; the displayed
+composition identity proves that its attachment is exactly that
+of the direct $I\to K$ pullback.  This tests the off-diagonal
+extension map, not just the coefficient $H$ or its cohomology.
+
+\emph{Extension terms and boundary cells.}
+The standard objects have triples $(V,0,0)$ and $(0,M,0)$, namely
+$j_!V$ and $i_*M$.  Their pullbacks are $j'_!V$ and $i'_*F_ZM$.
+These generate the fibrewise-cartesian ambient category by the actual
+open/closed localization triangle and the fibre generation theorem;
+they are not replaced by the single global generator $H_S$.
+Their units are the open identity and the fibre unit, and their
+counits are the corresponding open identity and fibre counit.
+In particular
+\[
+ \operatorname{Map}(i_*M,j_!V[1])
+       \simeq\operatorname{Map}(M,L(V))
+       \simeq\operatorname{Map}(F_ZM,L'(V))
+       \simeq\operatorname{Map}(i'_*F_ZM,j'_!V[1]).
+\]
+Using the same localization-triangle convention on both sides, its
+extension class $\alpha$ maps to $\beta$.  Thus the actual boundary
+and not merely the two terms is compared.  General coarse-support
+localization follows by restriction of these squares; Verdier mates
+give the dual triangles.  No equivalence with all of
+$\mathcal A_J(S')$ is asserted.
+\end{proof}
+
+Define the cellular direct image on the profile over $I$ by actual
+$Ru_{S,*}$ on every complete inverse-image support $S'$, followed by
+its stratum restrictions and attaching data.  Module actions are
+restricted along the algebra unit in Lemma~\ref{lem:cell-algebra-unit}.
+This gives a concrete meaning to $\mu_*^{\mathrm{cell}}$; it is not a
+Kan extension on an undecorated interval.
+
+\begin{theorem}[Pairwise supported Morita comparison for integer cuts]
+\label{thm:cellular-refinement}
+For $I\subset J$ in Proposition~\ref{prop:cut-models} and every allowed
+coarse support $S$ with its complete inverse image $S'$, actual direct
+image induces equivalences
+\[
+ \mathcal C_J(S')\xrightarrow[Ru_{S,*}]{\sim}\mathcal C_I(S),
+ \qquad
+ \mathcal C_J^!(S')\xrightarrow[Ru_{S,*}]{\sim}\mathcal C_I^!(S).
+\]
+They identify relative tensor and the supported action by the projection
+maps of Lemma~\ref{lem:cell-algebra-unit}, and Verdier partners by its
+pairing.  Each coarse support-inclusion square and localization triangle
+is compared by its actual proper base-change map and mate.  The retained
+ambient mapping spectra are compared by
+Lemma~\ref{lem:fibre-cartesian-ambient}.  The specified two-step
+refinement and attachment comparisons agree with actual composition.
+These functors identify the selected actual nearby and support
+realizations.  This is a pairwise theorem with the displayed naturality
+maps; it does not assert an equivalence in an as-yet-unconstructed
+category of fully coherent six-operation/kernel profiles.
+\end{theorem}
+\begin{proof}
+Use the module pullback
+\[
+ u_H^*M=H_{S'}\otimes^L_{u_S^*H_S}u_S^*M.
+\]
+It is an actual extension-of-scalars functor, not ordinary sheaf
+pullback alone.  It sends $H_S$ to $H_{S'}$.  On finite-cell modules
+the natural projection map identifies its adjunction unit as
+\[
+ M\longrightarrow Ru_{S,*}u_H^*M
+ \simeq M\otimes_{H_S}Ru_{S,*}H_{S'}\simeq M.
+\]
+The projection map is an equivalence on the unit and hence on finite
+cones and retracts; no projection assertion on all unbounded modules
+is needed.  The algebra unit of Lemma~\ref{lem:cell-algebra-unit}
+makes this a fully faithful functor.  Its image is thick and contains
+$H_{S'}$.  Theorem~\ref{thm:cell-reconstruction}, which proved
+intrinsic geometric generation on both supports, therefore gives
+essential surjectivity.  Its inverse is the stated actual direct image.
+The same argument, or the corresponding generator endomorphism
+comparison, proves the Morita equivalence rather than just equality
+of integrated complexes.
+
+Proper Verdier duality commutes with $Ru_{S,*}$, with the actions
+induced by the algebra unit.  It therefore gives the equivalence on
+$\mathcal C^!$, and carries $W_{S'}$ to $W_S$ with its evaluation.
+Equivalently one may use the mixed projection comparison on
+$W_{S'}\otimes_{H_{S'}}u_H^*M$ and check it on $M=H_S$.
+Extension of scalars is strong monoidal; its inverse on these proved
+subcategories is consequently strong monoidal as well.  Thus tensor,
+the mixed supported action and evaluation are intertwined.
+
+For an inclusion of coarse supports, proper ordinary base change
+identifies restriction before and after direct image; its Verdier
+mate identifies costalk on the supported partners.  For a coarse
+open/closed pair and its complete inverse image, composition of
+shriek images and proper base change give, in the ambient categories,
+\[
+ Ru_*j'_!j'^*M'\simeq j_!j^*Ru_*M',\qquad
+ Ru_*i'_*i'^*M'\simeq i_*i^*Ru_*M'.
+\]
+The dual identities hold for the second localization triangle.
+They identify the units and counits themselves, since they are the
+mates of the same geometric squares.  Applying the exact direct
+image to their fibre/cofibre sequences therefore identifies the
+boundary maps too.  Lemma~\ref{lem:fibre-cartesian-ambient} compares the mapping spectra
+of these extension terms as well as their restrictions, so this compares the stated ambient gluing maps as well as the
+object values.  A simultaneous higher profile statement is separated
+below.
+It does not assert an equivalence of the entire ambient constructible
+categories, nor preservation of the star subcategory by every
+extension term.
+
+For $I\subset J\subset K$ the scheme maps compose as in
+Proposition~\ref{prop:cut-models}.  Derived module pullback has its
+canonical associativity cell, and the adjunction unit for a composite
+is the composite unit.  The attachment identity and its two-step composition were proved
+in Equation~\eqref{eq:actual-pullback-attachment} and
+Lemma~\ref{lem:fibre-cartesian-ambient}.  The above direct images and proper
+base-change transformations were all formed from this one geometric
+diagram, with the common generic fibre fixed.  These constructions
+prove the stated two-step composition comparison.  The finite cut
+poset supplies actual common refinements by union, and hence spans
+of the pairwise equivalences.  We do not infer simultaneous higher
+support/tensor/Verdier/kernel coherence from the two-step calculation.
+In particular no unrestricted choice-independent profile equivalence
+is claimed here.
+
+Finally the natural map $u_H^*N_I(F)\to N_J(F)$ is an equivalence
+on $F=Q$ and hence on the generated geometric source.  Its adjoint
+is exactly proper nearby comparison; the supported version is its
+proved Verdier mate.  This verifies the realization assertion for
+the same functors used in the cellular equivalence.
+\end{proof}
+
+\begin{target}[The simultaneous enhanced profile comparison]
+\label{target:enhanced-profile}
+Construct the indexing correspondence category of cut models and
+complete inverse-image supports, together with its tensor and kernel
+operations, and a functor carrying it to the enhanced coefficient
+categories.  Show that its structure maps are exactly the nearby,
+projection, evaluation, base-change and attachment maps constructed
+above.  Verify the mixed pasting cells for support inclusions and
+refinements, their Verdier mates, all finite-arity tensor substitutions,
+and the diagonal pushforward cells in the same construction.
+\end{target}
+The full target remains broader than the pairwise theorem.
+Theorem~\ref{thm:anchored-coherent-descent} below proves the version with
+a fixed coarse support index, its fibrewise-cartesian ambient layers,
+and the specified minimal kernel diagrams.  It does not construct
+an unrestricted correspondence category of all fine supports and kernels.
+The target is not a hypothesis on the coefficient category.
+The pairwise maps and their two-step identities provide its candidate
+structure maps.  A list of commuting triangles is not a construction
+of this entire enhanced diagram.
+
+\subsection{The minimal kernel comparison, with support types retained}
+For an allowed support $T$ let $\Delta_T:T\to T\times T$ be its
+diagonal.  Kernels below carry the two actions of the pulled-back
+algebra $H_T$.  The unit kernel is $\Delta_{T,*}H_T$ and its action is
+\[
+ M\longmapsto Rp_{2,!}
+ \bigl(K\otimes^L_{p_1^*H_T}p_1^*M\bigr).
+\]
+For an open/closed pair $T=U\sqcup Z$ use also
+$\Delta_{T,*}j_!H_U$ and $\Delta_{T,*}i_*H_Z$.
+
+\begin{corollary}[Diagonal and normal-pair kernels descend]
+\label{cor:cell-kernels}
+The three kernels act respectively as the identity, $j_!j^*$ and
+$i_*i^*$, with the actual localization boundary.  For complete
+inverse-image supports their proper pushforwards along
+$u_T\times u_T$ are the corresponding coarse kernels, with their
+module actions and boundary maps.  Their actions and their Verdier
+mates therefore intertwine the cellular equivalence in
+Theorem~\ref{thm:cellular-refinement}.
+\end{corollary}
+\begin{proof}
+The diagonal projection formula over the actual algebra $H_T$ reduces
+the three kernel actions to the indicated restriction/extension
+functors.  Their triangle is the diagonal image of the ordinary
+localization triangle of $H_T$.  Moreover
+$(u_T\times u_T)\Delta_{T'}=\Delta_Tu_T$ and both $u_T$ and the
+diagonals are proper.  Hence the pushed unit is
+$\Delta_{T,*}Ru_{T,*}H_{T'}=\Delta_{T,*}H_T$ by
+Lemma~\ref{lem:cell-algebra-unit}.  The two other kernels follow
+from the open/closed identities in the preceding proof.  Those
+identities preserve the boundary because its arbitrary extension
+class is carried by Equation~\eqref{eq:actual-pullback-attachment};
+the two-refinement computation in Lemma~\ref{lem:fibre-cartesian-ambient}
+identifies its composites.  Applying Verdier duality to this same
+localization triangle gives the asserted mates.
+Under the proved Morita presentations these are the associated
+bimodules and their actual tensor actions.
+\end{proof}
+This is the promised minimal kernel interface.  It does not provide a
+category of all relative-product kernels or prove general convolution
+closure and associativity.  The projector terms have their recorded
+support types; they are not all endofunctors of a single cartesian
+coefficient category.
+
+For example, when $m=4$ the incomparable models with cuts $\{1\}$
+and $\{2,3\}$ have the actual common refinement $\{1,2,3\}$.
+The theorem gives pairwise comparisons along these proper maps.
+Supports on the incomparable models can be compared this way only
+when their complete inverse images agree on the common refinement;
+arbitrary different supports are not identified.  It is compatible with a supplied finite group action on the
+whole geometric diagram by the equivariant-unit argument of
+Corollary~\ref{cor:nearby-finite-descent}.  Constructing unsupplied
+lifts, adding arbitrary ramified base changes, retaining the infinite
+base Galois action, and identifying analytic/relative-root and integral
+realizations remain outside this fixed-thickness rational theorem.
+
+\section{Coherent descent of a fixed coarse support diagram}
+\label{sec:anchored-descent}
+Fix a cut set $B$ and let $\mathcal P_B$ be the finite poset of cut
+sets $J\supset B$, with arrows towards finer cuts.  Let $\mathcal L_B$
+be the poset of locally closed unions of strata of $E_B$.  Our actual
+support index has objects $(J,S)$, $J\in\mathcal P_B$, $S\in\mathcal L_B$;
+its scheme at this object is $S_J=u_{JB}^{-1}S$.  An inclusion
+$S\subset T$ gives $S_J\subset T_J$, and a refinement gives the proper
+map $S_K\to S_J$.  These squares are cartesian by complete inverse
+image.  Intersections, complements in open/closed decompositions, and
+all repeated inverse images are taken as schemes.  This index does
+not add arbitrary new fine supports to the coarse support set.
+
+At $(J,S)$ use four types of coefficients:
+\[
+ \mathcal A_{J|B}(S_J),\quad
+ \mathcal A_{J|B}^{!}(S_J):=\widetilde D_{S_J}
+                         \mathcal A_{J|B}(S_J),\quad
+ \mathcal C_J(S_J),\quad\mathcal C_J^!(S_J).
+\]
+Here $\mathcal A_{B|B}=\mathcal A_B$.  The ambient category is the
+intrinsic fibrewise-cartesian category of
+Lemma~\ref{lem:fibre-cartesian-ambient}; arbitrary attachments between
+coarse strata are retained.  A duality is typed as a functor from the
+opposite category.  This avoids treating Verdier duality as covariant.
+
+The support diagram consists of the following specified operations:
+ordinary restriction on the star ambient categories; $j_!$
+and $i_*$ for coarse open/closed decompositions; the two localization
+triangle functors into the ambient categories; their normalized Verdier
+conjugates on the supported ambient categories; relative tensor on
+$\mathcal C$, its action on $\mathcal C^!$, and the typed evaluations
+$M^{\vee_H}\otimes_HM\to H$ and
+$M^{\vee_H}\otimes_H(W\otimes_HM)\to W$.
+Include $R\Gamma$ and $R\Gamma_c$ with values in the fixed category
+$D(Q)$, and the specified global evaluation/trace pairings.
+Ambient Verdier duality includes its biduality and localization cells;
+no tensor-dualizability of every ambient object is assumed.  Include
+the embeddings of these smaller categories into the ambient ones.
+Include the three diagonal/localization kernel actions of
+Corollary~\ref{cor:cell-kernels}, with their displayed boundaries.
+Include the attaching mapping bifunctor
+$(M,V)\mapsto\operatorname{Map}(M,L(V))$ with values in spectra.
+It is compared on the fine model by
+$\operatorname{Map}(F_ZM,L'(V))$, not by requiring $L'(V)$ to be
+cartesian inside the contracted fibre.  Star $Rj_*$ is not asserted
+to preserve the fibrewise-cartesian ambient category.  Its supported
+Verdier counterpart occurs in the dual localization triangle.
+These are specified kernel diagrams and actions, not a category of all
+kernels with arbitrary convolution.  At $B$ these operations and their
+cells are the actual enhanced module-sheaf operations used above.
+
+\begin{definition}[The operation diagram being transported]
+\label{def:anchored-operation-diagram}
+For the fixed $B$, take as types the four categories at each
+$S\in\mathcal L_B$ displayed above and their opposite categories,
+together with the fixed targets $D(Q)$ and spectra.  Include the
+functor categories of arrows and cofiber sequences in each ambient
+type, with their evaluation functors; these type the localization
+triangle and its connecting arrow.  For any list of input types and
+output type the operation object is the full infinity-category
+\[
+ \operatorname{Fun}(\mathcal D_{c_1}\times\cdots\times
+                         \mathcal D_{c_n},\mathcal D_d).
+\]
+Substitution is functor composition.  These operation objects define
+a $\mathrm{Cat}_\infty$-enriched operation structure.  They are not
+replaced by their maximal subgroupoids: noninvertible natural
+transformations, in particular localization arrows, are retained.
+
+Fix its base subdiagram as follows.  Its operations are precisely the
+support, localization, embedding, duality, relative tensor, global
+section, evaluation and attaching bifunctors enumerated above, and
+the three specified kernel actions.  Include their identities and
+finite substitutions.  Its cells are the actual adjunction units and
+counits, support composition/base-change cells, cofiber-sequence cells,
+biduality, tensor substitution and evaluation cells from the fixed
+base enhancement, with their simplices and substitutions.  Equivalently
+one may take the subdiagram generated by this specified collection
+inside the displayed functor infinity-categories.  This fixes an
+operation diagram, not all operations on all coefficient categories.
+The three kernel objects themselves retain the separately specified
+proper-pushforward diagram, not an extra invertible kernel-category type.
+
+At $J\supset B$ replace the four coefficient types by their stated
+fibrewise-cartesian versions on $S_J$, take opposites and triangle
+categories functorially, and keep $D(Q)$ and spectra fixed.  Refinement
+acts by the module equivalences, their Verdier conjugates and the
+specified comparison transformations in the following theorem.
+Higher cells on the fine operation diagram will be transported from
+this fixed base subdiagram; they are not arbitrary preassigned fine cells.
+\end{definition}
+
+\begin{lemma}[Transport of a typed operation diagram]
+\label{lem:typed-operation-transport}
+Let a fixed enhanced diagram have coefficient categories $\mathcal D_c$
+indexed by types $c$, with specified functors of finite arity and
+specified diagrams of natural transformations.  Suppose
+$e_{j,c}:\mathcal D_c\simeq\mathcal D_{j,c}$ are equivalences forming
+a diagram in $j$, and each operation at $j$ is equipped with a
+specified equivalence to the conjugate of the operation at the base.
+Then the conjugate diagram supplies coherent cells on these operations,
+including simultaneous mixed cells and their higher relations.
+This statement also applies to opposite categories and to operations
+valued in categories of triangles.  It does not assert that arbitrary
+previously chosen cells coincide with the transported ones.
+\end{lemma}
+\begin{proof}
+For each list of input types and one output type, composition with
+$e$ and its inverse gives an equivalence of functor categories
+\[
+ \operatorname{Fun}(\mathcal D_{c_1}\times\cdots\times
+ \mathcal D_{c_n},\mathcal D_d)
+ \simeq
+ \operatorname{Fun}(\mathcal D_{j,c_1}\times\cdots\times
+ \mathcal D_{j,c_n},\mathcal D_{j,d}).
+\]
+Use the unit and counit of these equivalences in substitutions.
+Their triangle identities identify successive substitutions, and the
+associativity of functor composition supplies all iterated substitutions.
+Equivalently these equivalences identify the colored operation
+objects, which are the displayed full functor infinity-categories, with
+composition given by substitution.  Noninvertible natural transformations
+are arrows in these categories and remain present throughout.  Transport the whole base diagram through this
+identification, then through the specified equivalences of operations.
+This transports simplices, not just objects or edges.  The fibre of an
+equivalence of mapping spaces over a specified simplex is contractible,
+so this introduces no additional independent choices of higher cells.
+The same construction in functor categories handles triangles, and
+opposites handle the contravariant operations.  Functorial equivalences
+$e_{j,c}$ make the construction simultaneous in $j$.  No claim about
+a contractible space of all possible geometric enhancements is needed.
+\end{proof}
+
+\begin{theorem}[Coherent refinement descent with a fixed coarse support index]
+\label{thm:anchored-coherent-descent}
+For the fixed-thickness integer-cut family, the preceding typed support
+diagram admits a coherent enhancement under refinement in $\mathcal P_B$.
+Its star transition is actual derived module pullback and its inverse
+is actual proper direct image.  On supported types the transition is
+its normalized Verdier conjugate, again inverse to proper direct image.
+It retains the ambient localization terms, the specified support maps,
+tensor and evaluation, and the three minimal kernel comparisons.
+The higher mixed cells are those transported from the fixed base
+operation diagram of Definition~\ref{def:anchored-operation-diagram}.
+The listed elementary support/refinement squares are identified with
+the actual base-change mates; no equality with every independently
+prescribed fine enhancement is claimed.
+All these refinement edges can be inverted coherently.  This proves
+descent for this fixed coarse support index, not equivalence with all
+fine ambient categories or with a profile of arbitrary fine supports.
+\end{theorem}
+\begin{proof}
+Write $F_{JB}=H_J\otimes_{u_{JB}^*H_B}u_{JB}^*(-)$, restricted to
+$S_J$ where appropriate.  The nearby algebra maps in
+Lemma~\ref{lem:cell-algebra-unit} are obtained from the generic inverse-
+image diagram and its adjunction counits.  Thus for a string of actual
+model maps their composites are the mates of that same composite
+counit.  Constructing mates on the functor categories of strings gives
+a diagram of algebra pullbacks, rather than independently choosing
+pairwise algebra maps.  Derived tensor associativity then defines
+$F_{KB}\simeq F_{KJ}F_{JB}$ on all strings.  The threefold associativity
+cell is the associativity cell for this single iterated tensor product;
+the pentagon and its higher versions are those of that tensor product.
+These are the requisite functorial equivalences $e_{J,c}$.
+
+Lemma~\ref{lem:fibre-cartesian-ambient} proves that $F_{JB}$ is an
+equivalence $\mathcal A_B(S)\simeq\mathcal A_{J|B}(S_J)$.
+Its restriction gives the equivalence on $\mathcal C$.
+On the supported types define the covariant functor by the typed
+composition
+\[
+ \mathcal A_B^!(S)
+ \xrightarrow{\ \widetilde D_S\ }\mathcal A_B(S)^{\mathrm{op}}
+ \xrightarrow{\ F_{JB}^{\mathrm{op}}\ }
+                  \mathcal A_{J|B}(S_J)^{\mathrm{op}}
+ \xrightarrow{\ \widetilde D_{S_J}\ }\mathcal A_{J|B}^!(S_J).
+\]
+We denote it by $F_{JB}^{!}$; its restriction gives the same formula
+on $\mathcal C^!$.  Thus the middle functor is explicitly the opposite
+of the star functor.  Proper duality identifies its inverse with $Ru_{JB,*}$,
+by the explicit evaluation/trace pairing of
+Lemma~\ref{lem:cell-algebra-unit}.  This also defines its composition
+cells; ordinary pullback is not substituted for this supported transition.
+
+We specify the conjugation maps for the operation diagram.  For a
+support inclusion $k:S\to T$ they are
+\[
+ k_J^*F_{JB}\simeq F_{JB}k^*,\qquad
+ k_J^!F_{JB}^{!}\simeq F_{JB}^{!}k^!.
+\]
+The first is inverse-image/tensor associativity on the actual cartesian
+square, and the second is its Verdier mate.  For a coarse open/closed
+pair, $F_{JB}j_!\simeq j_{J,!}F_{JB}$ and
+$F_{JB}i_*\simeq i_{J,*}F_{JB}$ follow from extension by zero and
+closed base change.  The map
+\[
+ F_{JB}Rj_*\xrightarrow{\chi_{JB}}Rj_{J,*}F_U
+\]
+is the mate of the open counit, but need not be invertible.  Its
+fine target can be supported at the ends of a contracted fibre and
+need not belong to $\mathcal A_{J|B}$.  We therefore compare the
+attaching mapping bifunctor instead: the actual proper comparison
+$G_ZL'(V)\simeq L(V)$ and the module adjunction give
+\[
+ \operatorname{Map}(F_ZM,L'(V))\simeq
+ \operatorname{Map}(M,G_ZL'(V))\simeq\operatorname{Map}(M,L(V)).
+\]
+These are equivalences of bifunctors with values in spectra.
+Lemma~\ref{lem:fibre-cartesian-ambient} proves that their mate sends
+an attachment to its actual pullback via the closed restriction of
+$\chi_{JB}$.  Thus the required operation is conjugated even though
+the external link itself is not.  The dual ambient localization
+operations are obtained by Verdier conjugation of $j_!$ and $i_*$,
+so no closure under star $Rj_*$ has been inserted.
+The localization triangle is transported as the cofibering of its
+specified unit/counit.  Tensor conjugation is the associativity map
+of relative tensor; the mixed supported action is the projection mate
+specified in Lemma~\ref{lem:cell-algebra-unit}.  Evaluation conjugation
+is its displayed trace pairing.  The global-section operations are
+conjugated by $R\Gamma(S_J,-)=R\Gamma(S,Ru_*(-))$ and
+$R\Gamma_c(S_J,-)=R\Gamma_c(S,Ru_*(-))$, since $u$ is proper,
+followed by the proved unit equivalence on the corresponding type.
+Their scalar target has identity transition.  This also types the
+global pairings without assuming an equivalence of unrestricted
+ordinary sheaf categories.  Each minimal kernel is the diagonal
+image of one of these localization terms.  The identity
+$(u\times u)\Delta_J=\Delta_Bu$ and composition of direct images give
+its specified pushforward conjugation, including the action and boundary.
+More precisely these kernels are the finite diagram
+$\Delta_*j_!H_U\to\Delta_*H_T\to\Delta_*i_*H_Z$.
+At a finer model they are its actual module pullbacks before applying
+that model's diagonal.  Proper pushforward of the diagonal diagram
+uses $Ru_*F_u\simeq\mathrm{id}$ on the three ambient terms.  The
+unit for a composite is the composite unit, so the resulting kernel
+comparisons on every refinement string form a cartesian section of
+the proper-pushforward diagram of kernel objects.  Their actions are
+the already transported localization operations.  We do not apply
+Lemma~\ref{lem:typed-operation-transport} to the entire kernel categories,
+nor claim full faithfulness of forgetting a diagonal bimodule action.
+No kernel pullback equivalence on an unrestricted product category is used.
+
+These explicit conjugations verify the hypotheses of
+Lemma~\ref{lem:typed-operation-transport}.  Apply it to the entire
+base operation diagram at once.  This constructs the higher mixed cells,
+not just checks of its separate triangles.  For example, pasting a
+support square with a refinement square gives on star restriction the
+same inverse-image/tensor associativity map in either order.  Taking
+the counit mate gives exactly the mixed attachment square involving
+$\chi$ (without declaring it invertible); dualizing gives
+the costalk square; taking the cofibering gives its boundary square.
+The projection and evaluation formulas identify their tensor and
+Verdier variants with these transported cells.  Thus the elementary
+geometric squares have their original arrows.  Higher mixed cells are
+the transported cells just constructed; we do not claim uniqueness of
+an unrelated enhancement of all six operations.
+
+Finally the coefficient/operation diagram, whose refinement arrows
+are equivalences, factors
+through the localization of its index at these arrows.  This is the
+universal property of categorical localization, applied to the entire
+typed diagram.  Its inverse arrows are the actual $Ru_*$ with the
+proved units and counits.  The poset $\mathcal P_B$ has initial object
+$B$ and terminal full cut; unions give actual common refinements.
+The resulting coefficient and operation identifications are therefore
+independent of the path within this anchored index, with the constructed
+higher cells.  The selected kernel objects have the compatible cartesian
+section just described; no ambient kernel-category arrow is inverted.  Changing
+the anchor to a finer model compares the old diagram on the corresponding
+fibrewise-cartesian subcategories, not with the whole new ambient layer.
+\end{proof}
+
+\begin{remark}[A loop is a new coefficient problem]
+\label{rem:loop-monodromy-gate}
+The forest argument in Theorem~\ref{thm:cell-reconstruction} is essential.
+For a constant diagram of coefficient categories on a graph with one
+cycle, take the unit at every vertex and identity attachments except
+one scalar automorphism $\lambda\in Q^\times$, $\lambda\ne1$.
+Every branch map is invertible, but the product around the cycle is
+$\lambda$.  This object is not generated thickly by the global unit:
+finite extensions, cones and retracts of the unit have only generalized
+eigenvalue $1$ for the cycle monodromy, whereas this object has
+monodromy $\lambda$.  This is an obstruction for the categorical graph
+model, not a claimed geometric realization on every nodal curve.
+For general skeleta one must retain the diagram and its global
+monodromy, or prove a geometric global-unipotence restriction and
+its operation closure.  The anchored theorem above makes neither claim.
+\end{remark}
+
+\section{Relevant prior results and the remaining comparison}
+The logarithmic comparison in Theorem~\ref{thm:log-refinement} is an
+application of Fujiwara--Kato, not a new general invariance theorem.
+It gives a useful upstream coefficient source with actual refinement
+units.  To obtain the target datum one must still descend the base
+inertia, compare the ordinary/nearby and analytic realization functors,
+and identify their supported partners and attaching maps.
+
+For background we use the PDF of Achinger--Ogus,
+\texttt{arXiv:1802.02234v2}, \S6.3, Theorems 6.3.3--6.3.4
+\cite{AchingerOgus}.  These discuss exterior nearby cohomology and
+connecting/monodromy information; the complex must not be replaced by
+its cohomology with zero attaching maps.  All numbering here follows
+that PDF, not the experimental HTML rendering.  No Achinger--Ogus
+theorem is used as a finite-coefficient, adic or module input in this
+paper.  The local proof instead uses Illusie's Theorem 8.3,
+Corollary 8.4 and \S5, with the coefficient passage proved above.
+
+There is a separate coherent-sheaf result: Scherotzke--Sibilla--Talpo
+\cite[Theorem B/Proposition 3.9]{SSTMcKay} prove derived invariance for
+rational-weight coherent parabolic sheaves under the stated smooth
+normal-crossings log blow-ups.  These are not constructible
+$\ell$-adic sheaves.  In addition our original thickness-two model is
+singular and its monoid $P$ is not free.  Thus their theorem is relevant
+precedent for a Morita-valued invariant, but cannot be substituted for
+the coefficient or supported comparison of this paper.
+
+Curry's cellular theory provides a related comparison:
+\cite[\S6.3, Theorem 6.12; Theorem 7.9 and \S7.4]{CurryCellular}
+discusses subdivision invariance of cellular cohomology and derived
+sheaf--cosheaf equivalence with Verdier duality.  These are background
+mechanisms on cell complexes; they do not supply the etale nearby
+algebra, nontrivial branch cochain modules, complete exceptional support
+or actual proper comparison used here.  We use no poset Kan-extension
+proof from that paper as an input, so the present arguments do not
+depend on its original Kan-extension argument or its subsequent erratum.
+
+For the categorical assembly, Haine--Porta--Teyssier
+\cite{HPTExodromy} prove exodromy and coarsening results under their
+exodromic stratified-topos hypotheses.  Such results can organize
+refinement after the actual coefficient categories, admissibility and
+appropriate stratified topos have been identified.  We have not checked
+those hypotheses for the logarithmic/adic realization used here, so
+no exodromy theorem is invoked to certify the present cellular descent.
+
+The concrete endpoint map is now computed in
+Theorem~\ref{thm:actual-nearby-image} using the actual Kummer classes,
+and the distinct support restriction $\kappa^!$ is identified in
+Theorem~\ref{thm:actual-support-image}.  These geometric results were
+not inferred from the finite logarithmic adjunction unit.  Relating
+their full base-inertia descent and finite-root trace realizations to
+that logarithmic comparison still requires a separate comparison
+square.  The support categories, pairwise minimal kernel transport and stated
+two-step cells for integer cuts over a fixed base are supplied
+by Theorem~\ref{thm:cellular-refinement} and
+Corollary~\ref{cor:cell-kernels}.  No exodromy or coherent-sheaf invariance
+result is used to bypass these actual module-sheaf arguments.
+
+\section{The common coefficient interface and one-modification bridge}
+\label{sec:local-realization-bridge}
+We use the corollary ``The geometric unipotent interface for refinement''
+and the following shared-coordinate remark of the fixed
+16 September 2026 companion version \cite{LocalThreeRealizations}.
+A complete source snapshot is supplied in \texttt{companion\_sources};
+its manifest records the SHA-256 and the stable source labels
+\texttt{cor:frag-refinement-unipotent-interface} and
+\texttt{rem:frag-refinement-coordinate-interface}.
+They are proved there from the fixed-node theorem and unit generation,
+without using the refinement theorem of this paper.  Thus the dependency
+is one-way.  Set $e=0$, identify the two uniformizers $t=\pi$, and fix
+one compatible family $t_n^{\ell^n}=t$, $t_{n+1}^{\ell}=t_n$ in
+$\bar K$.  Retain the geometric rational unipotent source
+$\mathcal U_\Gamma$ of that corollary, where $\Gamma=\mathbf Z_\ell(1)$.
+We use its right-module convention; commutativity identifies this with
+the module convention used above.  Its actual associated-sheaf functor is
+\[
+ V\longmapsto F_V\in\mathcal U^b(\mathbf G_{m,\bar K}),\qquad
+ A_\Gamma=K_\Gamma(Q).
+\]
+It uses the torsors $z_n^{\ell^n}=x$, not a coefficient selected from
+the isomorphism class of its cohomology.  The cited interface gives
+$\mathcal U_\Gamma\simeq\mathcal U^b(\mathbf G_{m,\bar K})
+\simeq\Perf(A_\Gamma)$, with coefficient tensor corresponding to
+$\otimes_{A_\Gamma}$.  No such claim is made for the entire source of
+the fixed-node theorem.
+
+\begin{proposition}[The actual one-modification realization bridge]
+\label{prop:one-modification-realization-bridge}
+For $X:xy=t^2$ and the modification of Proposition~\ref{prop:charts},
+put $W(V)=\kappa^!R\Psi_{X'}F_V$ and $N(V)=\kappa^*R\Psi_{X'}F_V$.
+The functor $V\mapsto F_V\mapsto N(V)$ identifies $\mathcal U_\Gamma$
+with the intrinsic star category $\mathcal C_*$.  There are specified
+algebra and module equivalences
+\[
+ \theta:A_\Gamma\xrightarrow{\sim}R\Gamma(E,H),\qquad
+ \alpha_V:K_\Gamma(V)\xrightarrow{\sim}R\Gamma(E,N(V)),
+ \qquad H=N(Q),
+\]
+and the supported comparison is
+\[
+ \beta_V:R\Gamma(E,W(V))\xrightarrow{\sim}
+          D_QK_\Gamma(V^\vee)(-1)[-2].
+\]
+They preserve the actual coefficient actions, relative tensor,
+evaluation pairing and endpoint localization attachments.  At either
+new node $q$, with $s_q:q\to E$ and $i_q=\kappa s_q$, the local
+supported value of the first paper is
+\[
+ i_q^!R\Psi_{X'}F_V=s_q^!W(V),
+\]
+with the corresponding coordinate transport of $V$.  It is not the
+ordinary stalk $s_q^*W(V)$.
+\end{proposition}
+\begin{proof}
+\emph{Source and star map.}
+Use exactly the associated torsors in the cited interface.  Define
+$\alpha_V$ to be the composite
+\[
+ K_\Gamma(V)\longrightarrow R\Gamma(\mathbf G_{m,\bar K},F_V)
+ \longrightarrow B(F_V)\longrightarrow R\Gamma(E,N(V)).
+\]
+The first arrow is the associated-sheaf cochain map from that interface;
+the second is actual nearby restriction; the third is proper nearby
+comparison on the complete inverse-image support.  The last two are
+those of Theorem~\ref{thm:one-modification}, not an application of a
+thickness-one theorem at the old node.  At the unit their maps send
+$[x]$ to the primitive relative Kummer class, including at $xy=t^2$;
+there is no factor of two.  They are algebra maps by
+Lemma~\ref{lem:cell-algebra-unit}, and the first map has the cochain
+algebra structure specified in the interface.  This gives $\theta$.
+Their coefficient versions are module maps, and their equivalence
+locus is thick.  Unit generation therefore gives $\alpha_V$ on the
+entire common subsource.  Theorem~\ref{thm:actual-nearby-image}
+identifies its actual sheaf image as $\mathcal C_*$.
+
+\emph{Coordinate and attachment maps.}
+On $U=E^\circ$ use $u=x/t$ and at the other end $v=u^{-1}$.
+At every finite Kummer level the maps are literally
+\[
+ z_n\longmapsto z_n/t_n,\qquad
+ z_n/t_n\longmapsto t_n/z_n.
+\]
+The first commutes with the deck action, while the second intertwines
+it with $\zeta\mapsto\zeta^{-1}$.  Thus the local coefficient in the
+$v$ coordinate is the pullback of $V$ along this inverse group map;
+it is not identified with $V$ by forgetting its action.  These are
+exactly the torsor maps fixed in \cite{LocalThreeRealizations}.
+The degree-one signs are consequences, not definitions, of these maps.
+
+Write $L_q=i_q^{E,*}Rj_*$ for the link inside $E$ (here $i_q^E=s_q$).
+The actual open unit and restriction of sections give a square
+\[
+\begin{array}{ccc}
+ R\Gamma(E,N(V))&\longrightarrow&R\Gamma(U,j^*N(V))\\
+ \downarrow&&\downarrow\\
+ s_q^*N(V)&\longrightarrow&L_q(j^*N(V)).
+\end{array}
+\]
+All four arrows are restrictions or the open-adjunction unit.
+Under $\alpha_V$ and the displayed torsor identifications, its
+bottom arrow is the link map of Theorem~\ref{thm:actual-nearby-image}.
+Its composite with the torus-to-node star map is induced by exactly
+the torsors used in the first paper's local realization.  Thus that
+paper supplies the local coefficient identification, while the
+present paper supplies the link and localization arrow.
+The unit computation identifies these maps on cochains; their module
+naturality and exactness extend it to $F_V$, without splitting its
+extensions.  Recollement reconstructs the same attaching triple;
+its localization boundary is the connecting arrow of this very
+unit, so no new boundary is chosen from a cohomology formula.
+
+\emph{Supported map and evaluation.}
+Define $\beta_V$ by the actual nearby-duality and proper-duality
+pairing, followed by the dual of $\alpha_{V^\vee}$:
+\[
+ R\Gamma(E,W(V))\longrightarrow
+ D_QR\Gamma(E,N(V^\vee))(-1)[-2]
+ \xrightarrow{D_Q\alpha_{V^\vee}(-1)[-2]}
+ D_QK_\Gamma(V^\vee)(-1)[-2].
+\]
+The first arrow is an equivalence by
+Theorems~\ref{thm:actual-support-image}--\ref{thm:one-modification}
+and properness of $E$.  Its action and trace are the specified
+$H$-linear pairing of Lemma~\ref{lem:cell-algebra-unit}.  In particular
+\[
+\begin{array}{ccc}
+ R\Gamma(E,N(V^\vee))\otimes_Q R\Gamma(E,W(V))
+     &\longrightarrow&Q(-1)[-2]\\
+ \downarrow\scriptstyle{\alpha_{V^\vee}^{-1}\otimes\beta_V}
+     &&\Vert\\
+ K_\Gamma(V^\vee)\otimes_QD_QK_\Gamma(V^\vee)(-1)[-2]
+     &\longrightarrow&Q(-1)[-2]
+\end{array}
+\]
+commutes by construction.  Moving the algebra action between the
+inputs gives the same pairing, so this also identifies the supported
+$A_\Gamma$-module action.  Relative tensor is the balanced cochain map
+on the first side and the actual $H$-module tensor on the second;
+it is an equivalence on two units and then on both thick closures.
+
+Each new node has chart $zw=t$.  With the above torsor transport,
+the first paper applies there with $e=0$ and its fixed rank-one
+carrier.  Its tame geometric comparison agrees with the ordinary
+nearby complex used here on this selected Kummer source, by the
+wild-triviality comparison in that paper.  Its supported arrow is
+specified by the same evaluation and geometric trace; taking the
+Verdier mate of the just identified local star map gives the node
+support comparison from the same sheaf-level pairing that defines
+$\beta$.  It is not obtained by restricting an integrated complex
+or by choosing a new dual isomorphism.
+Composition of exceptional restrictions gives $i_q^!=s_q^!\kappa^!$.
+An auxiliary compactification has boundary away from $q$, so it does
+not alter this costalk.  The old thickness-two node and the positive-
+dimensional $U$ enter through this paper's Kummer calculation and
+proper comparison only; the first paper's node theorem is not extended.
+
+\emph{Coefficient levels.}
+The torsor identities and evaluation maps above are first defined
+at finite level and commute with root transition and scalar change.
+For a source coefficient at precision $r$, use its finite-action
+presentation in the first paper; no common finite root bound for
+all $r$ is required.  Its adic maps are those specified there and
+in Lemma~\ref{lem:selected-adic-comparisons}.  Rationalizing gives
+the actual natural transformations used above.  Unit generation is
+applied at this rational stage only.  This does not promote the
+rational Morita interface to the whole integral coefficient source.
+\end{proof}
+
+\begin{example}[Zero endpoint stalk and nonzero node support]
+\label{ex:bridge-support-types}
+For $V=Q$, Theorem~\ref{thm:actual-support-image} gives
+$W(Q)=j_!Q_U$.  Hence $s_q^*W(Q)=0$, but localization gives
+\[
+ s_q^!W(Q)\simeq L_q(Q_U)[-1]
+       \simeq D_QK_\Gamma(Q)(-1)[-2].
+\]
+It has $Q$ in degree one and $Q(-1)$ in degree two.  This is the
+nonzero node supported value of the first paper.  For general $V$
+the same formula uses $L_q(j^*N(V))[-1]$ with its actual action and
+coordinate transport.  In particular $s_q^!N(V)=0$ at an outside
+node is a statement about the star object, not about $W(V)$.
+At an internal node of a longer chain one must instead use the
+branchwise calculation in Example~\ref{ex:internal-cell}.
+\end{example}
+
+\begin{corollary}[The local-realization bridge in the anchored diagram]
+\label{cor:family-realization-bridge}
+Fix $m$, the coordinate $x$ and the compatible base roots of the
+preceding interface.  The actual functors
+\[
+ V\longmapsto N_{I,S}(V)=k_S^*\kappa_I^*R\Psi_{X_I}F_V,
+ \qquad
+ V\longmapsto W_{I,S}(V)=(\kappa_Ik_S)^!R\Psi_{X_I}F_V
+\]
+form the coefficient realization and its supported partner in the
+anchored diagram of Theorem~\ref{thm:anchored-coherent-descent}.
+Here $S$ denotes an allowed support on $E_I$, and comparisons under
+refinement always use its complete inverse image.  Put
+$A_{I,S}=R\Gamma(S,H_S)$, with its actual map from $A_\Gamma$.
+The specified cochain and pairing maps give
+\[
+ K_\Gamma(V)\otimes^L_{A_\Gamma}A_{I,S}
+       \xrightarrow{\sim}R\Gamma(S,N_{I,S}(V)),
+\]
+\[
+ R\Gamma(S,W_{I,S}(V))\xrightarrow{\sim}
+ D_QR\Gamma_c(S,N_{I,S}(V^\vee))(-1)[-2].
+\]
+For $S=E_I$ the first algebra map is an equivalence and these become
+\[
+ R\Gamma(E_I,N_I(V))\simeq K_\Gamma(V),\qquad
+ R\Gamma(E_I,W_I(V))\simeq D_QK_\Gamma(V^\vee)(-1)[-2].
+\]
+The comparisons retain module actions, evaluation and the actual mixed
+support/refinement attachment squares.  The same transported higher
+cells as in the anchored theorem organize these maps; no separate
+choice of a comparison on each model is made.
+\end{corollary}
+\begin{proof}
+Use the single associated-sheaf functor on the common generic torus.
+The algebra map $A_\Gamma\to A_{I,S}$ is its unit cochain map followed
+by nearby restriction to $S$.  The balanced coefficient map in the
+first display is evaluation of this same natural transformation.
+It is an equivalence on $V=Q$, and both functors are exact; hence it
+is an equivalence on the proved thick unit subsource.  This does not
+identify the source with $\mathcal C_I(S)$ for every disconnected
+support; the displayed scalar extension is essential.
+
+For $I\subset J$ the square of these transformations is induced by
+\[
+ F_{JI}N_{I,S}(V)\longrightarrow N_{J,S'}(V).
+\]
+Its map is the nearby mate of the generic identity; it is the unit
+identification at $Q$ and an equivalence throughout the same thick
+source.  For an inclusion $S\subset T$, restricting this mate gives
+the mate on $S$ because the generic pullback and open counit defining
+it are the same after the cartesian support square.  This proves the
+mixed square for the original arrows, including the attachment
+bifunctor through $G_ZL'=L$.  The coordinate equations on every gap
+are $x=t^a u$ and its inverse branch, so the torsor maps of
+Proposition~\ref{prop:one-modification-realization-bridge} apply
+unchanged, with inverse deck action retained on that branch.
+
+Define the second display by the actual nearby evaluation followed
+by the Verdier global-section pairing.  For a nonproper $S$, Verdier
+duality says $R\Gamma(S,D_SM)=D_QR\Gamma_c(S,M)$, which explains
+the compact support on the right.  Its $H_S$-action and proper
+refinement map are the pairing and projection mates already used in
+the anchored theorem.  Thus mixed costalk/refinement squares are the
+Verdier mates of the just proved star squares.  One cannot replace
+$R\Gamma_c(S,-)$ by $R\Gamma(S,-)$ in this formula for arbitrary $S$.
+
+For the full $E_I$, proper comparison with the original node and
+Proposition~\ref{prop:all-thickness-nearby} identify
+$A_\Gamma\to R\Gamma(E_I,H_I)$ by the primitive class $[x]$.
+Exactness and generation give its coefficient version.  The support
+$E_I$ is proper, so $\Gamma_c=\Gamma$ there, proving the final display.
+At new thickness-one nodes this agrees with the first paper's
+supported interface as a costalk, as in Example~\ref{ex:bridge-support-types}.
+Higher-thickness gaps use this paper's calculation, not an extension
+of the first paper's model domain.
+
+Finally add the fixed source $\mathcal U_\Gamma$ as an extra type
+with identity transition to the operation diagram in
+Lemma~\ref{lem:typed-operation-transport}.  Add $N$, its supported
+partner, the specified cochain maps and evaluation.  The conjugation
+maps for these added operations are precisely the nearby mates just
+identified; their support and attachment squares were checked above.
+Transporting this enlarged diagram constructs all its higher cells
+simultaneously with those of Theorem~\ref{thm:anchored-coherent-descent}.
+The finite torsor maps, selected adic systems and rationalization are
+those of Lemma~\ref{lem:selected-adic-comparisons}; the use of thick
+generation here is only on the rational common source.
+\end{proof}
+
+Proposition~\ref{prop:one-modification-realization-bridge} concerns one
+modification; Corollary~\ref{cor:family-realization-bridge} extends its
+specified arrows to the fixed-cut anchored diagrams on the same
+rational unipotent subsource.  The resulting coherent statement is restricted to that anchored
+operation diagram; it does not close the unrestricted
+Target~\ref{target:enhanced-profile} or extend the first paper's
+finite-carrier theorem to arbitrary models.
+
+The proved scope includes geometric unipotent generation with supplied
+finite descent, actual algebraic normal-pair reconstruction and
+Verdier duality, its fixed-pair kernel actions, and the single-modification
+nearby star/module and complete-support comparison.  The geometric
+admissible image is now identified, and is smaller than the full
+exceptional constructible category.  The fixed-thickness theorem supplies pairwise comparisons of the
+actual ambient gluing maps, Verdier partners and minimal kernels under
+integer cuts, with the specified support squares and two-step cells.
+Their simultaneous organization on a fixed coarse support index is
+Theorem~\ref{thm:anchored-coherent-descent}, with the natural bridge of
+Corollary~\ref{cor:family-realization-bridge}.  The unrestricted
+Target~\ref{target:enhanced-profile} and the loop-monodromy extension
+are not consequences of this anchored theorem.  General model/base-change independence,
+full relative-product convolution, base-inertia/logarithmic comparison,
+analytic compatibility beyond the identified local-node interface,
+and integral supported refinement remain open.
+
+\section*{Acknowledgments}
+
+This mathematical paper was generated 100\% by artificial intelligence.  I
+first acknowledge the textual data produced by humanity as a whole, which
+provides the linguistic and cultural record from which mathematical expression
+can be learned.  I then thank the accumulated scholarly achievements of
+mathematicians throughout history.  I also thank the researchers whose work has
+advanced and refined neural networks through successive generations.  Finally,
+I thank the OpenAI team for the training and development of the models used in
+the preparation of this paper.
+
+\begin{thebibliography}{99}
+\bibitem{LocalThreeRealizations}
+\emph{Local Kummer Realizations and Verdier Duality: Continuous
+cohomology, nearby cycles, and finite-root traces}, companion manuscript,
+version dated 16 September 2026, supplied as
+\texttt{companion\_sources/three\_realization\_submission\_2026-09-16.tex};
+source labels \texttt{cor:frag-refinement-unipotent-interface} and
+\texttt{rem:frag-refinement-coordinate-interface}:
+Corollary ``The geometric unipotent interface for refinement'' and
+Remark ``Shared coordinates and the boundary of the interface''.
+
+\bibitem{LZAdic}
+Y.~Liu and W.~Zheng, \emph{Enhanced adic formalism and perverse
+$t$-structures for higher Artin stacks}, especially \S1.2,
+Proposition 1.2.1 (p.~8) and Theorem 1.3.6 (p.~13),
+arXiv:1404.1128v2 (26 September 2017), PDF version;
+\url{https://arxiv.org/pdf/1404.1128v2}.
+
+\bibitem{IllusieOverview}
+L.~Illusie, \emph{An overview of the work of K.~Fujiwara, K.~Kato, and
+C.~Nakayama on logarithmic etale cohomology}, Asterisque 279 (2002),
+271--322, especially \S\S4.7, 6.4 and Theorems 7.1--7.2.
+\bibitem{LOAdic}
+Y.~Laszlo and M.~Olsson, \emph{The six operations for sheaves on Artin
+stacks II: adic coefficients}, Publ. Math. IHES 107 (2008), 169--210.
+\bibitem{LZEnhanced}
+Y.~Liu and W.~Zheng, \emph{Enhanced six operations and base change theorem
+for higher Artin stacks}, arXiv:1211.5948; scheme case of the enhanced
+six operations.
+\bibitem{AchingerOgus}
+P.~Achinger and A.~Ogus, \emph{Monodromy and Log Geometry},
+arXiv:1802.02234v2, PDF version, \S6.3, Theorems 6.3.3--6.3.4;
+\url{https://arxiv.org/pdf/1802.02234v2}. Background comparison only.
+\bibitem{SSTMcKay}
+S.~Scherotzke, N.~Sibilla, and M.~Talpo,
+\emph{On a logarithmic version of the derived McKay correspondence},
+arXiv:1612.08961v3, Theorem B/Proposition 3.9;
+\url{https://arxiv.org/pdf/1612.08961v3}.
+\bibitem{CurryCellular}
+J.~Curry, \emph{Dualities between Cellular Sheaves and Cosheaves},
+arXiv:1607.06942v1, \S6.3, Theorems 6.12 and 7.9, \S7.4;
+\url{https://arxiv.org/pdf/1607.06942v1};
+\url{https://doi.org/10.1016/j.jpaa.2017.06.001}. Background only.
+\bibitem{HPTExodromy}
+P.~J.~Haine, M.~Porta, and J.-B.~Teyssier,
+\emph{Exodromy beyond conicality}, arXiv:2401.12825.
+\bibitem{LuZhengNearby}
+Q.~Lu and W.~Zheng, \emph{Duality and nearby cycles over general bases},
+arXiv:1712.10216v7 (7 October 2019), Corollary 3.2 and Remark 3.3;
+\url{https://arxiv.org/pdf/1712.10216v7}. This is the version used for
+Gabber's geometric nearby duality in this paper.
+\end{thebibliography}
+\end{document}

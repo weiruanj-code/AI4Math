@@ -33,6 +33,16 @@ unrigidified Artin fan. Proper-image presentations and larger coefficient
 categories are treated as separate obstructions rather than absorbed into the
 main comparison.
 
+The general-base constructible coefficient equivalences and star calculations
+retain their full selected source. Coefficient biduality over a general base
+uses uniformly lisse-perfect inputs; its Verdier partner additionally uses a
+coherent, uniformly bounded dualizing system with the stated Tor control.
+At a geometric point these conditions retain the full main-theorem source.
+The finite-carrier trace row is a point-valued star-algebra module comparison;
+actual logarithmic tame transport and supplied finite descent are distinguished.
+
+Current revision: 22 September 2026; compiled PDF: 76 pages.
+
 ## Search keywords
 
 `Kummer realizations`, `Verdier duality`, nearby cycles, vanishing cycles,

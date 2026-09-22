@@ -30,7 +30,7 @@
 \title{Local Kummer Realizations and Verdier Duality\\
 \large Continuous cohomology, nearby cycles, and finite-root traces}
 \author{YINGFENG JIANG}
-\date{16 September 2026}
+\date{22 September 2026}
 
 \begin{document}
 \maketitle
@@ -103,7 +103,8 @@ $q_{m,n}:Z_m\to Z_n$ for the quotient-induced map with the same carrier.
 Let $V_\bullet\in\mathcal S_{\mathrm{ad}}(\Gamma)$, with notation
 as in Definition~\ref{def:frag-local-adic-source-target}.
 The coefficient source is the associated-sheaf construction on these
-Kummer torsors, with its induced tame descent and no additional wild
+Kummer torsors, with the induced tame transport on its actual log
+realization and no additional wild
 base-inertia representation.  Its finite-precision extensions and
 coefficient duals are log-lisse and underlying perfect near $Y$.
 The compactification boundary misses $Y$ and
@@ -158,7 +159,12 @@ and~\ref{ass:frag-finite-trace-domain};
 Proposition~\ref{prop:frag-point-finite-domain-verified} verifies
 their use on these point carriers.  The comparisons
 preserve the star-algebra module actions and the specified coefficient
-reductions.  For input Tor-amplitude $[a,b]$, their perfect output
+reductions.  The trace row is an equivalence in $D(\mathbf Z_\ell)$
+and its corresponding star-algebra module category.  The actual
+logarithmic star comparisons retain their induced tame transport;
+additional supplied finite semilinear actions are treated in
+Proposition~\ref{prop:frag-S-trace-naturality}, not by silently adding
+an infinite inertia action to the finite-carrier target.  For input Tor-amplitude $[a,b]$, their perfect output
 amplitudes are $[a,b+1]$ and $[a+2N-1,b+2N]$.
 For the unit, $A=K_\Gamma(\mathbf Z_\ell)$ has trace partner
 $D_\ell A(-N)[-2N]$ with its evaluation module structure.
@@ -192,7 +198,13 @@ or Kummer-shape comparison.
 Brumer supplies the classical pseudocompact-module framework
 \cite{BrumerPseudocompact}; the rank-one Iwasawa twist in
 \cite[Appendix A.2]{EsnaultKerzPencils} is a related construction.
-Our multidimensional adic action-sheaf comparison is proved separately.
+Our multidimensional adic action-sheaf comparison is proved separately
+on the full selected constructible source.  Its star computation is
+not restricted by the coefficient-duality domain: over a general
+base, dual closure is asserted only for globally lisse-perfect inputs,
+and Verdier partners require a coherent bounded dualizing system.
+At the geometric point these qualifications do not shrink the
+source or the supported conclusion of the main theorem.
 The finite-stack duality input is also prior work: for a finite
 $G$, \cite[Example 4.9.2]{LaszloOlssonFinite} computes compact
 support on $BG$ as the dual of the full group-cochain complex.
@@ -416,6 +428,22 @@ Proposition~\ref{prop:frag-point-pc-Hom} identifies the resulting
 calculation with classical continuous derived Hom.  The definition
 of the source and its mapping spectra is the cartesian-system one.
 \end{definition}
+
+\paragraph{Point outputs and the three action data.}
+The point-valued adic target is $\varprojlim_r D(R_r)$; its uniformly
+perfect cartesian systems recover in $D(\mathbf Z_\ell)$.
+The star algebra is $A_\bullet=(K_\Gamma(R_r))_r$, and the supported
+row is compared in its module category, hence after recovery in
+$\operatorname{Mod}_{K_\Gamma(\mathbf Z_\ell)}(D(\mathbf Z_\ell))$.
+The relative $\Gamma$-action belongs to the coefficient source.
+External tame transport belongs to the actual geometric log source
+and is retained by its specialization and star comparisons.
+An additional finite semilinear descent diagram is separate data,
+handled by Proposition~\ref{prop:frag-S-trace-naturality}.
+The finite-carrier trace row is stated after forgetting external
+base transport; a full infinite tame-equivariant trace row is not
+asserted by its point-valued proof.  Forgetting that action takes
+no invariants under base tame inertia.
 
 \section{Root coefficients and continuous cohomology}
 \label{sec:local-root-cohomology}
@@ -1684,6 +1712,8 @@ $r$ the star maps are inflation; their duals must be the counits
 of the genuine finite-stack shriek adjunctions.  This map-level
 identification, followed by the continuous limit, relates the
 root trace to the supported comparison of the preceding section.
+The targets in this section are point-valued complexes and their
+star-algebra modules, with external tame transport forgotten.
 The base throughout this section is a geometric point, with
 $\Gamma=\mathbf Z_\ell^d$, $K_n=\Gamma/\ell^n\Gamma$ and fixed
 rank-$N$ vector-bundle carriers.  There is no additional descent group.
@@ -2894,7 +2924,19 @@ No strictification of an infinite tower is required.
 
 \begin{definition}[Duality conventions]
 \label{def:frag-continuous-duality}
-Fix a base dualizing system $\omega_{\mathscr S,r}$.  For
+At a geometric point use $\omega_r=R_r$.  For the general-base
+adic duality assertions fix a coherent derived-cartesian system
+$\omega_{\mathscr S,\bullet}$ of dualizing complexes:
+\[
+ \omega_{\mathscr S,r+1}\otimes^L_{R_{r+1}}R_r
+       \xrightarrow{\sim}\omega_{\mathscr S,r}.
+\]
+Require uniform bounded constructibility and, when a selected perfect
+output is asserted, a common finite underlying-$R_r$ Tor interval
+$[c_0,c_1]$ on a fixed finite stratification.  These are system
+hypotheses, not consequences of levelwise dualizingness.
+Verdier biduality is used only on the reflexive domain of these
+complexes.  For
 $f:X\to\mathscr S$ set $\omega_{X,r}=f^!\omega_{\mathscr S,r}$,
 $\omega_{X/\mathscr S,r}=f^!R_r$ and
 $\mathbb D_{X,r}=R\mathcal Hom_{R_r}(-,\omega_{X,r})$.
@@ -2909,18 +2951,22 @@ on the stated reflexive domains.  In particular a proper
 nonrepresentable classifying-stack map still has distinct star and
 shriek images.
 
-For compatible selected systems, $\mathbb D_{X,\mathrm{cont}}$
-and $\mathbb D_{\mathscr S,\mathrm{cont}}$ denote the derived limits
-of these finite duals.  Perfect biduality applies to the coefficients;
-for continuous root outputs, the finite Iwasawa complex proves
-boundedness, cartesianness and biduality first.  The levelwise mate then gives
+The notation $\mathbb D_{X,\mathrm{cont}}$ denotes the system of
+finite Verdier duals, with a derived-limit realization only after
+its coefficient reductions have been verified.  At a point this
+verification for the continuous outputs follows from perfectness.
+Over a general base, Lemma~\ref{lem:frag-iwasawa-adic-base-change}
+proves it for the tensor-dualizable inputs specified there; it is
+not asserted for every stratified-perfect input.
+Whenever the finite six-functor comparisons form cartesian systems
+on the stated domain, their actual mates assemble to
 \begin{equation}
  \mathbb D_{\mathscr S,\mathrm{cont}}Rf_!
  \simeq Rf_*\mathbb D_{X,\mathrm{cont}}.
  \label{eq:frag-relative-verdier-mate}
 \end{equation}
-Coefficient recovery uses Lemmas~\ref{lem:frag-iwasawa-adic-base-change}
-and~\ref{lem:frag-adic-completion} in their specified ambient categories.
+This notation asserts neither a general-base supported realization
+nor a new exceptional functor on the bare infinite-root fibre.
 
 The coefficient dual has contragredient action:
 \begin{equation}
@@ -2931,17 +2977,27 @@ The coefficient dual has contragredient action:
  \label{eq:frag-continuous-contragredient}
 \end{equation}
 At a point this is classical continuous $\mathbf Z_\ell$-linear
-Hom.  Over a base it denotes the cartesian system of the finite
-$R_r$-coefficient duals, with its ambient limit used only for recovery;
+Hom.  Over a base, for a uniformly lisse-perfect system, it denotes
+the cartesian system of finite $R_r$-coefficient duals proved below,
+with its ambient limit used only for recovery;
 it is not ordinary Hom from an unspecified integral etale sheaf.
 The $\Delta$-action is likewise semilinear and contragredient.
 Rational duals are obtained after inverting $\ell$.
-For a perfect base coefficient put
+A coefficient is \emph{lisse-perfect} here if it is tensor-dualizable
+on the whole base topos: locally a bounded complex of finite free
+constant-coefficient sheaves.  This differs from being perfect only
+on each constructible stratum.  For a uniformly lisse-perfect adic
+base coefficient, with Hom interpreted in the adic system category
+and computed levelwise, put
 \begin{equation}
  C^{\vee_0}=R\mathcal Hom_{\mathbf Z_\ell}(C,\mathbf Z_\ell).
  \label{eq:frag-base-coefficient-dual}
 \end{equation}
-Tensor--Hom adjunction and biduality give
+For $\mathcal L$ in the Verdier-reflexive domain, at each precision
+tensor--Hom adjunction and the tensor dual of $C$ give the following
+identity.  Its adic form uses compatible systems for $\mathcal L$
+and its Verdier dual; reflexivity alone does not prove coefficient
+change for an arbitrary constructible $\mathcal L$:
 \begin{equation}
  \mathbb D_{\mathscr S,\mathrm{cont}}
  (\mathbb D_{\mathscr S,\mathrm{cont}}\mathcal L\otimes C)
@@ -3001,85 +3057,122 @@ $u^{\ell-1}$ is a nonzero element of the kernel of multiplication by $u$.
 This also agrees with the nonvanishing of
 $H^q(C_\ell,\mathbf Z/\ell)$ in arbitrarily high degrees.
 
-\begin{lemma}[Iwasawa base change, dual closure, and adic recovery]
+\begin{lemma}[Iwasawa base change and the coefficient-duality domain]
 \label{lem:frag-iwasawa-adic-base-change}
-Put $\Lambda=\Lambda_M^{\mathrm{Iw}}$, $R_r=\mathbf Z/\ell^r$,
-$\Lambda_r=\Lambda\otimes^{\mathbf L}_{\mathbf Z_\ell}R_r$, and
-$\mathbf K_{M,r}^{\mathrm{Iw}}=
- \mathbf K_M^{\mathrm{Iw}}\otimes^{\mathbf L}_{\mathbf Z_\ell}R_r$.
-At a point let $V_{\mathrm{cont}}$ be in the equivalent classes of
+Put $\Lambda=\Lambda_M^{\mathrm{Iw}}$, $\Lambda_r=\Lambda/\ell^r$,
+and $\mathbf K_r=\mathbf K_M^{\mathrm{Iw}}\otimes^L R_r$.
+Let $V_\bullet$ be any selected system of
+Definition~\ref{def:frag-adic-iwasawa-sheaves} over a noetherian split
+base, with common underlying-$R_r$ Tor interval $[a,b]$.  At a point
+this is the entire source of
 Proposition~\ref{prop:frag-point-source-iwasawa-admissibility}.
-Over a noetherian split base use instead a selected cartesian
-coefficient of Definition~\ref{def:frag-adic-iwasawa-sheaves};
-$V_{\mathrm{cont}}\otimes R_r$ then denotes its given $r$th term.
-In integral module-sheaf formulas use its ambient derived-limit
-realization, whose reductions are those terms by
-Lemma~\ref{lem:frag-adic-completion}; no global pseudo-coherent
-representative is inferred.  Coefficient duals over a base are
-formed levelwise in the adic model.  Set
+Write
 \[
- H_{*,r}(V):=
- R\!\operatorname{Hom}_{\Lambda_r}
-      (\mathbf K_{M,r}^{\mathrm{Iw}},V_{\mathrm{cont}}\otimes R_r).
+ H_{*,r}(V)=R\mathcal Hom_{\Lambda_r}(\mathbf K_r,V_r).
 \]
-Then the following hold.
+The following domains are distinct.
 \begin{enumerate}[label=\textup{(\roman*)}]
-\item $\mathbf K_{M,r}^{\mathrm{Iw}}$ is a length-$d$ finite free
-  $\Lambda_r$-resolution of $R_r$, and finite-projective base change gives
-  \[
-  R\!\operatorname{Hom}_{\Lambda}
-       (\mathbf K_M^{\mathrm{Iw}},V_{\mathrm{cont}})
-       \otimes^{\mathbf L}R_r\xrightarrow{\sim}H_{*,r}(V).
-  \]
-  Hence $(H_{*,r}(V))_r$ is derived cartesian, uniformly bounded, and has
-  finite constructible cohomology.
-\item The continuous contragredient $V_{\mathrm{cont}}^\vee$ of
-  \eqref{eq:frag-continuous-contragredient} remains in the selected
-  cartesian category (and is classically Iwasawa-admissible at a point), and
-  biduality is an equivalence.  The assertion is equivariant for $\Delta$ and
-  for the involution $\gamma\mapsto\gamma^{-1}$ of $\Lambda$.
-\item If $N=d+e$ and
-  \[
-  H_{!,r}(V):=\mathbb D_{\mathscr S,r}H_{*,r}(V^\vee)(-N)[-2N],
-  \]
-  then $(H_{!,r}(V))_r$ is also derived cartesian, uniformly bounded, and
-  recovered from its derived inverse limit by reduction modulo $\ell^r$.
-  Over a geometric point the resulting finite-module cohomology
-towers are Mittag--Leffler by
-Lemma~\ref{lem:frag-point-perfect-recovery}.
+\item For every such selected system, $\mathbf K_r$ is a length-$d$
+finite free resolution of $R_r$.  The actual coefficient maps give
+\[
+ H_{*,r+1}(V)\otimes^L_{R_{r+1}}R_r\simeq H_{*,r}(V).
+\]
+The outputs are constructible and stratified-perfect with common
+Tor interval $[a,b+d]$.  Finite-projective Hom also commutes with
+reduction of the ambient derived-limit realization.  Thus the full
+general-base star and coefficient-comparison domain is unchanged.
+\item Suppose additionally that each $V_r$ is lisse-perfect on the
+whole base, uniformly in $r$.  Then the coefficient dual
+$V_r^\vee=R\mathcal Hom_{R_r}(V_r,R_r)$, with contragredient inertia,
+is a selected cartesian system with Tor interval $[-b,-a]$.
+Its coefficient biduality map is an equivalence.  All these maps
+respect the supplied finite semilinear descent and group inversion.
+At a point no additional restriction is imposed; classical
+Iwasawa-admissibility of the dual follows from the point-source theorem.
+\item For inputs in (ii), use the coherent dualizing system of
+Definition~\ref{def:frag-continuous-duality}, and put $N=d+e$ and
+\[
+ H_{!,r}(V)=\mathbb D_{\mathscr S,r}H_{*,r}(V^\vee)(-N)[-2N].
+\]
+These are cartesian, uniformly bounded constructible outputs.
+With the stated Tor bound $[c_0,c_1]$ on the dualizing system they
+are stratified-perfect with interval
+$[a-d+c_0+2N,b+c_1+2N]$.
+They recover by reduction from their ambient derived inverse limit.
+At a geometric point $\omega_r=R_r$, so the bound is
+$[a+2N-d,b+2N]$ and perfect integral recovery holds for the full
+point source.  The finite cohomology towers there are Mittag--Leffler.
 \end{enumerate}
-These conclusions continue to hold after tensoring with a perfect
-constructible object from $\mathscr S$.
+Part (i) remains valid after tensoring with any selected stratified-perfect
+base system.  Parts (ii)--(iii) remain valid after tensoring with a
+uniformly lisse-perfect base system.  No common trivializing cover
+or finite root level for all precisions is required.
 \end{lemma}
-
 \begin{proof}
-After an \'{e}tale splitting of $M$, the variables $T_1,\ldots,T_d$ are a regular
-sequence in $\Lambda_r=R_r[[T_1,\ldots,T_d]]$; hence the reduced Koszul complex
-is still a finite free resolution of the augmentation.  Because its terms are
-finite projective, derived Hom commutes with reduction without a
-$R\!\varprojlim$ argument.  This proves (i), including the amplitude bound.
+The regular sequence $T_1,\ldots,T_d$ in $R_r[[T_1,\ldots,T_d]]$
+gives the finite free augmentation resolution.  Applying Hom is a
+finite complex of finite sums of $V_r$, with degrees from $0$ to $d$.
+Its terms and differentials commute with scalar reduction.  This
+proves (i), including its Tor bound, without exchanging a finite-group
+bar with reduction.  Recovery of the original coefficient system in
+the ambient category is Lemma~\ref{lem:frag-adic-completion}; the
+finite free resolution then gives the asserted integral Hom formula.
 
-At each precision the selected action category is closed under
-coefficient duality: the contragredient dual of an underlying-perfect
-object is underlying-perfect, with reversed Tor interval.  Exact
-finite-action realization and derived scalar change preserve its
-evaluation and coevaluation.  Taking the cartesian system therefore
-proves dual closure and biduality in the independent adic module
-model, including semilinear descent.  At a point
-Proposition~\ref{prop:frag-point-source-iwasawa-admissibility} gives
-classical Iwasawa-admissibility of this dual.  We do not deduce
-pseudo-coherence of a global Iwasawa sheaf merely from regularity
-of its coefficient ring or from finite-generation at stalks.
+For (ii), tensor duality on the whole base gives the actual maps
+\[
+ V_r\longrightarrow(V_r^\vee)^\vee,\qquad
+ V_{r+1}^\vee\otimes^L_{R_{r+1}}R_r
+       \longrightarrow(V_{r+1}\otimes^L_{R_{r+1}}R_r)^\vee.
+\]
+Both are equivalences by a local finite free computation; it also
+reverses the Tor interval.  Dualizing the action uses group inversion,
+so evaluation and coevaluation are equivariant and the maps retain
+the given descent cells.  Their cohomology is again finite and
+locally constant.  On each geometric stalk its continuous finite
+inertia representation factors through a finite $\ell$-group;
+over $R_r$ its augmentation ideal acts nilpotently.  Hence the dual
+belongs to the selected action category and, by the already proved
+relative action/Iwasawa equivalence, to the selected module model.
+This argument uses tensor dualizability on the base, not a putative
+commutation of internal Hom with restriction to an arbitrary stratum.
 
-The chosen dualizing system is derived cartesian in $r$.  Perfect duality and
-the fixed purity factor consequently commute with reduction, proving the
-cartesian square for $H_{!,r}$.  Lemma~\ref{lem:frag-adic-completion} now gives
-derived recovery in the specified ambient model, without a sheaf
-Mittag--Leffler argument.  At a geometric point,
-Lemma~\ref{lem:frag-point-perfect-recovery} also proves perfect
-integral recovery and the finite-module cohomology assertion.
-This proves (iii) in the stated coefficient and duality domain.
+Put $H_r=H_{*,r}(V^\vee)$.  The same finite Koszul construction makes
+$H_r$ lisse-perfect with Tor interval $[-b,d-a]$.  Consequently
+\[
+ H_{!,r}(V)=H_r^\vee\otimes^L_{R_r}
+                  \omega_{\mathscr S,r}(-N)[-2N].
+\]
+The reduction map is the tensor product of the dual reduction map
+for $H$ and the specified reduction map of $\omega_\bullet$.
+It is therefore an equivalence with its inherited composition cells.
+The displayed formula proves the stated bounds and constructibility;
+with finite Tor for $\omega$ it proves stratified-perfectness.
+Lemma~\ref{lem:frag-adic-completion} gives ambient recovery.
+At a point use Lemma~\ref{lem:frag-point-perfect-recovery}; in each
+finite target cohomology module, the descending images stabilize,
+which proves the Mittag--Leffler assertion.  Tensoring preserves the
+respective domains, giving the final clauses.
 \end{proof}
+
+\begin{remark}[Why the general-base duality domain is separate]
+For a closed point $i:s\hookrightarrow S$ on a strictly henselian
+nodal curve over an algebraically closed field, $i_*R_r$ is a selected
+stratified-perfect cartesian system.  At $r=1$, set $F=\mathbf F_\ell$
+and $D_0=R\mathcal Hom_S(-,F_S)$.  The normalization exact sequence
+and purity on its two regular branches
+\cite[Proposition 4.10.1]{LaszloOlssonFinite} give
+\[
+ i^!F_S\simeq F[-1]\oplus F(-1)^{\oplus2}[-2]=:C.
+\]
+Here the degree-one summand is the connecting term of the
+normalization sequence.  Closed-immersion adjunction gives
+$D_0(i_*F)=i_*C$ and $D_0^2(i_*F)=i_*R\operatorname{Hom}_F(C,C)$.
+The latter has degree-zero dimension $1+2^2=5$.
+Thus (ii) cannot hold on all stratified-perfect coefficients even
+though (i) and the general-base category equivalences still do.
+The distinction is between coefficient duality and Verdier duality;
+replacing $V^\vee$ by a Verdier dual would change the stated formulas.
+\end{remark}
 
 
 \section{Descent over a noetherian base}
@@ -3831,7 +3924,7 @@ Scherotzke--Sibilla--Talpo
 \cite{ScherotzkeSibillaTalpoMcKay}.  The object below is its chartwise relative
 form followed by the prescribed finite tame descent.  Its construction is
 prior art.  What we isolate on its intrinsic full pro-root site is a
-relative-inertia-selected perfect constructible category and the removal of
+relative-inertia-selected stratified-perfect constructible category and the removal of
 the base inertia direction.  It is not
 the closed stratum of the ordinary Artin fan, which retains a diagonalizable
 stabilizer in that direction.
@@ -4074,10 +4167,18 @@ the inverse-limit groupoid.  Thus the two sides have equivalent mapping
 groupoids for every $S'$, and the displayed equivalence follows from the
 $2$-Yoneda lemma.
 
-All transition maps are $\Delta$-equivariant.  Since the prescribed splitting
-groupoid is finite and its descent is effective, taking the corresponding
-descent groupoid commutes with this levelwise inverse limit.  This proves the
-statement after the displayed quotient by $\Delta$ as well.
+All transition maps are $\Delta$-equivariant over the same $S$.
+For the quotient assertion take the limit in stacks over the fixed
+$\mathscr S=[S/\Delta]$.  A test map $T\to\mathscr S$ fixes one
+$\Delta$-torsor $P\to T$ and its equivariant map $P\to S$.
+A lift to the quotient at level $n$ is an equivariant lift of this
+same $P$ to the split root fibre at level $n$.  A compatible family
+of lifts, including their equivariance cells, is exactly a lift to
+the split inverse limit: mapping into a limit preserves its limit
+and the descent equations.  The same holds for morphisms of lifts.
+Descent on the fixed torsor therefore proves the assertion over
+$\mathscr S$.  It is not a general claim that taking orbit quotients
+commutes with inverse limits merely because $\Delta$ is finite.
 \end{proof}
 
 \begin{lemma}[Torsor transitions in the relative quotient atlas]
@@ -4326,6 +4427,11 @@ choices to descend.  A family covers if and only if its pullback
 to $U$ is jointly surjective.  Composition and pullback of covers
 are the corresponding operations on etale algebraic spaces.
 \end{proof}
+
+The finite action-groupoid descent below uses the same fixed
+$\Delta$-torsor over each test of $\mathscr S$ as in
+Lemma~\ref{lem:frag-relative-fibre-limit}; no new orbit-quotient/limit
+interchange is used.
 
 The following result concerns the specified relative pro-$\ell$ root
 fibre over $S$.  Talpo--Vistoli's
@@ -5363,7 +5469,11 @@ $\det(M^\vee)=\det(M)^\vee$ gives the last two identities in
 \eqref{eq:frag-equivariant-top-orientation}.
 \end{proof}
 
-For an Iwasawa-admissible coefficient define
+For a point coefficient define the following two complexes.  Over a
+split base, the star expression uses the full selected adic source;
+the coefficient-dual partner and its adic properties below use the
+lisse-perfect subsource of Lemma~\ref{lem:frag-iwasawa-adic-base-change}(ii).
+All general-base expressions are interpreted levelwise in that model:
 \begin{align}
  \mathsf K^{\mathrm{ad}}_{M,*}(V_{\mathrm{cont}})
   &:=R\!\operatorname{Hom}^{\mathrm{cts}}_{\Lambda_M^{\mathrm{Iw}}}
@@ -5377,6 +5487,12 @@ For an Iwasawa-admissible coefficient define
   \label{eq:frag-koszul-shriek-ad}
 \end{align}
 Their rationalizations are denoted by $\mathsf K_{M,\bullet}(V)$.
+Over a base the displayed $!$-expression is a coefficient-linear
+partner, with dualizing object the constant coefficient unit.
+The Verdier partner in Lemma~\ref{lem:frag-iwasawa-adic-base-change}(iii)
+is instead this expression tensored with $\omega_{\mathscr S,\bullet}$.
+At a geometric point these coincide.  Neither is by itself a
+construction of a general-base geometric supported functor.
 The factor $(-d-e)[-2(d+e)]$ is the inverse of the relative dualizing factor
 $(d+e)[2(d+e)]$ inside the product-chart identity
 \[
@@ -5384,6 +5500,9 @@ $(d+e)[2(d+e)]$ inside the product-chart identity
  \simeq f^*\mathbb D_{\mathscr S}(\mathcal L)\otimes
  \widetilde{V^\vee}\otimes\omega_{X/\mathscr S}.
 \]
+In this product identity $\widetilde V$ is tensor-dualizable,
+$\mathcal L$ lies in the stated Verdier domain, and the smooth
+product projection supplies the relative purity factor.
 It is not an additional orientation correction.
 On the third realization it is the compact-support class of the actual
 rank-$(d+e)$ affine carrier \eqref{eq:frag-smooth-enhanced-root-face}; it is no
@@ -5460,10 +5579,11 @@ is used.  Thus
 $A^{!,\mathrm{ad}}_{M,e}$, rather than a bare determinant line, is the local
 candidate compact-support dualizing bimodule, identified geometrically
 in Corollary~\ref{cor:frag-C2-local-closed} on its geometric domain.
-For every coefficient $V_{\mathrm{cont}}$ in the selected source,
+For every coefficient in the full selected source,
 $\mathsf K^{\mathrm{ad}}_{M,*}(V_{\mathrm{cont}})$ is naturally an
-$A^{*,\mathrm{ad}}_M$-module and
-$\mathsf K^{\mathrm{ad}}_{M,!}(V_{\mathrm{cont}})$ has the dual action; all
+$A^{*,\mathrm{ad}}_M$-module.  On the coefficient-duality domain
+specified above, $\mathsf K^{\mathrm{ad}}_{M,!}(V_{\mathrm{cont}})$
+has the dual action; all
 geometric comparison maps preserve these actions under the
 multiplicative star and supported comparisons below.  Formula
 \eqref{eq:frag-orientation-factor-ad} is the constant-character calculation
@@ -5576,8 +5696,12 @@ Fix a geometric generic point $\bar\eta$ and a completed algebraic closure
 $\widehat{\overline K}$.  Let
 $\operatorname{sp}_{\bar\eta}:]S[_{\bar\eta}^{\mathrm{an}}/\Delta\to\mathscr S$
 be geometric specialization.  The analytic functors use the full geometric
-etale site, not arithmetic $K$-analytic cohomology.  Base tame inertia is an
-external category action; an equivariant object requires a cartesian section.
+etale site, not arithmetic $K$-analytic cohomology.  The actual log
+source can carry external tame transport, which its geometric star
+comparisons retain.  This supplies neither an equivariant structure
+on every abstract root coefficient nor an infinite tame-equivariant
+finite-carrier trace target.  Additional finite descent is treated
+with its supplied action diagram.
 For the integral Kummer local system $E_\bullet=(E_r)_r$, set
 \[
 \mathsf A_{*,r}(E_r):=R\operatorname{sp}_{\bar\eta,*}E_r.
@@ -5625,7 +5749,8 @@ replaced by $*$.
 
 \begin{definition}[Kummer-basic source and relative tame inertia]
 \label{def:frag-kummer-basic-source}
-Let $\mathcal L$ be a perfect constructible adic object on $\mathscr S$, and
+Let $\mathcal L$ be a stratified-perfect constructible adic object
+on $\mathscr S$, and
 let $V_{\mathrm{cont}}$ be an Iwasawa-admissible coefficient.  The notation
 $\mathcal L\boxtimes V$ denotes its pullback to a realization chart tensored
 with the Kummer local system defined by $V$.  On the root/action side
@@ -5641,6 +5766,12 @@ means a specified enhanced category with the actual realization
 functors and coefficient maps.  Closure under finite cones and
 retracts uses maps in that source category; tensoring by a perfect
 base object requires its compatible actual realization as well.
+This does not make a stratified-perfect base object tensor-dualizable.
+Coefficient-dual cancellation uses a globally lisse-perfect tensor
+factor and the Verdier-reflexive domain of
+Definition~\ref{def:frag-continuous-duality}; the general-base adic
+duality conclusions use Lemma~\ref{lem:frag-iwasawa-adic-base-change}.
+No such extra condition is added to the constructible star source.
 It is not automatically the full stable root subcategory generated
 by the displayed object values.  In Theorem~\ref{thm:frag-theorem-B-local-closed},
 Corollary~\ref{cor:frag-B-local-essential-image} proves the required
