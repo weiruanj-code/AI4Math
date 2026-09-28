@@ -98,6 +98,29 @@ arbitrary model or base-change independence, full relative-product
 convolution, a general base-inertia/logarithmic comparison, or integral
 supported refinement.
 
+### Verdier-Compatible Kernel Skeletonization under Anchored Semistable Refinement
+
+**Anchored semistable models of $xy=t^4$ and one-sided kernel descent**
+
+Folder: [`verdier_kernel_skeletonization/`](verdier_kernel_skeletonization/)
+
+#### Main content
+
+For four fixed anchored semistable models, the paper constructs geometric
+rational unipotent nearby coefficients and complete inverse-image supports.
+It proves one-sided descent for a specified generated kernel source and
+develops a Morita realization compatible with convolution, units, actual
+Verdier mates, and the stated support and refinement comparisons.
+
+#### Scope and limitations
+
+The results are scoped to the stated $xy=t^4$ models, $B=\{2\}$, and the
+specified generated source. The paper does not claim full faithfulness, a
+global root-kernel source, or unrestricted descent for arbitrary supports or
+models. The appendices give local completed-root calculations and an
+obstruction to ordinary distribution gluing; they do not establish a global
+root sheaf or costalk descent category.
+
 ## Search keywords
 
 This is the merged search index for all papers in the repository. When adding
@@ -116,7 +139,9 @@ categories, Morita coefficients, supported comparison, semistable refinement,
 subdivided annuli, thickness-two nodal models, exceptional curves, fs log
 blow-ups, Fujiwara--Kato acyclicity, costalk support, cellular Morita data,
 incidence diagrams, integer-cut models, coarse support diagrams, minimal
-diagonal kernels.
+diagonal kernels, kernel skeletonization, anchored semistable models,
+one-sided kernel descent, generated kernel sources, complete inverse-image
+supports, geometric unipotent nearby coefficients.
 
 ## Adding future papers
 

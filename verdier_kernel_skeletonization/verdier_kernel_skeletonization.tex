@@ -1,0 +1,3400 @@
+\documentclass[11pt]{article}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern,amsmath,amssymb,amsthm,amscd,mathtools,mathrsfs}
+\usepackage[a4paper,margin=28mm]{geometry}
+\usepackage[colorlinks=true,linkcolor=blue,urlcolor=blue]{hyperref}
+\newtheorem{proposition}{Proposition}[section]
+\newtheorem{theorem}[proposition]{Theorem}
+\newtheorem{lemma}[proposition]{Lemma}
+\newtheorem{corollary}[proposition]{Corollary}
+\theoremstyle{definition}
+\newtheorem{definition}[proposition]{Definition}
+\theoremstyle{remark}
+\newtheorem{remark}[proposition]{Remark}
+\newtheorem{example}[proposition]{Example}
+\newcommand{\Q}{\mathbf Q_\ell}
+\newcommand{\RHom}{R\operatorname{Hom}}
+\newcommand{\Perf}{\operatorname{Perf}}
+\newcommand{\Sk}{\mathbf{Sk}}
+\title{Verdier-Compatible Kernel Skeletonization\\under Anchored Semistable Refinement}
+\author{YINGFENG JIANG}
+\date{27 September 2026 --- scoped local comparisons and fixed companion inputs}
+\begin{document}
+\maketitle
+\begin{abstract}
+For four anchored semistable models of $xy=t^4$, we prove a one-sided
+kernel descent theorem with geometric rational unipotent nearby
+coefficients and complete inverse-image supports.  The actual counit
+$U_b\star T(P)\to P\star U_a$ is invertible on a specified generated
+kernel source.  This avoids identifying the pullback of a coarse
+diagonal with a fine diagonal, and makes proper product direct image
+strongly compatible with convolution.  Graph and rectangular kernels
+provide the finite geometric control needed to prove boundedness
+and the counit's invertibility.  The resulting anchored localization
+admits a Morita realization preserving convolution and units, with
+actual geometric Verdier mates and coherent support base change,
+localization boundaries and refinement comparisons.  The cellular
+target is constructed independently from strata and links.  An open
+stratum example distinguishes geometric kernel maps from the larger
+Hochschild mapping objects in the Morita target; the realization is
+not fully faithful.  A separate appendix proves a local
+point-valued completed-root realization and its carrier pairing,
+with separate ambient graph calculations and two geometric coarse
+rectangular tests.  Another appendix proves an obstruction to
+ordinary stalk/pullback gluing of distribution diagonals.  The exceptional
+mate retains a noninvertible nodal dualizing complex.  A global completed
+root kernel calculus is a separate research problem; the main theorem
+uses only the nearby-enhanced source and is independent of that problem.
+\end{abstract}
+
+\section{One-sided descent and the main results}
+The central comparison is a map of actual kernels, not only of their
+coefficient actions.  For a refinement, let $U_a$ denote its selected
+pullback graph and $T$ proper direct image on the product of supports.
+We prove $U_b\star T(P)\simeq P\star U_a$.  The comparison is
+one-sided: it does not identify a fibre-relation kernel with a fine
+diagonal.  Its counit description is what makes the ensuing
+convolution and Verdier comparisons compatible.
+
+
+Let $R$ be a complete strictly henselian trait with algebraically closed
+residue field $k$, uniformizer $t$, and $\ell\ne\operatorname{char}k$.
+Fix the coordinates and compatible base roots.  For $xy=t^4$ fix
+$B=\{2\}$ and the index
+\[
+ \mathcal J_B=\{B,\{1,2\},\{2,3\},\{1,2,3\}\}.
+\]
+Let $X_J$ be the actual integer-cut models of \cite{Refinement}, and
+$u_{JI}:X_J\to X_I$ their proper contractions for $I\subset J$.
+All cut inclusions in this paper allow equality.
+The coarse exceptional curve $E_B$ is $\mathbf P^1_k$, stratified by
+$U=\mathbf G_{m,k}$ and its endpoints $q_0,q_\infty$.
+For a locally closed union $S$ of coarse strata put
+$S_J=u_{JB}^{-1}(S)$, with its full scheme-theoretic inverse image.
+Products of supports in this paper are over $k$, not over $R$.
+
+The coefficient algebra $H_{S_J}$ is the restriction of the actual
+geometric nearby image of the constant coefficient, with its algebra
+structure retained.  Base Galois action is forgotten, not replaced by
+inertia invariants.  The ambient module category is the
+fibrewise-cartesian category $\mathcal A_{J|B}(S_J)$ of
+\cite{Refinement}; attachments between distinct coarse strata remain
+arbitrary.  The smaller unit-generated category $\mathcal C_J(S_J)$
+is not substituted for this ambient category.
+
+The geometric inputs from \cite{Refinement} are its branch-algebra
+comparison, the algebra-unit comparison $H\to Ru_*H$ on complete
+coarse supports, and its ``Comparison of the ambient gluing maps''
+lemma.  The latter compares arbitrary coarse attachments under
+module pullback; it does not assert kernel descent on products.
+We use also the actual composition of its integer-cut contractions.
+The new product comparison, convolution closure and their joint
+Verdier compatibility are proved here.  Thus these earlier geometric
+results are inputs, whereas preservation by a generated kernel and
+its product descent are conclusions, not defining conditions.
+
+\subsection{Framework and input contract}
+In the main text preceding the appendices, categories are
+$\Q$-linear stable infinity categories.  The appendices instead use
+their specified $\Lambda_r=\mathbf Z/\ell^r$-linear and integral
+categories; rationalization there occurs only after the stated adic
+recovery.  In either setting ``full'' retains mapping spectra.  We use a category enriched in
+$\operatorname{Cat}_\infty$, equivalently its enriched nerve as an
+$(\infty,2)$-category.  Its objects are decorated supports $(J,S)$;
+its Hom infinity categories are the bimodule-kernel categories of
+Definition~\ref{def:kernel-source}.  Kernels are 1-morphisms and
+kernel maps are 2-morphisms.  For each finite string the composition
+functor is the multiple-product shriek direct image of the relative
+multibar tensor.  Substitution is the Fubini map of these diagrams;
+the empty string is $\Delta_*H$.  Thus the enriched composition data
+are specified by the bar construction, not by an unspecified choice
+of associators in a triangulated category.  Restrict to the full
+generated Hom categories; closure is proved below.  We call this
+locally stable enriched category $\mathbb K_!$.  The notation in the
+main theorem denotes this category with its decorations.
+
+The supported category $\mathbb K_*$ has objects $a^D$ and Hom
+categories $\mathbb K_!(a,b)^{op}$, realized by the actual bounded
+Verdier labels.  Its composition is the dual of shriek composition.
+Here $\mathrm{co}$ takes the opposite of every Hom category, leaving
+objects and 1-morphism directions fixed.  Both geometric duality and
+cellular duality are enriched functors out of this $\mathrm{co}$
+category.  The cellular target is the enriched category of the
+specified algebras and right-target-perfect bimodules.
+
+We invert refinement \emph{1-morphisms}.  Precisely, a localization
+is an enriched functor $L:\mathbb K_!\to\mathbb L$ for which, for
+every locally stable enriched category $\mathbb E$, precomposition
+is an equivalence
+\begin{equation}
+ \operatorname{Fun}_{\mathrm{ex,ps}}(\mathbb L,\mathbb E)
+ \simeq
+ \operatorname{Fun}_{\mathrm{ex,ps},\mathcal W_B}
+                       (\mathbb K_!,\mathbb E).
+ \label{eq:localization-definition}
+\end{equation}
+Here functors are exact on Hom categories, transformations are
+pseudonatural (their naturality 2-cells are invertible), and
+modifications and their higher maps are retained.  The right side
+is the full subcategory of functors taking every named refinement
+graph to an equivalence; it therefore inverts their saturation too.
+No Verdier quotient of an individual Hom category is meant.
+Theorem~\ref{thm:anchored-localization} constructs $\mathbb L$ as the
+full anchor category, rather than assuming a localization theorem.
+In this model the localized Hom category between the images of
+$a,b$ is $\mathbb K_!(a_B,b_B)$, with its existing mapping spectra.
+
+Derived Morita theory supplies the general relation between
+functors and bimodules, and the interpretation of Hochschild
+cohomology as endomorphisms of the identity functor; see
+To\"en~\cite{ToenMorita}.  Integral-transform comparisons for
+quasicoherent sheaves on perfect derived stacks provide related
+geometric background~\cite{BFNTransforms}.  That quasicoherent
+setting is different from our constructible nearby coefficient
+categories and does not supply their kernel comparison.
+The geometric contribution here is closure of the specified kernel
+family, invertibility of the particular one-sided counit, and the
+compatibility of its actual comparison diagrams.  Morita coordinates,
+opposite-bimodule duality and enhanced assembly are general mechanisms,
+not new general Morita or six-operation theorems.
+
+The companion manuscripts in \cite{Local,Refinement} serve as fixed
+inputs for the dependencies listed below.  The cited version dates
+identify the specific source versions used; these manuscripts are not
+bundled with this public release.  Their original theorem labels are
+retained.  The following are the precise geometric inputs
+from \cite{Refinement}, in its fixed geometric rational coefficient domain:
+\begin{enumerate}
+\item \texttt{lem:branch-algebras} and
+\texttt{prop:unit-generation}: actual branch algebra maps and
+unipotent generation, with their module-valued evaluation maps;
+used in Proposition~\ref{thm:cellular-reconstruction} and the geometric
+generators for Proposition~\ref{thm:cellular-morita};
+\item \texttt{lem:cell-algebra-unit}: the actual equivalence
+$H_{S_I}\to Ru_{JI,*}H_{S_J}$ for complete inverse images of locally
+closed coarse supports, as an algebra map; used in the generated
+kernel convolution formulas and Theorem~\ref{thm:one-sided-descent};
+\item \texttt{thm:cell-reconstruction}: the intrinsic cartesian
+category on a complete coarse-stratum fibre is generated by its
+regular $H$-module; used in Proposition~\ref{thm:cellular-reconstruction};
+\item \texttt{lem:fibre-cartesian-ambient}: the actual adjunction
+$u_H^*\dashv Ru_*$ identifies the selected categories, with arbitrary
+coarse attachments and full module mapping spectra; used in
+Proposition~\ref{prop:coefficient-duality} and the selected coefficient
+comparisons underlying Theorem~\ref{thm:one-sided-descent};
+\item the fixed integer-cut chart contractions and their actual
+compositions.  Their algebra maps come from the one nearby functor.
+\end{enumerate}
+No product-kernel descent or new convolution coherence is imported
+from that paper.  External products, module bars and support
+base-change comparisons are constructed using the scheme six-operation
+enhancement of \cite{LZEnhanced,LZAdic}; this input is functorial on
+correspondence diagrams, including the pasting cells and adjunction
+mates, not just six triangulated functors.  All cited local results
+are used only on the four fixed models and complete coarse supports.
+
+\begin{theorem}[Generated closure, one-sided descent and realization]
+\label{thm:main}
+For the fixed data above and the source of
+Definition~\ref{def:kernel-source}, the following hold.
+\begin{enumerate}
+\item[\textup{(A)}] \emph{Geometric control.}
+The graph and rectangular families of
+Section~\ref{sec:kernel-closure} control the generated convolution
+source.  Every generated kernel and every selected action integrand
+is bounded constructible, and its action preserves the specified
+coefficient type.
+\item[\textup{(B)}] \emph{One-sided descent.}
+For $a=(J_a,S_a)$, $b=(J_b,S_b)$, $c=(J_c,S_c)$,
+$I\subset J_a,J_b,J_c$, $P:a\to b$ and $L:b\to c$,
+product direct image $T_I$ and the
+actual refinement graph counit give equivalences
+\[
+ U_b\star_!T_I(P)\xrightarrow{\sim}P\star_!U_a,
+ \qquad
+ T_I(L)\star_!T_I(P)\xrightarrow{\sim}T_I(L\star_!P).
+\]
+Together with the actual unit they make $T_I$ strongly compatible
+with composition.  At $I=B$ they identify the refinement-localized
+generated source with its full generated source at the anchor.
+\item[\textup{(C)}] \emph{Verdier-compatible Morita realization.}
+There is an enhanced realization into the independently constructed
+target of Definition~\ref{def:morita-target},
+\[
+ \Sk^{\ker,\min}_{!,B}:
+ \mathbf K_{\log,k;B}^{\mathrm{dec},\min,\Psi}
+       [\mathcal W_B^{-1}]
+ \longrightarrow
+ \mathbf K_{\mathrm{cell},k;B}^{\mathrm{dec},\mathrm{Mor},r\mathrm{perf}}.
+\]
+Writing $\Sk_!$ for this realization, its specified evaluation and
+Fubini maps give
+\begin{equation}
+ \boxed{\ \Sk_!(L\star_!P)\simeq
+                   \Sk_!(L)\star\Sk_!(P)\ },\qquad
+ \Sk_!(\Delta_*H_a)\simeq\mathsf B_S.
+ \label{eq:main-strong-realization}
+\end{equation}
+For $P:a\to b$, $L:b\to c$, the right side in Morita coordinates
+is $M_P\otimes_{\mathsf B_T}M_L$; this fixes the composition order.
+There is also a star realization on the corresponding supported
+source and an enhanced equivalence
+\[
+ D_{\mathrm{cell}}\circ(\Sk^{\ker,\min}_{!,B})^{\mathrm{co}}
+ \simeq \Sk^{\ker,\min}_{*,B}\circ D_{\log,\Psi}.
+\]
+The composition and unit constraints are coherently compatible with
+these actual Verdier mates, biduality, coarse support localization,
+and the support base-change and proper refinement diagrams used
+here, including the four-model diamond.
+\end{enumerate}
+Here $\mathrm{co}$ reverses kernel morphisms, not their endpoints;
+$\mathcal W_B$ consists of the specified refinement graphs.  No
+unrestricted base-change theorem or full faithfulness of this
+realization is asserted.
+\end{theorem}
+Part (A) is proved in Theorem~\ref{thm:kernel-preservation}.
+The central step of (B) is Theorem~\ref{thm:one-sided-descent};
+Theorem~\ref{thm:anchored-localization} deduces localization from it.
+Part (C) uses the geometric mate and Morita comparison, assembled
+with descent in Proposition~\ref{thm:joint-kernel-diagram}.
+The superscript $\Psi$ is essential; the subscript $\log$ records
+the model's origin, not a proved original log/root kernel realization.
+
+\section{Geometric coefficient types and kernel sources}
+\label{sec:types}
+We use the enhanced constructible adic scheme formalism of
+\cite{LZEnhanced,LZAdic}, on the scheme domains used in
+\cite{Refinement} and rationalized to $\Q$.  For an ambient category in
+which arbitrary relative tensors can be formed, use
+$\mathscr D(S)=\operatorname{Ind}(D_c^b(S,\Q))$, with the tensor,
+inverse-image and shriek direct-image functors extended continuously
+from constructible coefficients.  Their right adjoints are taken in
+this ambient category.  On the bounded constructible domains used
+below they agree with the actual geometric adjoints.  Module mapping
+objects are mapping objects in this enhancement, not maps of underlying
+cohomology modules.  Ind-completion is an ambient device; it does not
+assert constructibility of a relative tensor over a nearby algebra.
+
+\begin{lemma}[Bounded objects in the ambient completion]
+\label{lem:bounded-ambient}
+For a constructible algebra $A$, the full subcategory of
+$A$-modules in $\mathscr D(S)$ with bounded constructible underlying
+object has the actual enhanced module structures and mapping spectra.
+The same holds for bimodules.  Scalar geometric right adjoints, when
+their actual values are bounded constructible, agree with the right
+adjoints in this completion.  Direct image of module sheaves has the
+same agreement on this domain.
+\end{lemma}
+\begin{proof}
+Write $\mathcal C=D_c^b(S,\Q)$.  The embedding
+$\mathcal C\to\operatorname{Ind}(\mathcal C)$ is fully faithful and
+symmetric monoidal.  The coherent data for an action on a bounded
+object involve finite tensor words in bounded objects; they therefore
+use the same mapping spectra in either enhancement.  More explicitly,
+for bounded underlying $M,N$, the free-module bar resolution gives
+\[
+ \operatorname{Map}_{\operatorname{Mod}_A}(M,N)
+ \simeq\operatorname{Tot}_{[n]\in\Delta}
+     \operatorname{Map}_{\mathcal C}(A^{\otimes n}\otimes M,N).
+\]
+This is the same cosimplicial spectrum for actual module sheaves and
+for the completion.  Its totalization is taken in spectra; no
+commutation of a limit with a colimit is asserted.  Applying the same
+argument to the tensor product of the two acting algebras, with the
+appropriate opposite algebra, proves the bimodule assertion.
+
+For a scalar adjunction, test the ambient right adjoint against every
+$C\in\mathcal C$.  The geometric adjunction identifies these maps
+with those into the actual bounded right-adjoint value.  These $C$
+are compact generators of the completion, so they identify the two
+values.  For a map with an algebra comparison $f^*A\to B$, test the
+right adjoint to module inverse image against free modules
+$A\otimes C$.  Their inverse images are $B\otimes f^*C$; the free
+module adjunction and scalar geometric adjunction give the same
+representing value, with its restricted $A$-action, as actual module
+direct image.  Free modules on the $C$ generate the ambient module
+category, which proves the assertion.  This does not claim that an
+arbitrary bounded-underlying module is compact as a module, or that
+an arbitrary relative tensor or relative internal Hom is bounded.
+Those boundedness statements must be established separately below.
+\end{proof}
+
+\paragraph{Module conventions.}
+Coefficient objects are right $H_a$-modules; supported objects are
+right $H_a^{op}$-modules, equivalently left $H_a$-modules.  A shriek
+kernel is left $H_a$, right $H_b$.  Dualizing its two commuting
+actions gives left $H_b$, right $H_a$; we then exchange their written
+order, obtaining left $H_a^{op}$, right $H_b^{op}$.  This exchange
+uses the symmetry of complexes with its Koszul signs.  It changes
+algebra sides, not the geometric endpoints.  For $N$ supported,
+$p_a^!N$ is a left $p_a^*H_a$-module: use
+$p_a^*H_a\otimes p_a^!N\to p_a^!(H_a\otimes N)\to p_a^!N$.
+Thus $R\mathcal Hom_{p_a^*H_a}(P,p_a^!N)$ takes Hom of left modules.
+Precomposition with the right $H_b$-action on $P$ gives a left
+$H_b$-action, written as a right $H_b^{op}$-action after pushforward.
+All exchanges below use this same convention on mapping spectra.
+
+\begin{definition}[Intrinsic coefficient category on one fibre]
+\label{def:intrinsic-fibre}
+For a complete coarse-stratum fibre $Z\subset S_J$, let
+$\mathcal C_J(Z)$ be the full category of bounded constructible right
+$H_Z$-modules with unipotent lisse cohomology on each fine open
+stratum and perfect node restrictions.  Each individual internal
+branch attaching map from a node module to its branch link must be
+an equivalence of node modules.  This condition is imposed on each
+branch separately, not on their direct sum.  Morphisms are the
+actual module mapping spectra.  Exactness of restriction and links
+and closure of perfect/unipotent objects under retracts make this a
+stable idempotent-complete category.  On $U$ it is the unipotent
+lisse category; on a coarse node it is $\Perf(A_q)$.
+\end{definition}
+
+\begin{definition}[Star and supported coefficient types]
+\label{def:coefficient-types}
+For a coarse support $S$, put $U_S=S\cap U$ and
+$Z_S=S\cap\{q_0,q_\infty\}$.  The category $\mathcal A_B(S)$ is the
+full category of $H_S$-modules with bounded constructible underlying
+complex, unipotent lisse restriction to $U_S$, and restriction in
+$\Perf(A_q)$ at each $q\in Z_S$, where $A_q=i_q^*H_S$.
+No invertibility is required of its attaching maps.
+On $S_J$, define $\mathcal A_{J|B}(S_J)$ by the same fine-stratum
+conditions, requiring branchwise cartesian coefficients only within
+the complete inverse image of each individual coarse stratum.
+Thus on the fibre $Z_{q,J}$ all its internal branch attachment maps
+are equivalences, whereas its attachments to the coarse open stratum
+are unrestricted.  This is an intrinsic condition on actual module
+sheaves, not a condition of lying in a prescribed essential image.
+
+Use ordinary Verdier duality
+\[
+ D_SM=R\mathcal Hom_{\Q}(M,\omega_S),\qquad
+ \omega_S=a_S^!\Q.
+\]
+The supported type $\mathcal A^D_{J|B}(S_J)$ is specified as follows.
+Its objects are bounded constructible opposite-action modules $N$
+whose exceptional restriction to each coarse-stratum fibre $Z$
+belongs to $D_Z\mathcal C_J(Z)$.  On the coarse open stratum this
+means the ordinary Verdier partner of the unipotent lisse category.
+Here $\mathcal C_J(Z)$ is specified by the intrinsic internal branch
+conditions just stated.  Empty supports have the zero category.
+\end{definition}
+
+\begin{proposition}[The two coefficient types are Verdier partners]
+\label{prop:coefficient-duality}
+Ordinary geometric Verdier duality induces an exact anti-equivalence
+\[
+ D_{S_J}:\mathcal A_{J|B}(S_J)^{op}
+               \simeq\mathcal A^D_{J|B}(S_J),
+\]
+with the actual evaluation biduality.  In particular no stalk-perfect
+condition is substituted for an exceptional-restriction condition on
+the supported side.
+\end{proposition}
+\begin{proof}
+For the locally closed inclusion $e:Z\to S_J$, geometric duality gives
+$e^!D_{S_J}M\simeq D_Ze^*M$.  This identifies exactly the specified
+conditions on each coarse-stratum fibre.  Conversely
+$e^*D_{S_J}N\simeq D_Ze^!N$ identifies the reverse conditions.
+Verdier biduality on bounded constructible $\Q$-complexes gives the
+inverse equivalences.  Applying duality to the module action produces
+the opposite action; the biduality map is linear because evaluation
+is balanced for that action.  The argument uses geometric duality,
+not tensor-dualizability as an $H$-module or as a sheaf.
+\end{proof}
+
+The convention of \cite{Refinement} is
+$\widetilde D_S=D_S(-1)[-2]$.  Thus $D_S=\widetilde D_S(1)[2]$.
+These categories are stable under Tate twists and shifts, but this
+translation must still be made on named support objects and pairings:
+$W_S:=D_SH_S(-1)[-2]$, so $D_SH_S=W_S(1)[2]$.  Globally
+$R\Gamma(S,D_SM)\simeq D_{\Q}R\Gamma_c(S,M)$.
+The regular unit is $H_S$, not $D_SH_S$ or $W_S$.
+
+\begin{definition}[Actual kernel categories and fixed generators]
+\label{def:kernel-source}
+An object is a decorated support $a=(J,S)$, with coefficient type
+$\mathcal A_a=\mathcal A_{J|B}(S_J)$ and algebra $H_a$.
+For $a,b$, put
+\[
+ \mathscr K_!(a,b)=
+ {}_{p_a^*H_a}\operatorname{Bimod}_{p_b^*H_b}
+                         (\mathscr D(S_J\times_k T_K)).
+\]
+Let $\mathscr K_!^b(a,b)$ be its full subcategory on kernels whose
+underlying $\Q$-complex is bounded constructible.  It is not restricted
+by a condition on the kernel's action.  All kernel mapping spectra,
+including noninvertible morphisms, are retained.
+
+Specify the following geometric generators.
+\begin{enumerate}
+\item The unit $\Delta_*H_a$ at every decorated support.
+\item For a coarse open or closed inclusion $f:a\hookrightarrow b$
+within one model, both graph kernels
+$\Gamma_{f,!}H_a$ on $a\times b$ and
+$\Gamma_{f}^{t}{}_{,!}H_a$ on $b\times a$.
+Their actions are respectively $f_!$ and the module inverse image.
+The coefficient maps are the actual restriction isomorphisms.
+Also specify the diagonal images of
+$j_!H_{U}\to H_b\to i_*H_Z\to j_!H_U[1]$ for each coarse
+open/closed decomposition, with these actual arrows.
+\item For each $J$ and each endpoint $q$, the two rectangular kernels
+$H_{U_J}\boxtimes H_{Z_{q,J}}$ and
+$H_{Z_{q,J}}\boxtimes H_{U_J}$.
+\item For $u:a'\to a$ a refinement on a complete inverse-image
+support, the transposed graph kernel
+$\Gamma_u^{t}{}_*H_{a'}$ on $a\times a'$, with the left action
+through $u^*H_a\to H_{a'}$.  These are the distinguished arrows
+$\mathcal W_B$.  Their actions are the actual $u_H^*$.
+\end{enumerate}
+The proper graph in the reverse direction is available in the
+ambient kernel category, but is not declared an inverse kernel or
+added to this generating list.  Proper direct image is already the
+inverse on the selected coefficient categories; inverting a refinement
+in the eventual source is a separate localization step.
+
+The generated shriek source $\mathscr K_!^{\mathrm{gen}}$ is the smallest
+full stable idempotent-complete family of subcategories of
+$\mathscr K_!$, containing this list and closed under Tate twists and
+finite composable convolutions.  Equivalently take finite expressions
+in these operations, evaluate them in the ambient categories, and
+retain all actual maps between their evaluations.  No quotient by
+equality of actions and no preservation test enters this definition.
+\end{definition}
+We denote this enhanced generated source, with its fixed geometric
+decorations, by $\mathbf K_{\log,k;B}^{\mathrm{dec},\min,\Psi}$.
+The supported source uses the actual Verdier labels specified below;
+its product-duality functor is denoted $D_{\log,\Psi}$.
+
+
+\begin{proposition}[Ambient composition and geometric generator actions]
+\label{prop:ambient-kernel-types}
+Ambient convolution and $\Delta_*H_a$ define associative unital
+composition on these kernel categories with their enhanced cells.
+The graph actions in Definition~\ref{def:kernel-source} are the named
+geometric functors.  These assertions do not imply that
+$\mathscr K_!^{\mathrm{gen}}\subset\mathscr K_!^b$, or that all its
+actions preserve $\mathcal A_a$.
+\end{proposition}
+\begin{proof}
+Form the relative tensor by its two-sided bar realization.
+Inverse image, tensor and shriek direct image preserve colimits in
+the specified ambient model.  The ordinary geometric projection and
+base-change maps therefore extend to this realization.  On a fourfold
+product, either iterated convolution is the direct image of the same
+three factors, relatively tensored over the two middle algebras.
+Fubini and tensor associativity give its comparison.  For any number
+of factors use the same multiple bar realization and the composite
+projection; its substitution cells give the associativity coherences.
+The diagonal projection formula and the regular-module unit give both
+unit cells and their compatibilities.  This is the ambient enhanced
+construction, not a boundedness argument for its relative tensors.
+
+For the graph of $f$, restriction of the two projections is $(1,f)$;
+the projection formula cancels the regular source algebra and the
+remaining direct image is $f_!$.  For the transposed graph, the
+projections restrict to $(f,1)$, giving
+$H_a\otimes_{f^*H_b}f^*(-)$.  These calculations use the same units
+and counits as the geometric functors, hence identify their action
+on morphisms too.  Each listed generator has bounded constructible
+underlying complex: its coefficient is an actual constructible nearby
+restriction, and the specified maps are finite-type immersions or
+proper graphs.  This verifies the generators, not their convolution
+closure.
+\end{proof}
+
+\begin{definition}[Bounded star labels and their variance]
+\label{def:star-kernel-types}
+The supported object corresponding to $a$ is $a^D$ with coefficient
+category $\mathcal A_a^D$.  The bounded star kernel category from
+$a^D$ to $b^D$ consists of geometric labels
+$P^D=D_{S_J\times T_K}P$ for $P\in\mathscr K_!^b(a,b)$,
+with their actual opposite-action module maps.  This is a full
+subcategory of left $p_a^*H_a^{op}$, right $p_b^*H_b^{op}$ modules.
+The generating star labels are the duals of the specified generators.
+Biduality gives
+\[
+ (\mathscr K_!^b(a,b))^{op}\simeq
+                    \mathscr K_*^b(a^D,b^D).
+\]
+It changes the two coefficient types, not the order of the endpoints.
+If a shriek composite is bounded constructible, its star-labelled
+composite is $D(L\star_!P)$.  This specifies the star composition
+convention on its bounded domain.  Boundedness of every generated
+composite is proved separately in Theorem~\ref{thm:kernel-preservation}.
+\end{definition}
+Indeed duality reverses the two commuting actions; interpreting them
+as actions of the opposite algebras in the displayed order gives the
+stated types.  Geometric biduality identifies the full module mapping
+spectra and their reversed composition.  The star-labelled unit is
+$D\Delta_*H_a$, not an assertion that $D H_a$ is the shriek unit.
+
+The actual star action to verify is
+\[
+ N\longmapsto Rp_{b,*}R\mathcal Hom_{p_a^*H_a}
+              (P,p_a^!N),\qquad N\in\mathcal A_a^D,
+ \quad P=D(P^D).
+\]
+This expression is covariant in the label $P^D$, since its Hom is
+contravariant in $P$.  It is defined in the ambient module categories.
+Its selected bounded domain and geometric identification are proved
+below, rather than inserted in the definition of an allowed kernel.
+Theorem~\ref{thm:kernel-preservation} proves that the generated
+source is bounded, and Theorem~\ref{thm:geometric-star-mate} identifies
+this actual geometric operation on its selected coefficients.
+
+\section{Geometric kernels and a first convolution calculation}
+For coarse supports $S,T$ write $p_S,p_T$ for the projections of
+$S\times_k T$.  A kernel has commuting left $p_S^*H_S$ and right
+$p_T^*H_T$ actions; input modules are right modules.  Its
+shriek action is the actual functor
+\[
+ \Phi_P^!(M)=Rp_{T,!}
+       (p_S^*M\otimes^L_{p_S^*H_S}P).
+\]
+For kernels $P:S\to T$ and $L:T\to V$, the actual ambient convolution is
+\[
+ L\star_!P=Rp_{SV,!}
+  (p_{ST}^*P\otimes^L_{p_T^*H_T}p_{TV}^*L).
+\]
+These expressions are initially formed in the ambient derived module
+categories.  Bounded constructibility and preservation of the selected
+coefficient categories require proofs for the prescribed generators.
+
+Definition~\ref{def:kernel-source} fixes the generators and their
+ambient closure.  In this section we start checking their actual
+integral transforms; later preservation arguments must apply to
+that specified collection rather than redefine it by the desired
+conclusion.
+
+\begin{proposition}[Ambient rectangular convolution]\label{prop:rectangle}
+At the coarse model, put $P_{S,T}=H_S\boxtimes_{\Q}H_T$ for
+$S,T\in\{U,q\}$, where $q$ is either endpoint.  The geometric
+projection and compact-support base-change maps give
+\[
+ \Phi^!_{P_{S,T}}(M)\simeq R\Gamma_c(S,M)\otimes_{\Q}H_T
+\]
+for bounded constructible module coefficients $M$, and
+\[
+ P_{T,V}\star_!P_{S,T}
+ \simeq R\Gamma_c(T,H_T)\otimes_{\Q}P_{S,V}.
+\]
+These are natural ambient comparisons, with the indicated outer
+coefficient actions.
+\end{proposition}
+\begin{proof}
+In the action formula the first coefficient factor of the rectangle
+is the free regular $H_S$-module.  The relative tensor is consequently
+$M\boxtimes H_T$.  Compact-support base change for
+$S\times T\to T$, followed by the projection formula, gives the first
+map and identifies it as an equivalence.
+On $S\times T\times V$, the convolution integrand is canonically
+\[
+ p_S^*H_S\otimes_{\Q}p_T^*H_T\otimes_{\Q}p_V^*H_V,
+\]
+because the two middle regular factors tensor over $p_T^*H_T$.
+Compact-support base change and projection along the middle factor
+give the second comparison.  These are maps in the same enhanced
+six-operation formalism, hence natural in kernel and coefficient maps.
+On these coarse strata $H_U=\mathbf Q_{\ell,U}$ by smooth specialization and
+$H_q$ is the bounded finite-dimensional node cochain algebra.
+Thus the displayed compact-support complexes are bounded and finite.
+The tensor calculation cancels a regular algebra factor, not a
+Verdier dual of an attached coefficient.
+\end{proof}
+
+Write $A_q=H_q$ as its actual node cochain algebra.  The two tests give
+\[
+ P_{q,U}\star_!P_{U,q}\simeq A_q\otimes_{\Q}P_{U,U},\qquad
+ P_{U,q}\star_!P_{q,U}\simeq
+ R\Gamma_c(\mathbf G_m,\Q)\otimes_{\Q}P_{q,q}.
+\]
+Here $H^0(A_q)=\Q$, $H^1(A_q)=\Q(-1)$, while
+$H_c^1(\mathbf G_m,\Q)=\Q$ and
+$H_c^2(\mathbf G_m,\Q)=\Q(-1)$; other degrees vanish.
+We retain the actual complexes and maps, without choosing a splitting
+or replacing them by Euler characteristics.  Its compatibility with the localization boundary is proved in
+Proposition~\ref{prop:mate-operations}; actual fine-model product
+descent is proved in Section~\ref{sec:product-descent}.
+
+\section{A finite geometric family controlling all generated kernels}
+\label{sec:kernel-closure}
+For $W\subset S$ a locally closed union of coarse strata, write
+$e^J_{W,S}:W_J\to S_J$ and put
+\[
+ E^J_S(W)=e^J_{W,S,!}H_{W_J}.
+\]
+These are actual coefficient modules, with their restriction-induced
+$H_{S_J}$-actions.  Extension by zero for a locally closed immersion
+uses its usual open/closed factorization.  All intersections below
+are scheme-theoretic complete inverse images of coarse intersections.
+In particular their maps are not arbitrary fine support inclusions.
+
+For $J\subset K$, supports $S,T$, and $W\subset S\cap T$, let
+\[
+ \gamma_W:W_K\longrightarrow S_J\times T_K,
+ \qquad z\longmapsto(e^J_{W,S}u_{KJ}(z),e^K_{W,T}(z)),
+ \qquad G_{J,K}^{S,T}(W)=\gamma_{W,!}H_{W_K}.
+\]
+The source action uses the actual nearby algebra pullback map; the
+target action is restriction.  Also set, for $W\subset S$, $Z\subset T$,
+\[
+ R_{J,K}^{S,T}(W,Z)=E^J_S(W)\boxtimes_{\Q}E^K_T(Z).
+\]
+Call these the graph and rectangular families.  They are defined
+geometrically on products, independently of the actions they induce.
+Empty supports give zero.  In formulas we suppress the outer support
+superscripts when the endpoints specify them.
+
+\begin{lemma}[Derived support intersection]
+\label{lem:support-intersection}
+Let $H$ be the nearby algebra on a support $X$, and $e:Z\to X$,
+$f:V\to X$ allowed locally closed immersions.  For
+$h:Z\cap V\to X$ there is a canonical bimodule equivalence
+\[
+ (e_!e^*H)\otimes_H^L(f_!f^*H)\simeq h_!h^*H.
+\]
+It includes empty, open, closed and mixed supports, and is natural
+in their support base-change diagrams.
+\end{lemma}
+\begin{proof}
+Set $Q_Z=e_!\mathbf Q_{\ell,Z}$ and $Q_V=f_!\mathbf Q_{\ell,V}$, regarding these as scalar
+sheaves on $X$.  Scalar projection for immersions identifies
+$e_!e^*H=H\otimes_{\Q} Q_Z$ as an $H$-bimodule.  The relative bar
+therefore cancels a free regular factor and gives
+$H\otimes_{\Q} Q_Z\otimes_{\Q} Q_V$.
+The scalar map $Q_Z\otimes Q_V\to h_!\mathbf Q_{\ell,Z\cap V}$ is the
+support base-change/projection map; on every geometric stalk it is
+$\Q\otimes\Q\to\Q$ or $0\to0$, hence an equivalence.
+Scalar coefficients form a field, so no hidden scalar Tor term is
+present.  This proves the assertion with both regular actions.
+Projection and base change for the open/closed factorizations give
+the displayed map and its naturality.  The bar proof works in the
+ambient completion by colimit extension of these scalar maps.
+In particular this is a sheaf support calculation, not a claim
+about derived intersections of coherent structure sheaves.
+\end{proof}
+
+\begin{proposition}[Four geometric convolution formulas]
+\label{prop:four-convolutions}
+For $J\subset K\subset L$, all well-typed instances of the following
+are canonical equivalences of kernels with both coefficient actions:
+\begin{align*}
+ G_{K,L}(V)\star_!G_{J,K}(W)
+    &\simeq G_{J,L}(W\cap V),\\
+ R_{K,L}(V,Y)\star_!G_{J,K}(W)
+    &\simeq R_{J,L}(W\cap V,Y),\\
+ G_{K,L}(V)\star_!R_{J,K}(W,Z)
+    &\simeq R_{J,L}(W,Z\cap V),\\
+ R_{K,L}(V,Y)\star_!R_{J,K}(W,Z)
+    &\simeq C_K(Z\cap V)\otimes_{\Q}R_{J,L}(W,Y),
+ \qquad C_K(A)=R\Gamma_c(A_K,H_{A_K}).
+\end{align*}
+The scalar complex $C_K(A)$ is perfect over $\Q$.  These are the
+base-change, projection and algebra-unit comparisons themselves,
+not identifications chosen from equality of the corresponding actions.
+\end{proposition}
+\begin{proof}
+First, on one support the regular coefficient factors give
+\[
+ E_T^K(Z)\otimes_{H_{T_K}}^L E_T^K(V)
+             \simeq E_T^K(Z\cap V).
+\]
+This is Lemma~\ref{lem:support-intersection}, applied with both
+regular coefficient actions.  It does not use perfectness over a product algebra.
+The same identity holds after pullback to a product of supports.
+Across a refinement we use only the actual algebra map
+$u^*H_{W_K}\to H_{W_L}$, not an assertion that it is an
+isomorphism.  The regular cancellation there is
+$H_{W_L}\otimes_{u^*H_{W_K}}u^*H_{W_K}=H_{W_L}$.
+Each support base-change map below is the scalar shriek
+Beck--Chevalley map, extended to the relative bar.  The source
+and target actions commute with every face and degeneracy of that
+bar; hence these comparisons, their inverses, and their Fubini
+pasting cells are bimodule maps.
+
+For the first formula the two graph supports on the threefold
+product have fibre product $(W\cap V)_L$.  On that fibre product the
+middle regular algebra is pulled back from level $K$, and its tensor
+with $H_{(W\cap V)_L}$ cancels by the regular-module unit.  Composition
+of the two monomial model maps gives exactly the stated graph.
+Shriek base change on the graph squares and composition of direct
+images construct the asserted kernel map.
+
+For the second formula, after the same cancellation and intersection,
+the remaining source factor is the direct image of
+$H_{(W\cap V)_K}$ along
+$(W\cap V)_K\to(W\cap V)_J$ and then its immersion into $S_J$.
+This map between complete inverse-image supports is proper.  The
+actual nearby algebra unit of \cite{Refinement} gives
+\[
+ H_{(W\cap V)_J}\xrightarrow{\sim}
+ Ru_*H_{(W\cap V)_K}.
+\]
+Its inverse, with the specified algebra actions, supplies the required
+comparison.  Here is its linearity as a specified map.  Put
+$A=H_{(W\cap V)_J}$, $D=Ru_*H_{(W\cap V)_K}$ and let
+$\eta:A\to D$ be that algebra unit.  Regard $D$ as an $A$-bimodule
+through $\eta$, and let $r=\eta^{-1}$ in that enhanced bimodule
+category.  Multiplicativity of $\eta$ and its inverse give the square
+\begin{equation}
+\begin{CD}
+ A\otimes D @>{1\otimes r}>> A\otimes A\\
+ @V{m_D}VV @VV{m_A}V\\
+ D @>{r}>> A .
+\end{CD}
+\label{eq:rectangle-graph-linearity}
+\end{equation}
+Here $m_D$ is the action through $\eta$; the right-action square is
+obtained in the same way.  These are squares in the enhancement:
+an equivalence of algebra objects has its inverse there, rather
+than an arbitrarily chosen inverse on cohomology.  Restriction of
+the source algebra and extension by zero retain these squares.
+External product with $E^L(Y)$ retains target linearity, since
+$1\boxtimes m_Y$ commutes with $r\boxtimes1$ by tensor functoriality.
+Thus both outer actions on the second formula are accounted for.
+External product with $E^L(Y)$ then gives the second formula.  This is where a genuine proper coefficient comparison is
+used; an ordinary graph pullback assertion would not suffice.
+
+For the third formula the middle variable is fixed by the graph at
+level $L$.  Its coefficient restriction is the module pullback of
+$E^K(Z)$, intersected with $V_L$, hence $E^L(Z\cap V)$.
+The source factor $E^J(W)$ remains unchanged.  For the fourth formula
+the middle tensor is the first displayed intersection module.
+Compact-support base change and projection integrate it to $C_K(Z\cap V)$.
+All steps are maps of the actual sheaf modules on the threefold
+product and respect the outer actions.
+
+The coefficient $H_{A_K}$ is bounded constructible, the support is
+separated of finite type over the algebraically closed field, and
+coefficients are geometric rational $\ell$-adic coefficients.
+Constructible compact-support finiteness in the specified six-operation
+domain therefore makes $C_K(A)$ a bounded finite-dimensional complex.
+Alternatively proper pushforward to $A_B$ identifies it with
+$R\Gamma_c(A_B,H_{A_B})$.  No compact-support complex is replaced by
+its Euler characteristic.
+\end{proof}
+
+\begin{theorem}[Bounded kernels and preservation of the selected types]
+\label{thm:kernel-preservation}
+Every kernel in $\mathscr K_!^{\mathrm{gen}}(a,b)$ has bounded
+constructible underlying complex.  Its actual integral transform is
+an exact functor $\mathcal A_a\to\mathcal A_b$, natural in all actual
+kernel maps.  Moreover, for $M\in\mathcal A_a$ the integrand
+$p_a^*M\otimes_{p_a^*H_a}^LP$ is bounded constructible on the product.
+These assertions apply to the fixed generating collection and its
+whole finite convolution closure; they are not admissibility conditions.
+\end{theorem}
+\begin{proof}
+For each comparable pair $J\subset K$, let $\mathcal N(a,b)$ be the
+full thick subcategory of the ambient kernel category generated by
+all the graph and rectangular families above, allowing perfect
+$\Q$-scalar factors.  For a noncomparable pair use the zero category.
+Every specified generator belongs to this family: the unit and the
+localization diagonal terms are $G_{J,J}(W)$, the immersion graphs
+are its corresponding support-to-support versions, refinement graphs
+are $G_{J,K}(S)$, and the given rectangles are instances of $R$.
+Each family member is bounded constructible.  The four formulas and
+perfectness of $C_K(A)$ show that $\mathcal N$ is closed under
+convolution on its generators.  Since ambient convolution is exact
+in each variable and preserves retracts, this extends first in one
+variable and then the other to all of $\mathcal N$.
+Thus the independently defined generated source is contained in
+$\mathcal N$, and every one of its objects is bounded constructible.
+There is no assertion of a uniform amplitude for all finite words.
+
+For preservation compute the family actions before taking any thick
+closure.  The graph action is
+\[
+ \Phi^!_{G_{J,K}(W)}(M)
+  \simeq e^K_{W,T,!}\bigl(u_{KJ,W,H}^*e^{J,*}_{W,S}M\bigr),
+\]
+and the rectangular action is
+\[
+ \Phi^!_{R_{J,K}(W,Z)}(M)
+  \simeq R\Gamma_c(W_J,e^{J,*}_{W,S}M)
+                      \otimes_{\Q}E^K_T(Z).
+\]
+The graph calculation is projection along its actual graph;
+the rectangular one is compact-support base change and cancellation
+of the regular source factor.  Restriction to a coarse support union
+preserves the intrinsic fibre conditions.  Actual module pullback
+under refinement preserves them by the ambient-gluing theorem of
+\cite{Refinement}.  Extension by zero across coarse strata preserves
+them too: a whole coarse fibre is either retained or is assigned zero,
+so no internal fibre attachment is cut apart.  Hence the graph action
+lies in $\mathcal A_b$.  For the rectangle the scalar factor is
+perfect over $\Q$, while $E^K_T(Z)$ belongs to $\mathcal A_b$ by
+these same restriction and extension observations.  This proves its
+preservation.  Exactness and retracts extend the assertion to
+$\mathcal N$ because the selected coefficient categories are stable
+and idempotent-complete.
+
+For completeness the stronger integrand assertion is checked before
+pushing forward.  For a graph it is the graph extension of
+$u_{KJ,W,H}^*e^{J,*}_{W,S}M$, which has just been shown to be a
+bounded selected coefficient.  For a rectangle it is
+\[
+ (e^J_{W,S,!}e^{J,*}_{W,S}M)\boxtimes_{\Q}E^K_T(Z),
+\]
+a bounded constructible external product.  Exactness of the integrand
+functor in the kernel extends this to $\mathcal N$.  This explicitly
+rules out an unbounded relative Tor integrand in the claimed domain.
+All functors and comparison maps were defined in the ambient module
+categories, so preservation restricts them on their full mapping
+spectra; it does not select a quotient of kernel morphisms.
+\end{proof}
+
+\begin{remark}[Why the direction of refinement matters]
+The proof uses the generating direction of
+Definition~\ref{def:kernel-source}: refinement acts by $u_H^*$.
+It does not admit an arbitrary reverse graph before localization.
+Over a contracted fibre the latter would involve the coefficient map
+$A_q\to H_z$ in the other module direction; tensor-perfectness over
+$A_q$ does not follow from finite-dimensionality over $\Q$.
+The four-formula argument, rather than an unrestricted finite-Tor
+claim, is the closure proof used here.
+\end{remark}
+
+\section{Cellular coefficients from strata and links}
+\label{sec:cellular}
+We now construct the cellular category without defining it as a
+geometric endomorphism algebra.  All data in the construction are
+stratum and punctured-branch data at the coarse model.
+Put $A=R\Gamma(U,\Q)$ and, for each endpoint $q$, let $B_q$ be
+the cochain algebra of the punctured strict neighbourhood on its
+included branch.  Retain the actual algebra maps
+\[
+ A\xrightarrow{\kappa_q}B_q\xleftarrow{\lambda_q}A_q.
+\]
+These are equivalences by the branch-algebra calculation in
+\cite{Refinement}, with the primitive Kummer class and the sign of
+the chosen branch coordinate.  They are not replaced by chosen
+identifications of their graded cohomology rings.
+Regard $B_q$ as an $(A,A_q)$-bimodule through these maps and define
+\[
+ \mathcal L_q(N)=N\otimes_A^L B_q\quad(N\in\Perf(A)).
+\]
+It takes values in $\Perf(A_q)$ because both algebra maps are
+equivalences.  This is a branch functor, not a condition on attachments.
+
+\begin{definition}[The cellular gluing category]\label{def:cellular-gluing}
+If $U\subset S$, define $\mathcal E_B(S)$ to be the stable
+homotopy-coherent comma category of data
+\[
+ (N,(M_q),(\alpha_q)),\qquad
+ N\in\Perf(A),\quad M_q\in\Perf(A_q),\quad
+ \alpha_q:M_q\longrightarrow\mathcal L_q(N)\ (q\in Z_S).
+\]
+Precisely, it is the pullback of the arrow category of
+$\prod_{q\in Z_S}\Perf(A_q)$ along the functor sending
+$(N,(M_q))$ to $((M_q),(\mathcal L_q(N)))$.
+If $S$ has only endpoints, set
+$\mathcal E_B(S)=\prod_{q\in S}\Perf(A_q)$; for $S=\varnothing$
+use the zero category.  These constructions are stable and
+idempotent-complete: the arrow category and the displayed exact
+pullback compute finite limits, colimits and retracts componentwise.
+\end{definition}
+
+For two triples $E,E'$, the full mapping spectrum is
+\begin{equation}
+\begin{aligned}
+ \operatorname{Map}_{\mathcal E}(E,E') &=
+ \operatorname{fib}\left(
+  \begin{aligned}
+   &\operatorname{Map}_A(N,N')\oplus
+     \prod_q\operatorname{Map}_{A_q}(M_q,M'_q)\\
+   &\longrightarrow\prod_q\operatorname{Map}_{A_q}(M_q,\mathcal L_qN')
+  \end{aligned}
+ \right),\\
+ (f,(g_q)) &\longmapsto
+ (\mathcal L_q(f)\alpha_q-\alpha'_qg_q)_q.
+\end{aligned}
+ \label{eq:cellular-maps}
+\end{equation}
+This formula includes the homotopies in the attaching squares.
+Deleting an endpoint deletes its data.  Restriction to the open
+stratum selects $N$; restriction to an endpoint selects $M_q$.
+The closed costalk in the reconstructed geometry is
+$\operatorname{fib}(\alpha_q)$, not $M_q$.
+
+\begin{lemma}[Module recollement and the selected generators]
+\label{lem:module-recollement}
+The open/closed gluing and mapping formulas used here hold in actual
+right $H$-module sheaves.  On $U$, bounded complexes with unipotent
+lisse cohomology form $\operatorname{thick}(\mathbf Q_{\ell,U})$.  On a complete
+coarse-node fibre $v:Z\to q$, the functor
+$F_q=H_Z\otimes_{A_q}(-)$ identifies $\Perf(A_q)$ with
+$\mathcal C_J(Z)$.
+\end{lemma}
+\begin{proof}
+The actions on $Rj_*V$ and $i_*M$ use respectively the algebra units
+$H\to Rj_*j^*H$ and $H\to i_*i^*H$.  Naturality of these units
+makes $Rj_*V\to i_*i^*Rj_*V$ linear.  An attaching map
+$M\to i^*Rj_*V$ is a map of $i^*H$-modules, so its direct image
+is linear too.  Forgetting module actions creates limits: an action
+on a limit is its compatible family of actions, including their
+associativity coherences.  Thus the finite homotopy pullback of
+these two linear maps is the sheaf pullback with that action.
+The pair $(j^*,i^*)$ is conservative on modules, because it is so
+on underlying sheaves and the forgetful functor detects equivalences.
+This proves the gluing equivalence before taking Morita coordinates.
+
+Mapping spectra in this pullback description are the homotopy fibre
+of the difference of the two attaching compositions, giving
+\eqref{eq:cellular-maps} after the branch identifications.
+The linear triangle $j_!V\to Rj_*V\to i_*i^*Rj_*V$ pulled back
+along $i_*M\to i_*i^*Rj_*V$ gives the localization triangle and
+its actual connecting arrow.  These constructions use finite
+limits and the actual bounded values of $Rj_*$ and $i_*$;
+Lemma~\ref{lem:bounded-ambient} identifies them in the completion.
+No commutation of an unbounded relative bar with $Rj_*$ or $i^!$
+is asserted.  The left functors and their module projection/base
+change are obtained from scalar projection on free modules and
+bar realization; their bounded values here were separately checked.
+
+A unipotent local system has a finite filtration with constant
+successive quotients.  Each lies in $\operatorname{thick}(\mathbf Q_{\ell,U})$;
+finite cohomological truncations give the assertion for bounded
+complexes.  Conversely long exact sequences and retracts preserve
+unipotent lisse cohomology.  This also specifies the enhanced open
+category as a full subcategory, not only an abelian filtration class.
+
+Finally the actual algebra unit $A_q\to Rv_*H_Z$ is invertible.
+The adjunction unit on a free $A_q$-module is this map; projection,
+finite cones and retracts prove it for every perfect module.
+Hence $F_q$ is fully faithful there.  Its essential image is
+$\operatorname{thick}(H_Z)$, which is the intrinsic fibre category
+by \texttt{thm:cell-reconstruction} of \cite{Refinement}.
+This proves essential surjectivity and the selected counit, rather
+than inferring an equivalence of module categories from an algebra
+comparison alone.
+\end{proof}
+
+\begin{proposition}[Enhanced geometric reconstruction]\label{thm:cellular-reconstruction}
+There is a natural equivalence
+\[
+ \mathcal A_B(S)\simeq\mathcal E_B(S).
+\]
+It identifies full module mapping spectra, the actual open/closed
+localization triangle and its connecting morphism.  The attachment
+$\alpha_q$ is unrestricted.
+\end{proposition}
+\begin{proof}
+Lemma~\ref{lem:module-recollement} identifies the selected sheaves
+on $U$
+with $\Perf(A)$ via $R\Gamma(U,-)$: the unit generates, and the
+mapping comparison on it is its actual cochain algebra.  Let $V_N$
+denote the inverse Morita realization.  The branch calculation gives
+the actual evaluation equivalence
+\[
+ R\Gamma(U,V_N)\otimes_A B_q\xrightarrow{\sim}i_q^*Rj_*V_N
+\]
+as $A_q$-modules.  It is the restriction/evaluation map on the unit;
+exactness and retracts prove it on all perfect $N$.  Thus it
+identifies the independently specified $\mathcal L_q$ with the
+geometric link, including its action.
+
+Given a triple, form in actual $H_S$-modules
+\[
+ F=Rj_*V_N\mathop{\times}^{h}_{i_*L(V_N)}i_*M,
+ \qquad L(V_N)=\prod_{q\in Z_S}i_q^*Rj_*V_N.
+\]
+The first $H_S$-action is induced by the open-adjunction algebra map,
+the other two by its closed restrictions.  Forgetting module actions
+creates this finite limit.  Its restrictions are $V_N$ and $M_q$.
+The open coefficient and all its links are bounded constructible;
+perfect $A_q$-modules are bounded finite-dimensional over $\Q$.
+Consequently $Rj_*V_N$ and the finite pullback are bounded
+constructible, and $F$ satisfies exactly Definition~\ref{def:coefficient-types}.
+No condition of invertibility of $\alpha_q$ was used.
+
+Conversely an actual module has the attachment obtained from
+$F\to Rj_*j^*F$.  The natural map to the displayed pullback is an
+equivalence after $j^*$ and $i^*$, hence an equivalence by
+localization.  Recollement in modules gives exactly
+\eqref{eq:cellular-maps}, with $A_q$-linear maps in the last term.
+Thus these inverse constructions are enhanced equivalences, rather
+than bijections on isomorphism classes.
+The triangle $j_!V_N\to F\to i_*M$ is the geometric localization
+triangle; its connecting morphism corresponds to $\alpha$ under
+\[
+ \operatorname{Map}_{H_S}(i_*M,j_!V_N[1])
+       \simeq\operatorname{Map}_{A_{Z_S}}(M,L(V_N)).
+\]
+Here the identification is induced by the connecting arrow
+$i_*L(V_N)\to j_!V_N[1]$ of
+$j_!V_N\to Rj_*V_N\to i_*L(V_N)$.  Pulling this triangle back
+along $i_*\alpha$ gives the triangle for $F$, so its boundary is
+that connecting arrow composed with $i_*\alpha$.  This fixes the
+sign and rotation convention without choosing an extension class
+from an abstract isomorphism of groups.
+Endpoint-only and empty supports give the asserted product and zero
+categories directly.
+\end{proof}
+
+\begin{proposition}[Generators and the cellular Morita algebra]
+\label{thm:cellular-morita}
+Let $g_U=(A,0,0)$ and $g_q=(0,A_q,0)$ in the cellular category,
+including just the strata present in $S$, and let $g_S$ be their
+finite direct sum.  Then $\mathcal E_B(S)=\operatorname{thick}(g_S)$.
+Its independently defined algebra $\mathsf B_S=\RHom_{\mathcal E}(g_S,g_S)$
+satisfies
+\[
+ \mathcal E_B(S)\simeq\Perf(\mathsf B_S),\qquad
+ \mathsf B_S\simeq\RHom_{H_S}(G_S,G_S),\qquad
+ G_S=j_!\mathbf Q_{\ell,U}\oplus\bigoplus_{q\in Z_S}i_{q,*}A_q.
+\]
+Omit absent summands.  If $U\subset S$, the algebra has blocks
+\[
+ \mathsf B_S\simeq
+ \begin{pmatrix}
+ A&\displaystyle\bigoplus_{q\in Z_S}B_q[-1]\\
+ 0&\displaystyle\prod_{q\in Z_S}A_q
+ \end{pmatrix},
+\]
+where rows index targets and columns index sources.  This denotes
+the derived triangular algebra with the actual branch bimodule
+actions and their composition, not its cohomology algebra.
+\end{proposition}
+\begin{proof}
+Each triple has the componentwise cofiber sequence
+$(N,0,0)\to(N,M,\alpha)\to(0,M,0)$.
+The first and last terms are generated by $g_U$ and the $g_q$
+respectively, since their coefficients are perfect modules over the
+corresponding vertex algebras.  Hence $g_S$ generates; conversely
+these generators and their thick closure satisfy the defining
+conditions.  Formula~\eqref{eq:cellular-maps} gives
+\[
+ \begin{aligned}
+  \RHom(g_U,g_U)&=A,\quad \RHom(g_U,g_q)=0,\\
+  \RHom(g_q,g_U)&=B_q[-1],\\
+  \RHom(g_q,g_{q'})&=\begin{cases}A_q&q=q',\\0&q\ne q'.\end{cases}
+ \end{aligned}
+\]
+The off-diagonal term is the fibre of $0\to B_q$.
+Its left $A$ and right $A_q$ actions are the branch bimodule actions;
+there are no two composable off-diagonal blocks.  This constructs
+the displayed triangular algebra from the cellular data.
+The enhanced reconstruction sends $g_U$ to $j_!\mathbf Q_{\ell,U}$ and $g_q$ to
+$i_{q,*}A_q$, so it identifies algebras with their multiplication.
+Finally the Yoneda comparison for $\RHom(g_S,-)$ is an equivalence
+on $g_S$.  Exactness and retracts extend it in each variable to its
+thick closure, proving full faithfulness.  Its image is the thick
+closure of the regular module, namely $\Perf(\mathsf B_S)$.
+The same proof works for endpoint-only supports.
+\end{proof}
+
+In particular the endpoint generator is $i_{q,*}A_q$, not
+$i_{q,*}\Q$, and the total algebra is not $R\Gamma(S,H_S)$.
+The latter describes the smaller unit-generated cartesian category;
+it misses the independent endpoint summands and their attachments.
+
+\begin{proposition}[Fine-model coefficient generators]
+\label{prop:fine-generators}
+For $u=u_{JB}:S_J\to S$, actual module pullback
+$F_J=H_{S_J}\otimes_{u^*H_S}u^*(-)$ identifies
+$\mathcal E_B(S)$ with $\mathcal A_{J|B}(S_J)$.
+Its generator is
+\[
+ G_{J,S}=F_JG_S
+   \simeq j_{J,!}\mathbf Q_{\ell,U_J}\oplus
+                   \bigoplus_{q\in Z_S}i_{q,J,*}H_{Z_{q,J}},
+\]
+and its endomorphism algebra is canonically $\mathsf B_S$.
+These coefficient comparisons respect the actual attachment boundary
+and the four-model refinement diagram.  They make no statement about
+kernel categories on products.
+\end{proposition}
+\begin{proof}
+Use the ambient-gluing comparison of \cite{Refinement},
+Lemma \texttt{lem:fibre-cartesian-ambient}.  Its hypotheses hold:
+the models are integer cuts, the contraction is proper, the supports
+are full inverse images, and the coefficients on each contracted
+fibre satisfy the internal branchwise cartesian conditions.
+Over $U$ it is the identity.  Over $q$ its left adjoint is
+$F_q(M)=H_{Z_{q,J}}\otimes_{A_q}M$, and the actual algebra unit
+$A_q\simeq Ru_{q,*}H_{Z_{q,J}}$ makes this an equivalence onto the
+intrinsic fibre category by its geometric unit generation.
+An arbitrary coarse attachment is sent to the actual mate
+$F_qL(V)\to L'(V)$ after $F_q\alpha$; the comparison uses
+$Ru_{q,*}L'(V)\simeq L(V)$ and does not assume $L'(V)$ itself
+is cartesian on the fibre.  This is precisely the full mapping and
+boundary comparison proved there.
+The same base-change formulas give the displayed images of $j_!$
+and $i_*$, hence the generator.  Full faithfulness identifies its
+endomorphism algebra by the actual functor.  The nearby algebra maps,
+pullback associativity and the composite-unit identity give the
+coefficient refinement cells, as in that paper's anchored theorem.
+None of these steps takes a product of kernel supports.
+\end{proof}
+
+\subsection{Dual cellular coefficients and the Morita target}
+Construct $\mathcal E_B^D(S)=\mathcal E_B(S)^{op}$ directly from the
+cellular category.  Equivalently it is the opposite comma diagram:
+the vertex categories are $\Perf(A)^{op}$ and $\Perf(A_q)^{op}$,
+and each attachment arrow is reversed with all its homotopies.
+This construction precedes geometric realization and retains the
+entire link bimodule, not just duals of vertex cohomology groups.
+The label $g_S^D$ is the object corresponding to $g_S$ in this
+opposite category.  The opposite of a stable category is stable,
+with cofiber triangles reversed and rotated in the stable convention.
+
+\begin{proposition}[Dual generators and their actual realization]
+\label{thm:dual-cellular}
+There are equivalences
+\[
+ \mathcal E_B^D(S)\simeq\mathcal A^D_{J|B}(S_J)
+       \simeq\Perf(\mathsf B_S^{op}),\qquad
+ \RHom(D_{S_J}G_{J,S},D_{S_J}G_{J,S})\simeq\mathsf B_S^{op}.
+\]
+They are induced by actual Verdier duality and carry the cellular
+biduality to geometric biduality.  The dual generator is
+$G_{J,S}^D=D_{S_J}G_{J,S}$, not an assumed coefficient dual.
+\end{proposition}
+\begin{proof}
+The opposite cellular category is generated by $g_S^D$, since
+opposites exchange finite fibers and cofibers and preserve retracts.
+Its endomorphism algebra is $\mathsf B_S^{op}$ with its multiplication,
+by reversal of composition.  Yoneda gives its stated Morita
+presentation.  Compose the opposite of the proved geometric
+reconstruction with Proposition~\ref{prop:coefficient-duality}; this
+realizes precisely the supported category independently specified
+there by exceptional restrictions.  It sends the generator to
+$D_{S_J}G_{J,S}$ and identifies module mapping spectra by
+\[
+ \operatorname{Map}(D_{S_J}M,D_{S_J}N)
+                  \simeq\operatorname{Map}(N,M).
+\]
+These maps are induced by the actual duality functor, so their
+composition is the opposite composition and applying them twice is
+the evaluation biduality.  At the coarse model the generator is
+explicitly
+\[
+ G_S^D=Rj_*\mathbf Q_{\ell,U}(1)[2]\oplus
+                   \bigoplus_{q\in Z_S}i_{q,*}D_{\Q}A_q.
+\]
+Its closed restrictions need not be those of the star generator.
+The global pairing uses $R\Gamma_c$ on the primal side; no replacement
+by $R\Gamma$ on the nonproper open stratum is made.
+\end{proof}
+
+At the coefficient level the cellular duality in Morita coordinates is
+$X\mapsto\RHom_{\mathsf B_S}(X,\mathsf B_S)$.
+Indeed the geometric mapping object
+$\RHom(DG_S,DM)$ is $\RHom(M,G_S)$, and Yoneda identifies the latter
+with the displayed relative Hom.  This establishes the coordinate
+formula without identifying geometric Verdier duality with a scalar
+dual of the Morita module.
+
+\begin{definition}[The cellular Morita target]\label{def:morita-target}
+Its objects are the independently constructed $\mathcal E_B(S)$ and
+their dual types.  Its Hom category from an algebra $B$ to an algebra
+$C$ is the full stable category of $(B,C)$-bimodules whose underlying
+right $C$-module is perfect.  Composition is relative tensor in the
+source-to-target order, and the unit is the regular bimodule.
+Use the actual module mapping spectra, not their groupoids.
+\end{definition}
+This composition stays in the stated Hom category: for $M$ right
+$C$-perfect and $L$ right $D$-perfect, the exact functor
+$-\otimes_C L$ sends the thick closure of $C$ into the thick closure
+of $L$, hence into $\Perf(D)$.  Units and tensor associativity give
+the enhanced composition cells.  No bimodule-smoothness assumption
+has entered.  This also defines the analogous Hom categories on the
+opposite-algebra coefficient types.
+
+The duality of exact functors between perfect-module categories
+induces on these Hom categories the relative dual
+\[
+ M\longmapsto M^D=\RHom_C(M,C),
+ \qquad (B,C)\longmapsto(B^{op},C^{op}).
+\]
+It is right $C^{op}$-perfect by right $C$-perfectness of $M$.
+To see its composition law without an unjustified scalar-dual
+formula, use the elementary Yoneda argument for exact functors:
+a $\Q$-linear exact functor $\Perf(B)\to\Perf(C)$ is tensor with its value on
+$B$, carrying the induced left action.  Evaluation gives this
+comparison on the generator, and finite cones and retracts give it
+everywhere, also on natural transformations.  Conjugating such a
+functor by $X\mapsto\RHom_B(X,B)$ and its $C$ analogue gives the
+bimodule $M^D$, with the displayed endpoint order.  Composition of
+these conjugations and evaluation biduality give its coherent
+composition and double-dual cells.  This constructs $D_{\mathrm{cell}}$
+in the target.  Its identification with geometric kernel mates is
+proved in Proposition~\ref{thm:morita-star}.
+
+\begin{lemma}[Relative dual as an opposite bimodule functor]
+\label{lem:morita-opposite-dual}
+For ${}_BM_C$, first form $M^\vee=\RHom_C(M,C)$ with its
+left $C$-action by output multiplication and right $B$-action by
+precomposition.  Its use as ${}_{B^{op}}M^D_{C^{op}}$ means exchange
+of these two actions via graded symmetry.  This defines a
+contravariant functor on full bimodule mapping categories.  For
+right-target-perfect $M,L$ there is a canonical equivalence
+\begin{equation}
+ \nu_{L,M}:M^D\otimes_{C^{op}}L^D
+       \xrightarrow{\sim}(M\otimes_C L)^D .
+ \label{eq:relative-dual-composition}
+\end{equation}
+It respects evaluation, composition, the regular units and biduality.
+\end{lemma}
+\begin{proof}
+Before exchanging sides, the map is the tensor--Hom evaluation
+\[
+ \RHom_D(L,D)\otimes_C\RHom_C(M,C)
+       \longrightarrow\RHom_D(M\otimes_C L,D).
+\]
+For degree-zero elements it sends $g\otimes f$ to
+$(m\otimes l\mapsto g(f(m)l))$; the chain map uses the Koszul
+symmetry of tensor factors.  Balancing proves linearity for both
+outer actions.  It is the regular evaluation for $M=C$, and both
+sides are exact and preserve retracts in perfect right $C$-modules.
+It is consequently an equivalence for the stated $M$; this argument
+is natural in the left $B$-action as well.  Exchange the sides to
+obtain the displayed map.  Constructing it by tensor evaluation on
+relative bars makes it natural on the entire mapping categories.
+For three factors both maps evaluate $h(g(f(m)l)n)$ with the same
+graded symmetry; the ambient associativity cells identify these
+evaluations.  Units and double duals use the same evaluation.
+Thus these are the constraints of the exact-functor conjugation
+already described, with their specific maps now identified.
+\end{proof}
+
+For a generated geometric kernel its image is now unambiguously typed:
+\[
+ {}_{\mathsf B_S}M_P{}_{\mathsf B_T}
+ =\RHom_{H_T}(G_T,\Phi_P^!G_S).
+\]
+Preservation and Proposition~\ref{thm:cellular-morita} make it
+right-target-perfect.  The geometric evaluation/Fubini comparison
+$M_P\otimes_{\mathsf B_T}M_L\to M_{L\star_!P}$ is proved separately
+in Proposition~\ref{thm:kernel-morita}; it is not part of the definition
+of the cellular target.
+
+\section{Actual Verdier mates and the supported kernel action}
+\label{sec:verdier-mates}
+Theorem~\ref{thm:kernel-preservation} puts the whole generated shriek
+source in the bounded domain of Definition~\ref{def:star-kernel-types}.
+Consequently its geometric dual labels and all their actual maps
+now form the corresponding supported source: composition is
+$D(L\star_!P)$, with the cells obtained from the already constructed
+ambient composition and actual biduality.  This defines its labels;
+the next theorem identifies their action by a geometric formula.
+
+\begin{theorem}[The geometric Hom--shriek-pullback mate]
+\label{thm:geometric-star-mate}
+For a generated kernel $P:a\to b$ and $N\in\mathcal A_a^D$, set
+\[
+ \Psi_{P^D}(N)=Rp_{b,*}R\mathcal Hom_{p_a^*H_a}
+                         (P,p_a^!N).
+\]
+This is a bounded constructible object of $\mathcal A_b^D$ with its
+contragredient target action, and the actual evaluation and trace maps
+give a natural equivalence
+\begin{equation}
+ D_b\Phi_P^!(M)\xrightarrow{\sim}\Psi_{P^D}(D_aM)
+ \quad(M\in\mathcal A_a).
+ \label{eq:actual-geometric-mate}
+\end{equation}
+It is natural in coefficient and kernel mapping spectra.  No
+coefficient-dualizability of an attached module is required.
+\end{theorem}
+\begin{proof}
+Write $X=S_a\times S_b$, $A=p_a^*H_a$, and
+$K=p_a^*M\otimes_A^LP$.  The stronger integrand assertion in
+Theorem~\ref{thm:kernel-preservation} says that $K$ is bounded
+constructible.  Geometric support duality and tensor--Hom adjunction
+therefore give the actual comparisons
+\begin{align*}
+ D_bRp_{b,!}K
+ &\simeq Rp_{b,*}D_XK\\
+ &\simeq Rp_{b,*}R\mathcal Hom_A(P,D_Xp_a^*M)\\
+ &\simeq Rp_{b,*}R\mathcal Hom_A(P,p_a^!D_aM).
+\end{align*}
+In the middle step the right $A$-action of $p_a^*M$ becomes the left
+$A$-action of its dual; the right target action on $P$ becomes the
+opposite target action on Hom.  Tensor--Hom adjunction here is the
+relative bar/Hom adjunction in module sheaves, using
+Lemma~\ref{lem:bounded-ambient} for the bounded module data and the
+geometric adjoints.  It does not replace
+$P$ or $M$ by a tensor dual.  The last equivalence is the ordinary
+Verdier exchange $D_Xp_a^*=p_a^!D_a$ on constructible coefficients.
+
+More explicitly the Hom expression evaluates against $K$ to
+$\omega_X$.  Push its two arguments by $p_{b,!}$ and $p_{b,*}$,
+use the support projection pairing, and follow by
+$Rp_{b,!}\omega_X\to\omega_b$.  This pairing is the adjoint of
+the displayed duality map and specifies which comparison is used.
+Thus the construction is the geometric trace mate, not an isomorphism
+chosen between two dual objects.  Module linearity follows by moving
+the target action between the evaluation factors.
+
+By preservation $\Phi_P^!(M)$ lies in $\mathcal A_b$, so its Verdier
+dual lies in $\mathcal A_b^D$.  Every $N$ in the source supported
+type is canonically $D_aM$ with $M=D_aN$, by geometric biduality.
+This proves boundedness and the asserted selected target for the
+already defined Hom expression.  It also shows that the Hom integrand
+is $D_XK$, hence bounded constructible.  All three comparisons are
+natural adjunction maps in the enhancement, proving naturality in
+all maps of kernels and coefficients.
+\end{proof}
+
+\begin{proposition}[Units, convolution and localization of the mates]
+\label{prop:mate-operations}
+The comparison \eqref{eq:actual-geometric-mate} identifies the star unit
+with the identity and gives the composition comparison
+\[
+ \Psi_{D(L\star_!P)}\simeq\Psi_{L^D}\Psi_{P^D}.
+\]
+For a coarse open/closed decomposition it takes the actual localization
+boundary to the boundary of
+\[
+ i_*i^!N\longrightarrow N\longrightarrow Rj_*j^*N
+                         \longrightarrow i_*i^!N[1]
+\]
+on the supported types, including its compatibility with inserting
+another generated kernel before or after the triangle.
+\end{proposition}
+\begin{proof}
+For the unit the shriek action is the identity by its geometric graph
+calculation.  The evaluation pairing in the preceding proof is then
+the usual Verdier evaluation, giving the identity supported action
+with its actual unit map.  For convolution use the common integrand
+on the threefold product.  Adjunction identifies both proposed mate
+maps with the pairing that evaluates the two kernel factors and then
+uses the composite support trace.  Tensor associativity, Fubini and
+transitivity of this trace identify these pairings before taking
+adjoints.  Thus their adjoints agree as natural maps.  Equivalently,
+under the specified geometric equivalence they are the composite
+\[
+ D_c\Phi_L^!D_bD_b\Phi_P^!D_a
+          \simeq D_c\Phi_L^!\Phi_P^!D_a
+          \simeq D_c\Phi_{L\star_!P}^!D_a,
+\]
+where the middle cancellation is geometric biduality.  The preceding
+pairing calculation is what identifies this expression with the
+actual Hom--shriek-pullback operations.
+
+The diagonal localization kernels act by $j_!j^*$, identity and
+$i_*i^*$.  Naturality of the same mate on their actual kernel arrows
+and geometric Verdier exchange give $Rj_*j^*$, identity and $i_*i^!$
+in reversed order.  Fix the boundary convention as follows: dualize
+the original cofiber sequence as a fiber sequence and use its
+canonical stable rotation.  If its boundary is $\delta:C\to A[1]$,
+the reversed boundary is obtained by suspending
+$D\delta:D(A[1])\simeq DA[-1]\to DC$ with the canonical dual-shift
+identification.  In cochain models the internal-Hom differential is
+$d(f)=d_{\mathrm{target}}f-(-1)^{|f|}f d_{\mathrm{source}}$; its
+induced dual-shift identification is used in this rotation.  Thus the
+differential and shift signs are retained, with no independently
+chosen boundary sign.  It agrees
+with the pullback description of the boundary in
+Proposition~\ref{thm:cellular-reconstruction}.
+Finally convolution is exact in each variable and the mate is a
+natural map of enhanced functors.  Applying it to the arrow/cofiber
+category, before or after such an exact convolution, yields the same
+boundary comparison.  This proves the asserted mixed localization
+compatibility, not just equality of its three object values.
+\end{proof}
+
+\begin{example}[Both rectangular convolutions and their Verdier mates]
+\label{ex:rectangles-with-duals}
+For a rectangle $P_{S,T}=H_S\boxtimes H_T$, its actual supported action is
+\[
+ \Psi_{P_{S,T}^D}(N)\simeq R\Gamma(S,N)\otimes_{\Q}D_TH_T.
+\]
+Indeed apply Theorem~\ref{thm:geometric-star-mate} to the already
+computed rectangle action.  Its scalar compact-support complex is
+perfect, and global Verdier duality gives
+$D_{\Q}R\Gamma_c(S,D_SN)\simeq R\Gamma(S,N)$.
+The resulting comparison is induced by the same evaluation, so it
+retains the actions and trace.
+For two rectangles the shriek middle factor is
+$C_T=R\Gamma_c(T,H_T)$; the supported middle factor is
+\[
+ R\Gamma(T,D_TH_T)\simeq D_{\Q}C_T.
+\]
+For $U\to q\to U$ these factors are $A_q$ and $D_{\Q}A_q$.
+For $q\to U\to q$ they are $R\Gamma_c(U,\Q)$ and
+$R\Gamma(U,\Q(1)[2])$; the latter has cohomology $\Q(1)$ in
+degree $-2$ and $\Q$ in degree $-1$.
+These are actual compact-support and ordinary complexes, respectively.
+The scalar dual in this calculation must not be confused with the
+relative algebra dual of a Morita bimodule.
+Proposition~\ref{prop:mate-operations} applies to the localization
+triangle convolved with either of these rectangles, thus connects
+these non-diagonal calculations to the actual boundary maps.
+\end{example}
+
+\section{Kernel realization in Morita coordinates}
+\label{sec:kernel-morita}
+For $a=(J,S)$ use $G_a=G_{J,S}$ from
+Proposition~\ref{prop:fine-generators} and the specified equivalence
+$\mathsf B_S\simeq\RHom(G_a,G_a)$.  This uses the independently
+constructed cellular algebra as a coordinate algebra.  It does not
+redefine the cellular category as the image of a kernel functor.
+The passage from exact functors on these generator categories to
+bimodule coordinates is the derived Morita mechanism of
+\cite{ToenMorita}; below we specify its evaluation maps and verify
+their compatibility with the actual geometric convolution.
+
+\begin{proposition}[Unlocalized enhanced kernel realization]
+\label{thm:kernel-morita}
+The actual generated shriek source admits a $\Q$-linear enhanced
+realization in the right-target-perfect cellular Morita target,
+with kernel image
+\[
+ {}_{\mathsf B_S}M_P{}_{\mathsf B_T}
+       =\RHom_{H_b}(G_b,\Phi_P^!G_a).
+\]
+It preserves actual kernel maps and has canonical equivalences
+\begin{equation}
+ M_P\otimes_{\mathsf B_T}^LM_L
+       \xrightarrow{\sim}M_{L\star_!P},\qquad
+ M_{\Delta_*H_a}\simeq\mathsf B_S.
+ \label{eq:morita-convolution}
+\end{equation}
+These are its enhanced unit and composition constraints; they satisfy
+the associativity and unit cells and retain localization boundaries.
+No full faithfulness of the kernel-to-action functor is asserted.
+\end{proposition}
+\begin{proof}
+Theorem~\ref{thm:kernel-preservation} makes each $\Phi_P^!$ an exact
+functor on the selected categories.  Its value on $G_a$ belongs to
+$\mathcal A_b$, so its Morita coordinate is right $\mathsf B_T$-perfect.
+The source generator endomorphisms act through $\Phi_P^!$ and the
+target ones by precomposition, giving the two commuting actions.
+Applying the actual integral-transform functor to a kernel map and
+then applying this mapping functor defines the image on the entire
+kernel mapping category, including its higher simplices.
+
+Here is the composition map.  For $X\in\mathcal A_b$, geometric
+Morita evaluation gives
+\[
+ \RHom(G_b,X)\otimes_{\mathsf B_T}G_b\longrightarrow X.
+\]
+Apply $\Phi_L^!$ and map from $G_c$.  This constructs a natural map
+\[
+ \RHom(G_b,X)\otimes_{\mathsf B_T}
+                     \RHom(G_c,\Phi_L^!G_b)
+      \longrightarrow\RHom(G_c,\Phi_L^!X).
+\]
+It is an equivalence for $X=G_b$, with the regular-module unit map.
+Both sides are exact in $X$ and preserve retracts, so geometric
+generation proves it for all $X$ in the selected category.  With
+$X=\Phi_P^!G_a$, compose it with the actual Fubini equivalence
+$\Phi_L^!\Phi_P^!\simeq\Phi_{L\star_!P}^!$ to obtain
+\eqref{eq:morita-convolution}.  Naturality makes it source-linear and
+natural in both kernel variables.  The unit calculation is the
+actual diagonal action on $G_a$, hence the regular bimodule, not a
+supported dualizing module.
+
+To specify coherence rather than choose objectwise associators,
+first take the enhanced action of ambient kernels on their module
+categories from Proposition~\ref{prop:ambient-kernel-types}; the
+preservation theorem restricts it to the selected full categories.
+The Morita coordinate equivalences identify their exact functor
+categories with the right-target-perfect bimodule categories: the
+comparison is evaluation on the generator, and the same finite-cell
+Yoneda argument extends it on natural transformations and their
+mapping spectra.  Transport the actual composition diagram through
+these equivalences.  The evaluation construction just given is
+precisely its composition map, so the resulting associativity and
+unit cells belong to the displayed comparison.  They are not chosen
+after checking objects.  Exactness sends the specified kernel
+localization cofiber sequence, with its connecting arrow, to the
+corresponding bimodule sequence.  This establishes the claimed
+boundary compatibility too.
+\end{proof}
+
+\begin{proposition}[The Morita coordinate of the geometric star mate]
+\label{thm:morita-star}
+On the supported source the geometric Hom--shriek-pullback action
+has bimodule coordinate
+\[
+ M_{P^D}^{*}\simeq
+       R\operatorname{Hom}_{\mathsf B_T}(M_P,\mathsf B_T)
+\]
+with left $\mathsf B_S^{op}$ and right $\mathsf B_T^{op}$ actions.
+This comparison intertwines units, convolution, localization and
+biduality with the cellular duality, before refinement localization.
+\end{proposition}
+\begin{proof}
+Use the actual supported generators $D_aG_a,D_bG_b$.
+Theorem~\ref{thm:geometric-star-mate} and geometric biduality give
+\begin{align*}
+ M_{P^D}^{*}
+ &=\RHom(D_bG_b,\Psi_{P^D}(D_aG_a))\\
+ &\simeq\RHom(D_bG_b,D_b\Phi_P^!G_a)\\
+ &\simeq\RHom(\Phi_P^!G_a,G_b)\\
+ &\simeq R\operatorname{Hom}_{\mathsf B_T}(M_P,\mathsf B_T).
+\end{align*}
+The third line is induced by the geometric duality functor on
+mapping spectra; the last is the proved Morita equivalence on its
+two arguments.  Thus the comparison preserves both opposite actions
+and all kernel maps.  Right-target-perfectness gives the relative
+algebra biduality, and these same maps identify it with geometric
+evaluation biduality.  It is not a scalar-dual calculation.
+
+The geometric unit and convolution comparisons are those of
+Proposition~\ref{prop:mate-operations}; their Morita coordinates are
+the evaluation comparisons of Proposition~\ref{thm:kernel-morita}.
+Both are obtained by applying the same enhanced mapping functors
+to the specified evaluations, so their unit and composition diagrams
+commute.  The cellular duality on bimodules was constructed from
+exact-functor conjugation; the displayed calculation identifies
+that conjugation with the already established geometric mate.
+Applying this identification to the functor categories of arrows and
+cofiber sequences gives the localization comparison with its rotated
+boundary.  Applying it twice gives the biduality diagram.  This
+constructs the unlocalized shriek/star Morita compatibility on the
+whole generated source.  Actual product descent and its mixed cells
+are proved in Sections~\ref{sec:product-descent}--\ref{sec:joint-descent}.
+
+Writing $\chi_P:M_{P^D}^*\to M_P^D$ for this comparison, its
+composition square is
+\begin{equation}
+\begin{CD}
+ M_{P^D}^*\otimes_{\mathsf B_T^{op}}M_{L^D}^*
+          @>{\mu_*}>> M_{D(L\star P)}^*\\
+ @V{\chi_P\otimes\chi_L}VV @VV{\chi_{L\star P}}V\\
+ M_P^D\otimes_{\mathsf B_T^{op}}M_L^D
+          @>{(\mu_!^D)^{-1}\nu_{L,P}}>> M_{L\star P}^D .
+\end{CD}
+\label{eq:geometric-morita-mate-square}
+\end{equation}
+To verify the square, evaluate its two adjoints on
+$G_c$, $\Phi_L\Phi_PG_a$ and their Verdier partners.  The upper
+route is geometric evaluation on the threefold product followed
+by the support trace.  By the definition of $\mu_!$ as Morita
+evaluation followed by geometric Fubini, the lower route is the
+same pairing, with the two regular intermediate factors contracted
+in the order of Lemma~\ref{lem:morita-opposite-dual}.  Associativity
+of evaluation and the support projection formula identify the
+maps before adjunction.  The calculation takes place on the
+multibar diagrams and is natural in their maps, hence gives the
+specified square on mapping categories, not only on objects.
+\end{proof}
+
+\section{Proper product descent of the generated kernels}
+\label{sec:product-descent}
+We use the actual kernel categories, not a comparison reconstructed
+from equality of their actions.  In this section $I$ is any cut model
+below both endpoints under consideration.  All supports remain full
+inverse images of strata unions at the original anchor $B$; using
+$I$ as an intermediate model does not enlarge the support set.
+For $a=(J,S)$, $I\subset J$, write $a_I=(I,S)$,
+$u_a:S_J\to S_I$, and use the following two ambient kernels:
+\[
+ U_a=\Gamma_{u_a}^{t}{}_*H_{S_J}:a_I\to a,
+ \qquad V_a=\Gamma_{u_a,*}H_{S_J}:a\to a_I.
+\]
+Only $U_a$ belongs to the specified refinement generating list.
+The second kernel is used in the ambient category to construct maps;
+it is not declared to belong to the generated bounded convolution
+source or to be an inverse there.
+
+\begin{lemma}[Ambient graph adjunction]\label{lem:graph-adjunction}
+These kernels have actual unit and counit maps
+\[
+ \eta_a:\Delta_*H_{S_I}\longrightarrow V_a\star_!U_a,
+ \qquad \epsilon_a:U_a\star_!V_a\longrightarrow\Delta_*H_{S_J}
+\]
+with the enhanced adjunction triangle cells.  The unit is an
+equivalence on the full inverse-image supports in this paper.
+No assertion that the counit is an equivalence of ambient kernels
+is made.
+\end{lemma}
+\begin{proof}
+Graph base change and the regular-module tensor identify
+$V_a\star_!U_a$ with $\Delta_*Ru_{a,*}H_{S_J}$; properness makes
+its shriek and ordinary images equal.  The unit is the actual nearby
+algebra unit $H_{S_I}\to Ru_{a,*}H_{S_J}$, already an equivalence
+on these complete supports.  The opposite graph composite is supported
+on $S_J\times_{S_I}S_J$.  Its coefficient is the relative tensor of
+the two pulled-back $H_{S_J}$ factors over $H_{S_I}$, formed in the
+ambient category.  Restricting to its diagonal and multiplying gives
+its map to $\Delta_*H_{S_J}$ by the diagonal adjunction; this defines
+$\epsilon_a$.  It need not have a bounded source.
+
+To check the triangles at the kernel level, whisker these maps with
+the graph kernels and use graph base change.  The two composites are
+the unit/counit composites for $u_a^*\dashv Ru_{a,*}$ followed by the
+regular-module multiplication and its unit.  Their triangle and unit
+identities identify the composites with the identity maps on the graph
+coefficients; pushing along the graph gives the kernel identities.
+The same constructions on the relative bar diagrams give their
+higher cells.  This verification does not infer a kernel identity
+from a possibly nonfaithful action on selected coefficients.
+Their actions are the actual adjunction
+$u_{a,H}^*\dashv Ru_{a,*}$, with the specified algebra restriction.
+\end{proof}
+
+For $P:a\to b$ define actual product direct image, restricting the
+outer actions along the nearby algebra maps, by
+\[
+ T_I(P)=R(u_a\times u_b)_*P.
+\]
+Graph base change identifies it, including maps, with
+\begin{equation}
+ T_I(P)\simeq V_b\star_!P\star_!U_a.
+ \label{eq:product-sandwich}
+\end{equation}
+Indeed the first graph inserts the source proper pushforward variable,
+and the last one the target proper pushforward variable; their
+regular coefficient factors cancel.  Composition of proper direct
+images is precisely product direct image.  This formula is valid in
+the ambient categories; it does not require that $V_a$ itself be a
+selected kernel.
+
+\begin{lemma}[Direct image of the controlling kernel families]
+\label{lem:product-generators}
+For $I\subset J\subset K$ the actual comparison maps give
+\[
+ T_I G_{J,K}^{S,T}(W)\simeq G_{I,I}^{S,T}(W),\qquad
+ T_I R_{J,K}^{S,T}(W,Z)\simeq R_{I,I}^{S,T}(W,Z).
+\]
+They retain the outer actions and, for localization kernels, their
+actual arrows and boundary.  Product direct image therefore sends
+the controlling thick family $\mathcal N$ into its version at $I$.
+\end{lemma}
+\begin{proof}
+On a graph, composition of its immersion with $u_a\times u_b$
+is the diagonal immersion of $W_I$ followed by $W_K\to W_I$.
+Composition of shriek images and properness identify its image with
+$\Delta_{W_I,!}Ru_*H_{W_K}$.  The inverse of the actual algebra unit
+identifies this with $G_{I,I}(W)$.
+On a rectangle, proper product base change and projection give
+$Ru_{a,*}E_S^J(W)\boxtimes Ru_{b,*}E_T^K(Z)$.
+Proper base change for each complete support square and the algebra
+unit identify these with $E_S^I(W)$ and $E_T^I(Z)$.
+These are module comparisons, not just comparisons of scalar cohomology.
+For a localization triangle the three maps use the same support
+squares and their units, so exact direct image compares the entire
+cofiber sequence, including its boundary.  Exactness, perfect scalar
+linearity and preservation of retracts then give the thick-family
+assertion on objects and all its actual maps.
+\end{proof}
+
+\begin{theorem}[One-sided kernel descent and strong composition]
+\label{thm:one-sided-descent}
+For every generated kernel $P:a\to b$, the actual counit gives an
+equivalence of kernels from $a_I$ to $b$,
+\begin{equation}
+ \alpha_P:
+ U_b\star_!T_I(P)
+   =U_b\star_!V_b\star_!P\star_!U_a
+   \xrightarrow{\epsilon_b\star 1}P\star_!U_a.
+ \label{eq:one-sided-descent}
+\end{equation}
+Product direct image restricts to the generated kernel sources and
+has invertible unit and composition maps
+\begin{equation}
+ \lambda_{L,P}:T_I(L)\star_!T_I(P)
+          \longrightarrow T_I(L\star_!P).
+ \label{eq:product-convolution}
+\end{equation}
+These maps are natural on full kernel mapping spectra and give an
+enhanced unital composition-preserving functor to the source at $I$.
+\end{theorem}
+\begin{proof}
+We first prove \eqref{eq:one-sided-descent} on the controlling family,
+not by assuming descent of arbitrary kernels.  If $P=G_{J,K}(W)$,
+its right side is $G_{I,K}(W)$ by the graph convolution formula;
+its left side is the same graph by Lemma~\ref{lem:product-generators}.
+Under these specified identifications the map on the graph coefficient
+is the counit on
+$H_{W_K}=u_{W,H}^*H_{W_I}$.
+It is the inverse of the pulled-back algebra unit by the adjunction
+triangle.  Thus it is the claimed equivalence, not an undetermined
+endomorphism of that graph.
+For $P=R_{J,K}(W,Z)$, the rectangle--graph calculation on the source
+side uses the proper algebra unit and gives $R_{I,K}(W,Z)$.
+On the target side the counit is the one on
+$E_T^K(Z)=u_{b,H}^*E_T^I(Z)$, with its actual support base change.
+The unit on $E_T^I(Z)$ is, by proper support base change, the
+extension by zero of $H_{Z_I}\to Ru_{Z,*}H_{Z_K}$, hence is
+invertible.  To identify the map itself, write
+$F_b=u_{b,H}^*$, $R_b=Ru_{b,*}$, $E=E_T^I(Z)$ and
+$C=E_S^I(W)$.  Proper support base change identifies
+$F_bE=E_T^K(Z)$ and identifies the adjunction unit
+$\theta_E:E\to R_bF_bE$ with the extension of the algebra unit on
+$Z_I$.  Graph base change and regular-module cancellation give the
+following square of kernels on $S_I\times T_K$:
+\begin{equation}
+\begin{CD}
+ U_b\star T_I(P) @>{\alpha_P}>> P\star U_a\\
+ @V{\beta_{\mathrm{left}}}V{\simeq}V
+       @VV{\beta_{\mathrm{right}}}V\\
+ C\boxtimes F_bR_bF_bE
+       @>{1\boxtimes\epsilon_{F_bE}}>> C\boxtimes F_bE .
+\end{CD}
+\label{eq:rectangle-counit-square}
+\end{equation}
+The right vertical map is also an equivalence.  The vertical maps
+use the same source algebra-unit inverse as
+\eqref{eq:rectangle-graph-linearity}; on the target they use only
+proper support base change.  Under these maps the top arrow, defined
+by the graph counit, is the direct-image evaluation followed by the
+$H_b$-action, exactly the definition of $\epsilon_{F_bE}$.
+Naturality of base change with evaluation proves the square before
+any counit is inverted.  Moreover the adjunction triangle is
+\[
+ \epsilon_{F_bE}\circ F_b(\theta_E)=1_{F_bE}.
+\]
+Since $\theta_E$ is the specified equivalence, the bottom arrow has
+inverse $1\boxtimes F_b(\theta_E)$.  This proves invertibility of
+this particular $\alpha_P$, not just isomorphism of its endpoints.
+All maps are linear for the two outer actions.  This proves the
+assertion on both families as an actual kernel map.  Both sides of \eqref{eq:one-sided-descent} are
+exact in $P$ and preserve retracts, even though the ambient counit
+need not itself be invertible.  Hence the assertion extends to
+$\mathcal N$ and in particular to the whole generated source.
+
+Using \eqref{eq:product-sandwich}, define \eqref{eq:product-convolution}
+by inserting the middle counit:
+\[
+ V_c\star L\star U_b\star V_b\star P\star U_a
+       \longrightarrow V_c\star L\star P\star U_a.
+\]
+It is $V_c\star L$ applied to the just proved $\alpha_P$, and is
+therefore an equivalence.  The unit comparison is $\eta_a$ of
+Lemma~\ref{lem:graph-adjunction}.  For three kernels the two
+composition maps insert counits at the same two middle places.
+The interchange law identifies their order of insertion, with its
+cell in the ambient enhancement.  The adjunction triangles give the
+unit cells.  Iterated insertion on relative bar diagrams supplies
+all higher substitution cells.  This proves coherence for these
+actual maps, rather than selecting abstract associators afterwards.
+
+In particular the compatibility needed for localization is the
+following specified homotopy, with ambient associators suppressed:
+\begin{equation}
+ \alpha_{L\star P}\circ(U_c\star\lambda_{L,P})
+   =(L\star\alpha_P)\circ(\alpha_L\star T_I(P)).
+ \label{eq:descent-pseudonaturality}
+\end{equation}
+Both sides start at $U_c\star T_I(L)\star T_I(P)$ and end at
+$L\star P\star U_a$.  In the sandwich expressions they remove the
+same $U_cV_c$ and $U_bV_b$ factors; the ambient interchange homotopy
+identifies the two orders.  The unit identity is
+\[
+ \alpha_{\mathrm{id}_a}\circ(U_a\star\eta_a)=\mathrm{id}_{U_a},
+\]
+which is the graph adjunction triangle.  These are homotopies between
+the specified kernel maps, natural on their entire mapping spectra,
+not merely equalities of their induced coefficient actions.
+
+It remains to check that the codomain is the specified generated
+source, not merely $\mathcal N$.  On every original generator the
+preceding direct-image calculation gives its corresponding generator
+at $I$: inclusion graphs, units, localization terms and the two
+rectangles; a refinement graph gives the identity kernel on its
+support at $I$.  Exactness preserves finite cones, twists and
+retracts, and the now proved invertible $\lambda$ preserves every
+finite convolution word.  Since the generated subcategories are
+full, images of their arbitrary kernel maps also belong to them.
+This proves the claimed restriction without changing the generating
+list or imposing a preservation condition in its definition.
+\end{proof}
+
+\begin{remark}[What has and has not descended]
+The key equivalence is after source whiskering by $U_a$.
+It does not identify a fine kernel with ordinary two-sided pullback
+of its coarse image.  In particular
+$(u\times u)^{-1}\Delta_S=S'\times_S S'$ still need not equal
+$\Delta_{S'}$.  For the diagonal we used proper pushforward and
+then a one-sided graph pullback.  No equivalence of unrestricted
+product kernel categories has been proved or used.
+\end{remark}
+
+\begin{proposition}[The actual four-model diamond]
+\label{prop:product-diamond}
+The two product-direct-image paths from $\{1,2,3\}$ through
+$\{1,2\}$ and through $\{2,3\}$ to $B=\{2\}$ have the same
+coherent comparison with direct product pushforward to $B$.
+This holds on kernels and their maps, and respects $\alpha$, $\lambda$
+and all coarse support localization diagrams.
+\end{proposition}
+\begin{proof}
+For a chain $I\subset J\subset K$, proper composition gives
+\[
+ R(u_{JI,S}\times u_{JI,T})_*\,
+ R(u_{KJ,S}\times u_{KJ,T})_*
+       \simeq R(u_{KI,S}\times u_{KI,T})_*.
+\]
+The restricted outer algebra actions agree because the actual nearby
+pullback algebra maps compose, not merely because their cohomology
+algebras are isomorphic.  On graph coefficients the comparison is
+$H_{W_I}\to Ru_{JI,*}H_{W_J}\to Ru_{KI,*}H_{W_K}$,
+which is the direct algebra unit.  On rectangles it is the external
+product of the two such comparisons; proper product base change
+and its naturality identify this with the displayed composition map.
+On all kernels we use this actual natural transformation of proper
+functors, so it is already defined on arbitrary maps and higher cells.
+
+The graph units and counits for a composite are the composite
+adjunction units and counits, by their explicit construction.
+Whiskering these identities in \eqref{eq:one-sided-descent} and
+\eqref{eq:product-convolution} proves compatibility with $\alpha$
+and $\lambda$, including when a rectangle is convolved with a graph
+or a localization kernel.  Applying the exact comparison to the
+arrow and cofiber-sequence categories gives the boundary comparison.
+The integer-cut chart maps in \cite{Refinement} identify the two
+composites in the stated diamond as the same actual scheme map.
+Composition in the fixed enhancement therefore gives both paths
+one comparison with its direct image, with the associativity cells
+for longer strings.  This is a comparison on actual products; the
+single-support module equivalence alone was not used as its proof.
+\end{proof}
+
+\section{Verdier, refinement and localization in one diagram}
+\label{sec:joint-descent}
+\begin{proposition}[Actual actions and proper Verdier product comparison]
+\label{prop:product-verdier}
+Write $F_a=u_{a,H}^*$, $R_a=Ru_{a,*}$ on the selected coefficient
+types.  The product comparison has actual action
+\[
+ \Phi_{T_I(P)}^!\simeq R_b\Phi_P^!F_a,
+ \qquad F_b\Phi_{T_I(P)}^!\xrightarrow{\sim}\Phi_P^!F_a.
+\]
+The second map is the action of $\alpha_P$.  Define
+$T_I^*:\mathbb K_*(a^D,b^D)\to\mathbb K_*((a_I)^D,(b_I)^D)$
+on labels, module maps and higher simplices by actual
+$R(u_a\times u_b)_*$, restricting both opposite algebra actions
+along the nearby algebra units.  It has the proper-duality equivalence
+\begin{equation}
+ T_I^*(P^D)=R(u_a\times u_b)_*P^D
+       \simeq D_{a_I\times b_I}\,T_I(P).
+ \label{eq:proper-product-duality}
+\end{equation}
+These identifications agree with the actual Hom--shriek-pullback
+star actions, including their evaluations and biduality.
+\end{proposition}
+\begin{proof}
+The first action formula follows either by applying the actual graph
+actions to \eqref{eq:product-sandwich}, or directly by proper product
+base change and projection.  The former calculation identifies the
+map as the very same composite of the units and counits, so the second
+map is precisely the action of \eqref{eq:one-sided-descent}.
+This also gives, using the selected counit $F_aR_a\simeq\mathrm{id}$,
+$\Phi_{T_I(P)}^!R_a\simeq R_b\Phi_P^!$.
+
+Put $\pi=u_a\times u_b$.  This product map is proper, and $P$ is
+bounded constructible by the
+kernel-preservation theorem.  Proper Verdier duality applies to it.
+Its comparison is adjoint to the pairing
+\[
+ R\pi_*P\otimes R\pi_*D P
+       \longrightarrow R\pi_*(P\otimes DP)
+       \longrightarrow R\pi_*\omega_{a\times b}
+       \xrightarrow{\operatorname{Tr}_{\pi}}\omega_{a_I\times b_I}.
+\]
+Moving either outer algebra action between the two evaluation
+arguments proves its opposite-action linearity, so this is an
+identification of kernel modules with their actual maps.
+It defines $T_I^*$ by actual product direct image, independently of
+using the displayed equivalence as a description of its value.
+
+On coefficient types the supported transition is
+$F_a^D=D_aF_aD_{a_I}$, with inverse
+$\overline R_a=D_{a_I}R_aD_a:\mathcal A_a^D\to\mathcal A_{a_I}^D$.
+Biduality and the selected identities $F_aR_a\simeq1$,
+$R_aF_a\simeq1$ give $F_a^D\overline R_a\simeq1$ and
+$\overline R_aF_a^D\simeq1$.  Proper duality identifies
+$\overline R_a$ with actual $Ru_{a,*}$ on the opposite-action
+supported modules; this is a separate restriction of the geometric
+functor, not the primal functor with an unchanged domain.
+The actual star formula was identified with this conjugation in
+Theorem~\ref{thm:geometric-star-mate}.  Its evaluation pairing, after
+product pushforward, is the pairing above followed by the target
+projection trace.  Performing instead the projection first and then
+$u_b$ gives the same pairing: both are evaluation followed by the
+trace of the same composite proper-support map.  Projection base
+change and trace transitivity identify these maps before taking
+adjoints.  Thus \eqref{eq:proper-product-duality} and the supported
+action comparison are the mates of the shriek product comparison,
+not arbitrary equivalences with its abstract dual.  Applying this
+argument twice and using evaluation gives the biduality square.
+
+For clarity, write $\chi_{\pi,P}:R\pi_*DP\to D R\pi_*P$ for
+this comparison.  If $\rho:X'\to X$ and $\pi:X\to Y$ are proper,
+its refinement transitivity is the specified homotopy
+\begin{equation}
+ \chi_{\pi\rho,P}
+   =\chi_{\pi,R\rho_*P}\circ R\pi_*\chi_{\rho,P},
+ \label{eq:trace-transitivity}
+\end{equation}
+under the proper-composition identifications.  Both adjoint pairings
+are evaluation followed by
+$\operatorname{Tr}_{\pi}\circ R\pi_*\operatorname{Tr}_{\rho}
+=\operatorname{Tr}_{\pi\rho}$.  This explicitly identifies the
+Verdier comparison along the two refinement paths.  Inserting a
+convolution uses the same identity for support traces, with $!$ on
+nonproper projections, and the projection pairing; it does not
+replace those projections by proper maps.
+\end{proof}
+
+\begin{proposition}[The product, convolution and boundary comparison diagrams]
+\label{prop:mixed-comparison-diagrams}
+The proper product comparison, the convolution constraint $\lambda$
+and their Verdier mates are comparisons of enhanced functors.  They
+commute with the specified localization arrows and their connecting
+maps, including along the four-model diamond.
+\end{proposition}
+\begin{proof}
+Here are the geometric squares used in the comparison; their
+Cartesian status matters.  For contractions $u_a,u_b,u_c$, put
+$X=a\times b\times c$, $X_I=a_I\times b_I\times c_I$ and
+$Y=a_I\times b\times c_I$.  With the middle projections denoted
+$p,p_Y,p_I$, the square
+\[
+\begin{CD}
+ X @>{s=u_a\times1\times u_c}>> Y\\
+ @V{p}VV @VV{p_Y}V\\
+ a\times c @>{v=u_a\times u_c}>> a_I\times c_I
+\end{CD}
+\]
+is Cartesian, and $s,v$ are proper.  The actual shriek
+Beck--Chevalley map is $v^*Rp_{Y,!}\to Rp_!s^*$.
+Its projection-formula mates and the composite identity
+$p_Ys=vp$ give the comparison
+$Rp_{Y,!}Rs_*\simeq Rv_*Rp_!$.
+The additional map $\rho=1\times u_b\times1:Y\to X_I$ is
+proper; its square with $p_Y,p_I$ and the identity of $a_I\times c_I$
+is \emph{not} asserted Cartesian.  Instead its contribution to
+composition is the middle graph adjunction counit.
+
+More explicitly its support before that counit is
+$b\times_{b_I}b$, with diagonal
+$\delta_b:b\to b\times_{b_I}b$.  Its two coefficient factors tensor
+over the pulled-back coarse algebra.  Restriction along $\delta_b$
+and coefficient multiplication are exactly $\epsilon_b:U_bV_b\to1$.
+This supplies the non-Cartesian middle face.  Adjoin to the displayed
+square the support square for $\delta_b$ and the projection squares
+for the two kernel factors.  This describes the cube as a pasting
+of Cartesian Beck--Chevalley faces and the one specified counit
+face, rather than treating the whole middle face as base change.
+After relative bar realization, its two shriek routes are
+\[
+ V_c L U_b V_b P U_a\xrightarrow{\,V_cL\epsilon_b P U_a\,}
+ V_c L P U_a,
+\]
+with the exterior faces given by the displayed proper-product
+comparison.  This is precisely $\lambda$, so this diagram identifies
+the actual map on all kernel morphisms.
+
+For its Verdier mate apply evaluation on the same support product.
+On each Cartesian face use the mate of the specified
+Beck--Chevalley map, not an independently chosen isomorphism.
+On the middle face evaluation is balanced over the coarse algebra;
+it therefore identifies the counit multiplication with its Hom
+mate.  Finally trace on the two outer routes is identified by
+\[
+ \operatorname{Tr}_{p_Y}\,Rp_{Y,!}(\operatorname{Tr}_s)
+  =\operatorname{Tr}_{p_Ys}
+  =\operatorname{Tr}_{vp}
+  =\operatorname{Tr}_v\,Rv_*(\operatorname{Tr}_p).
+\]
+These are maps from the appropriate pushforward of $\omega_X$;
+$!$ is retained on $p,p_Y$, which need not be proper.  Projection
+pairing and trace transitivity in the enhanced six-operation input
+make this an identity of the specified natural transformations.
+It is the product/convolution/Verdier mixed square.
+
+For precision about the diamond, write $f_{ij}$ for its actual
+product contractions and $c_{h,g}:Rh_*Rg_*\to R(hg)_*$ for the
+composition cell of the fixed enhancement.  Both paths to the
+anchor are compared to the direct functor by these $c$'s; the
+comparison of paths is $c_{\rm right}^{-1}c_{\rm left}$, not a
+claim that chosen cells are literally equal.  For three steps the
+specified simplex is
+\[
+ c_{h,gf}\circ(Rh_*c_{g,f})
+   =c_{hg,f}\circ(c_{h,g}Rf_*).
+\]
+The algebra units are images of the same composition simplex under
+the nearby functor.  On graphs it acts on their actual algebra
+unit, on rectangles on its external product, and on the middle
+counit face on the composite adjunction.  The trace calculation
+above identifies its dual simplex.  These are natural transformations
+of the full ambient functors, so restriction to the generated thick
+subcategories retains the simplices on all their maps.
+
+Finally let $Q_0\to Q_1\to Q_2\xrightarrow{d}Q_0[1]$ be a
+specified localization triangle.  Each natural comparison $\tau$
+above between exact functors $F,G$ induces the square
+\[
+\begin{CD}
+ FQ_2 @>{F(d)}>> FQ_0[1]\\
+ @V{\tau_{Q_2}}VV @VV{\tau_{Q_0}[1]}V\\
+ GQ_2 @>{G(d)}>> GQ_0[1].
+\end{CD}
+\]
+It is obtained by applying the same natural transformation to the
+cofiber diagram of $Q_0\to Q_1$.  Whiskering before or after that
+arrow is exact; taking its Verdier mate reverses the triangle with
+the fixed dual-shift convention.  This proves the boundary and
+diamond compatibility for the actual connecting maps.
+\end{proof}
+
+\begin{lemma}[Assembly from specified enhanced adjunctions and mates]
+\label{lem:coherent-assembly}
+Work in a fixed enhanced kernel bicategory with exact composition
+constructed on relative bar diagrams.  Suppose given graph
+adjunctions $U_a\dashv V_a$ and their enhanced unit, counit and
+triangle cells.  On full stable subcategories closed under the
+specified operations suppose that:
+\begin{enumerate}
+\item the graph units and the whiskered counits $\alpha_P$ are
+invertible, and the proposed $T$, $\lambda$ and $\alpha$ are the
+sandwich and counit-insertion maps, with
+\eqref{eq:descent-pseudonaturality} and the graph unit identity;
+\item the base-change and refinement comparisons are the actual
+pasting comparisons, identifying the adjunctions for composite maps
+with the composite adjunctions;
+\item the bounded duality has evaluation biduality, and the proposed
+star and proper-duality comparisons are the mates of the same
+evaluations and support traces, with projection pairing and
+transitive trace as in \eqref{eq:trace-transitivity}.
+\end{enumerate}
+Then these specified comparisons assemble into a coherent diagram
+of composition, units, base change, refinement and duality on those
+subcategories.  Exactness adds their localization cofiber diagrams.
+Transport by enhanced coefficient Morita equivalences preserves
+this diagram and its mixed cells.
+\end{lemma}
+\begin{proof}
+Construct the diagram first in the ambient enhanced categories.
+A string of composable kernels is evaluated by its relative bar
+multisimplicial diagram.  Removing a middle $UV$ uses the given
+counit; independent removals commute by enhanced interchange, and
+inserting then removing a unit is its given triangle cell.  Thus
+counit insertion defines the composition constraints and all their
+substitutions.  The first hypothesis identifies the named maps
+with these constraints and makes them invertible on the selected
+subcategory.  Pasting and composite adjunctions identify their
+base-change and refinement faces by the second hypothesis.
+
+Taking mates is the operation of composing with the given units,
+counits and evaluation on mapping categories.  It therefore carries
+the already constructed simplices and their substitutions to mate
+simplices.  The third hypothesis identifies the named geometric
+star maps with those mates: on each mixed face both adjoint maps
+are the same evaluation followed by the same composite trace.
+Evaluation biduality supplies the double-dual cells.  Restriction to
+full stable subcategories retains these diagrams, since all named
+operations and values belong to them.  Passing to arrow and cofiber
+categories, and then through enhanced Morita equivalences, gives the
+last assertions.
+
+This is a restriction and identification lemma, not a claim that
+finitely many equalities in a homotopy category determine every
+higher homotopy.  The enhanced adjunctions, pasting operations and
+trace diagrams are part of its input.  The mathematical checks in
+an application are invertibility and identification of the
+\emph{specified geometric maps} with these enhanced constructions.
+\end{proof}
+
+\begin{proposition}[Joint compatibility on the generated kernel diagram]
+\label{thm:joint-kernel-diagram}
+Product descent, kernel convolution, their units, coarse localization
+boundaries, geometric Verdier duality and biduality form a coherent
+diagram on the generated sources.  The Morita realizations carry this
+diagram to the corresponding cellular one.  In particular the new
+kernel operations and the actual product diamond, rather than only
+the earlier coefficient operation diagram, are included.
+\end{proposition}
+\begin{proof}
+We apply Lemma~\ref{lem:coherent-assembly} to the actual
+constructions, not to abstract objectwise equivalences.  Its first
+hypothesis is Lemma~\ref{lem:graph-adjunction} and
+Theorem~\ref{thm:one-sided-descent}, with the rectangle identification
+\eqref{eq:rectangle-counit-square}.  Its second is the specified composition simplex and proper support
+base-change maps in Proposition~\ref{prop:mixed-comparison-diagrams},
+together with Proposition~\ref{prop:product-diamond}.  Its third is
+Theorem~\ref{thm:geometric-star-mate},
+Proposition~\ref{prop:mate-operations} and
+Proposition~\ref{prop:product-verdier}, with the mixed cube and
+trace identity of Proposition~\ref{prop:mixed-comparison-diagrams}.
+Boundedness and closure are
+Theorem~\ref{thm:kernel-preservation}.  We spell out the mixed
+geometric identification and its Morita image below.
+
+First work in the fixed ambient enhanced kernel and module categories.
+All kernel arrows are retained.  The shriek part of the diagram is
+built from the specified convolution functors, proper product direct
+images, $\eta$, $\epsilon$, and their whiskerings.  The maps
+$\alpha$ and $\lambda$ are those whiskerings, not independent
+choices.  Their substitution identities are the interchange and
+adjunction identities verified in Theorem~\ref{thm:one-sided-descent}.
+Composition of proper images with these maps is the composite
+adjunction identity of Proposition~\ref{prop:product-diamond}.
+Those arguments also identify the elementary geometric maps with
+these enhanced cells.
+
+Include the dual types and evaluations.  Verdier duality here is
+applied to the bounded kernels and whiskered comparison maps proved
+above, not to an asserted reflexive structure on the possibly
+unbounded ambient $U_a\star V_a$.  The mate theorem identifies
+each star action with its actual Hom--shriek-pullback expression.
+Proposition~\ref{prop:product-verdier} identifies its new proper
+comparison with the trace mate.  For a composite of a convolution
+square and a product square, both proposed Verdier comparisons are
+adjoint to evaluation on the same multiple product followed by the
+same composite trace.  Interchange, the projection map and trace
+transitivity identify these evaluations.  This proves the mixed
+Verdier/convolution/refinement square, not just its separate edges.
+The same evaluation supplies the unit and biduality squares.
+The functors in question are exact, with duality contravariantly
+exact.  Apply these specified maps to their full arrow and cofiber
+categories; their naturality identifies the mixed localization
+boundary with the dual-shift convention fixed above.
+
+These constructions are made on the relative bar diagrams and the
+functor categories of strings of actual maps.  Whiskering, taking
+mates and taking cofibers are operations on these enhanced categories,
+so they send the entire simplices and their substitutions to the
+corresponding simplices.  The unit, interchange and trace identities
+just checked identify the required geometric generators of this
+operation diagram.  Restricting to the proved bounded generated
+subcategories therefore retains all its higher mixed cells.  We do
+not claim uniqueness of an arbitrary enhancement of every six
+operation, nor invoke the old coefficient transport theorem for
+unverified new operations.
+
+Finally, in generator coordinates the action formula and the actual
+adjunction $F_b\dashv R_b$ give
+\[
+ M_{T_I(P)}
+ =\RHom(G_{b_I},R_b\Phi_P^!F_aG_{a_I})
+ \simeq\RHom(F_bG_{b_I},\Phi_P^!G_a)=M_P.
+\]
+Here $F_aG_{a_I}=G_a$ and $F_bG_{b_I}=G_b$ are the already specified
+geometric generator comparisons.  This equivalence is natural on
+kernel maps and respects both source and target actions.  Denote
+it by $\sigma_P$, and denote the evaluation constraint
+\eqref{eq:morita-convolution} by $\mu_{L,P}$.  The compatibility that
+allows strong convolution to descend is explicitly
+\begin{equation}
+ \sigma_{L\star P}\circ M(\lambda_{L,P})\circ
+                 \mu_{T_I(L),T_I(P)}
+   =\mu_{L,P}\circ(\sigma_P\otimes\sigma_L).
+ \label{eq:morita-descent-square}
+\end{equation}
+Both sides map $M_{T_I(P)}\otimes M_{T_I(L)}$ to $M_{L\star P}$,
+using the specified identifications of endpoint algebras.
+Applying
+the same adjunction to the evaluation map defining Morita composition
+identifies the two tensor comparisons; its triangle identities give
+the unit comparison.  On the dual generators the proper evaluation
+just checked gives the relative algebra dual comparison of
+Proposition~\ref{thm:morita-star}.  Hence it also retains biduality and
+the boundary maps.  The full exact-functor/Morita equivalences
+transport the entire diagram and its higher cells.  This last
+transport is applied only after the new kernel and product maps
+have been constructed and identified geometrically.
+\end{proof}
+
+\begin{theorem}[Anchored localization]\label{thm:anchored-localization}
+The two enhanced Morita realizations descend through the specified
+refinement localizations and satisfy the equivalence in the main
+theorem, preserving units, convolution, localization, biduality and
+the actual four-model comparison.  More precisely product direct image
+to $B$ induces an equivalence between the localized generated shriek
+source and its full subcategory of objects at $B$, with the generated
+kernels there.  The dual statement holds for the supported source.
+This is anchored independence for these sources, not for all
+geometric kernels or for a change of anchor.
+\end{theorem}
+\begin{proof}
+Let $T_B$ be the enhanced product functor just constructed, and let
+$\iota$ include the kernel source at $B$.  The restricted composite
+$T_B\iota$ is the identity, with the identity proper maps and their
+unit cells.  Every distinguished refinement graph is sent by $T_B$
+to the regular unit kernel on its coarse support.  Thus $T_B$ factors
+through the enhanced localization at $\mathcal W_B$.
+
+The components $U_a:\iota T_B(a)\to a$, together with the invertible
+kernel maps $\alpha_P$, give a coherent natural comparison from
+$\iota T_B$ to the identity on the generated source.  Its compatibility
+with composition is precisely
+\eqref{eq:descent-pseudonaturality}, and its unit compatibility is the
+graph triangle identity proved there.
+These components become equivalences after inverting
+$\mathcal W_B$; for composite refinements the same conclusion follows
+from their graph composition.  Hence $\iota$ and the descended $T_B$
+are inverse equivalences there.  Equivalently these identities verify
+the localization universal property directly: any enhanced functor
+inverting the $U_a$ is identified, by its images of the $\alpha_P$,
+with its restriction to the anchor composed with $T_B$.  The same
+comparison on functor mapping categories retains transformations and
+their higher cells.  More explicitly, precomposition with $T_B$ and
+$\iota$ gives functors in the two directions of
+\eqref{eq:localization-definition}.  Their composite on the anchor
+side is the identity.  On a functor $F$ inverting $\mathcal W_B$,
+the other composite has comparison with $F$ given by $F(U_a)$
+and $F(\alpha_P)$.  For a pseudonatural transformation $\tau:F\to F'$
+its naturality square at $U_a$ is exactly the modification relating
+these comparisons.  Naturality on modifications gives the same
+construction on their mapping spaces.  Since $F(U_a)$ are
+equivalences, this is an equivalence of these functor categories,
+proving the stipulated universal property with the anchor as the
+explicit localization model.  This argument uses the actual maps
+$\alpha_P$ between generated kernels; it neither quotients kernel
+maps by equality of action nor inserts a nonselected reverse graph
+as an a priori inverse.
+
+The shriek Morita functor sends $U_a$ to the bimodule representing
+$F_a$, already an equivalence of the selected coefficient categories.
+It therefore descends by the universal property of localization.
+The supported functor does the same for the dual graph arrows, which
+act by the proved geometric $F_a^D$.  The geometric and cellular
+dualities carry the distinguished arrows to these supported arrows.
+The enhanced natural equivalence proved before localization, with
+its entire compatible diagram in Proposition~\ref{thm:joint-kernel-diagram},
+therefore descends as well.  This proves the main theorem.
+All product and trace comparisons remain those of the fixed maps;
+the localization is performed only after their verification.
+\end{proof}
+
+\begin{proposition}[A noninvertible kernel survives localization]
+\label{prop:noninvertible-rectangle}
+The coarse rectangular kernel $P_{Uq}=H_U\boxtimes A_q$, for either
+endpoint $q$, is not invertible in the anchored localized source.
+\end{proposition}
+\begin{proof}
+Its actual action sends $\mathbf Q_{\ell,U}$ to $C\otimes A_q$, where
+$C=R\Gamma_c(U,\Q)$.  The source endomorphism complex is
+$A=R\Gamma(U,\Q)$, whose total cohomology dimension is two.  Since
+$C$ is a perfect $\Q$-complex, the target endomorphism complex is
+\[
+ \RHom_{A_q}(C\otimes A_q,C\otimes A_q)
+   \simeq\RHom_{\Q}(C,C)\otimes A_q.
+\]
+The cohomology of $C$ is one-dimensional in each of degrees $1,2$,
+and that of $A_q$ is one-dimensional in degrees $0,1$.  Kunneth
+therefore gives total dimension eight for this endomorphism complex
+(in degrees $-1,0,1,2$ the dimensions are $1,3,3,1$).
+Thus the action is not fully faithful and cannot be an equivalence.
+The Morita realization factors through refinement localization by
+Theorem~\ref{thm:anchored-localization}.  An invertible kernel there
+would have an invertible Morita image and hence an equivalence as
+its coefficient action, contradicting this calculation.  No faithfulness
+of the kernel realization is used in this implication.
+\end{proof}
+
+The following example uses the standard Hochschild interpretation
+of identity-functor endomorphisms~\cite{ToenMorita}.  Its geometric
+source consists of constructible $\ell$-adic kernels acting on the
+selected coefficient category.  It is not the quasicoherent kernel
+category in the integral-transform comparisons of
+\cite{BFNTransforms}.  Full bimodule mapping objects in the Morita
+target can therefore contain maps absent from this geometric source;
+we compute that difference explicitly rather than importing a
+quasicoherent kernel--functor equivalence.
+
+\begin{proposition}[Geometric unit maps and Hochschild mapping-object discrepancy]
+\label{prop:hochschild-boundary}
+On the coarse open stratum $U=\mathbf G_m$, put
+$A=R\Gamma(U,\Q)$ and $I_U=\Delta_*\mathbf Q_{\ell,U}$.  The geometric source
+and its Morita target have mapping objects
+\[
+ \RHom_{U\times U}(I_U,I_U)\simeq A,
+ \qquad
+ \RHom_{A^e}(\Sk_!(I_U),\Sk_!(I_U))
+       \simeq\RHom_{A^e}(A,A).
+\]
+Their degree-zero cohomology groups are not isomorphic.  With the
+geometric coefficients of this paper, a choice of generator of
+$H^1(U,\Q)$ identifies the second with $\Q[[z]]$, whereas the
+first is $\Q$.  The realization, also after anchored localization,
+is consequently not fully faithful on kernel mapping objects.
+\end{proposition}
+\begin{proof}
+Here $H_U=\mathbf Q_{\ell,U}$, so the geometric module-kernel mapping object is
+ordinary sheaf Hom.  Closed-immersion direct image along $\Delta$
+is fully faithful, with $\Delta^*\Delta_*\simeq1$.  Its adjunction
+gives the first equivalence.  The unit calculation in
+Proposition~\ref{thm:kernel-morita} gives the regular bimodule $A$,
+so the target, which retains full bimodule mapping spectra, gives
+the second.  Right-target-perfectness does not require $A$ to be
+perfect over $A^e$ and does not truncate this Hom.
+
+For completeness, compute the latter Hom rather than replacing its
+totalization by a direct sum.  Over the geometric field, choose a
+basis of the one-dimensional Tate line $H^1(U,\Q)=\Q(-1)$.
+We use characteristic-zero rectification here: commutative dg
+$\Q$-algebras model $E_\infty$ algebras in complexes, since the
+finite symmetric-group coinvariants are exact over $\Q$ and the
+commutative operad is equivalent to its $E_\infty$ resolution.
+Derived global sections of the constant commutative algebra supply
+such an $E_\infty$ model.  A rectified commutative dg model of $A$
+is quasi-isomorphic to
+$\Lambda(\epsilon)$, $|\epsilon|=1$: a cocycle representing this
+basis defines a map from the free graded-commutative algebra on
+one odd generator, and the known cohomology in degrees $0,1$
+makes it a quasi-isomorphism.  We use this as a model choice for
+this calculation only; no Galois-equivariant trivialization of a
+Tate line is claimed.
+
+Write $A_0=\Lambda(\epsilon)$ and
+$A_0^e=\Lambda(\epsilon_l,\epsilon_r)$, with the graded opposite
+convention.  A semifree $A_0^e$-resolution of its diagonal module is
+\[
+ F=A_0^e\otimes\Q[t],\qquad |t|=0,\qquad
+ dt=\epsilon_l-\epsilon_r,
+ \qquad F\longrightarrow A_0,\quad t\longmapsto0.
+\]
+The filtration by polynomial degree is semifree, since the
+differential lowers that degree.  To check the augmentation, use
+coordinates $\epsilon_r$ and $\delta=\epsilon_l-\epsilon_r$.
+The remaining complex is
+$\Q[t]\xrightarrow{\partial_t}\delta\Q[t]$.
+In characteristic zero its kernel is the constants and its
+cokernel is zero, proving the quasi-isomorphism.
+
+Set $t^{[n]}=t^n/n!$.  Then $dt^{[n]}=\delta t^{[n-1]}$.
+On the diagonal module $\delta$ acts by zero, whence
+\[
+ \RHom_{A_0^e}(A_0,A_0)
+   \simeq\operatorname{Hom}_{A_0^e}(F,A_0)
+   =\prod_{n\geq0} A_0,
+\]
+with zero differential.  The product is essential: $F$ is a direct
+sum of free generators all in degree zero, and ordinary derived
+Hom takes that sum to a product.  The resolution diagonal
+$t\mapsto t\otimes1+1\otimes t$ gives
+$t^{[n]}\mapsto\sum_{i+j=n}t^{[i]}\otimes t^{[j]}$.
+Thus the cup product on degree-zero sequences is the power-series
+product, giving $H^0=\Q[[z]]$.  This is the usual derived Hom,
+not a polynomial or a separately imposed continuous variant.
+
+The degree-zero map from the geometric source sends scalars to
+scalar multiples of the identity, hence to the constant series.
+It is not surjective.  Finally,
+Theorem~\ref{thm:anchored-localization} identifies the localized
+source with its full generated anchor source, so it does not add
+these missing endomorphisms to $I_U$.  The discrepancy persists
+after localization.  It describes additional coherent natural
+transformations in the Morita action category, and is compatible
+with all the strong composition assertions above.
+\end{proof}
+
+\section{Scope of the result}
+The source is generated by the named geometric nearby kernels and
+all their actual morphisms.  Inverting its refinement graphs gives
+model independence only for $xy=t^4$, $B=\{2\}$ and the four stated
+models, with complete inverse-image supports.  The two rectangular
+convolutions and their nontrivial cochain factors are retained in
+this localization; it is not a category consisting only of invertible
+operations.  The cellular target retains arbitrary coarse attachments
+and right-target-perfect bimodules, without asserting smoothness of
+the cellular algebras or full faithfulness of kernel realization.
+
+No original log/root kernel realization, integral coefficient extension,
+external infinite base inertia, arbitrary fine support, change of anchor
+or unrestricted product-kernel equivalence is included.  These would
+require additional geometric comparison theorems.  The present statement
+supplies a fixed anchored, nearby-enhanced kernel and Verdier interface;
+it does not by itself construct the full orbital correspondence or
+model-independent Grand Theorem.
+
+Appendix~\ref{sec:root-interface} proves only the local completed-root
+realization, the two coarse rectangular tests and the selected carrier
+comparison.  Appendix~\ref{sec:root-obstruction} excludes ordinary
+stalk/pullback gluing of the distribution unit.  The actual exceptional
+mate retains the full supported dualizing complex; it does not construct
+a global ordinary shriek kernel calculus.  That construction is a separate
+research problem, not an unproved part of Theorem~\ref{thm:main}.
+In particular the nearby result does not depend on solving it.
+Proposition~\ref{prop:hochschild-boundary} also rules out promoting the
+stated Morita realization to a full kernel equivalence on the open
+stratum.  Neither adding models nor changing the $\log$ notation supplies
+the missing root interface.
+
+\appendix
+
+\section{Local completed-root realization}
+\label{sec:root-interface}
+This appendix records local results independent of the proof of
+Theorem~\ref{thm:main}: completed residual-gerbe units, normalized
+rectangles, the two coarse passages and their selected carrier
+pairing.  None asserts a global four-model root kernel functor.
+Continuous cohomology and actual root shriek integration remain
+distinct operations until the specified local normalization is applied.
+
+Fix a node, its relative chart and the compatible base-root
+neutralization of \cite{Local}.  Write
+$\Gamma=\mathbf Z_\ell(1)$, $G_n=\Gamma/\ell^n\Gamma$ and
+$\Lambda_r=\mathbf Z/\ell^r$.  Relative products here use two
+independent relative inertia factors \emph{after} this neutralization;
+they do not retain a common absolute base inertia factor.  At finite
+level they are $BG_n\times BG_n=B(G_n\times G_n)$.
+
+For $\Gamma_a=0$ or $\Gamma$, put
+$A_{a,r}=R\Gamma_{\mathrm{cts}}(\Gamma_a,\Lambda_r)$ and
+$I_{a,r}=C_{\mathrm{lc}}(\Gamma_a,\Lambda_r)$.  The inflation assembly of the finite permutation diagonals is
+$C_{\mathrm{lc}}(\Gamma_a,\Lambda_r)$; continuous Shapiro identifies
+its cochains on $\Gamma_a^2$ with $A_{a,r}$, with both actions
+induced by diagonal restriction.  Its scalar dual is the completed
+distribution module $\varprojlim_n\Lambda_r[G_n]$, with quotient-fibre
+summation.  These statements follow by finite coinduction and
+by dualizing the filtered union of finite function modules.
+This cohomological comparison is not a shriek comparison.  The
+following calculation specifies the difference before constructing
+the local completed shriek realization.
+
+\begin{proposition}[A node passage distinguishes star and trace assembly]
+\label{prop:root-node-integral-test}
+At a node, continuous cohomological integration of the constant
+coefficient gives $A_r=C^*_{\mathrm{cts}}(\Gamma,\Lambda_r)$.
+In contrast, assembling the actual finite-stack shriek images
+along their trace transitions gives
+\[
+ J_r:=R\varprojlim_n Rg_{n,!}\Lambda_r
+       \simeq R\operatorname{Hom}_{\Lambda_r}(A_r,\Lambda_r),
+ \qquad g_n:BG_n\to\operatorname{Spec}k.
+\]
+After adic recovery and rationalization, $A$ has cohomology in
+$(0,1)$ whereas $J=D_{\Q}A$ has cohomology in $(-1,0)$.
+Consequently trace-assembled shriek convolution of the two constant
+root rectangles through this node does not give the nearby
+rectangle convolution factor $A$.
+\end{proposition}
+\begin{proof}
+At finite precision, \cite[\texttt{prop:frag-finite-quotient-enhancement}]{Local}
+identifies the actual geometric shriek adjunction with derived
+coinvariants, including its counit and composition cells.
+Its \texttt{prop:frag-point-geometric-bars} identifies the full bar
+and its geometric pairing.  Thus the specified comparison is
+\[
+ Rg_{n,!}\Lambda_r
+ \simeq\Lambda_r\otimes^L_{\Lambda_r[G_n]}\Lambda_r
+ \simeq D_{\Lambda_r}C^*(G_n,\Lambda_r).
+\]
+Under this comparison the quotient trace is the dual of inflation,
+with the coefficient arrows specified by
+\cite[\texttt{lem:frag-point-trace-diagram-descent}]{Local}.
+These are unbounded full bars; $BG_n$ has dimension-zero dualizing
+coefficient $\Lambda_r$.  Therefore
+\[
+ R\varprojlim_n D_{\Lambda_r}C^*(G_n,\Lambda_r)
+   \simeq D_{\Lambda_r}\operatorname*{hocolim}_n C^*(G_n,\Lambda_r)
+   =D_{\Lambda_r}A_r.
+\]
+There is no truncation of the unbounded finite bars in this step.
+The resulting $A_r$ is the perfect two-term continuous complex;
+its dual is likewise perfect and compatible with derived precision
+reduction.  Recovering $r$ and then rationalizing gives
+$H^{-1}(J)=\Q(1)$, $H^0(J)=\Q$, whereas
+$H^0(A)=\Q$, $H^1(A)=\Q(-1)$.
+
+For the passage $U\to q\to U$, the two constant root rectangles
+have constant middle coefficient.  Finite-stack convolution thus
+integrates that coefficient by $Rg_{n,!}$.  Retaining the trace
+assembly gives the scalar factor $J$, multiplying the unchanged
+outer rectangular coefficient.  Near the node the convolution in
+Proposition~\ref{prop:rectangle} instead has factor $A$.
+An exact $\Q$-linear realization that restricts to the identity
+kernel functor on the root-free open stratum (and hence on its
+scalar-tensored rectangular kernels), and sends these two constant
+rectangles to the named
+nearby rectangles cannot identify these composites.  This is an
+obstruction to this \emph{specific} naive choice of shriek assembly
+and rectangles, not to every possible normalized root source.
+The finite-carrier supported trace in \cite{Local} has, in addition,
+its carrier shift and twist; it cannot remove this distinction by
+being renamed ordinary inertia integration.
+\end{proof}
+
+\subsection{Completed shriek kernels and the source normalization}
+\label{sec:completed-shriek-normalization}
+We now resolve the node-integration discrepancy for the specified
+rectangular kernels.  The endpoints in the point-valued calculation carry
+inertia $0$ or $\Gamma=\mathbf Z_\ell(1)$, as occurs on strata
+of the fixed models.  An endpoint with zero inertia is a point;
+it is not the actual open scheme $U=\mathbf G_m$.  No statement for general
+root stacks is needed.  The result is local on these strata.  A global kernel calculus is
+not obtained by gluing these modules through ordinary stalk pullback;
+the obstruction is proved in Appendix~\ref{sec:root-obstruction}.
+
+Put $E_{a,r}=\Lambda_r$ with trivial inertia, and
+$R_{a,r}=\Lambda_r[[\Gamma_a]]$, the Iwasawa (measure-type)
+completed group algebra, not an algebra of locally analytic
+distributions.  Use the derived category of
+pseudocompact modules, computed by completed free resolutions,
+with completed tensor and continuous derived mapping spectra.
+Root-level inverse systems are used to present these modules;
+we do not identify this category with
+$\varprojlim_n D(\Lambda_r[G_n])$ under derived scalar reduction.
+In particular the augmentation's finite presentations are not
+asserted derived-cartesian over finite group rings.
+
+There are two independent root indices in mapping computations:
+a finite quotient presenting a distribution coefficient, and a
+possibly larger quotient computing its continuous action.  For a
+pseudocompact target $W=\varprojlim_nW_n$, continuous equivariant
+Hom is computed by resolving the source and then taking
+\[
+ R\varprojlim_n C^*_{\mathrm{cts}}
+  \bigl(\Gamma_a\times\Gamma_b,
+     R\operatorname{Hom}^{\mathrm{cts}}_{\Lambda_r}(V,W_n)\bigr).
+\]
+The cochains inside are inflation colimits over sufficiently large
+action levels, not cochains of the single group presenting $W_n$.
+This is the completed equivariant bar model for the mapping spectra
+in the preceding definition.  It retains derived continuous maps
+which a diagonal finite-level Hom calculation would miss.
+
+\begin{lemma}[The source orientation from the completed augmentation]
+\label{lem:root-source-orientation}
+The augmentation $E_{a,r}$ is perfect over $R_{a,r}$.  Its relative
+dual is
+\[
+ \mathfrak l_{a,r}:=\RHom_{R_{a,r}}^{\mathrm{cts}}(E_{a,r},R_{a,r})
+ \simeq
+ \begin{cases}
+ \Lambda_r,&\Gamma_a=0,\\
+ \Lambda_r(-1)[-1],&\Gamma_a=\Gamma,
+ \end{cases}
+\]
+as a left $R_{a,r}$-module with augmentation action.  Evaluation gives,
+for every right module $M$, the canonical natural equivalence
+\begin{equation}
+ M\widehat\otimes_{R_{a,r}}^L\mathfrak l_{a,r}
+  \xrightarrow{\sim}\RHom_{R_{a,r}}^{\mathrm{cts}}(E_{a,r},M).
+ \label{eq:root-oriented-evaluation}
+\end{equation}
+For $M=E_{a,r}$ this identifies the trace factor with the cochain
+factor, with both augmentation-endomorphism actions:
+\[
+ J_{a,r}\otimes\mathfrak l_{a,r}\simeq A_{a,r},\qquad
+ J_{a,r}=E_{a,r}\widehat\otimes_{R_{a,r}}^L E_{a,r}.
+\]
+When used as a scalar tensor factor we write
+$\underline{\mathfrak l}_{a,r}$ for the underlying orientation line
+of $\mathfrak l_{a,r}$.  The augmentation-endomorphism/cochain actions
+are still those transported by the evaluation comparison; the
+underline does not replace them by trivial actions.  In the last
+formula the tensor is over $\Lambda_r$ with this underlying line;
+the augmentation action is retained in the tensor defining $J$.
+\end{lemma}
+\begin{proof}
+At a node choose the fixed Kummer coordinate and write
+$T=\gamma-1$.  The two-term completed free resolution
+$[R_{a,r}\xrightarrow{T}R_{a,r}]$ of the augmentation, in degrees
+$-1,0$, is exact since $T$ is a non-zero-divisor even over
+$\Lambda_r$.  Dualizing it gives the augmentation in degree $1$.
+Intrinsically its degree-one line is
+$(I/I^2)^\vee=\Lambda_r(-1)$, so the identification has the stated
+Tate twist, rather than a basis-dependent scalar shift.
+Evaluation of a finite free resolution proves
+\eqref{eq:root-oriented-evaluation} for every $M$ and on its full
+mapping category.  Taking $M=E_{a,r}$ gives $A_{a,r}$ by the same
+augmentation resolution that computes continuous cohomology.
+Naturality in the source augmentation and the target $M$ proves
+linearity for the two endomorphism actions.  Thus the assertion is
+a balanced bimodule comparison, not a choice of an isomorphism
+$D A(-1)[-1]\simeq A$ from graded dimensions.  The zero-inertia case
+is the regular-module evaluation.
+
+One can see the orientation directly in actual continuous root
+coefficients.  For $R_n=\Lambda_r[G_n]$, the continuous action
+complex is $[R_n\xrightarrow{T}R_n]$ in degrees $0,1$.
+Its degree-zero invariant is the norm element; quotient sends it
+to $\ell$ times the preceding norm.  Its degree-one cokernel is
+$\Lambda_r(-1)$ and the transition is the identity.  At fixed $r$
+the former inverse system is pro-zero and the latter is constant,
+so $R\varprojlim_nR\Gamma_{\mathrm{cts}}(\Gamma,R_n)
+=\Lambda_r(-1)[-1]$.  The two-term complexes identify this with
+$\RHom_R(\Lambda_r,R)$, including its maps.  In contrast
+$R\operatorname{Hom}_{\Lambda_r[G_n]}(\Lambda_r,R_n)$ at that
+single finite group level has no such degree-one class.  This
+exhibits why the continuous-action index cannot be silently tied
+to the distribution index.
+\end{proof}
+
+\begin{definition}[The completed local shriek generating source]
+\label{def:completed-root-shriek-source}
+For endpoints $a,b$ with the preceding inertia, take actual
+pseudocompact $(R_{a,r},R_{b,r})$-bimodules, retaining their continuous
+derived mapping spectra.  Composition is completed derived tensor
+over the middle algebra.  Its unit is the regular bimodule $R_{a,r}$.
+The normalized rectangular generator is
+\[
+ Q_{ab,r}=\mathfrak l_{a,r}\widehat\otimes_{\Lambda_r}E_{b,r}.
+\]
+Take the smallest full stable idempotent-complete unital convolution
+source generated by \emph{all} regular diagonal bimodules $R_{a,r}$
+and \emph{all} normalized rectangles $Q_{ab,r}$, with perfect scalar
+coefficients.  Inertia graph bimodules are not additional generators.  The two
+endpoints remain in their original order.  The shift belongs to
+the \emph{source} factor, and no shift is inserted in the unit.
+\end{definition}
+
+\begin{theorem}[Local completed shriek realization]
+\label{thm:completed-root-shriek}
+On this source there is an exact enhanced realization on full
+kernel mapping categories,
+\begin{equation}
+ \mathcal R_{!,r}^{\mathrm{loc}}(P)
+ =\RHom_{R_{b,r}}^{\mathrm{cts}}
+       (E_{b,r},E_{a,r}\widehat\otimes_{R_{a,r}}^L P),
+ \label{eq:completed-root-realization}
+\end{equation}
+valued in $(A_{a,r},A_{b,r})$-bimodules perfect on the right.  It
+sends the completed actual diagonal to the regular unit and the
+normalized rectangle to the ordinary nearby rectangular bimodule:
+\[
+ \mathcal R_{!,r}^{\mathrm{loc}}(R_{a,r})\simeq A_{a,r},\qquad
+ \mathcal R_{!,r}^{\mathrm{loc}}(Q_{ab,r})
+       \simeq A_{a,r}\otimes_{\Lambda_r}A_{b,r}.
+\]
+It has the canonical strong convolution constraint
+\[
+ \mathcal R_{!,r}^{\mathrm{loc}}(P)\otimes_{A_{b,r}}^L
+ \mathcal R_{!,r}^{\mathrm{loc}}(L)
+   \xrightarrow{\sim}\mathcal R_{!,r}^{\mathrm{loc}}
+                              (P\widehat\otimes_{R_{b,r}}^L L).
+\]
+The diagonal and rectangle convolution constraints are the
+continuous assemblies of the actual finite-root shriek operations
+specified in the proof, not continuous invariants substituted for
+those operations.
+The same statements hold for the derived cartesian integral systems
+generated by these kernels, and after their rationalization: precision
+reduction is performed on the augmentation resolutions, followed by
+adic recovery.  No finite root level is rationalized first.
+\end{theorem}
+\begin{proof}
+For the actual finite diagonal use the distribution basis of its
+permutation module $\Lambda_r[G_n]$.  The transition
+$[g]\mapsto[\bar g]$ is quotient-fibre summation on distributions.
+It is the dual of pullback of finite functions, hence is the trace
+mate for the finite diagonal correspondence.  This assertion is
+on the residual gerbe.  Across a normal branch its geometric mate
+has the exceptional/costalk type described in
+Proposition~\ref{prop:root-diagonal-branch-transition}; it is not a
+map to the ordinary pullback of the preceding diagonal kernel.  Its inverse limit
+is $R_{a,r}$ with both regular actions.  Unlike the inflation
+assembly $I_{a,r}$, this is the unit of the completed shriek source.
+The finite-level identity contractions
+$\Lambda_r[G_n]\otimes_{\Lambda_r[G_n]}P_n\to P_n$ commute with
+these quotient maps, including the contracting homotopies of the
+regular bar.  Thus they give the unit constraints after assembly.
+
+A normalized rectangle has the actual finite-root predecessor
+$\Lambda_r(-1)[-1]\boxtimes\Lambda_r$ if its source is a node,
+and the unshifted constant rectangle if the source inertia is zero.
+Its trace transition is the identity on these coefficient lines.
+This is a chosen shifted kernel coefficient, not the finite-group
+shriek image itself.  For two rectangles the finite middle shriek
+operation is the full group-homology bar, with its actual trace maps
+under quotient, using the geometric input chain in
+Proposition~\ref{prop:root-node-integral-test}.
+Its inverse assembly is $J_{b,r}$ by
+Proposition~\ref{prop:root-node-integral-test}.  The completed
+augmentation resolution computes the same $J_{b,r}$, and the
+comparison of the completed bar with that resolution identifies
+the evaluation map.  Consequently
+\begin{equation}
+ Q_{ab,r}\widehat\otimes_{R_{b,r}}^L Q_{bc,r}
+  \simeq A_{b,r}\otimes_{\Lambda_r}Q_{ac,r}.
+ \label{eq:normalized-root-rectangles}
+\end{equation}
+The map is precisely \eqref{eq:root-oriented-evaluation} on the
+middle factor.  The two outer actions are unchanged.  For any fixed
+finite word of rectangles, the finite computation uses a finite
+product of full homology bars.  Dualizing gives finite products of
+cohomology bars, whose inflation colimit is the corresponding
+continuous product bar; each resulting continuous complex is
+perfect over $\Lambda_r$.  Dualizing back identifies the trace
+assembly with the completed tensor computation.  No infinite
+root bar is truncated and no inverse limit is moved through an
+arbitrary unbounded tensor.  Regular factors are handled by their
+coherent bar contractions.  This proves the claimed geometric
+assembly on the specified local convolution words.  For diagrams
+of their actual continuous maps, retain the independent action and
+distribution indices described above.  Exactness extends an already
+constructed comparison of such diagrams to its cones and retracts;
+the ambient realization itself is defined on every continuous
+kernel map by \eqref{eq:completed-root-realization}.
+
+The selected coefficient category at $a$ is
+$\operatorname{thick}_{R_{a,r}}(E_{a,r})$, with its actual continuous
+module maps.  For $Q_{ab,r}$ its action on $M$ is
+\[
+ M\widehat\otimes_{R_{a,r}}^L Q_{ab,r}
+   \simeq \RHom_{R_{a,r}}^{\mathrm{cts}}(E_{a,r},M)
+                 \otimes E_{b,r}.
+\]
+For $M$ in this thick category the scalar factor is perfect:
+check $M=E_{a,r}$ by the finite augmentation resolution, then use
+finite cones and retracts.  Thus every generator, and consequently
+every generated kernel, preserves the selected coefficient types.
+Formula \eqref{eq:completed-root-realization} is therefore its
+Morita bimodule coordinate, defined by the actual completed kernel
+action.  The source endomorphisms act through this action and the
+target endomorphisms by precomposition.  Evaluation on the middle
+augmentation and thick generation prove the strong tensor
+comparison, exactly as in Proposition~\ref{thm:kernel-morita}.
+For a rectangle its value is $A_{a,r}\otimes A_{b,r}$ by
+\eqref{eq:root-oriented-evaluation}; for a unit it is $A_{a,r}$
+with the regular actions.  All composition and unit cells are the
+ones induced by tensor evaluation and the completed bar, so they
+are natural on the full mapping categories.  No full faithfulness
+of this realization is required.  The unit, orientation and rectangle
+systems commute with derived precision reduction: their completed
+free augmentation resolutions reduce to the corresponding resolutions
+over $\Lambda_r$.  Their realized images are perfect scalar complexes
+with uniformly bounded amplitude for each finite expression.  Finite
+cones, convolution and retracts of these cartesian systems preserve
+the stated comparisons.  Their adic limits and subsequent inversion
+of $\ell$ therefore give the final assertion; no claim concerns
+arbitrary precision-dependent infinite convolution words.
+\end{proof}
+
+\paragraph{Separate geometric test environment.}
+The next proposition is not an extension of the point-valued source
+in Definition~\ref{def:completed-root-shriek-source}.  Fix the disjoint
+strata $U=\mathbf G_m$ and $q$.  Retain actual sheaf kernels on
+$U\times U$, sheaves on $U$ with a completed right $R_q$ action for
+$U\to q$, sheaves on $U$ with a completed left $R_q$ action for
+$q\to U$, and completed bimodules on $q\times q$.
+We only use the displayed exterior coefficients and two explicitly
+specified compositions.  Through $q$, contract completed module
+factors by the actual trace-assembled group bar; through $U$, use
+scheme shriek direct image of the sheaf tensor product.  Maps of
+these expressions use those actual tensor, projection and evaluation
+maps.  No common generated enhanced source or strong realization on
+its full convolution closure is asserted.
+
+\begin{proposition}[Two geometric coarse-passage tests and carrier correction]
+\label{prop:normalized-root-passage}
+At fixed precision put
+\[
+ Q_{Uq}=\Lambda_{r,U}\boxtimes E_q,\qquad
+ Q_{qU}=\mathfrak l_q\boxtimes\Lambda_{r,U},\qquad
+ Q_{UU}=\Lambda_{r,U}\boxtimes\Lambda_{r,U},\qquad
+ Q_{qq}=\mathfrak l_q\otimes_{\Lambda_r}E_q.
+\]
+In the separate test environment just specified, the two compositions
+are
+\begin{align*}
+ Q_{qU}\star Q_{Uq}&\simeq A_q\otimes_{\Lambda_r}Q_{UU},\\
+ Q_{Uq}\star Q_{qU}&\simeq R\Gamma_c(U,\Lambda_r)
+                                      \otimes_{\Lambda_r}Q_{qq}.
+\end{align*}
+The actual unit on $U$ is $\Delta_{U,*}\Lambda_r$, not $Q_{UU}$.
+There are separate factorwise comparisons with the specified nearby
+rectangles: target augmentation Hom on $Q_{Uq}$ gives
+$\Lambda_{r,U}\boxtimes A_q$; source augmentation evaluation on
+$Q_{qU}$ gives $A_q\boxtimes\Lambda_{r,U}$, with its source cochain
+action.  After the selected adic passage and rationalization these
+are $H_U\boxtimes A_q$ and $A_q\boxtimes H_U$ through the actual
+cochain-to-nearby comparisons.  These object and action comparisons
+are not denoted by $\mathcal R_!^{\mathrm{loc}}$, whose defined source
+is point-valued.  They identify the two displayed geometric passage
+factors, not a new common enhanced functor.
+\end{proposition}
+\begin{proof}
+For $U\to q\to U$ the middle trace factor is
+$J_q\otimes_{\Lambda_r}\underline{\mathfrak l}_q$; its specified
+augmentation evaluation gives $A_q$.  The two outer sheaves remain
+on the actual product $U\times U$.  For $q\to U\to q$, ordinary
+scheme shriek integration of the middle constant sheaf gives
+$R\Gamma_c(U,\Lambda_r)$, leaving the outer $Q_{qq}$.  This factor
+has nonzero cohomology in degrees one and two; replacing $U$ by the
+zero-inertia point would instead give $\Lambda_r$ and would change
+the calculation.
+
+The first factorwise comparison is the actual map
+\[
+ \RHom_{R_q}(E_q,\Lambda_{r,U}\boxtimes E_q)
+       \simeq\Lambda_{r,U}\boxtimes A_q.
+\]
+For its action on $N\in\operatorname{thick}(\Lambda_{r,U})$, it identifies
+$K_q(R\Gamma_c(U,N)\otimes E_q)$ with
+$R\Gamma_c(U,N)\otimes A_q$.  Here $R\Gamma_c(U,N)$ is scalar
+perfect in the selected geometric domain, so the tensor--Hom
+comparison follows from the finite augmentation resolution.
+For the reverse rectangle the action on a selected node coefficient
+$M$ is
+\[
+ (M\widehat\otimes_{R_q}\mathfrak l_q)\boxtimes\Lambda_{r,U}
+       \xrightarrow{\sim}K_q(M)\boxtimes\Lambda_{r,U}.
+\]
+This is precisely \eqref{eq:root-oriented-evaluation}, retaining
+the source $A_q$ action.  It is the action of the independently
+specified nearby rectangle $A_q\boxtimes\Lambda_{r,U}$ on $K_q(M)$.
+These comparisons come from the node factor of the actual exterior
+kernels; the geometric $U$ factor and its support have not been
+replaced by point-valued Morita coordinates.  Inserting these maps
+in the two contractions gives the middle factors in the statement.
+All assertions are natural for the coefficient maps in these
+expressions.  Compatible systems obtained from fixed finite
+expressions admit the same precision reduction, adic recovery and
+last-step rationalization as the local calculation.  This does not
+construct a functor on arbitrary mixed convolution words or their
+full kernel mapping categories.
+
+For comparison with the first paper, a rank-$N$ affine carrier has
+shriek factor $c_N=\Lambda_r(-N)[-2N]$.  Its trace-assembled node
+output is $J_q\otimes c_N$, whereas the bare-node normalized
+rectangle uses $J_q\otimes\mathfrak l_q$.  To compute the latter
+using that carrier one must use the actual coefficient line
+\begin{equation}
+ \mathfrak l_q\otimes c_N^{-1}
+       =\Lambda_r(N-1)[2N-1]
+ \label{eq:root-carrier-compensation}
+\end{equation}
+on the carrier.  The vector-bundle trace, with that line, gives
+$J_q\otimes c_N\otimes(\mathfrak l_q c_N^{-1})
+=J_q\otimes\mathfrak l_q$.  For $N=1$ the compensating line is
+$\Lambda_r[1]$, not the bare-node line $\Lambda_r(-1)[-1]$.
+Projection for this invertible coefficient proves the comparison
+on maps and pairings.  This explains precisely which carrier
+normalization connects its supported trace with nearby ordinary
+node integration; an uncompensated carrier trace remains different.
+\end{proof}
+
+\begin{proposition}[Inertia graph coefficients in the ambient completed category]
+\label{prop:completed-root-graphs}
+For a stratum map in one of the fixed contractions, let
+$\varphi:\Gamma_b\to\Gamma_a$ be its actual neutralized inertia
+map.  The completed transposed graph coefficient is
+\[
+ {}_{R_{a,r}}R_{a,r}{}_{R_{b,r}},
+\]
+with right action induced by $\varphi$.  This is an object of the
+ambient completed bimodule category, not in general of the source
+of Definition~\ref{def:completed-root-shriek-source}.
+Its selected coefficient action is restriction along $\varphi$.
+For this additional object the same coordinate expression is
+separately defined by
+\[
+ \mathsf M_r(P_\varphi):=
+ \RHom_{R_{b,r}}(E_{b,r},E_{a,r}\widehat\otimes^L_{R_{a,r}}P_\varphi).
+\]
+It is $A_{b,r}$ with the source action through the actual cochain map
+$A_{a,r}\to A_{b,r}$.  These comparisons respect composition of
+the fixed inertia maps and all kernel morphisms.  They include the
+rank-drop case $\Gamma_b=0$, $\Gamma_a=\Gamma$.  This assertion
+concerns graph restriction actions and their graph-only composition;
+it does not extend Theorem~\ref{thm:completed-root-shriek} to a source
+generated jointly by graphs and rectangles.
+\end{proposition}
+\begin{proof}
+At a finite quotient the actual graph of $B\varphi$ on the product
+has the permutation coefficient on the corresponding graph cosets.
+Viewed as a left/right bimodule this is the regular source group
+algebra with the right target action through $\varphi$.
+Quotient-fibre trace maps give its completed coefficient as above.
+Its tensor action is $M\widehat\otimes_{R_a}R_a$, with the restricted
+right $R_b$-action, so it sends the augmentation to the augmentation
+and preserves its thick closure.  Evaluating $\mathsf M_r(P_\varphi)$ gives
+$\RHom_{R_b}(E_b,E_b)=A_b$.  Naturality of the restriction functor
+on augmentation endomorphisms gives the left action by the actual
+continuous cochain restriction, not an arbitrary algebra map with
+the same cohomology.  For a composite $\Gamma_c\to\Gamma_b\to\Gamma_a$
+the kernel comparison is the regular cancellation
+$R_a\widehat\otimes_{R_b}R_b\to R_a$.  Its tensor associativity
+and unit maps are already the finite graph composition maps and
+remain so after completion.  This proves the local coefficient
+faces of the fixed refinement diamond, without proving gluing on
+the complete exceptional fibres.
+\end{proof}
+
+\begin{remark}[Why the ambient graph is an additional object]
+At $r=1$, a word from $\Gamma$ to $0$ in the point-valued generating
+source must contain a rectangle.  Cancelling regular units and using
+\eqref{eq:normalized-root-rectangles} leaves a perfect scalar factor
+times that rectangle.  Thus its underlying $\mathbf F_\ell$ complex
+is perfect; finite cones and retracts preserve this property.  The
+rank-drop graph ${}_{\mathbf F_\ell[[T]]}\mathbf F_\ell[[T]]{}_{\mathbf F_\ell}$
+has infinite-dimensional degree-zero cohomology and is not an object
+of that Hom category.  Adding regular units explicitly does not
+remove this distinction.
+\end{remark}
+
+\begin{proposition}[Local evaluation and normalized trace]
+\label{prop:normalized-root-pairing}
+The node normalization is compatible with the actual trace-dual
+pairing.  Explicitly, if $\eta:J_q\otimes\mathfrak l_q\to A_q$
+is \eqref{eq:root-oriented-evaluation}, the normalized pairing is
+\[
+ A_q\otimes A_q\xrightarrow{\eta^{-1}\otimes1}
+ J_q\otimes\mathfrak l_q\otimes A_q
+       \xrightarrow{\operatorname{ev}\otimes1}\mathfrak l_q.
+\]
+It is balanced for the two cochain actions and nondegenerate, with
+their graded side conventions.  Before normalization the trace
+pairing has target $\Lambda_r$; the carrier pairing has target
+$c_N$.  Tensoring by \eqref{eq:root-carrier-compensation} gives
+exactly the displayed target $\mathfrak l_q$.
+\end{proposition}
+\begin{proof}
+Compute the first evaluation with the finite free augmentation
+resolution and its dual.  The two contraction orders are the same
+tensor--Hom evaluation: moving an augmentation endomorphism across
+the contraction precomposes one factor and postcomposes the other.
+This proves balancing and naturality on the full endomorphism
+mapping category.  The completed bar comparison identifies the
+other contraction with the dual of inflation, hence with the
+finite-root trace assembly, as in
+Proposition~\ref{prop:root-node-integral-test}.  The orientation map
+is evaluation of that same resolution, so it does not change the
+pairing by an unspecified scalar.  The resulting map pairs degree
+zero with degree one; those two free lines are perfect duals with
+value $\Lambda_r(-1)[-1]$.  Evaluation and coevaluation obey their
+usual triangle identities.  Proper vector-bundle trace and scalar
+projection give the last assertion, retaining its twist and shift.
+These are local pairings on the selected inertia charts; no
+coefficient duality across an attached whole fibre is inferred.
+\end{proof}
+
+\subsection{Comparison with the actual three-realization carrier trace}
+\label{sec:carrier-interface}
+Write $\mathsf T_{N,r}(V)$ for the actual trace-assembled rank-$N$
+carrier functor of \cite{Local}, not for a newly defined invariants
+functor.  Its coefficient arrows and trace maps are those of\\
+\texttt{lem:frag-point-trace-diagram-descent} there.  Write
+$K_r(M)=R\operatorname{Hom}^{\mathrm{cts}}_R(E_r,M)$ and
+$J_r(M)=M\widehat\otimes_R^LE_r$.
+
+\begin{theorem}[The normalized carrier interface on selected coefficients]
+\label{thm:selected-carrier-interface}
+Let $M\in\operatorname{thick}_R(E_r)$ and put
+$d_{N,r}=\mathfrak l_r c_N^{-1}=\Lambda_r(N-1)[2N-1]$.
+There is a natural equivalence of the actual functors
+\begin{equation}
+ \Theta_{N,M}:\mathsf T_{N,r}(M\otimes d_{N,r})
+        \xrightarrow{\sim} K_r(M).
+ \label{eq:selected-carrier-interface}
+\end{equation}
+It respects the augmentation-cochain action, evaluation, the actual
+root trace transitions and coefficient-reduction maps.  It is
+natural on the full selected mapping category, not only for the
+constant coefficient.  It therefore intertwines the carrier
+comparison with the kernel actions of
+Theorem~\ref{thm:completed-root-shriek}, including their maps and
+composition constraints; at a zero-inertia point use the identity
+coefficient comparison.  This does not assert a common realization
+for the ambient graph objects or the geometric coarse-passage tests.
+
+Adic recovery and subsequent rationalization concern only compatible
+systems $\{M_r\}_r$ equipped with specified derived precision-reduction
+equivalences and the uniformly bounded scalar-perfect presentations
+used here, for instance systems constructed by one fixed finite
+generating expression with compatible maps and retracts.  The
+augmentation comparisons and carrier coefficients use those same
+reduction maps.  A single fixed-precision $M$, or unrelated choices
+of $M_r$, is not asserted to admit such a recovery.
+
+For the fixed node carrier $N=1$, the coefficient supplied to the
+first paper's supported realization is $M[1]$.  Its actual supported
+analytic and nearby costalk realizations of $M[1]$ are thereby
+identified with the ordinary nearby cochain realization of $M$.
+This is a comparison of these selected point-valued functors, not
+an equality of stalk and costalk functors on arbitrary attached
+objects.
+\end{theorem}
+\begin{proof}
+Every object in $\operatorname{thick}_R(E_r)$ is perfect over
+$\Lambda_r$: this holds for $E_r$ and is preserved by finite cones
+and retracts.  It therefore belongs to the point coefficient domain
+of the first paper.  Its actual trace comparison gives
+\[
+ \phi_V:\mathsf T_{N,r}(V)
+    \xrightarrow{\sim}D_{\Lambda_r}K_r(D_{\Lambda_r}V)\otimes c_N
+    \simeq J_r(V)\otimes c_N.
+\]
+The last map is evaluation on the same finite free completed
+augmentation resolution; contragredient actions and the graded
+side exchanges are retained.  In particular this use of the first
+paper is legitimate for $M$, but would not be legitimate for the
+infinite-rank kernel $R$ regarded as a coefficient.
+Projection for the invertible scalar line $d_{N,r}$ and
+\eqref{eq:root-oriented-evaluation} now give the specified composite
+\[
+ \mathsf T_{N,r}(M\otimes d_{N,r})
+  \xrightarrow{\phi}\ J_r(M)\otimes c_N\otimes d_{N,r}
+  =J_r(M)\otimes\mathfrak l_r
+  \xrightarrow{\operatorname{ev}}K_r(M).
+\]
+This defines $\Theta$ on maps, including its module action.  The
+last action is the augmentation-endomorphism action on the relative
+dual $\RHom_R(E_r,R)$; it is not discarded when its underlying
+orientation line is written as $\Lambda_r(-1)[-1]$.
+Both pairings are contractions of the augmentation bar with its
+dual, and the finite-root pairing is precisely the one identified
+by \texttt{lem:frag-point-trace-diagram-descent}.  Thus balancing
+identifies the first paper's transpose cup action with this action.
+This proves the module assertion and fixes the map, not merely its
+value as a scalar complex.
+
+For a coefficient map $f:M\to M'$, the square is explicitly
+\[
+\begin{CD}
+ \mathsf T_{N,r}(M\otimes d_{N,r}) @>{\Theta_{N,M}}>> K_r(M)\\
+ @V{\mathsf T_{N,r}(f\otimes1)}VV @VV{K_r(f)}V\\
+ \mathsf T_{N,r}(M'\otimes d_{N,r}) @>{\Theta_{N,M'}}>> K_r(M').
+\end{CD}
+\]
+It is the square of evaluation and the actual trace functor on
+mapping categories.  The trace transitions in a chosen presentation
+satisfy $e_n(t_{m,n}\otimes1)=e_m(1\otimes\mathrm{inf}_{n,m})$;
+tensoring by $d_N$ and applying the same evaluation preserves that
+identity.  The coefficient-reduction square is the actual square
+of the cited lemma, followed by reduction of the finite free
+augmentation resolution.  This proves compatibility with both
+indices before recovery.
+
+For a kernel $P$ in Definition~\ref{def:completed-root-shriek-source},
+its action $F_P(M)=M\widehat\otimes_R P$
+lands in the target selected category.  Substitution of $F_P(M)$
+into the square above proves compatibility with coefficient maps
+and kernel maps.  For two kernels substitute the actual tensor
+associativity map $F_LF_P(M)\to F_{P\otimes L}(M)$; naturality
+identifies the two carrier comparisons along this map.  The same
+substitution on its higher simplices gives their coherence.  At
+the point this is a proved interface for the local kernel actions,
+not an application of the first paper to growing diagonal kernels.
+
+Finally \texttt{cor:frag-C2-local-closed} of \cite{Local} identifies
+$\mathsf T_{N,r}(V)$ with the actual supported analytic and nearby
+objects, using the same dual star comparison and source twist.
+Apply it to $V=M\otimes d_N$.  This proves the last assertion for
+$N=1$.  We have not invoked that paper's separate orientation-factor
+formula outside its stated trivial-character domain; here the
+comparison for nontrivial selected $M$ is proved by relative
+augmentation evaluation.  For the compatible systems specified in
+the statement, these perfect reductions supply integral recovery,
+followed by rationalization; no lift of an isolated $M$ is inferred.
+\end{proof}
+
+\subsection{Ordered completion and coupled inertia}
+\begin{lemma}[The two root indices cannot be replaced by the diagonal]
+\label{lem:root-index-obstruction}
+At fixed $r$ set $R_n=\Lambda_r[G_n]$, with distribution quotient
+transitions.  The correct completed equivariant computation is
+\[
+ R\varprojlim_n R\Gamma_{\mathrm{cts}}(\Gamma,R_n)
+       \simeq\Lambda_r(-1)[-1].
+\]
+Replacing continuous cohomology by the cohomology of the same
+finite group presenting $R_n$ gives instead a pro-zero system of
+norm lines, hence zero inverse limit.  Thus such a replacement
+loses a nonzero derived map, not merely an optional coherence choice.
+\end{lemma}
+\begin{proof}
+The completed augmentation resolution gives
+$[R_n\xrightarrow{T}R_n(-1)]$ in degrees $0,1$, with the
+coordinate-free interpretation of the twist.  Its kernel is the
+norm line.  The quotient map sends the norm at level $n+1$ to
+$\ell$ times the norm at level $n$, so this kernel system is
+pro-zero at fixed $r$.  Its cokernel is $\Lambda_r(-1)$ with
+identity transition.  These systems are Mittag--Leffler; the
+inverse limit is the displayed degree-one line.
+
+For the alternative calculation the regular finite module $R_n$
+is coinduced from the trivial subgroup of $G_n$.  Hence
+$R\Gamma(G_n,R_n)$ is its invariant norm line in degree zero,
+with no positive cohomology.  The maps on these norm lines induced
+by distribution quotient are multiplication by $\ell$ and have
+zero derived inverse limit.  At a fixed distribution level $n$,
+continuous cohomology instead requires inflation over all larger
+action levels with $R_n$ inflated as coefficient.  That additional
+limit direction supplies the degree-one class.  The replacement
+just tested omits it.  In particular the orientation morphisms and
+product attaching maps cannot be certified by testing only the
+single-level finite groups.
+\end{proof}
+
+\begin{proposition}[Coupled inertia of the completed diagonal]
+\label{prop:root-coupled-inertia}
+Fix a node and a precision $r$.  Write $R=\Lambda_r[[\Gamma]]$
+and let $R_n=\Lambda_r[G_n]$ carry the left/right action of
+$\Gamma\times\Gamma$ through $(g,h)[a]=[gah^{-1}]$.  There is a
+specified equivalence
+\begin{equation}
+ R\varprojlim_n R\Gamma_{\mathrm{cts}}
+       (\Gamma\times\Gamma,R_n)
+       \simeq \mathfrak l\otimes_{\Lambda_r} A_r,
+ \label{eq:root-coupled-inertia}
+\end{equation}
+where the second factor is the cochain algebra of the diagonal
+stabilizer.  The first factor belongs to the quotient
+$(\Gamma\times\Gamma)/\Delta\Gamma$, identified with the source
+inertia by $(g,h)\mapsto gh^{-1}$.  In particular the two inertia
+directions do not contribute two independent regular-module
+orientation lines.
+
+More generally, for an actual stratum map
+$\varphi:\Gamma_b\to\Gamma_a$, the completed graph coefficient
+$P_\varphi={}_{R_a}R_a{}_{R_b}$ satisfies
+\[
+ R\Gamma_{\mathrm{cts}}(\Gamma_a\times\Gamma_b,P_\varphi)
+       \simeq\mathfrak l_a\otimes A_b.
+\]
+Here cohomology with a completed coefficient means the ordered
+continuous-action/distribution assembly.  Cancellation of the
+source orientation by augmentation evaluation gives precisely
+$A_b$ with its actual $A_a$-action in
+Proposition~\ref{prop:completed-root-graphs}.
+These are ambient equivariant coefficient comparisons.  The graph
+coordinate is the separately defined $\mathsf M_r(P_\varphi)$,
+not a claim that the graph belongs to the point-valued generating
+source.  No geometric product attaching map is implicit in them.
+\end{proposition}
+\begin{proof}
+The actual group isomorphism
+\[
+ \Gamma_a\times\Gamma_b\longrightarrow\Gamma_a\times\Gamma_b,
+ \qquad (g,h)\longmapsto(g\varphi(h)^{-1},h)
+\]
+identifies the graph subgroup with the second factor and its
+quotient with the first.  In these coordinates the first factor
+acts regularly on $P_\varphi$ and the second acts trivially.
+The continuous bar on this product, or its finite completed
+augmentation resolution, therefore computes the displayed
+cohomology as $\mathfrak l_a\otimes A_b$.  The resolution has
+finite length and finite free terms.  Consequently its application
+to the distribution system commutes with its derived inverse
+limit; no direct/inverse interchange is involved.  At every fixed
+distribution presentation its cochains still use all dominating
+action levels.
+
+For the diagonal, a generator gives the two-variable cochain
+Koszul differential determined by
+\[
+ T,\qquad (1+T)^{-1}-1=-T(1+T)^{-1}.
+\]
+The invertible elementary change of these two generators turns
+this into $T,0$.  The $T$ direction has inverse limit
+$\mathfrak l$ by Lemma~\ref{lem:root-index-obstruction}; the zero
+direction is the cochain complex of the diagonal stabilizer.
+Keeping the cotangent lines records its Tate twist and the sign
+from the inverse right action.  This calculation identifies the
+map coming from the actual group isomorphism, rather than merely
+its graded dimensions.
+
+Finally, source augmentation evaluation identifies, naturally in
+any completed bimodule $P$,
+\[
+ \RHom_{R_a}(E_a,P)
+   \simeq (E_a\widehat\otimes_{R_a}^L P)
+                  \otimes_{\Lambda_r}\underline{\mathfrak l}_a.
+\]
+Applying target augmentation Hom identifies the preceding coupled
+calculation with \eqref{eq:completed-root-realization}, after
+cancelling this orientation line.  The source and target cochain
+actions are retained throughout by precomposition; for a graph
+they give the restriction induced by $\varphi$.  Thus the comparison
+is the graph realization map already specified, including its
+bimodule structure.  Group composition and the relative bar
+augmentation give the composition maps, not a separately chosen
+splitting of the two-term cohomology.
+\end{proof}
+
+\section{An obstruction to ordinary distribution gluing}
+\label{sec:root-obstruction}
+The ordinary-pullback inverse gluing route is excluded by an actual
+attaching square.  The result does not affect the nearby theorem;
+it diagnoses a different source construction.
+
+\begin{proposition}[The actual diagonal branch transition and its mate]
+\label{prop:root-diagonal-branch-transition}
+Let $\mathcal X_n=[D_{z_n}/G_n]$ be a smooth strictly local root
+branch, $x=z_n^{\ell^n}$, and let
+$q:\mathcal X_m\to\mathcal X_n$, $m>n$, be its actual transition.
+Put $F_n=\Delta_{\mathcal X_n,!}\Lambda_r$.  There is a canonical
+map
+\begin{equation}
+ \beta_{n,m}:(q\times q)^*F_n\longrightarrow F_m
+ \label{eq:root-diagonal-branch-beta}
+\end{equation}
+which is the identity on the open diagonal.  On the closed
+atlas fibre it is the function-inflation map
+\[
+ \iota_{n,m}:\Lambda_r[G_n]\longrightarrow\Lambda_r[G_m],
+ \qquad [a]\longmapsto\sum_{\bar b=a}[b].
+\]
+This identifies the coupled diagonal attaching map on this branch,
+including its degree-zero product-open link face.  The maps
+$\beta$ compose by the actual adjunction comparison.
+
+Its geometric Verdier mate is an actual trace map
+\begin{equation}
+ (q\times q)_!D F_m\longrightarrow D F_n.
+ \label{eq:root-diagonal-branch-trace}
+\end{equation}
+Since these branch stacks are smooth of dimension one,
+$D F_n=F_n(1)[2]$.  Thus the mate also gives
+$(q\times q)_!F_m\to F_n$.  The quotient-fibre summation on
+distributions is the dual of $\iota_{n,m}$ on the corresponding
+\emph{costalk} face, with this geometric twist and shift retained.
+It is not an ordinary-pullback transition on the stalks of $F_m$.
+\end{proposition}
+\begin{proof}
+The diagonal is finite and representable, so its shriek and star
+images agree.  Adjunction for $\Delta_{\mathcal X_m}^*$ and
+$\Delta_{\mathcal X_m,*}$ constructs \eqref{eq:root-diagonal-branch-beta}
+from
+\[
+ q^*\Delta_{\mathcal X_n}^*\Delta_{\mathcal X_n,*}\Lambda_r
+       \longrightarrow q^*\Lambda_r=\Lambda_r,
+\]
+using the actual diagonal counit.  No full faithfulness of the
+stack diagonal is used.  On finite group representations this
+counit is evaluation at the identity coset in the coinduced
+permutation module.  Its adjoint is pullback of functions along
+$G_m\to G_n$, giving the stated $\iota_{n,m}$.  The adjunction
+unit/counit identities identify the maps for three levels.
+
+On the product atlas at level $m$, the open diagonal has the
+$|G_m|$ branches $z'_m=\zeta z_m$.  Its degree-zero product-open
+link is therefore $\Lambda_r[G_m]$.  The attaching map from
+$F_m$ is the identity on these branches.  For $(q\times q)^*F_n$
+it is $\iota_{n,m}$: the label of a level-$n$ branch restricts to
+all its level-$m$ lifts.  Consequently the square for $\beta$ is
+\[
+\begin{CD}
+ \Lambda_r[G_n] @>{\iota_{n,m}}>> \Lambda_r[G_m]\\
+ @V{\iota_{n,m}}VV @VV{1}V\\
+ \Lambda_r[G_m] @>{1}>> \Lambda_r[G_m].
+\end{CD}
+\]
+This calculation is on the actual branches, with their permutation
+actions.  Higher link degrees and the connecting arrow are retained
+in the actual adjunction map, rather than replaced by a splitting
+of their cohomology.
+
+Apply geometric Verdier duality to this whole map.  The identity
+$D(q\times q)^*= (q\times q)^!D$, followed by shriek adjunction,
+gives \eqref{eq:root-diagonal-branch-trace}.  Proper duality for
+the diagonal and the smooth-branch dualizing coefficient give
+$D F_n=\Delta_{\mathcal X_n,*}\Lambda_r(1)[2]$.
+Dualizing a stalk map gives a costalk map.  On these finite free
+coefficient faces the transpose of $\iota_{n,m}$ is
+$[b]\mapsto[\bar b]$.  This proves the assertion about the
+specified distribution transition and its type.  Dualizing the
+composition identity for $\beta$ proves trace transitivity in the
+same diagram, including its boundary mates.
+\end{proof}
+
+\begin{corollary}[A stalkwise distribution gluing is impossible]
+\label{cor:root-diagonal-stalk-obstruction}
+On this branch there is no morphism
+$F_m\to(q\times q)^*F_n$ that is the identity on the open
+diagonal and is quotient-fibre summation on the closed atlas
+fibre.  More generally there is no such morphism with any map on
+the closed fibre.  Thus a global completed unit cannot be built
+by gluing the local regular distribution modules using ordinary
+pullback and unchanged open unit maps.
+\end{corollary}
+\begin{proof}
+Compatibility with the degree-zero attaching maps would require
+$\iota_{n,m}c=1$ on $\Lambda_r[G_m]$, where
+$c:\Lambda_r[G_m]\to\Lambda_r[G_n]$ is the putative closed
+map.  Reduction modulo $\ell$ makes this impossible by dimension,
+since $|G_n|<|G_m|$.  For the proposed quotient map specifically,
+$\iota_{n,m}c$ sends a basis vector to the sum of all vectors in
+its quotient fibre; it is not the identity, even before reduction.
+This obstruction is already visible in the degree-zero face and
+cannot be repaired by a higher homotopy of the same maps.
+\end{proof}
+
+The corollary does not rule out a completed root shriek interface:
+\eqref{eq:root-diagonal-branch-trace} is its actual alternative
+transition.  It does rule out identifying that exceptional
+transition with an ordinary stalkwise inverse system.  In
+particular the local pseudocompact module source does not itself
+supply the global sheaf or costalk descent category.  On a whole
+singular fibre, one must retain its actual dualizing complex in
+this construction; the smooth-branch formula $(1)[2]$ cannot be
+used as the dualizing complex of a nodal union.
+
+\begin{lemma}[The singular-support dualizing correction is not a line]
+\label{lem:root-nodal-dualizing-correction}
+On an ordinary strictly local nodal curve $C$ with two smooth
+branches, the stalk of $\omega_C=D_C\Lambda_r$ at the node $i$
+has
+\[
+ H^{-2}(i^*\omega_C)=\Lambda_r(1)^{\oplus2},\qquad
+ H^{-1}(i^*\omega_C)=\Lambda_r,
+\]
+and no other cohomology.  In particular $\omega_C$ is not an
+invertible shifted coefficient line.  The same local test applies
+on a reduced nodal atlas, with the actual stabilizer action retained.
+\end{lemma}
+\begin{proof}
+For the punctured inclusion $j$, its two disjoint branches give
+$H^0(i^*Rj_*\Lambda_r)=\Lambda_r^{\oplus2}$ and
+$H^1(i^*Rj_*\Lambda_r)=\Lambda_r(-1)^{\oplus2}$.  The restriction
+of the constant sheaf in degree zero is the diagonal map.
+The localization fibre sequence
+\[
+ i^!\Lambda_r\longrightarrow\Lambda_r
+                   \longrightarrow i^*Rj_*\Lambda_r
+\]
+therefore has costalk cohomology $\Lambda_r$ in degree one and
+$\Lambda_r(-1)^{\oplus2}$ in degree two.  These modules are free
+over $\Lambda_r$.  Point Verdier duality identifies
+$i^*\omega_C=D_{\Lambda_r}i^!\Lambda_r$, yielding the stated
+cohomology.  An invertible complex over a local coefficient ring
+has one rank-one cohomology line after reduction to the residue
+field, which this stalk does not.  This is a necessary local test
+on an atlas as well; forgetting its stabilizer action cannot turn
+an invertible equivariant line into the displayed complex.
+\end{proof}
+
+The obstruction excludes ordinary stalk/pullback distribution
+completion, not every root realization.  The actual mate retains
+$\Delta_*\omega_X$, and the preceding calculation prevents replacing
+its coefficient by one invertible line on a nodal support.
+Constructing a kernel calculus with compatible units, transitions
+and convolution is a separate problem.  No such global root source
+or fourth main theorem is asserted here.  The independent research
+draft \emph{Exceptional and Completed Root Kernel Calculus: A
+Single-Transition Problem} records that problem and the auxiliary
+finite diagrams.  Its first test concerns one complete nodal support,
+one actual transition and one crossing rectangle; the four-model
+coherence problem depends on that test.
+
+\section*{Acknowledgments}
+Artificial-intelligence tools assisted in the preparation of this
+mathematical paper. I first acknowledge the textual data produced by
+humanity as a whole, which provides the linguistic and cultural record
+from which mathematical expression can be learned. I then thank the
+accumulated scholarly achievements of mathematicians throughout
+history. I also thank the researchers whose work has advanced and
+refined neural networks through successive generations. Finally, I
+thank the OpenAI team for the training and development of the models
+used in the preparation of this paper.
+
+\begin{thebibliography}{9}
+\bibitem{Local} Y.~Jiang,
+\emph{Local Kummer Realizations and Verdier Duality},
+version dated 22 September 2026 (fixed companion input version).
+\bibitem{Refinement} Y.~Jiang,
+\emph{Morita Coefficients, Incidence, and Semistable Refinement},
+version dated 20 September 2026 (fixed companion input version).
+\bibitem{LZEnhanced} Y.~Liu and W.~Zheng,
+\emph{Enhanced six operations and base change theorem for higher
+Artin stacks}, arXiv:1211.5948.
+\bibitem{LZAdic} Y.~Liu and W.~Zheng,
+\emph{Enhanced adic formalism and perverse t-structures for higher
+Artin stacks}, arXiv:1404.1128.
+\bibitem{ToenMorita} B.~To\"en,
+\emph{The homotopy theory of dg-categories and derived Morita theory},
+\href{https://arxiv.org/abs/math/0408337v7}{arXiv:math/0408337v7},
+19 October 2006.
+\bibitem{BFNTransforms} D.~Ben-Zvi, J.~Francis and D.~Nadler,
+\emph{Integral Transforms and Drinfeld Centers in Derived Algebraic
+Geometry}, J.~Amer. Math. Soc.\ \textbf{23} (2010), no.~4, 909--966;
+\href{https://arxiv.org/abs/0805.0157v5}{arXiv:0805.0157v5},
+4 March 2010.
+\end{thebibliography}
+\end{document}
