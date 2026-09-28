@@ -70,182 +70,87 @@
 \newcommand{\Nm}{\operatorname{Nm}}
 
 
-\title{From Represented $PGL_2$ Orbit Shells to Rank-One Orientation Reciprocity\\
-\large Quadratic Residual Towers, Haar--Frobenius Comparison, and the
-Unramified Absolute-$A_1$ Theorem}
+\title{Relative Quadratic Orbit Shells and Their Orientation Coefficients\\
+\large A Geometric Refinement of Classical Rank-One Orbital Integrals}
 \author{YINGFENG JIANG}
-\date{27 September 2026}
+\date{28 September 2026}
 
 \begin{document}
 \maketitle
 
 \begin{abstract}
-Let
-\[
- \UZ=\Spec\mathbf Z[1/2,a,a^{-1},(1-a)^{-1}],\qquad
- \mathcal E_{\mathbf Z}=\mathcal O_{\UZ}[z]/(z^2-a).
-\]
-For a field $k$ with $2,\ell\in k^\times$, write
-$\Uk=\UZ\otimes_{\mathbf Z}k$ and
-$\mathcal E_k=\mathcal E_{\mathbf Z}\otimes k$.  For every $r\geq1$ we
-study the base change to $\Uk$ of the smooth affine truncated-unit quotient
+The arithmetic of the quadratic orbital integrals considered here belongs
+to the order--lattice framework of Yun.  We study a relative geometric
+refinement over
+$U=\Spec k[a,a^{-1},(1-a)^{-1}]$, with $2,\ell\in k^\times$.
+For $\mathcal E=\mathcal O_U[z]/(z^2-a)$, the truncated-unit quotient
 \[
  \mathscr Q_r=
- \operatorname{Res}_{\mathcal E_k[\epsilon]/(\epsilon^r)/\Uk}\mathbb G_m
- \big/
- \operatorname{Res}_{\mathcal O_{\Uk}[\epsilon]/(\epsilon^r)/\Uk}\mathbb G_m.
+ \operatorname{Res}_{\mathcal E[\epsilon]/(\epsilon^r)/U}\mathbb G_m
+ /\operatorname{Res}_{\mathcal O_U[\epsilon]/(\epsilon^r)/U}\mathbb G_m
 \]
-The first layer is the norm-one torus $\mathbb T$, and every subsequent
-reduction is a torsor under the trace-zero vector line.  In a fixed enhanced
-$\ell$-adic six-functor formalism, its compact cochains form the Frobenius
-orientation bimodule
-\[
- R\pi_{\mathbb T,!}\Qell
- \simeq R\pi_{\mathbb T,*}\Qell\otimes
- \det(X_*(\mathbb T)\otimes\Qell)[-1].
-\]
-
-Using the fixed lift
-$\widetilde\gamma_m=1+\varpi^m\iota(z)\in
-GL_2(\mathcal O_{\Uk}[[\varpi]])$
-and its class $\gamma_m\in PGL_2$, we prove that $\mathscr Q_r$ represents
-the compact positive-loop orbit sheaf of the quadratic order lattice
-$\mathcal A_r=\mathcal O_{\Uk}[[\varpi]]+\varpi^r\mathcal E_k[[\varpi]]$ for
-$0\leq r\leq m$.  This is an isomorphism of fppf sheaves over the entire
-quadratic parameter space, not merely an equality of finite-field point
-counts.  At field-valued points the quadratic-order classification gives the
-full support decomposition of the spherical orbital integral.  The orbit
-stabilizers, quotient Haar masses, and Frobenius traces agree term by term.
-
-The split and unramified-elliptic fibers are thereby unified by the Kummer
-local system
-$\cK\simeq\det(X_*(\mathbb T)\otimes\Qell)$.  After Weyl normalization their
-generating class satisfies
-\[
- W_{PGL_2}(z)=\frac{1-\kappaell Qz}{(1-z)(1-Qz)},\qquad
- W_{PGL_2}(z^{-1})=-\kappaell z\,d_{\Uk}(W_{PGL_2}(z)).
-\]
-For every finite depth cutoff we also prove the object-level Verdier partner
-identity on the discrete labelled-shell target.  The separate height-cone
-statement is made only for the cohomological associated graded and after
-passing to a rational $K_0$ character.
-
-We then pass from the represented $PGL_2$ family to a second, explicitly
-local level.  For central-neutral standard spherical families in unramified
-absolute type $A_1$, a classification reduction and an orbit-summed measure
-lemma exhaust the possible reduced-building shell lattices.  The $SL_2$
-elliptic phases retain only even or odd spheres, whereas adjoining the
-connected center in $U_2$ forces deletion of the central cocharacter
-direction.  Nevertheless every case satisfies
-\[
- W_G(z^{-1})=-z\,(\mathfrak o_{G,T}\otimes d_S)W_G(z),\qquad
- \mathfrak o_{G,T}
- =\det\!\left(X_*(T/Z(G)^\circ)\otimes\Qell\right).
-\]
-Outside the saturated $PGL_2$ family this is a local orbit-summed theorem,
-not a relative fppf representability statement.  No whole affine-Springer
-quotient, cross-shell incidence, convolution, Rees completion, or general
-logarithmic skeletonization theorem is claimed.
+represents the compact positive-loop orbit of the quadratic order lattice
+$\mathcal A_r=\mathcal O_U[[\varpi]]+\varpi^r\mathcal E[[\varpi]]$
+in the family $\gamma_m=[1+\varpi^m\iota(z)]$, for $1\le r\le m$;
+the depth-zero orbit is a point.  The comparison is an isomorphism of
+fppf sheaves over $U$ and includes arbitrary base rings.
+The residual vector-torsor tower carries the determinant local system
+$\cK=\det(X_*(\mathbb T)\otimes\Qell)$, and its compact coefficients
+are obtained from the torus orientation bimodule with this descent data.
+Classical orbital masses are recovered by the trace formula.
+The resulting depth-generating identity and the finite labelled-shell
+Verdier partner are recorded as consequences.  Cellular characters and
+local absolute-$A_1$ variants are relegated to appendices.
 \end{abstract}
 
 \section{Introduction}
 
-The numerical split and unramified-elliptic rank-one orbital integrals are
-classical.  Likewise, the motivic nature of broad classes of orbital
-integrals was established by Hales, and transfer principles place families
-of fundamental-lemma integrals in motivic integration
-\cite{HalesMotivic,CluckersHalesLoeser}.  Affine-Springer fundamental domains
-and their relation to ordinary or weighted orbital integrals have been
-developed systematically by Chen
-\cite{ChenFundamentalDomain,ChenWeighted,ChenLocalBehavior}.  Accordingly,
-neither the existence of a motivic interpolation nor the rational function
-by itself is presented here as new.  Kummer local systems have also appeared
-previously in orbital-integral geometry, notably in the Moy--Prasad quotient
-analysis of Cunningham--Hales \cite{CunninghamHalesGood}.
+Yun's order--lattice correspondence and orbital-integral formula
+\cite[\S\S2.1, 4.2, (4.1), Lemma~4.5 and Corollary~4.6]{YunOrbitalOrders}
+supply the arithmetic starting point.  The numerical rank-one formulas are
+also explicit in \cite[\S5.8, (5.8.4); \S5.9, (5.9.7)]{KottwitzOrbital}.
+We use these results as input, rather than claim their rederivation as a
+contribution.  The specialization from the $GL_2$ lattice problem to the
+present $PGL_2$ group integral is explained before
+Corollary~\ref{cor:PGL2-orbital-integral-realization}.
 
-The level isolated here is the representing-object level.  The numerical
-benchmarks are Kottwitz's split orbital-integral formula $q^m$ in
-\cite[\S5.8, (5.8.4)]{KottwitzOrbital} and his unramified elliptic
-fixed-vertex count $1+(q+1)(1+\cdots+q^{m-1})$ in
-\cite[\S5.9, (5.9.7)]{KottwitzOrbital}.  Our contribution lies in the
-relative orbit construction and its descent: the stabilizer computation
-over arbitrary base rings in Lemma~\ref{lem:PGL2-loop-orbit-quotient},
-the represented comparison in
-Theorem~\ref{thm:PGL2-residual-orbit-comparison}, and the quadratic
-orientation descent.  The finite discrete target's Verdier partner is
-then obtained by standard six-functor duality applied to the constructed
-structure morphism, as in
-Theorem~\ref{thm:PGL2-genuine-small-skeletonization}.
-
-The first contribution is more specific and more geometric.  For the universal
-quadratic $PGL_2$ family we represent each compact positive-loop orbit shell
-by one smooth finite-type $U$-scheme $\mathscr Q_r$, prove the identification
-as an fppf orbit sheaf, and track the split/elliptic variation through the
-single determinant local system
+The question addressed here concerns the relative objects behind these
+numbers.  Over the quadratic parameter base, we identify the fppf orbit
+sheaf of each order lattice with the smooth quotient $\mathscr Q_r$.
+The arbitrary-ring stabilizer calculation is retained in
+Lemma~\ref{lem:PGL2-loop-orbit-quotient}; it is the step needed for
+Theorem~\ref{thm:PGL2-residual-orbit-comparison} beyond a field-valued
+lattice count.  We then track the actual coefficient objects through the
+residual tower and the quadratic splitting cover.  The line
 \[
- \cK\simeq\det(X_*(\mathbb T)\otimes\Qell).
+ \cK=\det(X_*(\mathbb T)\otimes\Qell)
 \]
-The vector-torsor residual tower propagates this orientation coefficient
-through every depth.  Thus the familiar specializations $q-1$ and $q+1$ are
-fibers of one descended cohomological object rather than two separately
-computed formulas.  The scope of the result is exactly this componentwise
-represented-family theorem and its orientation-compatible assembly.
+records the split and elliptic fibers in a single descended object.
+These relative comparisons, rather than the numerical rational function,
+are the focus of the paper.
 
-The second contribution is local and structural.  We classify the
-reduced-building data of central-neutral standard spherical families for all
-unramified connected reductive groups whose absolute adjoint root system is
-$A_1$.  The classification has only a saturated shell lattice or a
-type-preserving lattice with two elliptic embedding phases.  An orbit-summed
-measure lemma handles the fact that one $PGL_2$ torus orbit may split into
-several $SL_2$ orbits.  The $SL_2$ parity calculation changes the generating
-series without changing its inversion line, while the $U_2$ center test shows
-that the determinant must be taken after quotienting by $Z(G)^\circ$.  This
-proves the unramified absolute-$A_1$ orientation theorem at the level of local
-orbital masses and their displayed $K_0$ interpolation.
+Two generating variables must be distinguished.  Yun's local zeta
+function fixes an order and counts submodules by colength
+\cite[\S2.3 and Theorem~2.5]{YunOrbitalOrders}.  Our variable $z$ records
+$m$ in the varying orders $A_m=\mathcal O_F+\varpi^m\mathcal O_E$.
+Thus each orbital coefficient is a specialization of the classical
+framework, whereas the displayed depth-series identity is obtained by
+summing our coefficient classes; it is not an identification of the two
+functional equations.
 
-The logical spine of the paper is therefore
-\[
- \boxed{
- \begin{gathered}
- \text{quadratic residual tower}
- \Longrightarrow
- \text{represented }PGL_2\text{ orbit shells}\\
- \Downarrow\\
- \text{Haar/Frobenius reciprocity}
- \Longrightarrow
- \text{finite shell skeletonization}
- \end{gathered}}
-\]
-The first implication is geometric, the second compares Haar mass with a
-derived Frobenius supertrace, and the last is the fixed-map Verdier partner
-for the finite labelled shell map.  Keeping these arrows distinct prevents
-the rational height-cone shadow from being mistaken for an object-level
-skeletonization of the whole affine-Springer fiber.
+Torus cohomology, six-functor Verdier exchange, and cone reciprocity are
+standard tools \cite{LaszloOlsson,LiuZhengEnhanced,Stanley,Curry,BresslerLunts}.
+We retain the descent and module-action checks needed for this family,
+and cite the underlying formalisms.  Motivic orbital integration and
+related affine-Springer constructions provide the broader setting
+\cite{HalesMotivic,CluckersHalesLoeser,GKM,ChenFundamentalDomain,
+ChenWeighted,ChenLocalBehavior,CunninghamHalesGood}.
 
-The structural extension is a second chain,
-\[
- \begin{gathered}
- PGL_2\text{ orientation}
- \Longrightarrow
- \text{absolute-}A_1\text{ classification}\\
- \Downarrow\\
- SL_2\text{ parity and }U_2\text{ center test}
- \Longrightarrow
- \text{local rank-one orientation reciprocity}
- \end{gathered}
-\]
-Only the first chain contains a relative represented orbit family.
-
-The paper is organized in the order needed to verify the two theorem layers.
-Section~\ref{sec:main-theorem-status} fixes notation and states Theorems A
-and B with their different logical status.  The enhanced torus calculation
-and residual tower come next, followed by the $PGL_2$ orbit-shell comparison,
-Haar support decomposition, and Frobenius trace.  The generating function,
-finite labelled-shell Verdier partner, and cellular $K_0$ shadow are then
-deduced.  Section~\ref{sec:absolute-A1} proves the classification reduction,
-the $SL_2$ parity and $U_2$ center tests, and the local absolute-$A_1$
-theorem.  The final section compares the result with the literature, states
-the limitations, and isolates the remaining categorical/logarithmic bridge.
+The main theorem isolates the represented family and its orientation
+coefficients.  The subsequent corollaries identify its classical traces
+and its finite discrete Verdier partner.  The appendices collect the
+associated-graded character and local central-isogeny variants; neither
+is needed for relative representability.
 
 \subsection{Coefficient convention}
 
@@ -371,16 +276,12 @@ absorbed into a Tate normalization.
 \end{remark}
 
 
-\section{Main results and status}
+\section{The relative comparison theorem}
 \label{sec:main-theorem-status}
 
-There are two theorem layers.  Theorem A is relative and object-level for the
-universal quadratic $PGL_2$ family.  Theorem B is a local orbit-summed theorem
-for the explicitly defined unramified absolute-$A_1$ class.  We state both
-before introducing the formal lemmas used later and keep their logical status
-separate throughout.
+The main assertion concerns the relative orbit schemes and their coefficients.
 
-\begin{theorem}[Theorem A: the universal quadratic $PGL_2$ package]
+\begin{theorem}[Relative quadratic orbit shells and orientation coefficients]
 \label{thm:main-PGL2-package}
 Let $k$ be a field with $2\in k^\times$, let $\ell$ be invertible in $k$, and
 put
@@ -413,196 +314,30 @@ statements hold.
   \]
   At every field-valued point, the classes $[A_r]$, $0\le r\le m$, are exactly
   the representatives of $T(F)\backslash X_m$.
-\item With Haar measure normalized by
-  $\operatorname{vol}(PGL_2(\mathcal O_F))=
-   \operatorname{vol}(T(\mathcal O_F))=1$ and quotient measure defined by
-  Weil integration, the mass of the $r$th double coset is
-  \[
-   [T(\mathcal O_F):A_r^\times/\mathcal O_F^\times].
-  \]
-  Over a finite residue field this is both $\#\mathscr Q_r(k)$ and the
-  geometric-Frobenius derived supertrace of its compact coefficient.
-\item After Weyl-discriminant normalization, the compact-orbital generating
-  class is
-  \begin{align*}
-   J_m^{\mathrm{orb}}&=Q^mI_m^{\mathrm{orb}},\\
-   W_{PGL_2}(z)&=\sum_{m\ge0}J_m^{\mathrm{orb}}z^m
-   =\frac{1-\kappaell Qz}{(1-z)(1-Qz)},\\
-   W_{PGL_2}(z^{-1})&=-\kappaell z\,d_{\Uk}(W_{PGL_2}(z)).
-  \end{align*}
-  where $I_m^{\mathrm{orb}}=[Rq^{\mathrm{orb}}_{m,!}\Qell]$ is the raw
-  compact-orbital coefficient,
-  $\kappaell=[\det(X_*(\mathbb T)\otimes\Qell)]=[\cK]$, and $d_{\Uk}$ is the
-  dimension-normalized coefficient duality of
-  \eqref{eq:normalized-U-duality}.
-\item For every finite cutoff $N$, the actual labelled-shell map
-  $\rho_N:\mathscr Y_N^{\mathrm{orb}}\to \Uk\times\Lambda_N$ defines
-  $\Sk_{N,!}=R\rho_{N,!}$ and $\Sk_{N,*}=R\rho_{N,*}$ independently, and
-  \[
-   \D_{\mathrm{cell},N}\Sk_{N,!}
-   \simeq
-   \Sk_{N,*}\D_{\mathscr Y_N^{\mathrm{orb}}}
-  \]
-  naturally on the full bounded constructible category.
-\item The associated-graded shell coefficients have canonical height
-  $s=m-r+1$.  Their de-Tated height character is represented by the auxiliary
-  cellular envelope
-  $(1-\kappaell)\one_C+\kappaell\one_F$; the variable $u^s$ records the twist
-  $(s)$, and the specialization $u\mapsto Q$ recovers the actual ordinary
-  $K_0$ class.  The resulting cellular reciprocity is a rational $K_0$
-  statement, not an object-level sheaf on the incidence-bearing cone.
 \end{enumerate}
 \end{theorem}
 
 \begin{proof}
-Part~\textup{(i)} is Theorems~\ref{thm:torus-Frobenius-bimodule} and
-\ref{thm:finite-residual-filtration}, with the enhanced algebra model supplied
-by Lemma~\ref{lem:enhanced-torus-Koszul}.  Part~\textup{(ii)} is
-Lemma~\ref{lem:PGL2-functorial-lattice-condition},
-Lemma~\ref{lem:PGL2-loop-orbit-quotient}, and
-Theorem~\ref{thm:PGL2-residual-orbit-comparison}.  Part~\textup{(iii)} is
-Lemma~\ref{lem:PGL2-full-stabilizer-support} and
-Corollary~\ref{cor:PGL2-orbital-integral-realization}, including
-\eqref{eq:PGL2-Weil-quotient-measure} and
-\eqref{eq:PGL2-double-coset-mass}.  Part~\textup{(iv)} is
-Theorem~\ref{thm:PGL2-orbital-reciprocity}.  Parts~\textup{(v)} and
-\textup{(vi)} are Theorems~\ref{thm:PGL2-genuine-small-skeletonization} and
-\ref{thm:PGL2-narrow-skeletonization}, respectively.
+Part~\textup{(i)} follows from Theorem~\ref{thm:finite-residual-filtration}
+and the orientation comparison in Theorem~\ref{thm:torus-Frobenius-bimodule}.
+Part~\textup{(ii)} is the arbitrary-base calculation in
+Lemmas~\ref{lem:PGL2-functorial-lattice-condition} and
+\ref{lem:PGL2-loop-orbit-quotient}, assembled in
+Theorem~\ref{thm:PGL2-residual-orbit-comparison}.
 \end{proof}
 
-\begin{definition}[Unramified absolute-$A_1$ pair]
-\label{def:A1-pair}
-Let $F$ be a non-Archimedean local field with finite residue field of odd
-characteristic.  An \emph{unramified absolute-$A_1$ pair} $(G,K)$ consists of
-a connected reductive $F$-group $G$ which is quasi-split over $F$, split over
-an unramified extension, and has absolutely simple adjoint group of type
-$A_1$, together with a hyperspecial subgroup
-$K=\mathcal G(\cO_F)$ for a connected reductive $\cO_F$-model $\mathcal G$.
-The adjective $A_1$ refers to the absolute adjoint root system.
-\end{definition}
-
-\begin{definition}[Central-neutral standard spherical family]
-\label{def:standard-A1-family}
-Let $p:G\to G_{\ad}$, let $\nu:G\to G_{\ab}=G/G_{\der}$, and let
-$K_{\ad}=\mathcal G_{\ad}(\cO_F)$, and let
-$T=G_{\gamma_m}$ with root image $T_{\rt}\subset G_{\ad}$.  A family
-$\gamma_m$, $m\ge0$, is \emph{central-neutral standard spherical} if:
-\begin{enumerate}[label=\textup{(\alph*)}]
-\item $T_{\rt}$ is split or unramified elliptic and its adjoint quadratic
-  order is $A_m=\cO_F+\varpi^m\cO_E$ for the corresponding split or
-  unramified quadratic algebra $E/F$;
-\item its fixed set in the reduced building is the radius-$m$ tube about the
-  split apartment or the radius-$m$ ball about the elliptic fixed vertex;
-\item $\nu(\gamma_m)$ is independent of $m$, belongs to $\nu(K)$, and
-  \begin{equation}
-   \one_K(g^{-1}\gamma_mg)
-   =\one_{K_{\ad}}\bigl(p(g)^{-1}p(\gamma_m)p(g)\bigr)
-   \quad(g\in G(F));
-   \label{eq:central-neutral-support}
-  \end{equation}
-\item the Haar measures satisfy $\vol_G(K)=1$ and
-  $\vol_T(T(F)_{\max,\mathrm{cpt}})=1$, and the Weyl discriminant
-  has valuation $2m$.
-\end{enumerate}
-These conditions are hypotheses, not automatic properties of an arbitrary
-unramified regular family.
-\end{definition}
-
-For such a centralizer put
-\begin{equation}
- \mathfrak o_{G,T}
- =\det\!\left(X_*(T/Z(G)^\circ)\otimes\Qell\right).
- \label{eq:root-orientation-line}
-\end{equation}
-
-\begin{theorem}[Theorem B: unramified absolute-$A_1$ orientation reciprocity]
-\label{thm:main-A1-reciprocity}
-Let $(G,K)$ be an unramified absolute-$A_1$ pair and let $\gamma_m$ be a
-central-neutral standard spherical family.  Let $S/k$ be a smooth connected
-parameter base over a finite field $k$, with $\ell\ne\operatorname{char}k$,
-carrying the quadratic cameral cover of $T_{\rt}$, and let
-$d_S$ be dimension-normalized coefficient duality.  The classification in
-Section~\ref{sec:absolute-A1} is exhaustive: the shell lattice is either
-saturated or type-preserving, and in the type-preserving elliptic case it has
-exactly two embedding phases.  The local Haar coefficients are given by the
-corresponding orbit-summed shell interpolation $I_{G,m}$.
-
-With $J_{G,m}=Q^mI_{G,m}$ and
-$W_G(z)=\sum_{m\ge0}J_{G,m}z^m$, one has
-\begin{equation}
- \boxed{
- W_G(z^{-1})
- =-z\,(\mathfrak o_{G,T}\otimes d_S)W_G(z).}
- \label{eq:main-A1-reciprocity}
-\end{equation}
-The multiplier is independent of the central isogeny, vertex-color lattice,
-and elliptic embedding phase.  Outside the saturated $PGL_2$ case the
-interpolation is a rational $K_0$ class whose Frobenius traces are the actual
-local orbital coefficients; no relative orbital $R_!$-push-forward or fppf
-orbit-family theorem is asserted.
-\end{theorem}
-
-\begin{proof}
-This is Theorems~\ref{thm:A1-local-shell-classification} and
-\ref{thm:A1-orientation-reciprocity}.  The classification reduction is
-Lemma~\ref{lem:A1-building-classification}, the measure comparison is
-Lemma~\ref{lem:A1-shell-transfer}, the type-preserving calculation is
-Proposition~\ref{prop:SL2-parity-reciprocity}, and the quotient by
-$Z(G)^\circ$ is forced by Proposition~\ref{prop:U2-center-test}.
-\end{proof}
-
-For later reference, the logical status of the two theorem packages is as
-follows.
-\begin{description}
-\item[Residual tower and torus bimodule.]
-Proved at scheme level and in the selected enhanced coefficient category; no
-global orbital skeleton is inferred from it.
-\item[Positive-loop shell comparison.]
-Proved for represented fppf orbit sheaves; this is not promoted to a
-stratification of $X_m$ or $[T\backslash X_m]$.
-\item[Orbital mass and reciprocity.]
-Proved as a quotient-measure identity, a Frobenius-trace formula, and a
-rational $K_0$ identity; no ungraded cone sheaf or convolution is asserted.
-\item[Finite labelled-shell partner.]
-Proved at object level on a zero-dimensional labelled skeleton; cross-shell
-incidence and a Rees action remain separate problems.
-\item[Height-cone shadow.]
-Proved after applying the de-Tated graded character and passing to $K_0$; this
-does not supply an incidence-bearing object on the height cone.
-\item[Absolute-$A_1$ extension.]
-Proved for Definitions~\ref{def:A1-pair} and
-\ref{def:standard-A1-family} as a classification and equality of local
-orbit-summed Haar masses, assembled into an explicit rational $K_0$
-interpolation.  Only its saturated $PGL_2$ member has the relative
-represented-shell geometry of Theorem A.
-\end{description}
-
-\subsection{Proof routes}
-
-The arithmetic core may be read independently of most of the formal
-framework.  The shortest proof route is:
-\begin{enumerate}
-\item the enhanced torus model and residual tower,
-  Theorem~\ref{thm:torus-Frobenius-bimodule} and
-  Section~\ref{sec:residual-filtration};
-\item quadratic orders and represented orbit sheaves,
-  Section~\ref{sec:PGL2-orbital-comparison};
-\item quotient measure, trace, and orbital reciprocity,
-  Corollary~\ref{cor:PGL2-orbital-integral-realization} and
-  Theorem~\ref{thm:PGL2-orbital-reciprocity};
-\item the finite shell Verdier partner and the separate height-character
-  shadow, Section~\ref{sec:PGL2-narrow-skeletonization}.
-\end{enumerate}
-The short cellular section at the end is used only for the rational $K_0$
-shadow; it is not a prerequisite for the orbit-shell or Haar statements.
-Theorem B has a separate route: finite central lifting, classification of the
-type image in the reduced building, orbit-summed measure transfer, the two
-$SL_2$ elliptic phases, and the $U_2$ connected-center test.  None of those
-steps is used to strengthen the relative representability assertion of
-Theorem A.
-
+The numerical specialization is Corollary~\ref{cor:PGL2-orbital-integral-realization};
+its depth character is Corollary~\ref{thm:PGL2-orbital-reciprocity}.
+Corollary~\ref{thm:PGL2-genuine-small-skeletonization} applies standard
+Verdier exchange to the resulting finite shell map.
 
 \section{The enhanced torus orientation bimodule}\label{sec:torus-orientation-bimodule}
+The cohomology and relative duality of a torus are standard.  The following
+calculation fixes the algebra model and checks the bimodule actions and
+splitting-cover descent used in the residual family.  Relative
+Poincar\'e duality and projection-formula compatibility are used in the
+six-functor formalism of \cite{LaszloOlsson,LiuZhengEnhanced}.
+
 \begin{lemma}[Enhanced Kummer--Koszul algebra and its bimodule dual]
 \label{lem:enhanced-torus-Koszul}
 Let $p:S'\to S$ be a finite \'etale cover splitting the $d$-dimensional torus
@@ -1148,6 +883,11 @@ not mean that the representing algebraic $U$-scheme is proper: after the
 quadratic splitting cover, $\mathscr Q_r$ contains a $\mathbb G_m$ factor.
 \end{remark}
 
+The order--lattice dictionary is used as in
+\cite[\S2.1 and \S4.2]{YunOrbitalOrders}.  For completeness, the following
+short rank-two normal-form calculation fixes the representatives required
+by the relative orbit maps; it is not a separate arithmetic novelty.
+
 \begin{lemma}[Local quadratic-order classification]
 \label{lem:PGL2-local-order-classification}
 Let $F$ be a complete discretely valued field of residue characteristic
@@ -1378,6 +1118,33 @@ maps may be read off from the disjoint union
 \eqref{eq:PGL2-actual-shell-union}.
 \end{remark}
 
+\subsection{Classical arithmetic input and its specialization}
+
+We use Yun's lattice formula \cite[\S4.2, (4.1)]{YunOrbitalOrders}:
+for a regular integral matrix $b$ with order $R=\mathcal O_F[b]$, the
+orbital integral is the number of $R$-stable lattices modulo a
+uniformizer lattice in $F[b]^\times$.  Haar measures give volume one to
+$GL_n(\mathcal O_F)$ and to the maximal compact centralizer.
+The ideal-class interpretation and its stabilizer weights are those of
+\cite[\S\S2.1, 2.9]{YunOrbitalOrders}.
+
+Here take $b=\widetilde\gamma_m=1+\varpi^m\iota(z)$ at a finite-field
+point.  Then $F[b]=E$, $R=A_m$, and $\det b=1-a\varpi^{2m}$ is a unit.
+Consequently $bL\subset L$ is equivalent to $bL=L$ by Cayley--Hamilton.
+For the projective condition, if $bL=cL$ then determinants give
+$2\ord(c)=\ord(\det b)=0$, so it too is equivalent to $bL=L$.
+Thus the Lie-algebra lattice condition in the cited formula agrees with
+our group test function.
+The central quotient identifies
+\[
+ E^\times\backslash GL_2(F)
+ \simeq (E^\times/F^\times)\backslash PGL_2(F).
+\]
+Normalize $\vol(\mathcal O_F^\times)=1$ in the scalar subgroup.
+The images of $GL_2(\mathcal O_F)$ and $\mathcal O_E^\times$ have volume
+one, so transitivity of quotient measures preserves Yun's normalization.
+This supplies the arithmetic input for the following geometric corollary.
+
 \begin{corollary}[Geometric realization of the spherical orbital integral]
 \label{cor:PGL2-orbital-integral-realization}
 Let $x\in U$ be a closed point with finite residue field $k_x$, put
@@ -1416,89 +1183,39 @@ map.
 \end{corollary}
 
 \begin{proof}
-Put $K_x=PGL_2(k_x[[\varpi]])$ and choose $g_r$ with
-$g_rk_x[[\varpi]]^2=A_{r,x}$.  By
-\eqref{eq:PGL2-orbital-support-decomposition}, the support of the
-characteristic function is precisely the disjoint union
-$\coprod_{r=0}^mT_x(F_x)g_rK_x$.  Formula~\eqref{eq:PGL2-Weil-quotient-measure}
-therefore gives
+Apply the cited lattice formula with $R=A_m$ and the central quotient
+just described.  The representatives are $A_r$, $0\le r\le m$, with
+multiplier rings $A_r$.  The standard double-coset mass is
 \begin{equation}
- \operatorname{vol}\bigl(T_x(F_x)\backslash
- T_x(F_x)g_rK_x\bigr)
+ \operatorname{vol}(T_x(F_x)\backslash T_x(F_x)g_rK_x)
  =\frac{\operatorname{vol}(K_x)}
- {\operatorname{vol}(T_x(F_x)\cap g_rK_xg_r^{-1})}.
+ {\operatorname{vol}(T_x(F_x)\cap g_rK_xg_r^{-1})},
  \label{eq:PGL2-double-coset-mass}
 \end{equation}
-The full-torus stabilizer calculation
-\eqref{eq:PGL2-full-torus-stabilizer}, not merely the positive-loop
-stabilizer calculation, identifies the denominator with
-$A_{r,x}^\times/\mathcal O_{F_x}^\times$, as a subgroup of
-\[
- T_x(\mathcal O_{F_x})
- =\mathcal O_{E_x}^\times/\mathcal O_{F_x}^\times.
-\]
-Since the latter has volume one,~\eqref{eq:PGL2-double-coset-mass} is exactly
-\[
- [T_x(\mathcal O_{F_x}):
-   A_{r,x}^\times/\mathcal O_{F_x}^\times].
-\]
-In the unramified-field case $T_x(F_x)=T_x(\mathcal O_{F_x})$.  In the split
-case $T_x(F_x)/T_x(\mathcal O_{F_x})$ is the apartment-translation lattice;
-it is already divided out on the left of the quotient, while the stabilizer
-in~\eqref{eq:PGL2-double-coset-mass} remains the same compact subgroup.
-Thus no additional split-torus volume factor occurs.
-
-Finally, the fiber of $\mathscr Q_r$ is the fppf quotient of the unit groups
-of the two finite $k_x$-algebras
-$E_x[\epsilon]/(\epsilon^r)$ and
-$k_x[\epsilon]/(\epsilon^r)$.  The obstruction to replacing quotient-sheaf
-$k_x$-points by the naive unit quotient lies in
-$H^1(k_x,(k_x[\epsilon]/(\epsilon^r))^\times)$, which is the Picard group of
-this finite local Artin algebra and is zero.  Equivalently this is the
-truncated-unit form of Hilbert 90.  Hence
-$\mathscr Q_r(k_x)$ is the ordinary unit quotient and its cardinality is the
-same index.  Sum over the representatives from
-Theorem~\ref{thm:PGL2-residual-orbit-comparison} and apply the
-Grothendieck--Lefschetz trace formula.
+where $K_x=PGL_2(\mathcal O_{F_x})$.  Its denominator is the volume of
+$A_{r,x}^\times/\mathcal O_{F_x}^\times$, by
+Lemma~\ref{lem:PGL2-full-stabilizer-support}; this gives the stated index.
+For $r\ge1$, the obstruction to computing $\mathscr Q_r(k_x)$ as the
+ordinary truncated-unit quotient is
+$H^1(k_x,\operatorname{Res}_{k_x[\epsilon]/(\epsilon^r)/k_x}\mathbb G_m)
+=\operatorname{Pic}(k_x[\epsilon]/(\epsilon^r))=0$.
+Hence the represented quotient has exactly this many points.
+The depth-zero quotient is a point.  Summing and applying the
+Grothendieck--Lefschetz trace formula proves the comparison with the
+actual compact coefficient.
 \end{proof}
 
-\begin{proposition}[Independent Bruhat--Tits verification of the shell support]
+\begin{remark}[Classical building description]
 \label{prop:PGL2-building-shell-verification}
-At a field-valued point $x\to U$, let $\mathcal B_x$ be the reduced
-Bruhat--Tits tree of $PGL_2(F_x)$.  If $T_x$ is split, let $\mathcal A_x$ be
-its apartment; if $T_x$ is unramified anisotropic, let $v_x$ be its fixed
-vertex.  Then the fixed set of $\gamma_{m,x}$ is, respectively, the closed
-radius-$m$ tube around $\mathcal A_x$ or the closed radius-$m$ ball around
-$v_x$.  Modulo $T_x(F_x)$ it has one shell at each distance
-$0\le r\le m$, and the stabilizer of the distance-$r$ shell is
-$A_{r,x}^{\times}/\mathcal O_{F_x}^{\times}$.
+The corresponding fixed vertices form the radius-$m$ tube about the split
+apartment or the radius-$m$ ball about the unramified elliptic fixed vertex;
+see \cite[\S\S5.8--5.9]{KottwitzOrbital}.  With the normalization above,
+the numerical masses are respectively $q^m$ and
+$1+(q+1)(1+\cdots+q^{m-1})$.  These are benchmarks for the trace comparison,
+not separate results of this paper.
+\end{remark}
 
-Consequently the building calculation independently recovers both the
-support decomposition~\eqref{eq:PGL2-orbital-support-decomposition} and the
-termwise masses in~\eqref{eq:PGL2-orbital-trace}.
-\end{proposition}
-
-\begin{proof}
-After the unramified splitting extension, the two eigenvalues of
-$\gamma_{m,x}$ are $1\pm\varpi^m\sqrt a$.  Their difference has valuation
-$m$.  In a lattice chart transverse to the eigenline apartment, moving one
-edge away divides one off-diagonal integrality condition by $\varpi$; hence
-exactly the vertices of transverse distance at most $m$ are fixed.  Galois
-descent gives the tube in the split case and the ball about the unique
-anisotropic fixed vertex in the nonsplit case.  Apartment translations are
-already supplied by $T_x(F_x)$, so there is one orbit for each distance.
-
-The lattice at distance $r$ may be represented by
-$A_{r,x}=\mathcal O_{F_x}+\varpi^r\mathcal O_{E_x}$.  Its multiplier ring is
-$A_{r,x}$, and the same calculation as in
-Lemma~\ref{lem:PGL2-full-stabilizer-support} identifies its torus stabilizer
-with $A_{r,x}^{\times}/\mathcal O_{F_x}^{\times}$.  Weil's quotient formula
-then gives the stated masses.  This proof uses the metric geometry of the
-tree rather than the fppf orbit representation, so it is a consistency check
-independent of the construction of $\mathscr Q_r$.
-\end{proof}
-
-\begin{theorem}[Universal $PGL_2$ compact-orbital reciprocity]
+\begin{corollary}[Depth character of the represented coefficient family]
 \label{thm:PGL2-orbital-reciprocity}
 Let
 $\mathcal I_m^{\mathrm{orb}}=Rq^{\mathrm{orb}}_{m,!}\Qell$ and let
@@ -1536,7 +1253,7 @@ Moreover,
 At every finite-field point, the geometric-Frobenius derived supertrace of the coefficient in
 \eqref{eq:PGL2-orbital-series} is the Weyl-normalized actual spherical orbital
 integral in~\eqref{eq:PGL2-orbital-trace}.
-\end{theorem}
+\end{corollary}
 
 \begin{proof}
 The two eigenvalues of $\gamma_m$ are
@@ -1688,7 +1405,7 @@ The bivariate lattice transform of $\widehat\Phi$ and its cellular partner are
  -\kappaell\frac{z}{1-z}.
  \label{eq:residual-partner}
 \end{equation}
-Theorem~\ref{thm:GF-duality}, with the displayed integral orientations, gives
+Corollary~\ref{thm:GF-duality}, with the displayed integral orientations, gives
 \begin{equation}
  \mathcal W^!(z^{-1},u^{-1})=\mathcal W(z,u).
  \label{eq:residual-partner-inversion}
@@ -1762,17 +1479,12 @@ filtration adds further continuity and convergence questions.
 \end{warning}
 
 
-\section{A finite labelled-shell Verdier partner and its polyhedral
-\texorpdfstring{$K_0$}{K0} shadow}
+\section{Verdier exchange for the represented shell map}
 \label{sec:PGL2-narrow-skeletonization}
 
-This section separates two statements of different strength.  First, the
-actual finite family of labelled orbit shells admits a genuine
-zero-dimensional Verdier partner: both direct-image functors are defined
-independently and Verdier duality intertwines them by a natural equivalence.
-Second, the height regrading produces a more polyhedral object only after
-cohomological associated graded; its assembled horizontal duality remains a
-$K_0$ statement.
+We apply six-functor duality to the finite disjoint union of the constructed
+orbit schemes.  The associated-graded character is recorded separately in
+the appendix, in Theorem~\ref{thm:PGL2-narrow-skeletonization}.
 
 \subsection{The finite labelled-shell Verdier partner}
 
@@ -1825,7 +1537,7 @@ the two functors independently by
 using~\eqref{eq:PGL2-zero-cellular-target}.  In particular $\Sk_{N,*}$ is
 not defined as a Verdier conjugate of $\Sk_{N,!}$.
 
-\begin{theorem}[Finite labelled-shell Verdier partner]
+\begin{corollary}[Standard Verdier exchange for the finite shell map]
 \label{thm:PGL2-genuine-small-skeletonization}
 For every finite cutoff $N$, the functors in
 \eqref{eq:PGL2-genuine-Sk-pair} are defined on the full bounded constructible
@@ -1847,40 +1559,71 @@ $(m,r)$ component is precisely
  \label{eq:PGL2-genuine-component-partner}
 \end{equation}
 The equivalences are compatible with restriction from $N+1$ to $N$.
-\end{theorem}
+\end{corollary}
 
 \begin{proof}
-Each $\mathscr O_{m,r}\simeq\mathscr Q_r$ is a smooth affine finite-type
-$U$-scheme by Theorems~\ref{thm:finite-residual-filtration} and
-\ref{thm:PGL2-residual-orbit-comparison}.  Hence $\rho_N$ is separated and of
-finite type, and both direct images preserve bounded constructibility.  The
-six-functor Verdier isomorphism for this independently specified map gives
-\[
- \D_{\mathscr Z_N}R\rho_{N,!}
- \simeq
- R\rho_{N,*}\D_{\mathscr Y_N^{\mathrm{orb}}}
-\]
-naturally on the full source category.  Under
-\eqref{eq:PGL2-zero-cellular-target}, $\D_{\mathscr Z_N}$ is exactly
-$\D_{\mathrm{cell},N}$, proving the boxed equivalence.  Decomposition over the
-zero-cells gives~\eqref{eq:PGL2-genuine-component-partner}.  The inclusion
-$\Lambda_N\subset\Lambda_{N+1}$ is a union of open-and-closed components, so
-restriction preserves the construction and its Verdier transformation.
+The represented shells are affine of finite type over $U$, hence
+$\rho_N$ is separated of finite type.  Apply the standard natural
+isomorphism $\D R\rho_{N,!}\simeq R\rho_{N,*}\D$
+\cite{LaszloOlsson,LiuZhengEnhanced}.  On the finite disjoint union it is
+exactly the displayed component formula.  Changing $N$ restricts to an
+open-and-closed union, so the same transformation restricts compatibly.
 \end{proof}
 
-\begin{remark}[Why the theorem is genuine and why it is small]
-The source, target, map, two functors, and both dualities are all fixed before
-the equivalence is invoked, and the equivalence is natural in every
-constructible coefficient object.  Thus
-Theorem~\ref{thm:PGL2-genuine-small-skeletonization} is an object-level
-Verdier partner identity, not a $K_0$ identity.  It is small because
-$\Lambda_N$ is discrete: the theorem records the actual labels $(m,r)$ but no
-closure incidence, no height translation $s=m-r+1$, and no Stanley
-canonical-module operation.  The split product chart is not needed for this
-theorem.
-\end{remark}
+The target is discrete: this corollary records coefficients on the labels
+$(m,r)$ and does not construct cross-shell attaching maps.
 
-\subsection{The associated-graded polyhedral shadow}
+\section{Scope and the remaining geometric question}
+\label{sec:literature-outlook}
+
+The relative result represents each compact positive-loop orbit over $U$.
+Its disjoint union is a choice of compact shells for the arithmetic
+formula, not a representation of the whole quotient $[T\backslash X_m]$.
+The lattice and numerical input is classical
+\cite{YunOrbitalOrders,KottwitzOrbital}; the additional data treated here
+are the relative orbit maps and their descended orientation coefficients.
+The finite shell map has a discrete target.  The associated-graded cone
+character in the appendix supplies no attaching maps between its cells.
+The local absolute-$A_1$ application uses
+Definitions~\ref{def:A1-pair} and \ref{def:standard-A1-family}; it supplies
+local masses, not relative orbit schemes for those additional groups.
+
+\subsection{Outlook: the remaining bridge}
+
+The next geometric problem is deliberately narrower than a general tropical
+realization.  For the same quadratic $PGL_2$ family, one should construct
+actual transition morphisms among the represented shells whose incidence
+target is the height cone
+\[
+ C=\{(m,s)\in\mathbf N^2:0\le s\le m\},
+ \qquad s=m-r+1.
+\]
+The desired refinement would upgrade the present discrete functors to an
+incidence-bearing pair and prove, before taking $K_0$,
+\[
+ \Dcell\Sk_!\simeq\Sk_*\D.
+\]
+The split tame product charts
+$\mathscr Q_r\times_U\widetilde U\simeq\mathbb G_m\times\mathbb A^{r-1}$
+give local vertical duality, but they do not yet provide the horizontal
+transition maps.  Constructing those maps is the first unresolved step.
+
+In this limited sense, the present result isolates a rank-one geometric
+fragment of a possible correspondence-level tropical transport theory.
+
+\section{Conclusion}
+
+The represented quotient $\mathscr Q_r$ identifies the relative compact
+orbit of $[\mathcal A_r]$ over the quadratic base, and the residual tower
+tracks its orientation coefficient $\cK$.  The classical orbital-integral
+formula supplies the arithmetic interpretation of its Frobenius trace.
+Depth reciprocity and finite-target Verdier exchange are consequences of
+this construction and the cited standard results.  The remaining
+geometric problem is to construct incidence maps between the shells.
+
+\appendix
+
+\section{The associated-graded polyhedral shadow}
 
 We next retain the canonical height data in addition to the shell labels.  Let
 \[
@@ -1989,7 +1732,7 @@ $s=0$ is $1=(1-\kappaell)+\kappaell$.  This proves the height-character statemen
 identification of the Tate-twisted array with an untwisted ordinary cellular
 object.  The calculation in
 Section~\ref{sec:quadratic-residual-series}, equivalently
-Theorem~\ref{thm:GF-duality} applied to the auxiliary envelope and then
+Corollary~\ref{thm:GF-duality} applied to the auxiliary envelope and then
 specialized by $u\mapsto Q$, gives the functional equation.
 \end{proof}
 
@@ -2017,7 +1760,7 @@ map to $C$ and no incidence morphisms between distinct $(m,r)$.
 
 \begin{warning}[The zero-dimensional theorem does not prove the cone theorem]
 The source and target of
-Theorem~\ref{thm:PGL2-genuine-small-skeletonization} are fixed independently,
+Corollary~\ref{thm:PGL2-genuine-small-skeletonization} are fixed independently,
 so its partner equivalence is genuine.  By contrast,
 Theorem~\ref{thm:PGL2-narrow-skeletonization} deliberately passes to
 cohomological associated graded and then to a cellular envelope only after
@@ -2088,7 +1831,7 @@ When the resulting series is rational, define
 \end{equation}
 in the localization generated by the relevant factors $1-z^v$.
 
-\begin{theorem}[Generating functions transport cellular duality]
+\begin{corollary}[Stanley reciprocity with coefficient duality]
 \label{thm:GF-duality}
 For every finite $K_0$-combination of closed rational cones with coefficients
 in $\cC$,
@@ -2101,30 +1844,102 @@ in $\cC$,
 The equality is independent of rational polyhedral subdivision.
 If the integral orientations are compatibly trivialized, the right side
 reduces to $d(\GF(\Phi)(z))$.
-\end{theorem}
+\end{corollary}
 
 \begin{proof}
-The classes $[V\otimes\mathbf k_{\bar\sigma}]$ generate the cellular
-Grothendieck group.  Put $e=\dim\sigma$.  On this generator the left side is
-\[
- (-1)^e[d(V)\otimes\operatorname{or}_\sigma]
- \sum_{u\in\relint(\sigma)\cap N}z^{-u}.
-\]
-Rational cone reciprocity \cite{Stanley} gives
-\[
- \sum_{u\in\relint(\sigma)\cap N}z^{-u}
- =(-1)^e\sum_{u\in\sigma\cap N}z^u.
-\]
-The two signs cancel, proving~\eqref{eq:GF-duality} on generators and hence
-by additivity in general.  Under a subdivision, inclusion--exclusion on
-closed cells and its Verdier dual include all internal faces with the
-correct link multiplicity.  Equivalently, the constructible stalk function
-and the dualizing complex do not depend on the chosen cellular presentation.
+Apply Stanley's cone reciprocity \cite{Stanley} to each closed-cone
+generator and the cellular duality formula
+\eqref{eq:cell-generator-duality} \cite{Curry,CurryErratum,BresslerLunts}.
+The cone sign cancels the cohomological shift sign; the coefficient
+orientation remains.  Additivity gives the displayed equality and its
+subdivision independence.
 \end{proof}
 
 
 \section{The local unramified absolute-\texorpdfstring{$A_1$}{A1} theorem}
 \label{sec:absolute-A1}
+
+\begin{definition}[Unramified absolute-$A_1$ pair]
+\label{def:A1-pair}
+Let $F$ be a non-Archimedean local field with finite residue field of odd
+characteristic.  An \emph{unramified absolute-$A_1$ pair} $(G,K)$ consists of
+a connected reductive $F$-group $G$ which is quasi-split over $F$, split over
+an unramified extension, and has absolutely simple adjoint group of type
+$A_1$, together with a hyperspecial subgroup
+$K=\mathcal G(\cO_F)$ for a connected reductive $\cO_F$-model $\mathcal G$.
+The adjective $A_1$ refers to the absolute adjoint root system.
+\end{definition}
+
+\begin{definition}[Central-neutral standard spherical family]
+\label{def:standard-A1-family}
+Let $p:G\to G_{\ad}$, let $\nu:G\to G_{\ab}=G/G_{\der}$, and let
+$K_{\ad}=\mathcal G_{\ad}(\cO_F)$, and let
+$T=G_{\gamma_m}$ with root image $T_{\rt}\subset G_{\ad}$.  A family
+$\gamma_m$, $m\ge0$, is \emph{central-neutral standard spherical} if:
+\begin{enumerate}[label=\textup{(\alph*)}]
+\item $T_{\rt}$ is split or unramified elliptic and its adjoint quadratic
+  order is $A_m=\cO_F+\varpi^m\cO_E$ for the corresponding split or
+  unramified quadratic algebra $E/F$;
+\item its fixed set in the reduced building is the radius-$m$ tube about the
+  split apartment or the radius-$m$ ball about the elliptic fixed vertex;
+\item $\nu(\gamma_m)$ is independent of $m$, belongs to $\nu(K)$, and
+  \begin{equation}
+   \one_K(g^{-1}\gamma_mg)
+   =\one_{K_{\ad}}\bigl(p(g)^{-1}p(\gamma_m)p(g)\bigr)
+   \quad(g\in G(F));
+   \label{eq:central-neutral-support}
+  \end{equation}
+\item the Haar measures satisfy $\vol_G(K)=1$ and
+  $\vol_T(T(F)_{\max,\mathrm{cpt}})=1$, and the Weyl discriminant
+  has valuation $2m$.
+\end{enumerate}
+These conditions are hypotheses, not automatic properties of an arbitrary
+unramified regular family.
+\end{definition}
+
+For such a centralizer put
+\begin{equation}
+ \mathfrak o_{G,T}
+ =\det\!\left(X_*(T/Z(G)^\circ)\otimes\Qell\right).
+ \label{eq:root-orientation-line}
+\end{equation}
+
+\begin{theorem}[Local absolute-$A_1$ application]
+\label{thm:main-A1-reciprocity}
+Let $(G,K)$ be an unramified absolute-$A_1$ pair and let $\gamma_m$ be a
+central-neutral standard spherical family.  Let $S/k$ be a smooth connected
+parameter base over a finite field $k$, with $\ell\ne\operatorname{char}k$,
+carrying the quadratic cameral cover of $T_{\rt}$, and let
+$d_S$ be dimension-normalized coefficient duality.  The classification in
+Section~\ref{sec:absolute-A1} is exhaustive: the shell lattice is either
+saturated or type-preserving, and in the type-preserving elliptic case it has
+exactly two embedding phases.  The local Haar coefficients are given by the
+corresponding orbit-summed shell interpolation $I_{G,m}$.
+
+With $J_{G,m}=Q^mI_{G,m}$ and
+$W_G(z)=\sum_{m\ge0}J_{G,m}z^m$, one has
+\begin{equation}
+ \boxed{
+ W_G(z^{-1})
+ =-z\,(\mathfrak o_{G,T}\otimes d_S)W_G(z).}
+ \label{eq:main-A1-reciprocity}
+\end{equation}
+The multiplier is independent of the central isogeny, vertex-color lattice,
+and elliptic embedding phase.  Outside the saturated $PGL_2$ case the
+interpolation is a rational $K_0$ class whose Frobenius traces are the actual
+local orbital coefficients; no relative orbital $R_!$-push-forward or fppf
+orbit-family theorem is asserted.
+\end{theorem}
+
+\begin{proof}
+This is Theorems~\ref{thm:A1-local-shell-classification} and
+\ref{thm:A1-orientation-reciprocity}.  The classification reduction is
+Lemma~\ref{lem:A1-building-classification}, the measure comparison is
+Lemma~\ref{lem:A1-shell-transfer}, the type-preserving calculation is
+Proposition~\ref{prop:SL2-parity-reciprocity}, and the quotient by
+$Z(G)^\circ$ is forced by Proposition~\ref{prop:U2-center-test}.
+\end{proof}
+
 
 The represented $PGL_2$ family separates the Kummer line from the Tate
 coefficient.  We now test whether that line survives changes of central
@@ -2379,7 +2194,7 @@ spherical orbital integral.  For a closed point $x\to S$, replace
 $(\Lell,\mathfrak o)$ by $(q_x,\chi_x)$ in the following displayed shell
 classes.  Their Frobenius traces are the corresponding local orbital masses.
 In the saturated $PGL_2$ case they are the genuine residual push-forwards of
-Theorem A; otherwise they are the announced orbit-summed interpolation.
+Theorem~\ref{thm:main-PGL2-package}; otherwise they are the announced orbit-summed interpolation.
 
 \subsection{The \texorpdfstring{$SL_2$}{SL2} parity test}
 
@@ -2534,7 +2349,7 @@ or the type-preserving formulas in
 Proposition~\ref{prop:SL2-parity-coefficients}, according to the type image
 and elliptic phase.  This is an equality of local orbit-summed masses.  It is
 a relative orbital push-forward only in the represented saturated $PGL_2$
-family of Theorem A.
+family of Theorem~\ref{thm:main-PGL2-package}.
 \end{theorem}
 
 \begin{proof}
@@ -2592,131 +2407,6 @@ Lemma~\ref{lem:A1-shell-transfer}.  Nontrivial geometric monodromy excludes
 a constant Tate twist, as in Proposition~\ref{prop:strict-non-Tate-Kummer}.
 \end{proof}
 
-
-\section{Literature comparison, limitations, and outlook}
-\label{sec:literature-outlook}
-
-\subsection{Comparison and scope of claim}
-
-The numerical input and the relative construction have different roles.
-Kottwitz's split orbital-integral formula
-\cite[\S5.8, (5.8.4)]{KottwitzOrbital} gives $q^m$, while his
-unramified elliptic fixed-vertex count \cite[\S5.9, (5.9.7)]{KottwitzOrbital} gives
-$1+(q+1)(1+\cdots+q^{m-1})$.  Under our normalization
-$\vol_G(K)=\vol_T(T(F)_{\max,\mathrm{cpt}})=1$, the elliptic quotient
-weights are torus-orbit cardinalities; in the split case they are the
-compact-unit orbit cardinalities in a translation fundamental section.
-Lemma~\ref{lem:A1-shell-transfer} proves these measure identifications,
-so the quoted sphere and tube counts give precisely these local
-coefficients.  The parity restriction for $SL_2$ is applied afterwards,
-with the same torus normalization in both phases.
-
-The relative assertions are the arbitrary-ring stabilizer and fppf
-quotient calculation in Lemma~\ref{lem:PGL2-loop-orbit-quotient},
-representability in Theorem~\ref{thm:PGL2-residual-orbit-comparison},
-and descent of the determinant line in the residual tower.  Work on
-affine-Springer geometry and fundamental domains provides related
-background \cite{GKM,ChenFundamentalDomain,ChenWeighted,ChenLocalBehavior};
-we make no theorem-by-theorem priority comparison with those works here.
-Motivic interpolation and transfer are established by
-\cite{HalesMotivic,CluckersHalesLoeser}, and Kummer local systems occur
-in \cite{CunninghamHalesGood}.  The Verdier partner on our finite
-discrete target follows from standard six-functor duality for the
-constructed structure morphism.  Its role is to record the dual of this
-specific relative geometry.
-
-The theorem proved here is narrower.  It is the componentwise identification
-of the compact positive-loop orbit sheaf in the universal quadratic $PGL_2$
-family with the single smooth quotient scheme $\mathscr Q_r$ over the whole
-parameter base, together with its enhanced determinant-line descent.  The
-termwise equality of represented shells, Haar masses, and Frobenius traces is
-stronger than a numerical or virtual interpolation, but it is proved only for
-this family.  The absolute-$A_1$ theorem makes a different contribution: it
-shows that the same root-orientation line survives the $SL_2$ change of shell
-lattice and that the $U_2$ center test forces deletion of
-$X_*(Z(G)^\circ)$.  Its general coefficients are local orbit-summed
-interpolations.  These statements specify the scope of the paper; they are
-not accompanied by a claim that no equivalent formulation exists elsewhere.
-
-Stanley reciprocity and cellular Verdier duality are established tools
-\cite{Stanley,Curry,BresslerLunts}.  The relation between affine-Springer
-point counting and orbital integrals, the $SL_2$ vertex-color parity, and the
-exterior/Poincar\'e description of torus cohomology are likewise used as
-standard input.  Their role here is to identify and test the height-graded
-shadow of the represented orbital family.  The paper does not claim a new
-general cellular-duality or torus-duality formalism.
-
-\subsection{Exact limitations}
-
-Theorem A concerns the equal-characteristic loop family over $\Uk$.  It
-represents each compact $L^+\mathbb T$ orbit, but it does not represent the
-whole affine-Springer locus $X_m$, the quotient stack $[T\backslash X_m]$, or
-closures and incidence relations among all its strata.  The bookkeeping
-union $\mathscr S_m^{\mathrm{orb}}$ contains one compact fundamental shell per
-local double coset and is not a global decomposition theorem.
-
-Theorem B is complete only for Definitions~\ref{def:A1-pair} and
-\ref{def:standard-A1-family}.  It excludes ramified tori, anisotropic inner
-forms, nonspherical test functions, nonstandard depth/fixed-set relations,
-and relative rank-one groups of non-$A_1$ absolute type such as quasi-split
-$U_3$.  Central neutrality is essential.  Outside the saturated $PGL_2$
-case, no relative fppf orbit scheme or derived orbital push-forward has been
-constructed.
-
-Finally, Theorem~\ref{thm:PGL2-genuine-small-skeletonization} has a discrete
-finite target.  It is object-level but contains no cross-shell incidence.
-The two-dimensional cone in
-Theorem~\ref{thm:PGL2-narrow-skeletonization} appears only after
-cohomological associated graded, de-Tating, and passage to a rational
-$K_0$ character.  There is no infinite cellular object, completed Rees
-module, or convolution theorem hidden in that statement.
-
-\subsection{Outlook: the remaining bridge}
-
-The next geometric problem is deliberately narrower than a general tropical
-realization.  For the same quadratic $PGL_2$ family, one should construct
-actual transition morphisms among the represented shells whose incidence
-target is the height cone
-\[
- C=\{(m,s)\in\mathbf N^2:0\le s\le m\},
- \qquad s=m-r+1.
-\]
-The desired refinement would upgrade the present discrete functors to an
-incidence-bearing pair and prove, before taking $K_0$,
-\[
- \Dcell\Sk_!\simeq\Sk_*\D.
-\]
-The split tame product charts
-$\mathscr Q_r\times_U\widetilde U\simeq\mathbb G_m\times\mathbb A^{r-1}$
-give local vertical duality, but they do not yet provide the horizontal
-transition maps.  Constructing those maps is the first unresolved step.
-
-In this limited sense, the present result isolates a rank-one geometric
-fragment of a possible correspondence-level tropical transport theory.
-
-\section{Conclusion}
-
-The paper proves two results of different strength.  First, the universal
-quadratic $PGL_2$ family has a componentwise geometric model:
-$\mathscr Q_r$ represents the compact positive-loop orbit of
-$[\mathcal A_r]$, and its finite-field points give exactly the Haar mass of
-the corresponding spherical double coset.  The residual vector-torsor tower
-identifies every compact shell coefficient with the torus Frobenius bimodule
-and propagates the non-Tate determinant line
-$\cK=\det(X_*(\mathbb T)\otimes\Qell)$ through all depths.  The finite
-labelled-shell map supplies a genuine, if discrete, Verdier partner.
-
-Second, classification and orbit-summed measure transfer extend the
-reciprocity multiplier to every central-neutral standard unramified
-absolute-$A_1$ family.  The $SL_2$ parity test changes the shell lattice while
-leaving the multiplier fixed; the $U_2$ center test forces the formula
-\[
- \mathfrak o_{G,T}
- =\det\!\left(X_*(T/Z(G)^\circ)\otimes\Qell\right).
-\]
-Thus the Kummer line in the represented $PGL_2$ family is the rank-one
-realization of root orientation, not an accidental numerator in one rational
-function.
 
 \section*{Acknowledgments}
 
@@ -2840,6 +2530,12 @@ doi:10.1016/j.aim.2008.04.006;
 R.~P. Stanley,
 \emph{Combinatorial reciprocity theorems},
 Adv. Math. \textbf{14} (1974), 194--253.
+
+\bibitem{YunOrbitalOrders}
+Z.~Yun,
+\emph{Orbital integrals and Dedekind zeta functions},
+arXiv:1303.2420v2 (2013),
+\url{https://arxiv.org/abs/1303.2420}.
 
 \bibitem{ZhuAffineGrassmannians}
 X.~Zhu,
