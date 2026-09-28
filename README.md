@@ -19,10 +19,14 @@ AI4Math/
 │   ├── README.md                     # paper summary and search metadata
 │   ├── three_realization_submission.tex
 │   └── three_realization_submission.pdf
-└── semistable_morita_refinement/
+├── semistable_morita_refinement/
+│   ├── README.md                     # paper summary and search metadata
+│   ├── semistable_morita_refinement.tex
+│   └── semistable_morita_refinement.pdf
+└── verdier_kernel_skeletonization/
     ├── README.md                     # paper summary and search metadata
-    ├── semistable_morita_refinement.tex
-    └── semistable_morita_refinement.pdf
+    ├── verdier_kernel_skeletonization.tex
+    └── verdier_kernel_skeletonization.pdf
 ```
 
 ## Paper index
@@ -57,23 +61,35 @@ build instructions, and the latest source/PDF pair.
 
 Folder: [`three_realization_submission/`](three_realization_submission/)
 
+Files: [compiled PDF (77 pages)](three_realization_submission/three_realization_submission.pdf),
+[LaTeX source](three_realization_submission/three_realization_submission.tex),
+[paper README](three_realization_submission/README.md).
+
 #### Main content
 
-For a fixed semistable node with smooth disc directions, this paper constructs
-a geometric inverse system of traces from genuine finite-root shriek
-pushforwards. Its integral limit is compared with the derived dual of
-continuous inertia cochains, nearby costalks, and analytic compact support,
-while retaining finite group bars, coefficient maps, module actions, and
-integral torsion.
+For a fixed semistable node, optional smooth directions, and chosen relative
+Kummer data, the paper compares ordinary root, nearby-cycle, and tube
+cohomology on a selected underlying-perfect integral adic coefficient source.
+The common value is continuous inertia cohomology, and the analytic
+realization is fully faithful on this source. Supported cohomology is built
+from finite-root vector-bundle carriers of the geometric dimension; their
+trace system is identified with the dual of continuous cochains, including
+the geometric shift and Tate twist, and compared with nearby costalks and
+analytic compact support through the specified Verdier pairings. The
+comparisons are natural in coefficients and preserve reduction and module
+actions. Without extra smooth directions, the rational unipotent subsource is
+equivalent to perfect modules over the continuous cochain algebra.
 
 #### Scope and limitations
 
 The results concern the stated local semistable/Kummer chart and selected
-perfect cartesian adic coefficient systems. The paper does not define a shriek
-functor on the bare infinite-root fibre, nor claim global weak base-inertia
-extensions, an unrestricted common algebraic coefficient source, or an
-equivalence with the ordinary unrigidified Artin fan. Proper-image and larger
-coefficient-source issues remain explicit obstructions.
+underlying-perfect integral adic coefficient source. The supported comparison
+uses a common dual model; it needs neither a morphism from a carrier to the
+tube nor an exceptional direct image on the bare infinite-root fibre. The
+paper does not claim global weak base-inertia extensions, an unrestricted
+common algebraic coefficient source, or an equivalence with the ordinary
+unrigidified Artin fan. Proper-image and larger coefficient-source issues
+remain explicit obstructions.
 
 ### Morita Coefficients, Incidence, and Semistable Refinement
 
@@ -132,7 +148,9 @@ systems, Kummer torsors, Haar measure, geometric Frobenius, Verdier duality,
 orientation reciprocity, residual towers, rank-one groups, unramified absolute
 A1, rational K0, polyhedral skeletonization, shell generating functions,
 nearby cycles, vanishing cycles, continuous cohomology, pro-l inertia,
-finite-root stacks, infinite root stacks, adic coefficients, Artin stacks,
+continuous cochain algebras, rational unipotent coefficients,
+finite-root vector-bundle carriers, finite-root stacks, infinite root stacks,
+adic coefficients, Artin stacks,
 Iwasawa cohomology, analytic compact support, tame nearby cycles, logarithmic
 geometry, semistable nodes, finite-carrier traces, six operations, derived
 categories, Morita coefficients, supported comparison, semistable refinement,
