@@ -41,7 +41,14 @@ At a geometric point these conditions retain the full main-theorem source.
 The finite-carrier trace row is a point-valued star-algebra module comparison;
 actual logarithmic tame transport and supplied finite descent are distinguished.
 
-Current revision: 22 September 2026; compiled PDF: 76 pages.
+Current revision: 27 September 2026; compiled PDF: 77 pages (28 September
+2026).
+
+The main theorem starts on page 1. The main text follows the node, its
+coefficients, ordinary realization, supported comparison, and finite-root
+trace. General-base descent, recovery, root-site geometry, and logarithmic
+comparison tools are collected in Appendices A–E; source obstructions are
+in Appendix F. The appendices start on page 23.
 
 ## Search keywords
 
@@ -54,7 +61,7 @@ finite-carrier traces, six operations, Kummer torsors, derived categories.
 ## Files
 
 - [`three_realization_submission.tex`](three_realization_submission.tex): LaTeX source.
-- [`three_realization_submission.pdf`](three_realization_submission.pdf): compiled 75-page manuscript.
+- [`three_realization_submission.pdf`](three_realization_submission.pdf): compiled 77-page manuscript.
 
 ## Reproducibility
 
@@ -62,8 +69,8 @@ With the required LaTeX packages installed, compile the manuscript at least
 twice so that cross-references and PDF bookmarks settle:
 
 ```powershell
-pdflatex -interaction=nonstopmode -halt-on-error three_realization_submission.tex
-pdflatex -interaction=nonstopmode -halt-on-error three_realization_submission.tex
+xelatex -interaction=nonstopmode -halt-on-error three_realization_submission.tex
+xelatex -interaction=nonstopmode -halt-on-error three_realization_submission.tex
 ```
 
 ## Citation

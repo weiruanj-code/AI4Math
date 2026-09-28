@@ -30,54 +30,45 @@
 \title{Local Kummer Realizations and Verdier Duality\\
 \large Continuous cohomology, nearby cycles, and finite-root traces}
 \author{YINGFENG JIANG}
-\date{22 September 2026}
+\date{27 September 2026}
 
 \begin{document}
 \maketitle
 
 \begin{abstract}
-For a fixed semistable node with smooth disc directions, we construct
-a geometric trace inverse system from genuine finite-root shriek
-pushforwards.  Its integral limit is the derived dual of continuous
-inertia cochains, with the geometric shift and Tate twist, and agrees
-with actual nearby costalks and analytic compact support.
-The construction retains full finite group bars, coefficient reduction,
-module actions and integral torsion.  Its inputs are comparisons of
-Kummer coefficients on the relative infinite-root fibre, tame nearby
-fibre and analytic tube; on the selected perfect cartesian adic source,
-the analytic realization is fully faithful and the three ordinary
-images are continuous inertia cohomology.  All comparisons use the
-fixed chart, base-root neutralization, compactification and carriers.
-No shriek functor on the bare infinite-root fibre is defined.
+For a fixed semistable node, with optional smooth directions and
+chosen relative Kummer data, we compare ordinary root, nearby-cycle
+and tube cohomology on a selected underlying-perfect integral adic
+coefficient source.  The common value is continuous inertia
+cohomology, and the analytic realization is fully faithful on this
+source.  For supported cohomology we use fixed finite-root
+vector-bundle carriers of the geometric dimension.  Their geometric
+trace system is identified with the dual of continuous cochains,
+with the dimension shift and Tate twist, and hence with nearby
+costalks and analytic compact support through the specified Verdier
+pairings.  The supported comparison is constructed through this
+common dual model; it does not require a morphism from a carrier
+to the tube or define an exceptional direct image on the bare
+infinite-root fibre.  For the fixed data, the comparisons are natural
+in coefficients and preserve reduction and module actions.  For a
+node without extra smooth directions, the rational unipotent subsource
+is equivalent to perfect modules over the continuous cochain algebra.
 \end{abstract}
 
 \section{Introduction}
 \label{frag:explicit-three-realization}
 
-Let $xy=\pi$ be a semistable node.  Its vanishing tube is an open
-annulus, and its relative pro-$\ell$ inertia is $\mathbf Z_\ell(1)$.
-This paper compares Kummer coefficients on that tube, on the
-logarithmic nearby fibre, and on the relative infinite-root fibre.
-The ordinary images are continuous inertia cohomology.  The main
-question is whether their supported partners agree as well.
+The vanishing tube of a semistable node $xy=\pi$ is an open annulus.
+Its relative Kummer inertia is $\Gamma=\mathbf Z_\ell(1)$, and
+continuous cochains describe the ordinary cohomology of its Kummer
+coefficients.  We relate this description to the relative root fibre
+and nearby cycles, then identify the corresponding supported objects.
 
-The difficulty lies at finite root level.  A finite classifying
-stack has unbounded cohomology, even though continuous inertia
-cohomology admits a two-term complex.  We identify the geometric
-trace transitions on the full finite bars and show that their
-inverse limit agrees with analytic compact support and the nearby
-costalk.  This construction retains the coefficient maps, module
-actions and integral torsion.
-
-Here $R_r=\mathbf Z/\ell^r$.  A source coefficient is a cartesian
-system of discrete continuous inertia complexes, perfect over each
-$R_r$ with one common Tor interval; the analytic target uses the
-analogous lisse-perfect systems on the ordinary etale site.
-Definitions~\ref{def:frag-local-adic-source-target}
-and~\ref{def:frag-compatible-presenting-tails} specify the categories
-and fixed-precision presentations; Lemma~\ref{lem:frag-presenting-system-assembly}
-constructs their trace functors and coefficient maps.  The appendix proofs
-of root-site descent and integral recovery are part of the argument.
+The main result includes smooth disc directions.  Write
+$R_r=\mathbf Z/\ell^r$.  A coefficient is a derived-cartesian system
+$V_\bullet$ of continuous $\Gamma$-complexes, each perfect over $R_r$,
+with a common finite Tor interval; its precise source and realization
+are given in Definition~\ref{def:frag-local-adic-source-target}.
 
 \begin{theorem}[Local star comparison and finite-carrier trace]
 \label{thm:frag-node-complete-local-datum}
@@ -150,21 +141,17 @@ This construction is presentation-independent and satisfies
  \simeq D_\ell K_\Gamma(V_\bullet^\vee)(-N)[-2N],
 \]
 where $N^c_r=i^!R\Psi^t_{\overline X}Rj_{\eta,!}\mathcal E_r$.
-It is not a shriek functor on the bare infinite-root fibre.
+This supported functor is defined by the fixed finite-carrier trace system.
 \end{enumerate}
-All limits here are derived; the integral point outputs are recovered
-from their cartesian finite-precision systems.  The finite operations are those of
-Assumptions~\ref{ass:frag-ambient-six-functor-domain}
-and~\ref{ass:frag-finite-trace-domain};
-Proposition~\ref{prop:frag-point-finite-domain-verified} verifies
-their use on these point carriers.  The comparisons
+All limits are derived, and the integral outputs recover their
+cartesian finite-precision systems.  The comparisons
 preserve the star-algebra module actions and the specified coefficient
 reductions.  The trace row is an equivalence in $D(\mathbf Z_\ell)$
 and its corresponding star-algebra module category.  The actual
 logarithmic star comparisons retain their induced tame transport;
 additional supplied finite semilinear actions are treated in
-Proposition~\ref{prop:frag-S-trace-naturality}, not by silently adding
-an infinite inertia action to the finite-carrier target.  For input Tor-amplitude $[a,b]$, their perfect output
+Proposition~\ref{prop:frag-S-trace-naturality}.  For input
+Tor-amplitude $[a,b]$, their perfect output
 amplitudes are $[a,b+1]$ and $[a+2N-1,b+2N]$.
 For the unit, $A=K_\Gamma(\mathbf Z_\ell)$ has trace partner
 $D_\ell A(-N)[-2N]$ with its evaluation module structure.
@@ -172,120 +159,75 @@ Canonicity is relative to the stated model, neutralization,
 compactification, carrier and enhanced coefficient categories.
 \end{theorem}
 
-The geometric comparison uses logarithmic nearby cycles and formal
-completion.  The root comparison requires finite-presentation descent
-on the representable-etale site and a map-level identification of
-finite-stack traces.  These are proved below; the continuous bar and
-Iwasawa resolutions serve as computational tools.
+The supported comparison is the central construction.  Finite root
+stacks have unbounded group cohomology, whereas continuous inertia
+has a finite Koszul model.  We first form the geometric trace system
+using the full finite group bars.  Pairing with the ordinary root
+system identifies its limit with the continuous dual.  The same
+pairing identifies the coefficient-reduction arrows $b_r$ and the
+module actions.  Verdier duality then relates this trace limit to
+nearby costalks and analytic compact support.
 
+\paragraph{Geometric and algebraic inputs.}
+Logarithmic local acyclicity and the log/ordinary nearby comparison
+come from Nakayama and the exposition of Illusie
+\cite{NakayamaNearby,FujiwaraKatoNakayama}.  Berkovich's formal
+comparison and analytic duality identify the tube realizations
+\cite{BerkovichFormalII,BerkovichEtale}.  We use the natural maps in
+these constructions, so evaluation and trace provide the supported
+comparison together with its module structure.
 
-\paragraph{Previous work and scope.}
-Logarithmic nearby cycles and formal completion are the geometric
-inputs of \cite{NakayamaNearby,FujiwaraKatoNakayama,BerkovichFormalII,BerkovichEtale}.
-Infinite-root constructions and the absolute Kummer comparison are
-prior work \cite{TalpoVistoliInfiniteRoot,TalpoVistoliKN,ScherotzkeSibillaTalpoMcKay,CarchediEtAlLogHomotopy}.
-Talpo--Vistoli already prove an equivalence between the Kummer etale
-topos and the representable etale topos of the infinite root stack
-\cite[Theorem 6.22, arXiv v2 numbering]{TalpoVistoliInfiniteRoot}.
-The published actual-stack/pro-system and
-representable-etale comparisons of
-\cite[\S\S5--6]{CarchediEtAlLogHomotopy} concern profinite shapes.
-Our actual-site theorem proves the finite-presentation descent needed
-on the specified relative, base-root-neutralized pro-$\ell$ chart;
-it also tracks the structural inverse image, hence continuous
-invariants with coefficients.  It is not a new absolute infinite-root
-or Kummer-shape comparison.
-Brumer supplies the classical pseudocompact-module framework
-\cite{BrumerPseudocompact}; the rank-one Iwasawa twist in
-\cite[Appendix A.2]{EsnaultKerzPencils} is a related construction.
-Our multidimensional adic action-sheaf comparison is proved separately
-on the full selected constructible source.  Its star computation is
-not restricted by the coefficient-duality domain: over a general
-base, dual closure is asserted only for globally lisse-perfect inputs,
-and Verdier partners require a coherent bounded dualizing system.
-At the geometric point these qualifications do not shrink the
-source or the supported conclusion of the main theorem.
-The finite-stack duality input is also prior work: for a finite
-$G$, \cite[Example 4.9.2]{LaszloOlssonFinite} computes compact
-support on $BG$ as the dual of the full group-cochain complex.
-Once compatible maps are identified, duality turning a homotopy
-colimit into a homotopy limit is formal; the resulting continuous
-dual formula alone is not a novelty claim.
-The contribution here is assembling the specified geometric carriers
-and their counits, identifying the original coefficient arrows $b_r$
-by the evaluation pairing, and comparing that same system with
-actual nearby costalks and analytic compact support, including module
-actions and integral reduction.  Relative coefficient and Iwasawa
-comparisons provide the inputs needed for this assembly.
-All comparisons concern the fixed model and carrier.  Model independence,
-incidence/Gysin compatibility and convolution require further results.
-The root-chart functoriality proved here concerns supplied augmented
-log-point maps.  Cross-stratum specialization, links and Gysin maps
-require actual open/closed immersions and nearby-cycle constructions,
-as in the refinement paper; they do not follow from relative lattice
-maps.  Supported realization over general bases, rank-changing
-comparisons and descent of integral models are separate extensions.
-They are not conclusions of the fixed-node theorem.
+Infinite-root geometry and its Kummer interpretation are developed in
+\cite{TalpoVistoliInfiniteRoot,TalpoVistoliKN,ScherotzkeSibillaTalpoMcKay}.
+Talpo--Vistoli's topos equivalence
+\cite[Theorem 6.22, arXiv v2 numbering]{TalpoVistoliInfiniteRoot}
+and the profinite-shape comparisons of
+\cite[\S\S5--6]{CarchediEtAlLogHomotopy} supply the surrounding framework.
+Here the relative construction fixes a base-root neutralization and
+the $\ell$-power tower; finite-presentation descent tracks its
+structural coefficient functor over the base.
+
+For finite $G$, Laszlo--Olsson identify compact support on $BG$
+with the dual of the full group-cochain complex
+\cite[Example 4.9.2]{LaszloOlssonFinite}.  This finite duality and
+the formal passage from a dual colimit to a limit are inputs to
+our trace construction.  The work here is the geometric assembly:
+identifying its counits, its original coefficient arrows and its
+comparison with the two supported realizations.  The continuous
+calculation uses the pseudocompact framework of Brumer
+\cite{BrumerPseudocompact}.  Esnault--Kerz
+\cite[Appendix A.2]{EsnaultKerzPencils} identify rank-one continuous
+actions with Iwasawa coefficients and relate derived invariants and
+coinvariants by the Iwasawa twist and shift.  Their construction uses
+pro-etale constructible coefficients and an artinian coefficient
+localization in that subsection; here we work with finite-precision and cartesian adic models on the
+specified underlying-perfect source.  We verify the specified coefficient
+maps and reductions in this model, then assemble the fixed-carrier
+counits with the actual supported geometric realizations.
 \label{frag:literature-status}
 
-The comparison maps use three additional ingredients whose proofs
-are included here.  Proposition~\ref{prop:frag-finite-quotient-enhancement}
-identifies the enhanced finite-stack adjunctions and their scalar
-mates; Lemma~\ref{lem:frag-point-trace-diagram-descent} then identifies
-the actual continuous trace reduction.  Proposition~
-\ref{prop:frag-completion-comparison-monoidal} constructs the
-multiplicative completion map before invoking the external
-cohomological comparison theorem.  For the general-base coefficient
-model, Lemmas~\ref{lem:frag-filtered-enhanced-localization}
-and~\ref{lem:frag-etale-sections-torsion} supply the categorical
-and sheaf-theoretic inputs.  The appendices also treat supplied finite
-semilinear descent diagrams; the node theorem has no such descent
-group.  Global weak base-inertia extensions are not claimed here.
+\paragraph{Scope and organization.}
+All geometric comparisons use the fixed model, base roots,
+compactification and carriers in the theorem.  Its supported row is
+a point-valued module comparison.  The unipotent corollary supplies
+the coefficient interface for semistable refinement; cross-stratum
+links and Gysin maps require their geometric constructions.
+Model independence and convolution are further questions.
 
-We first describe the coefficients and the root structural functor,
-then construct the analytic and nearby realizations.  Verdier duality
-and the finite-root trace calculation give the supported comparison.
-The proof of the theorem and examples follow.  Appendices contain
-the general-base descent arguments, standard comparison machinery,
-and two obstructions to larger coefficient sources.  Extensions to
-finite symmetries and proper images are recorded separately.
-
-
-\paragraph{Dependency map for the node theorem.}
-The arrows below denote dependencies of proofs.  At finite precision:
-\[
-\begin{array}{c@{\qquad}c}
-\text{root site; log specialization}&\text{finite quotient adjunctions}\\
-\text{completion; analytic sites}&\Downarrow\\
-\Downarrow&\text{full bars; geometric traces}\\
-\text{star and full faithfulness}&\Downarrow\\
-\Downarrow\ \text{Verdier duality}&\text{continuous dual; reduction square}\\
-\text{compact support; costalk}&\text{finite-carrier trace limit}
-\end{array}
-\]
-The continuous dual and reduction-square step on the right uses
-star perfectness from the left.  Their pairing identifies the two
-bottom outputs.  Integral recovery then applies to the resulting
-compatible coefficient systems on both sides.
-The left branch uses
-Lemma~\ref{lem:frag-log-limit-slices},
-Proposition~\ref{prop:frag-log-specialization-kummer-localization},
-Corollary~\ref{cor:frag-point-actual-root-bridge}, and
-Lemma~\ref{lem:frag-derived-analytic-site-model}.
-The right branch uses
-Proposition~\ref{prop:frag-finite-quotient-enhancement},
-Lemma~\ref{lem:frag-point-trace-diagram-descent}, and
-Theorem~\ref{thm:frag-point-C1}.
-Point-source recovery is
-Proposition~\ref{prop:frag-point-source-iwasawa-admissibility} and
-Lemma~\ref{lem:frag-point-perfect-recovery}.
-The general-base appendices supply these inputs by specialization;
-their finite-action and torsion lemmas remain part of the proof.
-General-base sheaf globalization, finite semilinear descent, and the
-classical pseudocompact Hom interpretation are additional conclusions,
-not further hypotheses of the node theorem.  The unipotent refinement
-interface is a subsequent corollary.  None of these extensions supplies
-model independence or a global supported functor.
+Sections~\ref{sec:local-node-coefficients}--\ref{sec:local-analytic-realization}
+construct the coefficients and ordinary realizations.
+Section~\ref{sec:frag-supported-realization} proves the supported
+geometric comparison, and Section~\ref{sec:local-finite-root-trace}
+constructs the finite-root trace system.  The ordinary root and geometric star comparisons supply the mapping
+comparison in Section~\ref{sec:local-analytic-realization}; the geometric
+supported comparison and finite-root trace meet in
+Section~\ref{sec:frag-direct-images}, which completes the main theorem
+and gives examples.
+The appendices collect adic recovery, descent over a noetherian
+base, the relative root site, the continuous dualizing module, and
+the general geometric comparison tools.  Their constructible
+coefficient and star results use the full selected source; general-base
+coefficient duality uses the lisse-perfect domain specified there.
 
 \section{The node and its Kummer coefficients}
 \label{sec:local-node-coefficients}
@@ -308,79 +250,14 @@ $(\mathbf P^1_R)^2\times(\mathbf P^1_R)^e$; the boundary misses $Y$.
 The finite root carriers are $\mathbf A^N_{BK_n}$, with $N=1+e$.
 Their vector-bundle trace fixes the factor $(-N)[-2N]$.
 
-Throughout, $n$ is root level (root order $\ell^n$) and $r$ is
-coefficient precision.
+Throughout, $R_r=\mathbf Z/\ell^r$, $n$ is root level (root order
+$\ell^n$), and $r$ is coefficient precision.  General-base coefficient
+conventions appear in Definition~\ref{def:frag-adic-coefficients}.
 We take the continuous root (co)limit at fixed $r$, recover the
 integral coefficient system, and finally invert $\ell$ if desired.
 Write $V^\vee=R\operatorname{Hom}_{\mathbf Z_\ell}(V,\mathbf Z_\ell)$
 with contragredient action.  This coefficient dual differs from the
 geometric source dual $V^\vee(N)[2N]$.
-
-\begin{definition}[Integral Kummer coefficients]
-\label{def:frag-adic-coefficients}
-Put $R_r=\mathbf Z/\ell^r$.  On a coefficient topos $X$ let
-$\mathcal D(X,R_r)$ be the stable localization of module-sheaf
-complexes at quasi-isomorphisms.  Define
-\begin{equation}
- \mathcal D_{\mathrm{ad}}(X,\mathbf Z_\ell)
- =\varprojlim_{r,\,-\otimes^L_{R_{r+1}}R_r}\mathcal D(X,R_r),
- \qquad \mathcal D^b_{c,\mathrm{ad}}(X,\mathbf Z_\ell)
- \subset\mathcal D_{\mathrm{ad}}(X,\mathbf Z_\ell).
- \label{eq:frag-adic-infinity-category}
-\end{equation}
-The full subcategory consists of derived cartesian systems with
-uniform bounded amplitude and the stated constructible perfect
-restrictions on a finite stratification.  Mapping spectra are those
-of this limit category.  Reduction is taken in the ambient category:
-$\mathbf F_\ell\otimes^L_{\mathbf Z/\ell^2}\mathbf F_\ell$ shows why
-it is not a functor on all bounded constructible complexes.
-Rational coefficients mean inversion of $\ell$ in this integral category.
-
-On finite Artin stacks we use the enhanced six operations
-\cite{LaszloOlssonFinite,LaszloOlsson,LiuZhengEnhanced,LiuZhengAdic}.
-Individual star and shriek images lie in their respective $+$ and
-$-$ constructible domains.  All root (co)limits are formed in the
-ambient unbounded category: finite classifying-stack cohomology is
-unbounded \cite[Example 4.9.2]{LaszloOlssonFinite}.  Boundedness of the
-continuous outputs is proved by the Iwasawa calculation below.
-
-For $\Gamma_M=M\otimes\mathbf Z_\ell(1)$ put
-$\Lambda_M^{\mathrm{Iw}}=\mathbf Z_\ell[[\Gamma_M]]$ and
-$\Lambda_{M,r}^{\mathrm{Iw}}=\Lambda_M^{\mathrm{Iw}}/\ell^r$; in particular
-\begin{equation}
- \Lambda_{M,r}^{\mathrm{Iw}}
- \ne R_r[\Gamma_M/\ell^r\Gamma_M].
- \label{eq:frag-iwasawa-not-finite-group-ring}
-\end{equation}
-At a point, $\mathsf{Mod}^{\mathrm{pc}}_{\Lambda_M^{\mathrm{Iw}}}$ denotes
-pseudocompact modules, derived from inverse systems of finite-length
-modules for $(\ell^r,I_M^a)$, with completed tensor and continuous Hom.
-An \emph{Iwasawa-admissible coefficient} is a bounded, locally
-pseudo-coherent object of finite Tor-amplitude over the Iwasawa
-algebra whose underlying $\mathbf Z_\ell$-complex is perfect.
-This is the classical point terminology.  Over a stratified base,
-``selected'' or ``admissible'' means the uniformly underlying-perfect
-cartesian class in Definition~\ref{def:frag-adic-iwasawa-sheaves},
-without an implicit global pseudocompact sheaf condition.  Torsion cohomology
-is allowed; the regular Iwasawa module is excluded when $M\ne0$.
-
-For sheaf coefficients the independent adic module model is
-Definition~\ref{def:frag-adic-iwasawa-sheaves}.
-Theorem~\ref{thm:frag-F-adic-iwasawa} identifies it with the selected
-continuous-action systems.  A separate global pseudocompact-sheaf
-interpretation is not used.  At precision $r$, finite-action descent
-supplies a root level $n(r)$, including derived maps; these levels
-need not be bounded as $r$ varies.  Ambient coefficient recovery is
-Lemma~\ref{lem:frag-adic-completion}, and perfect recovery at a point
-is Lemma~\ref{lem:frag-point-perfect-recovery}.
-
-We write $V=V_{\mathrm{cont}}[1/\ell]$ and
-$\Lambda_{M,\mathbf Q_\ell}^{\mathrm{Iw}}=\Lambda_M^{\mathrm{Iw}}[1/\ell]$.
-This is the bounded-denominator algebra, rather than
-$\mathbf Q_\ell[[T_1,\ldots,T_d]]$; coefficients throughout admit
-the specified perfect integral model.
-\end{definition}
-
 
 \begin{definition}[The source and analytic target of adic realization]
 \label{def:frag-local-adic-source-target}
@@ -499,7 +376,7 @@ There is no finite-group truncation in this argument.
 
 Finite Postnikov filtrations in both variables extend the identity to
 bounded objects with finite cohomology.  In particular it identifies
-mapping spectra, not just degree-zero maps.  Every finite continuous
+mapping spectra in all degrees.  Every finite continuous
 module has action through a finite quotient.  Induct on the number of
 nonzero cohomology degrees of an object on the continuous side.  Present
 its lower truncation and its highest cohomology module at finite levels;
@@ -562,6 +439,18 @@ the corresponding complex is the Koszul complex of
 $\gamma_1-1,\ldots,\gamma_d-1$.  Naturality is expressed by derived
 continuous cohomology; the coordinates only supply a finite model.
 
+For the following calculation let $M$ be a finite free lattice,
+$\Gamma_M=M\otimes\mathbf Z_\ell(1)$, and
+$\Lambda_M^{\mathrm{Iw}}=\mathbf Z_\ell[[\Gamma_M]]$.
+The node uses $M=\mathbf Z$.  Write $\mathbf K_M^{\mathrm{Iw}}$ for
+the augmentation Koszul resolution in
+\eqref{eq:frag-iwasawa-koszul}, and $\mathbf B_M^{\mathrm{cts}}$ for
+the completed normalized bar resolution of the same trivial module.
+Admissibility is the point coefficient condition of
+Definition~\ref{def:frag-adic-coefficients};
+Proposition~\ref{prop:frag-point-source-iwasawa-admissibility}
+verifies it for our entire point source.
+
 \begin{lemma}[Continuous bar--Iwasawa comparison]
 \label{lem:frag-continuous-bar-iwasawa}
 There is an augmentation-preserving equivalence
@@ -603,373 +492,14 @@ $R\!\operatorname{Hom}^{\mathrm{cts}}_{\Lambda_M^{\mathrm{Iw}}}
 \section{Analytic realization and nearby cycles}
 \label{sec:local-analytic-realization}
 
-The Kummer torsors define the generic coefficient before any
-cohomology comparison is made.  We prove the comparison for a split
-vertical log-smooth chart, then specialize to the node.  The
-specialization functor is
-$R\Theta=R\nu_*\mu^*$ for
-$T_{\acute et}\xleftarrow{\mu}T_{q\acute et}\xrightarrow{\nu}Y_{\acute et}$.
-The completion and site comparisons used here are recorded in
+The Kummer torsors of the node define both the generic coefficient
+and its logarithmic extension.  We first compute its nearby and tube
+cohomology, then prove full faithfulness by comparing internal Hom.
+Write $R\Theta$ for the specialization functor of
+Definition~\ref{def:frag-analytic-specialization-sites}.
+The general log-smooth comparison used in this calculation is
+Theorem~\ref{thm:frag-vertical-log-star} in
 Appendix~\ref{sec:frag-analytic-nearby}.
-
-\begin{definition}[The vertical logarithmic coefficient domain]
-\label{def:frag-vertical-log-B-domain}
-Let $X/R$ be a finite-type fs saturated log-smooth scheme, vertical near
-a noetherian locally closed stratum $Y$: the generic log structure is
-trivial on that neighbourhood.  On $Y$ fix a split characteristic chart
-$\mathbf N\rho\to P$ with $\rho$ primitive and
-$L=P^{\mathrm{gp}}/\mathbf Z\rho$ free of rank $d$.  Use the actual
-special formal completion $\widehat X_{/Y}$ and its geometric tube,
-without assuming an entire-torus product.  For a supplied generic open
-$j:U\hookrightarrow X_\eta$, require
-$Y\cap\overline{X_\eta\setminus U}=\varnothing$.
-
-A coefficient for the theorem below is a bounded complex $\mathcal L_r$
-on $X_{\mathrm{ket}}$, in a neighbourhood of $Y$, with finite locally
-constant cohomology and the selected underlying $R_r$-perfectness.  Its
-generic restriction, on the ordinary etale site by verticality, is
-$\mathcal E_r$.  Its restriction $E_r$ to the geometric relative log
-fibre is required to be trivial on the non-$\ell$ relative tame factor.
-For adic coefficients require a derived-cartesian system with the
-uniform amplitude conditions already specified in Theorem~\ref{thm:frag-F-adic-iwasawa}.
-If arithmetic descent is retained, it is the descent supplied by this
-actual prime-to-$p$ log-Kummer source and the chosen geometric base-root
-lift.  We allow no additional wild base-inertia representation on the
-coefficient.  This restriction is imposed on the logarithmic
-neighbourhood, not merely on the restriction to $Y$.  The non-$\ell$
-relative tame factor is discarded by exact invariants; external tame
-base inertia, including its prime-to-$\ell$ part, remains separate
-action data and is not absorbed into $\Gamma$.  The same convention
-applies to dual coefficients and to log-lisse sources used below.
-The extension $\mathcal L_r$ is actual source data, not an extension
-asserted to exist for every abstract constructible action coefficient.
-The following statements take values on $Y_{\acute et}$ itself;
-application of a further $Rf_{Y,*}$ is a separate operation on both sides.
-\end{definition}
-
-
-
-\begin{lemma}[Slices of the geometric logarithmic limit sites]
-\label{lem:frag-log-limit-slices}
-Let $X$ be an fs log scheme over the logarithmic trait.  Use the
-finite logarithmic base extensions and the limiting Kummer etale
-sites defining the geometric total, special and generic topoi
-in \cite[\S8.2, (8.2.1)]{FujiwaraKatoNakayama}.
-If $q:X'\to X$ is Kummer etale, its base changes determine objects
-$Q_\alpha$ of these three topoi $\mathcal X_\alpha$, and canonically
-\[
- \mathcal X'_\alpha\simeq\mathcal X_\alpha/Q_\alpha,
- \qquad \alpha\in\{\mathrm{tot},\bar s,\bar\eta\}.
-\]
-Under these equivalences the generic and special structural maps
-for $X'$ are the localizations of those for $X$.
-The identifications commute with further base extension, composition
-of Kummer etale maps, and transport by geometric base automorphisms.
-\end{lemma}
-\begin{proof}
-Work on quasi-compact chart opens and use the finite-presentation
-basis of the Kummer etale sites.  A general Kummer etale object is
-covered by these opens, so the resulting statement glues.
-Let $\lambda$ index the finite logarithmic base extensions.  At each
-level use the fs fibre products and denote the corresponding site
-by $\mathcal C_{\lambda,\alpha}$ and the base change of $q$ by
-$Q_{\lambda,\alpha}$.  Subcanonicity and stability of Kummer etale
-maps under composition and fs base change identify the site over
-$X'_\lambda$ with
-$\mathcal C_{\lambda,\alpha}/Q_{\lambda,\alpha}$.
-Its coverings are precisely the induced Kummer etale coverings.
-
-Here is the passage to the limit explicitly.  The limiting site is
-presented by the filtered category $\mathcal C_{\infty,\alpha}$
-of finite-level objects, with morphisms taken after further base
-extension and the topology generated by finite-level coverings.
-This is the limiting-site convention in the cited definition, not
-the small site of an unqualified underlying scheme limit.
-There is a functor
-\[
- \operatorname*{colim}_\lambda
- (\mathcal C_{\lambda,\alpha}/Q_{\lambda,\alpha})
- \longrightarrow \mathcal C_{\infty,\alpha}/Q_\alpha.
-\]
-An object on the right is a finite-level object $U_\lambda$ together
-with an arrow to $Q_\alpha$.  That arrow is represented at a later
-level, so it gives an object on the left.  A morphism over $Q_\alpha$
-is a finite-level morphism and one triangle equality; both are
-represented at a common later level.  The same observation detects
-equality of two morphisms.  This proves equivalence of the categories.
-For a finite covering family all arrows and their triangles can be
-represented at one level.  The induced covering topology is the
-same on both sides, since both are generated by pullbacks of the
-finite-level coverings.  On the quasi-compact basis finite coverings
-suffice; arbitrary opens and coverings are obtained by gluing.
-Sheafification identifies the topos of this slice site with the
-slice by its representable sheaf, proving the assertion.
-
-The generic and special maps are induced at every level by the
-same fs pullbacks.  Pulling back an arrow $U\to Q$ gives the arrow
-between the corresponding pullbacks, with its triangle unchanged.
-Thus the three site equivalences intertwine those structural maps,
-not just the underlying categories.  Successive pullbacks supply
-the composition identifications; their associativity follows from
-the universal property of fibre product.  A base automorphism
-transports these same diagrams (and reindexes the finite extensions),
-which gives the asserted geometric-action compatibility.  No formula
-interchanging a derived direct image and a filtered colimit is used.
-\end{proof}
-
-\begin{proposition}[Kummer localization of logarithmic specialization]
-\label{prop:frag-log-specialization-kummer-localization}
-Let $X$ be an fs log scheme over the logarithmic trait and
-$q:X'\to X$ a Kummer etale morphism.  Use the geometric logarithmic
-base change defining nearby cycles, with the integral saturated fibre
-products and limiting Kummer etale topoi of
-\cite[\S8.2, (8.2.1)]{FujiwaraKatoNakayama}.
-For $\mathcal L\in D^+(X_{\mathrm{ket}},R_r)$ there is a canonical
-exchange
-\[
- q_{\bar s}^*R\Psi_X^{\log}\mathcal L
- \xrightarrow{\sim}
- R\Psi_{X'}^{\log}(q^*\mathcal L).
-\]
-It makes the specialization-unit square commute:
-\[
-\begin{array}{ccc}
- q_{\bar s}^*(\mathcal L|_{X_{\bar s}^{\log}})
- &\xrightarrow{\ q_{\bar s}^*\mathrm{sp}_{\mathcal L}\ }&
- q_{\bar s}^*R\Psi_X^{\log}\mathcal L\\
- \big\Vert&&\big\downarrow\sim\\
-(q^*\mathcal L)|_{(X')_{\bar s}^{\log}}
- &\xrightarrow{\ \mathrm{sp}_{q^*\mathcal L}\ }&
- R\Psi_{X'}^{\log}(q^*\mathcal L).
-\end{array}
-\]
-For a covering family of such $q$, the pullbacks on the geometric
-logarithmic special fibre are jointly conservative.  The exchanges
-are compatible with morphisms of coefficients, composition of covers,
-and the retained inertia action.
-\end{proposition}
-
-\begin{proof}
-The Kummer etale topology is subcanonical; composition and fs base
-change preserve Kummer etale maps and their coverings
-\cite[\S2.1--2.3 and Theorem 2.6]{FujiwaraKatoNakayama}.
-Consequently $(X')_{\mathrm{ket}}$ is the slice of
-$X_{\mathrm{ket}}$ by the representable object $X'$: its objects are
-Kummer etale objects over $X$ with a map to $X'$, and its coverings
-are the induced coverings.  This is an equality of the localized
-sites, not an ordinary-scheme etale base-change assertion.
-
-Let $\mathcal X$, $\mathcal X_{\bar s}$ and $\mathcal X_{\bar\eta}$
-be the logarithmic total, special and generic topoi in the geometric
-base change, and write $i,j$ for their structural morphisms.
-The defining expression is $R\Psi_X^{\log}\mathcal L
-=i^*Rj_*(\mathcal L|_{\mathcal X_{\bar\eta}})$.
-Lemma~\ref{lem:frag-log-limit-slices} identifies the three topoi
-for $X'$ with the slices by the compatible base changes of $q$,
-including their generic and special structural maps.
-
-Apply Lemma~\ref{lem:frag-slice-derived-base-change} to $j$ and this
-object of $\mathcal X$.  Commutation of inverse images in the
-special-fibre square then gives
-\[
- q_{\bar s}^*i^*Rj_*
- \simeq i'^*q_{\mathcal X}^*Rj_*
- \simeq i'^*Rj'_*q_{\bar\eta}^*.
-\]
-The specialization map is $i^*$ applied to the unit
-$\mathcal L|_{\mathcal X}\to Rj_*j^*(\mathcal L|_{\mathcal X})$.
-The unit clause of the lemma therefore gives the displayed square
-with this very map.  Coverings remain coverings under the geometric
-log base change, so exact inverse images along them are jointly
-conservative on cohomology sheaves.  This proves the descent assertion.
-Composition and inertia compatibility follow from the same site
-pullbacks and adjunction units before forgetting the action.
-\end{proof}
-
-\begin{lemma}[Logarithmic specialization for the actual lisse source]
-\label{lem:frag-log-nearby-geometric-input}
-For an fs log-smooth scheme $X$ over the logarithmic trait and a
-bounded $R_r$-complex $\mathcal L$ on $X_{\mathrm{ket}}$ with finite
-locally constant cohomology, the log-specialization unit
-\[
- \mathcal L|_{X_{\bar s}^{\log}}
- \xrightarrow{\sim}R\Psi_X^{\log}\mathcal L
-\]
-is an equivalence.  In addition there is a natural exchange
-\[
- R\Psi_X(R\varepsilon_{\eta,*}\mathcal L_\eta)
- \simeq R\varepsilon_{s,\mathrm{rel},*}R\Psi_X^{\log}\mathcal L.
-\]
-These use the geometric logarithmic base change, not the special
-fibre with its absolute log structure.  In the vertical case the
-generic logarithmic forgetful map $\varepsilon_\eta$ is the identity.
-The maps are the specialization unit and the forgetful exchange on
-the indicated actual topoi.
-\end{lemma}
-
-\begin{proof}
-The external local-acyclicity input is the constant-coefficient
-statement of \cite[Theorem 3.2]{NakayamaNearby}, also stated in
-\cite[Theorem 8.3]{FujiwaraKatoNakayama}.  It applies to
-$\mathbf Z/\ell^s$ for every $s$.  A finite constant $R_r$-module
-is a finite direct sum of such cyclic modules, so its unit is an
-equivalence as well.  This is the only coefficient case taken
-from that theorem.
-
-There are three separate steps for the lisse extension of this input.
-First choose a Kummer-etale covering family trivializing a finite
-locally constant coefficient.  Finitely many such coefficients or
-specified maps can be handled on the common refinement obtained by
-finite fibre products of covering families; no single cover for an
-infinite coefficient system is used.  Second, each covering fs log
-scheme remains log smooth over the trait, since Kummer etale is log
-etale and log smoothness is stable under composition.  Saturation
-over the trait is not an extra hypothesis of the cited theorem.
-Third, Proposition~\ref{prop:frag-log-specialization-kummer-localization}
-identifies the pullback of the actual specialization unit with the
-unit on that covering scheme.  The base-changed Kummer-etale covering
-of the geometric logarithmic special fibre is jointly conservative,
-so the unit on the original coefficient is invertible.
-This third step and the source descent, rather than a stronger
-coefficient version of the external theorem, provide the extension.
-
-Finite truncation triangles apply this natural unit to a bounded
-complex with locally constant cohomology.  No splitting of its
-Postnikov extensions or simultaneous trivialization of the whole
-complex is required.
-
-The forgetful exchange is the derived natural transformation of
-\cite[\S8.2, (8.2.3)]{FujiwaraKatoNakayama}, which is stated there
-for $D^+$ coefficients, rather than only the constant coefficient.
-Its construction uses strict closed base change for the forgetful
-map and the geometric logarithmic base limit.  Apply that exchange
-to the present source.  Its unit and pullback naturality are retained
-under the localizations above.  Thus neither the lisse specialization
-nor its map-level compatibility has been added as a hypothesis.
-\end{proof}
-
-\begin{theorem}[Tube cohomology of vertical log-lisse Kummer coefficients]
-\label{thm:frag-vertical-log-star}
-For the actual prime-to-$p$ log-Kummer source of
-Definition~\ref{def:frag-vertical-log-B-domain}, with no additional
-wild base-inertia action and with the full retained inertia action, write
-$s:\,]Y[_{\bar\eta}\to Y$ for geometric specialization and
-$\Gamma=\operatorname{Hom}(L,\mathbf Z_\ell(1))$.  There is a natural
-zigzag of equivalences
-\[
- C^*_{\mathrm{cts}}(\Gamma,E_r)
- \xrightarrow{\ \gamma\ }
- i_Y^*R\Psi_X(Rj_*\mathcal E_r)
- \xrightarrow{\ \beta\ }
- Rs_*\mathcal E_r^{\mathrm{an}},
- \qquad
- i_Y^*R\Psi_X^t(Rj_*\mathcal E_r)
- \xrightarrow{\sim}i_Y^*R\Psi_X(Rj_*\mathcal E_r).
-\]
-Here $E_r$ is interpreted on the actual root fibre by
-Proposition~\ref{prop:frag-relative-log-root-interface}.
-The first zigzag respects the commutative algebra of the unit and its
-coefficient modules, and the tame comparison preserves these structures.
-The maps are natural for algebraized Kummer refinements, strict-etale
-restrictions, and supplied finite semilinear descent.  They identify
-actual functors on the indicated coefficient source.  Their selected
-adic outputs are uniformly bounded and derived cartesian.
-
-This closes the local star comparison for this vertical lisse domain.
-It does not assert essential surjectivity from every abstract
-cross-stratum action coefficient to $\mathcal L_r$, and supplies no
-exceptional or incidence comparison.
-\end{theorem}
-
-\begin{proof}
-Remove the closure of the generic complement near $Y$, as in Proposition~\ref{prop:frag-ordinary-nearby-boundary-disjoint}.
-The source there is the actual generic restriction of $\mathcal L_r$.
-Let $E_r$ be its restriction to the relative geometric log fibre.
-Apply $R\varepsilon_{Y,\mathrm{rel},*}$ to the specialization unit
-\[
- E_r\longrightarrow (R\Psi^{\log}\mathcal L_r)|_{\widetilde Y}.
-\]
-Lemma~\ref{lem:frag-log-nearby-geometric-input} makes this an
-equivalence and identifies its target with the restricted ordinary
-nearby complex.  Proposition~\ref{prop:frag-relative-log-root-interface}
-identifies its source with continuous invariants and with the actual
-root structural star.  This constructs $\gamma$ on the entire face
-etale topos, including its maps; it is not a reconstruction from equal
-stalk dimensions.  Proposition~\ref{prop:frag-ordinary-nearby-boundary-disjoint}
-constructs the actual completion comparison $\beta$ and proves it is
-an equivalence.  The rightmost term is therefore cohomology on the
-actual tube, even when that tube is an annulus or a higher toric domain.
-
-For tameness, the geometric logarithmic special fibre is constructed
-using prime-to-$p$ roots of the base parameter.  Its descent action,
-and that of the restriction of the given $X_{\mathrm{ket}}$ coefficient,
-factor through tame base inertia.  Consequently wild inertia acts
-trivially on the cohomology of
-$R\varepsilon_{Y,\mathrm{rel},*}E_r$.  The ordinary comparison just
-constructed is equivariant for the full retained inertia action:
-the specialization unit and logarithmic forgetful exchange are formed
-before forgetting that action and are natural for base automorphisms.
-Thus it proves this assertion for the
-actual nearby complex.  Lemma~\ref{lem:frag-wild-inertia-criterion}
-now makes its tame-invariant inclusion an equivalence.  This argument
-uses the log extension and verticality, rather than merely the name
-of the relative deck group.
-
-The specialization unit is the unit of a geometric pullback/right-adjoint
-pair.  The forgetful exchange in the displayed log/ordinary comparison
-is the mate of the strict pullback comparison of those same sites.
-Both are morphisms of the induced lax symmetric-monoidal functors:
-their adjoints are composites of strong tensor inverse images and the
-monoidal counits.  Their invertibility on the present source was proved
-before taking the inverse exchange used in $\gamma$.  Proposition~
-\ref{prop:frag-completion-comparison-monoidal} gives precisely this
-structure for $\beta$.  Invariants have the analogous lax structure
-and their inclusion is monoidal.  These constructions prove the
-algebra/module claims for the specified zigzag, including higher
-multiplication cells, without positing a new common operadic site.
-They also give the stated naturality under the geometric maps and
-coefficient morphisms.
-
-Finally the continuous augmentation resolution has $d+1$ finite free
-terms.  On an input of amplitude $[a,b]$ it gives output amplitude
-contained in $[a,b+d]$, independent of $r$.  The construction commutes
-with derived coefficient reduction on the selected class.  The natural
-comparison zigzag transports this property to the actual analytic and
-nearby outputs.  Only after this recovery do we take the inverse limit
-in $r$.  No finite group bar has been replaced by a bounded complex
-before continuous passage.  A subsequent direct image from $Y$ to another
-base requires its own boundedness/preservation assertion.
-\end{proof}
-
-\begin{corollary}[Actual tube cohomology and geometric refinement weights]
-\label{cor:frag-log-tube-root-weights}
-For the unit coefficient in Theorem~\ref{thm:frag-vertical-log-star},
-\[
- R^j s_*R_r\simeq\bigwedge^j(L\otimes R_r)(-j),\qquad 0\le j\le d,
-\]
-with zero in other degrees.  Suppose the supplied compatible fs Kummer
-models over chosen tame base roots induce multiplication by
-$\ell^{m-n}$ on their relative characteristic lattices.  Their actual
-tube pullbacks act on these sheaves by $\ell^{j(m-n)}$.  These are
-geometric refinement maps between the covers, not an identification of
-a finite-cover direct image with a finite group bar.
-\end{corollary}
-
-\begin{proof}
-The theorem identifies the actual derived output with continuous
-invariants by a natural geometric map.  For the trivial coefficient,
-its degree-one cohomology is
-$\operatorname{Hom}_{\mathrm{cts}}(\Gamma,R_r)=L\otimes R_r(-1)$.
-Cup products compute its exterior powers by the augmentation Koszul
-resolution.  The character pairing in the finite Kummer charts sends
-a root refinement to restriction along multiplication by
-$\ell^{m-n}$ on relative inertia, hence to the stated degree-one
-weight and its exterior powers.  Naturality of $\gamma$ and $\beta$
-identifies these maps with actual tube pullbacks.  The bounded degree
-range and eventual vanishing of positive weights at fixed $r$ are
-therefore now geometric assertions in this domain.  They can be used
-in the actual finite-torsor filtration of Proposition~\ref{prop:frag-actual-finite-galois-descent}.
-\end{proof}
 
 \begin{corollary}[Kummer coefficients on a semistable node]
 \label{cor:frag-node-full-Kummer-star}
@@ -989,9 +519,7 @@ For this source the actual root star, actual analytic star, and tame
 nearby star are identified by Theorem~\ref{thm:frag-vertical-log-star},
 including algebra/module structures and selected adic recovery.  The
 analytic coefficient realization is fully faithful on the selected
-underlying-perfect derived category.  Thus the abstract-source
-extension problem for arbitrary constructible sources is absent for
-this example and its specified Kummer tower.
+underlying-perfect derived category.
 \end{corollary}
 
 \begin{proof}
@@ -1028,29 +556,6 @@ $C^*_{\mathrm{cts}}(\Gamma,R\operatorname{Hom}_{R_r}(E,F))$.
 This proves full faithfulness.  Natural reduction and the uniform
 Koszul bounds give the cartesian adic statements.
 \end{proof}
-
-\begin{remark}[Why the vertical and boundary qualifications are substantive]
-\label{rem:frag-horizontal-log-test}
-Consider $X=\operatorname{Spec}R[t]$ with the log structure of
-$\pi t=0$ and $Y=\{\pi=t=0\}$.  Its chart is
-$P=\mathbf N^2$, $\rho=(1,0)$; the base lift is primitive and the
-relative characteristic group has rank one.  Nevertheless, for the
-constant coefficient on the whole generic fibre, smooth base change
-gives $i_Y^*R\Psi_XR_r=R_r$ in degree zero.  Proposition~\ref{prop:frag-ordinary-nearby-boundary-disjoint} identifies this with
-the cohomology of the actual open-disc tube.  Continuous invariants
-of the rank-one relative log inertia instead have a nonzero degree-one
-term $R_r(-1)$.
-
-There is no contradiction with Theorem~\ref{thm:frag-vertical-log-star}: this log structure
-is not vertical.  The logarithmic generic coefficient corresponds on
-the ordinary generic fibre to $Rj_*R_r$ for $j:\mathbf G_m\to\mathbf A^1$,
-not to the constant sheaf on $\mathbf A^1$.  The horizontal generic
-boundary also meets $Y$.  Thus neither this forgetful direct image nor
-the open-boundary condition may be dropped.  This example tests the
-logarithmic chart extension, rather than an assumption of an entire-torus
-product, which this open-disc tube does not satisfy.
-\end{remark}
-
 
 \begin{theorem}[Realization of local Kummer coefficients]
 \label{thm:frag-theorem-B-local-closed}
@@ -1119,7 +624,6 @@ choices or different characteristic strata is not asserted here.
 \end{proof}
 
 
-
 \begin{lemma}[The local mapping comparison is induced by realization]
 \label{lem:frag-B-local-mapping-unit}
 Fix the geometric-face chart, relative splitting and base-root lift
@@ -1132,8 +636,7 @@ map induced by that functor is an equivalence
  \longrightarrow
  R\operatorname{Hom}_{T_{\acute et}}(\mathcal R_rV,\mathcal R_rW).
 \]
-This identifies the mapping map itself, not just its source and
-target up to an unspecified isomorphism.  Its finite-precision reduction squares induce the adic assertion
+This identifies the realization-induced map of mapping complexes.  Its finite-precision reduction squares induce the adic assertion
 of Proposition~\ref{prop:frag-local-adic-full-faithfulness}.
 \end{lemma}
 
@@ -1156,9 +659,7 @@ is exact and strong symmetric monoidal; the displayed global-sections
 map is its adjunction-unit map.  The ordinary/quasi-etale site square
 for a finite etale Kummer torsor commutes on inverse images.
 Naturality of the unit in that square gives compatibility with
-torsor pullback.  Thus these compatibilities concern the canonical
-map whose invertibility is cited, rather than additional choices
-of cohomological isomorphisms.  It justifies
+torsor pullback.  Thus the canonical comparison map preserves these structures.  It justifies
 using ordinary analytic etale global sections in this proof; it
 neither supplies $\mu^!$ nor realizes an arbitrary quasi-etale sheaf
 on the ordinary etale site.
@@ -1175,7 +676,7 @@ descent.  In particular, for underlying-perfect $V,W$, it identifies
 \]
 with the conjugation action on the coefficient on the left.
 Here perfectness supplies the evaluation identity $V^\vee\otimes W$;
-it is not inferred from a cohomology-dimension calculation.
+the tensor realization preserves this evaluation.
 
 Let $U=R\operatorname{Hom}_{R_r}(V,W)$ and present it at a finite
 level $K_n$.  Its actual torsor classifying map supplies
@@ -1227,8 +728,7 @@ face and degeneracy maps are the pullback projections and diagonals
 of this one torsor.  The specialization unit is natural for these
 maps; the completion mate is obtained from the same inverse-image
 square in each degree.  The unit identities therefore give a map
-of augmented cosimplicial diagrams, not a choice of equalities on
-cohomology.  Totalization supplies the displayed homotopy, with
+of augmented cosimplicial diagrams.  Totalization supplies the displayed homotopy, with
 compatibility under refinements from the morphisms of these nerves.
 The coherent composition cells are those of these actual functors
 and their adjunctions.  Applying this construction to evaluation
@@ -1323,47 +823,12 @@ Proposition~\ref{prop:frag-B-proper-morphism-obstruction}.
 \section{Compact support and Verdier duality}
 \label{sec:frag-supported-realization}
 
-We compare two independently defined geometric supported objects:
-analytic compact support and algebraic nearby costalks.  Geometric
-duality on each side precedes dualization of the star comparison.
-This order both fixes the shift and avoids defining compact support
-by the desired answer.
-
-\begin{definition}[Absolute source duals and coefficient duals]
-\label{def:frag-source-duality-ledger}
-Fix the compatible base dualizing objects $\omega_{\mathscr S,r}$.
-For a geometric source $X$ with structural map $p$ in the finite formalism,
-write $\omega_{X,r}=p^!\omega_{\mathscr S,r}$ and
-\[
-\mathbb D_{X,r}F:=R\underline{\operatorname{Hom}}_{R_r}
-(F,\omega_{X,r}).
-\]
-In particular $\mathbb D_{\mathrm{an},r}$ is the absolute dual on the
-geometric analytic source, and $\mathbb D_{\mathrm{near},r}$ denotes the
-absolute dual on the generic algebraic source of $E_r$; it is not an
-undefined dual on the value of $R\Psi^t$.
-For the finite enhanced root face put
-\[
-\mathbb D_{\mathrm{root},n,r}E_{n,r}
-:=R\underline{\operatorname{Hom}}_{R_r}
-(E_{n,r},g_n^!\omega_{\mathscr S,r}).
-\]
-The notation $\mathbb D_{\mathrm{root}}E$ denotes its compatible continuous
-system only under Assumption~\ref{ass:frag-finite-trace-domain} and the adic
-recovery statement.  On a product coefficient, with $N=d+e$,
-\[
-\mathbb D_{\mathrm{root},n,r}(\mathcal L_r\boxtimes V_{n,r})
-\simeq (\mathbb D_{\mathscr S,r}\mathcal L_r\boxtimes
-V_{n,r}^{\vee_0})(N)[2N],
-\quad V_{n,r}^{\vee_0}=R\underline{\operatorname{Hom}}_{R_r}(V_{n,r},R_r),
-\]
-with contragredient action.  We abbreviate
-$\mathcal L^\dagger=\mathbb D_{\mathscr S}\mathcal L$.
-The factor $(N)[2N]$ is already inside the source dual; it is inserted only
-once.  $A_M^*$ and $A_{M,e}^!$ below use base-linear coefficient duality,
-not a second copy of base Verdier duality.
-\end{definition}
-
+We compare analytic compact support with nearby costalks by their
+Verdier pairings with ordinary cohomology.  For a smooth geometric
+source of dimension $N$, the coefficient dual $F^{\vee_0}$ gives the
+source dual $F^{\vee_0}(N)[2N]$.  The same factor occurs in the
+finite-carrier trace.  The general-base conventions are collected in
+Definition~\ref{def:frag-source-duality-ledger}.
 
 \begin{lemma}[Open-neighbourhood locality of the nearby costalk]
 \label{lem:frag-nearby-costalk-open-locality}
@@ -1508,7 +973,7 @@ the identity because the face base is the geometric point.
 Neither object is defined here as the dual of a star object.
 \end{definition}
 
-\begin{proposition}[actual analytic compact-support duality]
+\begin{proposition}[Analytic compact-support duality]
 \label{prop:frag-S-analytic-duality}
 In Definition~\ref{def:frag-S-local-domain}, $T$ is a separated smooth
 boundaryless analytic space of pure dimension $N$.  For a selected lisse
@@ -1617,7 +1082,7 @@ proved cartesian system therefore admits the adic recovery used in this
 paper.  Take its coefficient inverse limit only after this verification,
 and rationalize afterwards.  \end{proof}
 
-\begin{proposition}[refinement traces and the scope of equivariance]
+\begin{proposition}[Refinement traces and finite descent]
 \label{prop:frag-S-trace-naturality}
 The comparison of Theorem~\ref{thm:frag-S-local-closed} is natural for
 coefficient maps and for compatible algebraized finite Kummer covers
@@ -1663,8 +1128,7 @@ an integral adic comparison
 \]
 It identifies the unit with the base-linear dualizing module of the
 continuous star algebra.  Together with Theorem~\ref{thm:frag-theorem-B-local-closed} this realizes
-the local star/trace datum on this source.  It does not construct a
-shriek direct image on the actual infinite-root stack.
+the local star/trace datum with its finite-carrier supported functor.
 \end{corollary}
 
 \begin{proof}
@@ -1674,8 +1138,7 @@ contragredient coefficient and the same single rank-$N$ source twist.
 Theorem~\ref{thm:frag-S-local-closed} identifies both actual supported objects with that
 formula, through the already identified continuous star functor.
 Perfect duality fixes the associated unit module and its action.
-The comparison is made after continuous trace assembly, not between
-individual finite Artin-stack and analytic shriek images.  All adic
+The comparison is made after continuous trace assembly.  All adic
 transitions have been verified before taking their inverse limit.
 \end{proof}
 
@@ -1700,7 +1163,6 @@ exterior factors.  The two examples have respectively $(d,N)=(0,1)$
 and $(1,1)$.  This computes the supported cohomology, not a formality
 statement for the cochain algebra or a normal-pair incidence map.
 \end{proof}
-
 
 
 \section{The finite-root trace}
@@ -1728,8 +1190,7 @@ Use the unbounded stable etale category $\mathcal D(BG,A)$ of
  \Phi_{G,A}:\mathcal D(BG,A)\simeq D(A[G]).
 \]
 It identifies $D_c^b(BG,A)$ with the full subcategory of bounded
-finite-cohomology modules; it does not identify $D_c^b$ with all
-of $D(A[G])$.  For $h:BG\to\operatorname{Spec}k$ and a surjection
+finite-cohomology modules inside $D(A[G])$.  For $h:BG\to\operatorname{Spec}k$ and a surjection
 $G\to K$ inducing $q:BG\to BK$, the functors and their adjunctions
 are identified as follows:
 \[
@@ -1747,6 +1208,10 @@ $A[G]\to A[K]$.  These are comparisons of enhanced adjunctions,
 including the geometric units, counits and their composite cells.
 They commute with coefficient restriction and identify the smooth
 shriek scalar-change maps with derived tensor associativity.
+Under these comparisons, the geometric cup and supported actions
+are the cochain and coinvariant actions described below.  Their
+evaluation pairing is balanced, and quotient traces are linear over
+the source cochain algebra via inflation.
 \end{proposition}
 \begin{proof}
 \emph{The category before the operations.}
@@ -1772,8 +1237,7 @@ After evaluation its augmentation is split by the identity element,
 so its realization is that object.  The same bar resolves a module
 for the monad.  These resolutions give inverse comparison functors
 between actions and $A[G]$-modules, together with their units and
-counits.  This proves the enhanced equivalence, rather than lifting a
-triangulated equivalence afterwards.  Finite cohomology is detected
+counits.  This proves the equivalence in the derived enhancement.  Finite cohomology is detected
 at the atlas, which proves the constructible restriction.
 The atlas description also identifies tensor with diagonal tensor
 of actions and commutes with restriction of coefficient rings.
@@ -1813,6 +1277,68 @@ pasting is tensor associativity (and right-adjoint composition).
 The composite-adjunction identities therefore supply the same
 composition cells, including on transformations.
 
+\emph{Cup actions and the balanced pairing.}
+Write $T=h^*$, $C=Rh_*$, $Q=Rh_!$, and
+$\mathcal A_G=C(A)$ for the cochain algebra.  The actual supported
+action is the composite
+\begin{equation}
+ \lambda:\mathcal A_G\otimes QW
+ \xrightarrow{\sim}Q(T\mathcal A_G\otimes W)
+ \xrightarrow{Q(\epsilon_A\otimes1)}QW,
+ \qquad \epsilon_A:TC(A)\longrightarrow A.
+ \label{eq:frag-finite-supported-cup-action}
+\end{equation}
+Here and below tensors are derived over $A$.  The projection
+isomorphism holds for the full cochain complex: in the module model
+it is tensor associativity for $Q=A\otimes^L_{A[G]}-$.
+Since $T$ is strong symmetric monoidal, its right adjoint $C$ is lax
+symmetric monoidal, and $\epsilon_A$ is a map of algebra objects.
+Thus this construction gives a coherent unital $\mathcal A_G$-action.
+On $X=C(W^\vee)$, write $\mu:\mathcal A_G\otimes X\to X$ for cup.
+The invariants counit $TX\to W^\vee$ is $T\mathcal A_G$-linear,
+where $T\mathcal A_G$ acts on $W^\vee$ through $\epsilon_A$.
+
+For $Y=QW$, the actual pairing is
+\[
+ e:Y\otimes X\simeq Q(W\otimes TX)
+ \longrightarrow Q(W\otimes W^\vee)
+ \longrightarrow Q(TA)\longrightarrow A.
+\]
+It uses the invariants counit, coefficient evaluation and the
+coinvariants counit.  Give $Y$ the right action
+$\rho=\lambda\circ\tau_{Y,\mathcal A_G}$, with $\tau$ the symmetric
+braiding.  Substitution of \eqref{eq:frag-finite-supported-cup-action}
+into this composite gives
+\begin{equation}
+ e\circ(\rho\otimes1_X)=e\circ(1_Y\otimes\mu)
+       \quad\text{on }Y\otimes\mathcal A_G\otimes X.
+ \label{eq:frag-finite-balanced-trace-pairing}
+\end{equation}
+Indeed, after the projection isomorphism, both composites apply
+$\epsilon_A$ to $T\mathcal A_G$, $\epsilon_{W^\vee}$ to $TX$,
+and then coefficient evaluation and the same trace counit.
+This formulation includes the Koszul sign when rewritten using
+left actions on homogeneous elements.
+
+For $q:BG\to BK$, inflation $\mathcal A_K\to\mathcal A_G$
+is the right-adjoint comparison.  The composite-adjunction identity is
+\[
+ \epsilon_{G,A}\circ T_G(\operatorname{inf})
+       =q^*\epsilon_{K,A}:T_G\mathcal A_K\longrightarrow A.
+\]
+The projection formula for $q_!$ therefore makes its counit, and
+hence $t:Q_Gq^*W\to Q_KW$ for $W$ on $BK$, $\mathcal A_K$-linear:
+\[
+ t\,\lambda_G(\operatorname{inf}\otimes1)
+       =\lambda_K(1\otimes t).
+\]
+These are identities of the indicated enhanced transformations.
+Their unit, multiplication and iterated composition cells are those
+of the monoidal counit and the projection formula: on the action
+atlas these are the full-bar diagonals, evaluation and action
+augmentations.  Thus the balancing and linearity include the
+coherent module structures, not only their induced cohomology maps.
+
 \emph{Coefficient maps and the carrier.}
 For $A\to A'$ write $S=-\otimes_A^LA'$ and $U$ for restriction.
 For these smooth maps, purity and inverse image give the actual
@@ -1847,7 +1373,15 @@ with $A'(-N)[-2N]$; the carrier refinement is a bundle pullback
 with the identity on the affine-space direction.  Transitivity of
 these actual traces and the composite-adjunction identities give
 the joint root/scalar/Thom cells used below.  This verifies the
-specified arrows, not merely the resulting complexes.
+specified arrows throughout the construction.
+The same scalar mate respects \eqref{eq:frag-finite-supported-cup-action}
+along the multiplicative map $S\mathcal A_G\to\mathcal A'_G$:
+its defining counit square is precisely scalar extension of
+$\epsilon_A$.  Applying it also to $\epsilon_{W^\vee}$ and evaluation
+preserves \eqref{eq:frag-finite-balanced-trace-pairing}.
+This uses that map, without requiring it to be an equivalence at
+finite root level.  The Thom trace tensors these identities with
+$A(-N)[-2N]$ and respects the same projection and counit diagrams.
 \end{proof}
 
 \begin{proposition}[Finite geometric bars and their duals over a point]
@@ -2021,6 +1555,11 @@ satisfies the following square, whose lower arrow points to the left:
 \end{equation}
 In particular it identifies the actual $b_r$ with standard perfect-dual
 reduction once continuous star perfectness and base change are used.
+The equivalence $\phi_r$ identifies the geometric supported action
+with the transpose cup action of
+$\mathcal A_r=C^*_{\mathrm{cts}}(\Gamma,R_r)$ on $D_rX_r(V)$.
+The square is a module square along the actual coefficient map
+$S\mathcal A_{r+1}\to\mathcal A_r$.
 \end{lemma}
 \begin{proof}
 \emph{The fixed-precision pairing.}
@@ -2045,7 +1584,39 @@ Internal Hom sends this colimit to the dual limit, proving $Y\simeq D_rX$.
 Finite-action descent, applied to maps from the trivial object to
 $V^\vee$, identifies $X$ with $X_r(V)$.  The functor construction in
 the preceding lemma descends the pairing itself, so $\phi_r$ is a
-natural transformation, not just an isomorphism on objects.
+natural transformation in the enhanced functor category.
+
+\emph{The continuous module action.}
+Put $\mathcal A_{n,r}=C^*(K_n,R_r)$, with inflation transitions.
+Fix $n$ and restrict every $Y_m$ for $m\ge n$ in the presenting tail
+along $\mathcal A_{n,r}\to\mathcal A_{m,r}$.
+The finite trace linearity just proved makes this a diagram in
+$\operatorname{Mod}_{\mathcal A_{n,r}}$.  Its limit has underlying
+object $Y$, since the forgetful functor creates limits.  Equivalently,
+the maps
+\[
+ \mathcal A_{n,r}\otimes Y\longrightarrow
+ \mathcal A_{n,r}\otimes Y_m\longrightarrow Y_m
+\]
+form the cone defining its action.  Cofinal restriction of tails and
+the quotient composition cells make these module structures compatible
+as $n$ increases.  They therefore give an action of the algebra
+\[
+ \operatorname*{colim}_n\mathcal A_{n,r}
+       \simeq\mathcal A_r=C^*_{\mathrm{cts}}(\Gamma,R_r):
+\]
+indeed, compatible algebra maps
+$\mathcal A_{n,r}\to\underline{\operatorname{End}}(Y)$ extend uniquely
+across this filtered colimit in associative algebras.  The cochain action on
+$X=\operatorname*{colim}_mX_m$ is the corresponding continuous cup
+product.  Restrict balancing to $\mathcal A_{n,r}$ and $X_l$ and
+choose a common level $m\ge n,l$ in the presenting tail.
+Equation~\eqref{eq:frag-finite-balanced-trace-pairing} at $m$, together
+with the trace/inflation identities, proves balancing for $Y$ and $X$.
+The coherent finite diagrams pass to these limits and colimits.
+Consequently $Y\simeq D_rX$ identifies the constructed action with
+the transpose cup action.  This construction does not exchange a
+tensor product with an inverse limit.
 
 \emph{Coefficient change before taking either limit.}
 Choose a finite presentation over $A$ and reduce it to $B$; this
@@ -2085,7 +1656,7 @@ $T_A$ and the left-adjoint coinvariant tensor $Q_A$ and carries
 coefficient evaluation to evaluation over $B$.  Applying it to
 the displayed composite therefore gives exactly
 $e'_m(t_m\otimes\alpha_m)$.  This proves (*) for the specified
-adjunction maps, without an interchange of derived Hom and tensor.
+adjunction maps.
 The Thom factor is obtained from the same scalar-compatible
 vector-bundle trace.  No finite star base-change isomorphism or
 truncation of a full bar is used.
@@ -2124,7 +1695,14 @@ perfect.  Thus $\delta$ is invertible too, and the square gives
 This is the standard reduction of a perfect dual.  It proves the
 claim for the original geometric coefficient arrow.  Successive
 reductions retain the composition cells already constructed for
-$b_r$ and for evaluation.
+$b_r$ and for evaluation.  At finite level the coefficient mates
+are semilinear over $S\mathcal A_{m,r+1}\to\mathcal A_{m,r}$ by
+Proposition~\ref{prop:frag-finite-quotient-enhancement}.
+The limit projections and the preceding tail construction therefore
+make the same $b_r$ semilinear over $S\mathcal A_{r+1}\to\mathcal A_r$.
+Together with balancing, the identity $e'(b_r\otimes\alpha)=Se$
+proves the asserted module square, with its inherited unit and
+multiplication cells.
 \end{proof}
 
 \begin{proposition}[Six operations on the point carriers]
@@ -2368,8 +1946,7 @@ annulus gives the same class and the actual star map already proved
 in the theorem.  Exactness and retracts extend the unit mapping
 comparison in each variable to full faithfulness; unit generation
 then gives essential surjectivity onto the actual geometric category.
-This argument uses derived extension maps, not just representations
-on the cohomology of an object.
+The construction includes the extension maps in the Postnikov towers.
 
 On $\mathcal U_\Gamma=\operatorname{thick}(Q)$, cochains are
 $R\operatorname{Hom}(Q,-)$.  The unit mapping comparison and finite
@@ -2387,7 +1964,7 @@ The supported assertion and its module action are the theorem's
 trace comparison, restricted to this source and rationalized.
 \end{proof}
 
-\begin{remark}[Shared coordinates and the boundary of the interface]
+\begin{remark}[Coordinate changes and the refinement interface]
 \label{rem:frag-refinement-coordinate-interface}
 Write $t=\pi$, and fix $t_n\in\bar K$ with
 $t_n^{\ell^n}=t$ and $t_{n+1}^{\ell}=t_n$.
@@ -2413,8 +1990,7 @@ adjunction counits; hence the finite-carrier trace pairings and their
 coefficient reductions commute as well.  On a geometric overlap,
 analytic trace has the same compatibility by functoriality under
 isomorphism.  Dualizing the same star map therefore transports the
-supported comparison, with its Tate twist, rather than choosing a
-new comparison from its cohomology.  All these assertions use the
+supported comparison together with its Tate twist.  All these assertions use the
 fixed compatible base roots; no base-Galois-equivariant choice is
 asserted.
 
@@ -2455,70 +2031,86 @@ integral cohomology group.  Rationalization kills both star and
 supported complexes for this nontrivial character.  \end{remark}
 
 
-The coefficient source matters even for elementary proper images.
-The next example shows why the local full-faithfulness statement
-cannot be extended to all root-side morphisms.
-
-\begin{proposition}[Proper-image presentations cannot lift all root morphisms]
-\label{prop:frag-B-proper-morphism-obstruction}
-Proper-image coefficients need not admit arbitrary
-root-morphism lifting to generic or analytic coefficient maps,
-even for one fixed strict proper map.  In particular the comparison
-of star outputs cannot be promoted to a fully faithful identification
-of the full realized analytic coefficient category with its root
-outputs while retaining all these presentations.
-\end{proposition}
-
-\begin{proof}
-Let $X=\mathbf A^1_R$, with only the vertical log structure, and set
-\[
- X'=\operatorname{Spec}R\amalg\operatorname{Spec}R,
- \qquad h=(t=0)\amalg(t=\pi):X'\longrightarrow X.
-\]
-Each component is a closed immersion.  Their disjoint union is a
-finite, strict proper log morphism; $X'$ is fs saturated log smooth
-over the log trait.  Take $Y=X_s=\mathbf A^1_k$.
-Its relative inertia rank is zero.  Both components of $Y'$ map
-to $0\in Y$.
-
-The two log-lisse perfect inputs $(R_r,0)$ and $(0,R_r)$ have root
-outputs
-\[
- E_0=i_{0,s,*}R_r=E_\pi
-\]
-and actual generic outputs
-\[
- F_0=i_{0,\bar\eta,*}R_r,\qquad
- F_\pi=i_{\pi,\bar\eta,*}R_r.
-\]
-Their analytifications on the closed unit-disc tube have disjoint
-closed point supports, since $0\ne\pi$ in $\bar K$.  For disjoint
-closed immersions $i_a,i_b$, exceptional restriction satisfies
-$i_a^!i_{b,*}=0$; adjunction therefore gives
-\[
- R\operatorname{Hom}_{T_{\acute et}}(F_0^{\mathrm{an}},
-                                      F_\pi^{\mathrm{an}})=0.
-\]
-The same vanishing holds on the algebraic generic fibre.  On the
-root side, the identity of the common nonzero coefficient gives
-\[
- \operatorname{Hom}_{Y_{\acute et}}(E_0,E_\pi)\supseteq R_r\ne0.
-\]
-Hence that identity cannot lift to a generic or analytic morphism
-between the two prescribed realizations.  Already at degree zero
-full faithfulness and arbitrary morphism lifting are impossible.
-The same obstruction holds for the cartesian integral systems;
-it persists after their $\mathbf Q_\ell$-realization.  No individual
-$R_r$-coefficient is rationalized.
-
-Proper base change still computes the star images in this example;
-the loss occurs in passing from the coefficient to its star image.
-\end{proof}
+Appendix~\ref{sec:source-obstructions} gives examples of the obstructions
+to extending the coefficient source beyond the stated Kummer domain.
 
 \appendix
 % Supporting arguments for three_realization_submission.tex.
 \section{General charts and coefficient conventions}
 \label{sec:frag-chart-coeff}
+
+This appendix fixes the general-base conventions used by the descent
+arguments.  The node theorem uses their geometric-point cases.
+The final duality lemma separates the constructible star domain
+from the lisse-perfect duality domain.
+
+\subsection{Adic coefficients and finite operations}
+
+\begin{definition}[Integral Kummer coefficients]
+\label{def:frag-adic-coefficients}
+Put $R_r=\mathbf Z/\ell^r$.  On a coefficient topos $X$ let
+$\mathcal D(X,R_r)$ be the stable localization of module-sheaf
+complexes at quasi-isomorphisms.  Define
+\begin{equation}
+ \mathcal D_{\mathrm{ad}}(X,\mathbf Z_\ell)
+ =\varprojlim_{r,\,-\otimes^L_{R_{r+1}}R_r}\mathcal D(X,R_r),
+ \qquad \mathcal D^b_{c,\mathrm{ad}}(X,\mathbf Z_\ell)
+ \subset\mathcal D_{\mathrm{ad}}(X,\mathbf Z_\ell).
+ \label{eq:frag-adic-infinity-category}
+\end{equation}
+The full subcategory consists of derived cartesian systems with
+uniform bounded amplitude and the stated constructible perfect
+restrictions on a finite stratification.  Mapping spectra are those
+of this limit category.  Reduction is taken in the ambient category:
+$\mathbf F_\ell\otimes^L_{\mathbf Z/\ell^2}\mathbf F_\ell$ shows why
+it is not a functor on all bounded constructible complexes.
+Rational coefficients mean inversion of $\ell$ in this integral category.
+
+On finite Artin stacks we use the enhanced six operations
+\cite{LaszloOlssonFinite,LaszloOlsson,LiuZhengEnhanced,LiuZhengAdic}.
+Individual star and shriek images lie in their respective $+$ and
+$-$ constructible domains.  All root (co)limits are formed in the
+ambient unbounded category: finite classifying-stack cohomology is
+unbounded \cite[Example 4.9.2]{LaszloOlssonFinite}.  Boundedness of the
+continuous outputs is proved by the Iwasawa calculation below.
+
+For $\Gamma_M=M\otimes\mathbf Z_\ell(1)$ put
+$\Lambda_M^{\mathrm{Iw}}=\mathbf Z_\ell[[\Gamma_M]]$ and
+$\Lambda_{M,r}^{\mathrm{Iw}}=\Lambda_M^{\mathrm{Iw}}/\ell^r$; in particular
+\begin{equation}
+ \Lambda_{M,r}^{\mathrm{Iw}}
+ \ne R_r[\Gamma_M/\ell^r\Gamma_M].
+ \label{eq:frag-iwasawa-not-finite-group-ring}
+\end{equation}
+At a point, $\mathsf{Mod}^{\mathrm{pc}}_{\Lambda_M^{\mathrm{Iw}}}$ denotes
+pseudocompact modules, derived from inverse systems of finite-length
+modules for $(\ell^r,I_M^a)$, with completed tensor and continuous Hom.
+An \emph{Iwasawa-admissible coefficient} is a bounded, locally
+pseudo-coherent object of finite Tor-amplitude over the Iwasawa
+algebra whose underlying $\mathbf Z_\ell$-complex is perfect.
+This is the classical point terminology.  Over a stratified base,
+``selected'' or ``admissible'' means the uniformly underlying-perfect
+cartesian class in Definition~\ref{def:frag-adic-iwasawa-sheaves},
+without an implicit global pseudocompact sheaf condition.  Torsion cohomology
+is allowed; the regular Iwasawa module is excluded when $M\ne0$.
+
+For sheaf coefficients the independent adic module model is
+Definition~\ref{def:frag-adic-iwasawa-sheaves}.
+Theorem~\ref{thm:frag-F-adic-iwasawa} identifies it with the selected
+continuous-action systems.  A separate global pseudocompact-sheaf
+interpretation is not used.  At precision $r$, finite-action descent
+supplies a root level $n(r)$, including derived maps; these levels
+need not be bounded as $r$ varies.  Ambient coefficient recovery is
+Lemma~\ref{lem:frag-adic-completion}, and perfect recovery at a point
+is Lemma~\ref{lem:frag-point-perfect-recovery}.
+
+We write $V=V_{\mathrm{cont}}[1/\ell]$ and
+$\Lambda_{M,\mathbf Q_\ell}^{\mathrm{Iw}}=\Lambda_M^{\mathrm{Iw}}[1/\ell]$.
+This is the bounded-denominator algebra, rather than
+$\mathbf Q_\ell[[T_1,\ldots,T_d]]$; coefficients throughout admit
+the specified perfect integral model.
+\end{definition}
+
 
 \begin{assumption}[Ambient six-functor domain]
 \label{ass:frag-ambient-six-functor-domain}
@@ -2549,8 +2141,8 @@ The formalism is required to have smooth purity, proper pushforward, and
 nil-invariant coefficient pullback, with their usual composition and
 coefficient-change compatibilities.  Lemma~\ref{lem:frag-central-refinement-purity}
 deduces the central-root identity $q_{m,n}^!\simeq q_{m,n}^*$ from these
-axioms.  It is not an additional root-specific purity conjecture.  This
-concerns central faces; ramified maps of normal pairs have different purity formulas.
+axioms.  This identity concerns central faces; ramified normal-pair maps use
+their own purity formulas.
 
 At each $r$ there is a fixed closed presentable stable category of sheaf
 complexes on $\mathscr S$ in which the full-bar colimits and their dual limits
@@ -2590,12 +2182,11 @@ coefficient-change isomorphisms.
 \end{proof}
 
 
-The preceding six-functor assumptions are standing foundational hypotheses,
-rather than a preservation
-condition hidden in the definition of a chart morphism.  It is the standard
-base range of the Artin-stack six-operation results used here; the additional
-continuous Iwasawa calculation is separated from the additional root-site
-and geometric comparison theorems.
+These hypotheses specify the base range for the Artin-stack
+six operations.  Continuous Iwasawa cohomology, root-site descent,
+and geometric comparisons are established in the following appendices.
+
+\subsection{Charts and relative inertia}
 
 \begin{definition}[Standard split tame product chart over a strictly local base]
 \label{def:frag-standard-product-chart}
@@ -2635,8 +2226,8 @@ it admits an open immersion into a proper finite-type chart over that base.
   $i,j,U,Y,X^{\mathrm{alg}}$ and their Cech pullbacks always refer to these
   supplied objects; in particular the nearby open is not silently replaced by
   the whole generic fibre.  Here
-$\mathbb D^e$ is a relatively open polydisc and the displayed product is an
-actual chart isomorphism, not merely a homotopy equivalence.  The chart also
+$\mathbb D^e$ is a relatively open polydisc and the displayed product is a
+specified chart isomorphism.  The chart also
 supplies the rank-$e$ smooth tangent bundle $\mathcal E_{\mathrm{sm}}$ on $S$
 obtained by restricting the relative tangent bundle of the polydisc factor to
 its zero section.  On the split chart it is $\mathcal O_S^e$; its descent
@@ -2668,7 +2259,8 @@ used in a theorem below is represented by a compatible finite-level system
   compactification of the displayed tube.  Analytic compact support uses
   extension by zero followed by proper direct image.  Its nearby counterpart
   is the costalk construction of \eqref{eq:frag-nearby-star-shriek-definition};
-  their comparison is proved on the supported domain specified below.
+  their comparison on the supported domain is
+  Theorem~\ref{thm:frag-S-local-closed}.
 \end{enumerate}
 We denote the pro-$\ell$ site in (b), together with its finite descent
 groupoid, by $\mathcal F_M^{\mathrm{rel,ket}}$.
@@ -2700,11 +2292,10 @@ ring contains $k[[x,y]]/(xy)$, rather than a finite-type $k$-algebra.
 Such completions belong to the special formal-scheme domain and need
 not be topologically of finite type for the $\pi$-adic topology.
 
-The log-smooth star theorem below works on these actual completions.
-It is stated in its own domain, Definition~\ref{def:frag-vertical-log-B-domain},
-and does not change the compactification or support hypotheses of the
-older product-chart statements.  In particular, a proof for an algebraic
-torus cannot be transported to this annulus just by changing its name.
+Theorem~\ref{thm:frag-vertical-log-star} computes star cohomology on
+these completions in the domain of
+Definition~\ref{def:frag-vertical-log-B-domain}.  Entire-torus product
+charts retain their separate compactification and support hypotheses.
 \end{remark}
 
 \begin{definition}[Relative root chart]
@@ -2758,20 +2349,35 @@ precomposition gives
 For rank-changing maps preservation of the selected perfect
 coefficient class must be checked for the operation in question.
 
-For the algebraized log-smooth chart $\mathfrak U$, the fixed carrier is
+The root datum above defines the central root fibre.  To equip it
+with a carrier, additionally supply an algebraized log-smooth model
+$\mathfrak U$, its chosen face $S$, and, when descent is present, a
+compatible lift of the $\Delta$-action to the model.  Assume its
+relative logarithmic dimension is $N=d+e$.  Set
 \begin{equation}
  \mathcal V_{M,e}=
- \mathcal T^{\log}_{\mathfrak U/\mathfrak s_{\mathbf N\rho}}|_S
- \simeq (M\otimes\mathcal O_S)\oplus\mathcal E_{\mathrm{sm}}.
+ \mathcal T^{\log}_{\mathfrak U/\mathfrak s_{\mathbf N\rho}}|_S.
  \label{eq:frag-log-smooth-carrier-bundle}
 \end{equation}
-It has rank $d+e$.  The bundle is intrinsic to this model, its splitting
-uses product coordinates, and its $\Delta$-action is the displayed
-diagonal action.  Strict log-etale changes preserve it.  Use
-$\mathbf V(\mathcal V)=\operatorname{Spec}_S\operatorname{Sym}(\mathcal V^\vee)$
-with compactification $\mathbf P(\mathcal V\oplus\mathcal O_S)$.
-Its Thom trace supplies the dimension factor; refinement traces are
-constructed in Theorem~\ref{thm:frag-point-C1} over a geometric point.
+This rank-$N$ bundle retains the geometric dimension absent from the
+bare root fibre.  Its Thom trace supplies $(-N)[-2N]$, so the supported
+construction belongs to the root datum equipped with this model and
+carrier.  If compatible product coordinates splitting the tangent
+sequence are supplied, we may write
+\[
+ \mathcal V_{M,e}\simeq(M\otimes\mathcal O_S)
+                         \oplus\mathcal E_{\mathrm{sm}}.
+\]
+The induced $\Delta$-action is diagonal in this decomposition when
+the splitting is $\Delta$-equivariant.  The intrinsic bundle and
+its action require no such splitting.  This tangent decomposition
+is separate from an entire-torus product description of the tube;
+for the node, the $z_i$ supply the smooth directions.
+Strict log-etale changes of the fixed model preserve the bundle.
+Use $\mathbf V(\mathcal V)=\operatorname{Spec}_S
+\operatorname{Sym}(\mathcal V^\vee)$ with compactification
+$\mathbf P(\mathcal V\oplus\mathcal O_S)$.  Refinement traces over a
+geometric point are constructed in Theorem~\ref{thm:frag-point-C1}.
 
 Write $\mathfrak s_{P/S}$ and $\mathfrak s_{\mathbf N\rho/S}$ for
 $S$ with the indicated constant log charts, nonzero characteristic
@@ -2780,6 +2386,7 @@ fibre; it does not require $P/\mathbf N\rho$ to be fs or sharp.
 \end{definition}
 
 
+\subsection{Recovery of adic systems}
 
 \begin{lemma}[Derived coefficient recovery]
 \label{lem:frag-adic-completion}
@@ -2821,8 +2428,8 @@ in degrees $-1,0$; its kernel is $\ell^{s-r}R_s\simeq R_r$ and
 its cokernel is $R_r$.  Under $s+1\to s$ the map on that kernel
 is multiplication by $\ell$, since
 $\ell^{s+1-r}=\ell\,\ell^{s-r}$.  The cokernel map is the identity.
-This calculation includes the module structures and the canonical
-maps to $R_r$, not just the two cohomology groups.
+The calculation also identifies the module structures and the
+canonical maps to $R_r$.
 
 Tensor this fibre sequence over $R_s$ with $F_s$ and use
 cartesianness.  It gives a fibre sequence of towers
@@ -2868,8 +2475,8 @@ perfect of a common Tor-amplitude $[a,b]$.  Then
 $R\!\varprojlim_sF_s$ is perfect over $\mathbf Z_\ell$, with the
 same Tor-amplitude, and has the given canonical reductions.
 Its cohomology is recovered by the ordinary limits of $H^i(F_s)$.
-These last cohomology towers are Mittag--Leffler as towers of finite
-modules; no analogous general sheaf assertion is made.
+These cohomology towers are Mittag--Leffler because their terms
+are finite modules.
 \end{lemma}
 
 \begin{proof}
@@ -2879,8 +2486,7 @@ already supplies its canonical reductions.  Since each $H^i(F_s)$
 is finite, its tower is Mittag--Leffler.  The module Milnor sequence
 therefore gives $H^i(F)=\varprojlim_sH^i(F_s)$ and $F\in D^{[a,b]}(A)$.
 
-We prove perfectness by induction on the common Tor interval, without
-choosing compatible chain representatives.  If $F_1=0$, the
+We prove perfectness by induction on the common Tor interval.  If $F_1=0$, the
 minimal-complex test below gives $F_s=0$ for every $s$, and $F=0$.
 Otherwise one may decrease $b$ to the actual top degree of $F_1$.
 Equivalently, when $H^b(F_1)=0$ the following step uses the empty
@@ -2897,17 +2503,15 @@ which is an isomorphism in degree $b$ and has no other source
 cohomology, so it has amplitude $[a,b-1]$.  Over the local Artin ring
 $R_s$, a minimal finite free representative has term ranks given
 by the cohomology dimensions of its derived residue-field reduction.
-Consequently every $G_s$ has Tor-amplitude $[a,b-1]$.  This is a
-separate finite-ring test at each $s$, not a simultaneous choice
-of representatives.  By induction $G=R\varprojlim_sG_s$ is perfect
+Consequently every $G_s$ has Tor-amplitude $[a,b-1]$.  This finite-ring test applies separately at each $s$.  By induction $G=R\varprojlim_sG_s$ is perfect
 in that interval.  Exactness of the stable limit and
 $R\varprojlim_sR_s=A$ give a triangle
 $A^{\oplus m}[-b]\to F\to G$.  Thus $F$ is perfect in $[a,b]$.
 The empty-interval case is zero: a perfect $R_s$-complex with zero
 residue-field reduction is zero by the same minimal-complex test.
 
-Canonicity concerns $F$, its maps and its reductions, not the cells
-chosen to prove its perfectness.  Indeed scalar reduction
+The recovered object $F$, its maps and its reductions are canonical;
+the cells above establish perfectness.  Indeed scalar reduction
 $c:D(A)\to\varprojlim_sD(R_s)$ is left adjoint to
 $L(F_\bullet)=R\varprojlim_sF_s$, since
 \[
@@ -2919,8 +2523,9 @@ The preceding recovery lemma identifies the counit $cL F_\bullet\to
 F_\bullet$ with an equivalence.  On derived-complete $M$ the unit
 is an equivalence as well.  These adjunction maps identify the
 \emph{given} coherent systems, all morphisms and their higher cells.
-No strictification of an infinite tower is required.
 \end{proof}
+
+\subsection{Coefficient duality and Verdier duality}
 
 \begin{definition}[Duality conventions]
 \label{def:frag-continuous-duality}
@@ -2934,7 +2539,7 @@ $\omega_{\mathscr S,\bullet}$ of dualizing complexes:
 Require uniform bounded constructibility and, when a selected perfect
 output is asserted, a common finite underlying-$R_r$ Tor interval
 $[c_0,c_1]$ on a fixed finite stratification.  These are system
-hypotheses, not consequences of levelwise dualizingness.
+hypotheses on the chosen dualizing system.
 Verdier biduality is used only on the reflexive domain of these
 complexes.  For
 $f:X\to\mathscr S$ set $\omega_{X,r}=f^!\omega_{\mathscr S,r}$,
@@ -3007,6 +2612,42 @@ change for an arbitrary constructible $\mathcal L$:
 Thus coefficient duality and source Verdier duality are distinguished
 by their dualizing objects.
 \end{definition}
+
+\begin{definition}[Absolute source duals and coefficient duals]
+\label{def:frag-source-duality-ledger}
+Fix the compatible base dualizing objects $\omega_{\mathscr S,r}$.
+For a geometric source $X$ with structural map $p$ in the finite formalism,
+write $\omega_{X,r}=p^!\omega_{\mathscr S,r}$ and
+\[
+\mathbb D_{X,r}F:=R\underline{\operatorname{Hom}}_{R_r}
+(F,\omega_{X,r}).
+\]
+In particular $\mathbb D_{\mathrm{an},r}$ is the absolute dual on the
+geometric analytic source, and $\mathbb D_{\mathrm{near},r}$ denotes the
+absolute dual on the generic algebraic source of $E_r$; it is not an
+undefined dual on the value of $R\Psi^t$.
+For the finite enhanced root face put
+\[
+\mathbb D_{\mathrm{root},n,r}E_{n,r}
+:=R\underline{\operatorname{Hom}}_{R_r}
+(E_{n,r},g_n^!\omega_{\mathscr S,r}).
+\]
+The notation $\mathbb D_{\mathrm{root}}E$ denotes its compatible continuous
+system only under Assumption~\ref{ass:frag-finite-trace-domain} and the adic
+recovery statement.  On a product coefficient, with $N=d+e$,
+\[
+\mathbb D_{\mathrm{root},n,r}(\mathcal L_r\boxtimes V_{n,r})
+\simeq (\mathbb D_{\mathscr S,r}\mathcal L_r\boxtimes
+V_{n,r}^{\vee_0})(N)[2N],
+\quad V_{n,r}^{\vee_0}=R\underline{\operatorname{Hom}}_{R_r}(V_{n,r},R_r),
+\]
+with contragredient action.  We abbreviate
+$\mathcal L^\dagger=\mathbb D_{\mathscr S}\mathcal L$.
+The factor $(N)[2N]$ is already inside the source dual; it is inserted only
+once.  $A_M^*$ and $A_{M,e}^!$ below use base-linear coefficient duality,
+not a second copy of base Verdier duality.
+\end{definition}
+
 
 Fix a smooth projective toric compactification
 $j_M:\mathbb T_{M,K}\hookrightarrow\overline{\mathbb T}_{M,K}$ and a
@@ -3133,8 +2774,8 @@ inertia representation factors through a finite $\ell$-group;
 over $R_r$ its augmentation ideal acts nilpotently.  Hence the dual
 belongs to the selected action category and, by the already proved
 relative action/Iwasawa equivalence, to the selected module model.
-This argument uses tensor dualizability on the base, not a putative
-commutation of internal Hom with restriction to an arbitrary stratum.
+Tensor dualizability on the base supplies the internal-Hom identities
+used here.
 
 Put $H_r=H_{*,r}(V^\vee)$.  The same finite Koszul construction makes
 $H_r$ lisse-perfect with Tor interval $[-b,d-a]$.  Consequently
@@ -3154,7 +2795,7 @@ which proves the Mittag--Leffler assertion.  Tensoring preserves the
 respective domains, giving the final clauses.
 \end{proof}
 
-\begin{remark}[Why the general-base duality domain is separate]
+\begin{remark}[Coefficient duality at a singular base point]
 For a closed point $i:s\hookrightarrow S$ on a strictly henselian
 nodal curve over an algebraically closed field, $i_*R_r$ is a selected
 stratified-perfect cartesian system.  At $r=1$, set $F=\mathbf F_\ell$
@@ -3202,17 +2843,16 @@ and $\mathcal A_{\Gamma,r}$ for sheaves with a smooth $\Gamma$-action:
 \operatorname*{colim}_n F^{H_n}\xrightarrow{\sim}F
 \quad\text{as sheaves in }\mathcal A_r.
 \]
-Thus local sections are locally fixed by an open subgroup; continuity
-is imposed on sheaves, not just on an arbitrarily chosen collection of
-stalk representations.  These are Grothendieck abelian categories, with
+Thus every local section is locally fixed by an open subgroup.
+This defines continuity at the sheaf level.  These are Grothendieck abelian categories, with
 exact forgetful functors.  Subscripts $c$ denote the full subcategories
 whose underlying sheaves on $S$ are constructible.  The derived categories
 $D_c^b(\mathcal A_{n,r})$ and $D_c^b(\mathcal A_{\Gamma,r})$ mean the full
 subcategories of the ambient derived categories with bounded constructible
-cohomology.  They are not defined as a colimit of finite-level categories.
+cohomology in the ambient continuous-action category.
 \end{definition}
 
-\begin{lemma}[noetherian action sheaves and a global finite quotient]
+\begin{lemma}[Noetherian action sheaves and a global finite quotient]
 \label{lem:frag-noetherian-action-sheaves}
 Every object of $\mathcal A_r$ is a union of constructible subobjects,
 and its noetherian objects are exactly its constructible objects.
@@ -3228,9 +2868,7 @@ subcategory and satisfy the ascending chain condition for arbitrary
 subsheaves; every sheaf is a filtered colimit of constructible sheaves
 \cite[Sections 59.73--59.74]{StacksConstructibleNoetherian}.
 Taking images gives the asserted union.  Conversely, a noetherian object
-in such a union equals one of its constructible subobjects.  Here the
-hypothesis is that $S$ is noetherian, not merely that the coefficient
-stalks are finite.
+in such a union equals one of its constructible subobjects.  This step uses the noetherian hypothesis on $S$.
 
 For a smooth action, $F^{H_n}$ is stable under $\Gamma$ since $H_n$ is
 normal.  A constructible subobject $C\subset F^{H_n}$ need not be stable,
@@ -3300,9 +2938,7 @@ a filtered diagram has a quasicategory model whose simplicial
 colimit represents the categorical colimit.  A map from a finite
 simplicial set factors through a stage, since it has finitely many
 nondegenerate simplices and relations.  The same applies to a
-specified homotopy (use its product with $\Delta^1$).  Thus this
-assertion concerns the whole diagram, not just its vertices or
-homotopy-category arrows.  Stability and compatibility with shifts
+specified homotopy (use its product with $\Delta^1$).  This proves descent for the whole finite homotopy-coherent diagram.  Stability and compatibility with shifts
 identify the corresponding mapping spectra as well.
 
 Finally, represent an object of the selected target at a finite
@@ -3314,7 +2950,7 @@ terms individually satisfy perfectness.  Intermediate resolutions
 and Postnikov pieces may therefore have nonperfect terms.
 \end{proof}
 
-\begin{lemma}[bounded noetherian derived replacement]
+\begin{lemma}[Bounded noetherian derived replacement]
 \label{lem:frag-noetherian-derived-replacement}
 Let $\mathcal A$ be any of the abelian categories in
 Lemma~\ref{lem:frag-noetherian-action-sheaves}, and let $\mathcal B$ be
@@ -3335,7 +2971,7 @@ identifies Hom in every shift, hence mapping spectra; bounded
 replacement gives essential surjectivity.
 \end{proof}
 
-\begin{theorem}[relative finite derived-action descent]
+\begin{theorem}[Relative finite derived-action descent]
 \label{thm:frag-relative-finite-action-descent}
 On a noetherian scheme $S$, inflation induces an equivalence
 \begin{equation}
@@ -3478,7 +3114,9 @@ This proves compatibility without positing one bound for the entire
 adic system.
 \end{proof}
 
-\begin{proposition}[the two finite coefficient topologies]
+\subsection{Torsion and completed module sheaves}
+
+\begin{proposition}[The two finite coefficient topologies]
 \label{prop:frag-iwasawa-ideal-cofinality}
 Put $\Lambda=\mathbf Z_\ell[[T_1,\ldots,T_d]]$, $I=(T_1,\ldots,T_d)$,
 and identify $1+T_i$ with the chosen generators of $\Gamma$.  The ideals
@@ -3524,7 +3162,7 @@ Lemma~\ref{lem:frag-noetherian-action-sheaves}.  Deriving an exact
 abelian equivalence proves the last assertion.
 \end{proof}
 
-\begin{remark}[Why the completion model must be specified]
+\begin{remark}[Completion on the small etale site]
 \label{rem:frag-small-etale-completion-test}
 A cartesian adic system is not in general a locally free ordinary
 $\mathbf Z_\ell$-sheaf on the small etale site.  For example let
@@ -3601,7 +3239,7 @@ geometric stalks acyclic, so the sheaf cone is acyclic.  This last
 step does not require sections to be exact on arbitrary sheaves.
 \end{proof}
 
-\begin{proposition}[derived torsion embedding over the base]
+\begin{proposition}[Derived torsion embedding over the base]
 \label{prop:frag-sheaf-derived-torsion}
 Let $S$ be noetherian, $A=R_r[[T_1,\ldots,T_d]]$, and $I=(T_1,\ldots,T_d)$.
 Let $\mathcal M=\operatorname{Mod}(S_{\acute et},\underline A)$ and let
@@ -3619,8 +3257,7 @@ chosen finite quotient ring.
 \begin{proof}
 Write $\Gamma_I F=\operatorname*{colim}_a\underline{\operatorname{Hom}}_A
 (A/I^a,F)$.  It is the right adjoint to the exact inclusion of torsion
-sheaves.  We verify its derived behavior on sheaves, rather than invoking
-the corresponding module statement without a sheaf comparison.
+sheaves.  We verify the derived comparison in that category.
 
 Lemma~\ref{lem:frag-etale-sections-torsion} supplies the sheaf-level
 calculation on injectives.  More explicitly, $\Gamma_I$ sends
@@ -3628,7 +3265,7 @@ injectives of $\mathcal M$ to injectives of $\mathcal T$, since its
 left adjoint (inclusion) is exact.  On a bounded-below injective
 resolution the finite-length flat Cech complex from that lemma
 computes the underlying object of $R\Gamma_I$.  Its augmentation
-is the inclusion counit, not just an identification of its cohomology.
+is the inclusion counit.
 Bounded-below totalization and the finite Cech length suffice here;
 no unbounded torsion-completion equivalence is needed.
 
@@ -3709,8 +3346,7 @@ squares for reduction consequently give an equivalence of the limit
 categories, including their stated uniform restrictions.  Finite
 semilinear descent is handled in the same abelian sheaf categories;
 all the constructions, including torsion and scalar change, respect it.
-This is a proof of the comparison with an independently defined target,
-not its definition by transport.
+This identifies the independently defined action and module models.
 
 Trivial relative action is restriction along $\Lambda_r\to R_r$.
 Full faithfulness of the torsion embedding identifies its right
@@ -3725,6 +3361,8 @@ intrinsic.  Mapping spectra in the adic category are limits by its
 universal property.  This last assertion is categorical and does not
 interchange sheaf stalks with inverse limits.
 \end{proof}
+
+\subsection{Pseudocompact models at a point}
 
 \begin{proposition}[The point source and Iwasawa perfectness]
 \label{prop:frag-point-source-iwasawa-admissibility}
@@ -3791,7 +3429,7 @@ so $\rho_r$ is an equivalence of $\Lambda_r$-objects.  Moreover
 under scalar associativity, with the homotopy supplied by the
 counit in $\mathcal L$; $\theta_r$ is the original reduction.
 The same counit supplies the higher cells.  This proves recovery
-of the given action diagram, not merely of its underlying values.
+of the given action diagram, including its reduction maps.
 Lemma~\ref{lem:frag-point-perfect-recovery} now makes $M|_A$
 perfect, and the recovery lemma makes $M$ derived $\ell$-complete.
 
@@ -3880,12 +3518,11 @@ descent, attaching maps and finite semilinear descent.  Its derived Hom is compu
 module sheaves before coefficient completion.  Over a point this agrees
 with the classical pseudocompact calculation on the admissible class.
 
-A global pseudocompact interpretation would identify this model with
-some separately defined global topologically-projective pseudocompact
-sheaf category.  That category and its realization are not supplied by
-taking an ordinary inverse limit of small-etale sheaves.  It remains
-outside the proved comparison, and statements explicitly using that
-interpretation retain the separate global pseudocompact comparison.  The actual-root topos is identified separately in the next section.
+The comparison with classical pseudocompact Hom is the point result
+of Proposition~\ref{prop:frag-point-pc-Hom}.  Over a general base we
+use the adic module-sheaf category just defined; an identification
+with a global topologically-projective pseudocompact sheaf category
+is a separate question.  The next section identifies the actual root topos.
 \end{remark}
 
 
@@ -3910,7 +3547,7 @@ We now identify the geometric source of continuous inertia.  The
 relative root fibre is first constructed as an actual fpqc stack.
 Finite-presentation descent then compares its representable etale site
 with finite root levels; the resulting topos identifies the structural
-star functor, not merely the values of selected cohomology groups.
+star functor and its natural transformations.
 
 \subsection{The infinite-root central fibre and its relative
 \texorpdfstring{pro-$\ell$}{pro-l} category}
@@ -3974,7 +3611,7 @@ fpqc sheaves of spaces on $S$-schemes (in a fixed universe).
 The root stacks are its $1$-truncated objects, equivalently stacks
 in groupoids.  Limits of these remain $1$-truncated and compute
 their $2$-categorical limits.  In the following display every inverse limit is formed in
-$\mathbf{St}_{\mathrm{fpqc}}(S)$, not merely in the pro-category:
+$\mathbf{St}_{\mathrm{fpqc}}(S)$:
 \[
  \sqrt[\infty]{\mathfrak s_{Q/S}}
  :=\varprojlim_{(a,p)=1}\sqrt[a]{\mathfrak s_{Q/S}},
@@ -3987,7 +3624,7 @@ actual pro-$\ell$ limit stack.  We reserve
 $\{\sqrt[\ell^n]{\mathfrak s_{Q/S}}\}_n$ for the associated pro-object.
 The distinction matters: the representable finitely presented etale site of
 the actual limit will be compared with the filtered finite-level site below,
-and that comparison is a theorem rather than a definition.  The map
+by the finite-presentation descent theorem below.  The map
 $\mathbf N\rho\to P$ induces maps at every root
 level.  The zero (trivial-root) section, induced at each finite level by the
 trivial line bundle with its zero section,
@@ -4049,7 +3686,9 @@ The finite-level relative faces are
 The bare central fibre records relative characteristic inertia but not the
 ordinary smooth directions of the product chart.  It is therefore the correct
 coefficient space for the root comparison, but it is not by itself the third geometric
-object for compact supports.  Let
+object for compact supports.  From now on, supply the additional
+log-smooth model and compatible action of
+Definition~\ref{def:frag-root-presented-chart}, and let
 \[
  v:\mathbf V_{M,e}:=\mathbf V(\mathcal V_{M,e})\longrightarrow S,
  \qquad N:=d+e,
@@ -4086,7 +3725,7 @@ pro-object.  Coefficients on the actual limit are pulled back from the
 central-root factor using Corollary~\ref{cor:frag-A0-adic}.  Homotopy invariance gives
 $Rv_*v^*\simeq\mathrm{id}$ on these coefficients, whereas smooth purity gives
 $Rv_!v^*\simeq(-N)[-2N]$.  Thus the carrier leaves the $*$-realization
-unchanged and geometrizes, rather than inserts formally, the full
+unchanged and realizes the full
 logarithmic--smooth compact-support shift.  In the stress-test case
 $d=0,e=1$ and $P=\mathbf N\rho$, the object is
 $\mathbf A^1_S\to S$; its constant-coefficient shriek image is correctly
@@ -4095,7 +3734,7 @@ $\mathbf Z/\ell^r(-1)[-2]$.
 \begin{proposition}[Intrinsic tangent carrier on the fixed log model]
 \label{prop:frag-intrinsic-tangent-carrier}
 The vector bundle $\mathcal V_{M,e}$ and its zero section are independent of
-the chosen splitting in
+any product-coordinate splitting of the bundle in
 \eqref{eq:frag-log-smooth-carrier-bundle}.  Two strict log-etale product charts
 on the same log model induce canonically identified carriers, projective-bundle
 compactifications, Thom orientations, and finite-level $Rg_*$/$Rg_!$
@@ -4132,6 +3771,8 @@ but this standard independence does not imply log-model independence.
 Theorem~\ref{thm:frag-node-complete-local-datum} uses this fixed-model, local,
 canonicity.
 \end{remark}
+
+\subsection{The relative limit and its atlas}
 
 \begin{lemma}[Relative $2$-fibres are the finite-level inverse system]
 \label{lem:frag-relative-fibre-limit}
@@ -4218,7 +3859,7 @@ $(X^{p/\ell^m})^{\ell^{m-n}}$; together with $H_m\to H_n$ it
 makes all nerve transitions affine.  These formulas commute with
 localization on $S$, so the presentations and their properties
 descend from affine opens.  They are the geometric input to the
-finite-presentation limit theorem, not consequences of that theorem.
+finite-presentation limit theorem.
 
 Write the absolute root chart as $[V_n/G_{P,n}]$ and the base root
 chart as $[W_n/G_{\rho,n}]$, where
@@ -4328,7 +3969,7 @@ with limits in this ambient category.  Hence
 Here $X_n$ denotes the relative root fibre at level $n$.
 The equivalences preserve the projections and diagonals defining
 all face and degeneracy maps.  They therefore identify the whole
-Cech nerve, not just its objects degree by degree.  The representable fpqc map is locally surjective on objects, hence
+Cech nerve and all its structure maps.  The representable fpqc map is locally surjective on objects, hence
 epimorphic on $\pi_0$ in this sheaf infinity-topos.  Such a map is
 an effective epimorphism: by the effective-epimorphism/Cech-descent
 property of an infinity-topos, its Cech realization recovers the target.
@@ -4349,7 +3990,9 @@ merely because $\Delta$ is finite.  Its etale coefficient comparison is
 given by finite semilinear descent and the root-topos comparison below.
 \end{proof}
 
-\begin{definition}[representable etale objects over an fpqc stack]
+\subsection{Finite-presentation descent for the root site}
+
+\begin{definition}[Representable etale objects over an fpqc stack]
 \label{def:frag-actual-repet-sources}
 For an fpqc stack $X$, an object of $\operatorname{RepEt}_{\mathrm{fp}}(X)$
 is a morphism $Y\to X$ of fpqc stacks such that, for every scheme
@@ -4448,7 +4091,7 @@ descend its degree-$0,1,2$ etale data.  The conclusion below is a
 site equivalence on this chart; its identification over $S$ and its
 continuous derived structural functor are proved afterwards.
 
-\begin{theorem}[finite-presentation descent on the actual root site]
+\begin{theorem}[Finite-presentation descent on the actual root site]
 \label{thm:frag-actual-root-fp-descent}
 Let $X_n=\widetilde{\mathcal A}_{M,n}^{\mathrm{rel}}$ and
 $X_\infty=\widetilde{\mathcal A}_{M,\ell}^{\mathrm{rel}}$ on the fixed
@@ -4495,7 +4138,7 @@ atlas it is therefore determined by an algebraic space $V$ over
 $U_{\infty,0}$, an isomorphism between its two pullbacks to
 $U_{\infty,1}$, and its unit and cocycle equations on degrees zero
 and two.  Higher simplices give the iterated composites of that
-isomorphism; they are not further freely chosen descent cells.
+isomorphism.
 Morphisms are maps over degree zero satisfying the degree-one
 equivariance equation.
 
@@ -4521,8 +4164,7 @@ descend to a common later stage by the morphism part of the same
 limit theorem.  The inverse identities and the unit identity descend
 as equalities of morphisms.  The cocycle identity descends on
 $U_{n,2}$ after one further refinement.  This is a finite amount of
-ordinary groupoid descent data, not an interchange with the entire
-infinite Cech totalization of derived coefficients.
+ordinary groupoid descent data.
 
 At this stage the unit and degree-two cocycle are exactly a
 $G_n$-action on $V_n$ over $U_{n,0}$, where $G_n$ is the finite
@@ -4535,8 +4177,7 @@ back to $X_\infty$ gives exactly the descent datum of $Y_\infty$.
 Both pullbacks carry the same degree-zero object and degree-one
 isomorphism with the degree-two cocycle.  Descent for objects and
 arrows of the fpqc stacks along the effective atlas identifies $Y_n\times_{X_n}X_\infty$ with $Y_\infty$.  This proves
-essential surjectivity without constructing a new etale realization
-by definition.
+essential surjectivity.
 
 A morphism between two such objects pulls back to a morphism of
 finitely presented algebraic spaces over $U_{\infty,0}$, with its
@@ -4721,10 +4362,9 @@ Theorem~\ref{thm:frag-relative-finite-action-descent} then gives
 (\widetilde{\mathcal A}_{M,n}^{\mathrm{rel}},R_r)^{h\Delta}.
 \label{eq:frag-pro-root-derived-descent}
 \end{equation}
-These comparisons concern the selected action/adic coefficient model;
-the separate global pseudocompact interpretation retains the separate global pseudocompact comparison.
-None is an unrestricted interchange of a
-derived category with an inverse limit.
+These comparisons use the selected action/adic coefficient model of
+Remark~\ref{rem:frag-F-iwasawa-remainder}.  The derived comparison
+follows from finite-action descent in that model.
 \end{proposition}
 
 \begin{proof}
@@ -4735,8 +4375,7 @@ Theorem~\ref{thm:frag-actual-root-fp-descent}; finite etale descent for the quot
 Theorem~\ref{thm:frag-actual-root-continuous-topos} identifies the
 actual topos and structural pullback.  Relative derived-action descent
 then gives the coefficient equivalence; finite semilinear descent is
-performed in its action-sheaf category, without commuting a filtered
-colimit through an arbitrary homotopy fixed-point limit.
+performed in its action-sheaf category.
 On affine presentations the
 candidate transition maps are
 \begin{equation}
@@ -4782,8 +4421,7 @@ nil-invariance of the representable \'{e}tale topos.  After descent, the same
 statement is retained as a $\Delta$-equivariant equivalence of topoi.
 The quotient by $\Delta$ is shorthand for the stack obtained by effective
 descent along the prescribed finite splitting groupoid.  In particular it
-does not discard the $\Delta$-action or replace equivariant objects by
-invariants.  The central fibre is canonical relative to the chosen chart,
+retains the full $\Delta$-equivariant descent datum.  The central fibre is canonical relative to the chosen chart,
 section, and descent groupoid: it uses the actual relative log point and does
 not require the quotient
 $P/\mathbf N\rho$ to be fs.  It is the infinite-root enhancement of the
@@ -4813,6 +4451,8 @@ with every root index replaced by $\ell^\infty$.
 The absolute expression with a residue
 field $k$ is used only after taking a geometric fibre in
 Proposition~\ref{prop:frag-artin-obstruction}.
+
+\subsection{Root-chart maps and continuous coefficients}
 
 \begin{lemma}[Functoriality of relative root faces]
 \label{lem:frag-root-face-functoriality}
@@ -4991,9 +4631,9 @@ Finite $\ell$-torsion cohomology remains allowed.
 The adjective ``auxiliary'' is deliberate: this site is constructed without
 using the root central fibre, but it is generated by the selected Kummer
 charts, so its identification with the action groupoid is a descent
-calculation rather than a novelty claim.  The actual-root comparison proves the passage from the specified
-relative pro-root site to this category, including its structural
-functor; it is not an assertion of a new absolute Kummer-topos equivalence.
+calculation.  The actual-root comparison identifies this category
+with the specified relative pro-root coefficients and their structural
+functor.
 \end{definition}
 
 \begin{lemma}[Finite-level root--Kummer action-groupoid comparison]
@@ -5026,7 +4666,7 @@ compatibility.  Every construction is functorial in strict base change and
 $\Delta$-equivariant.
 \end{proof}
 
-\begin{lemma}[constructible etale spaces and finite action objects]
+\begin{lemma}[Constructible etale spaces and finite action objects]
 \label{lem:frag-constructible-etale-action-site}
 Let $S$ be noetherian.  Etale algebraic spaces of finite presentation
 over $S$ correspond to constructible sheaves of sets on $S_{\acute et}$.
@@ -5069,7 +4709,7 @@ joint surjectivity by base change along that torsor.  Both inflation
 and base pullback are the literal pullbacks of these descent data.
 \end{proof}
 
-\begin{proposition}[a generating site for continuous action sheaves]
+\begin{proposition}[A generating site for continuous action sheaves]
 \label{prop:frag-continuous-action-generators}
 Let $\mathscr E=\operatorname{Sh}(S_{\acute et})$ and let
 $\mathscr E_\Gamma$ be the category of sheaves of sets with a smooth
@@ -5134,7 +4774,7 @@ $\mathscr E_\Gamma$.  Equivalently, an object is recovered from all
 maps from these generators and their jointly epimorphic relations;
 this is the canonical presentation of an object of a topos by a full
 generating site.  It uses objects and their relations on the entire
-base, not equality of the fibres of two proposed topoi.
+base, using its generating site.
 \end{proof}
 
 \begin{theorem}[The relative root topos]
@@ -5179,7 +4819,7 @@ filtered site and hence in the actual topos.  Such $h_U$ generate the
 base topos; both inverse-image functors preserve colimits and finite
 limits.  Thus their canonical agreement on these generators extends
 to the structural inverse image on all sheaves, proving the statement
-over $S$ rather than only an abstract equivalence of topoi.
+over $S$.
 
 Every step is induced by pullback or by its canonical descent
 comparison.  It therefore commutes with base change and with maps
@@ -5232,9 +4872,7 @@ with finite $K_n$-action becomes constant after a finite etale
 trivialization on the base and the regular $K_n$-cover in the action
 topos.  This identifies the constructible strata and the selected
 coefficient subcategories; finite Tor-amplitude is tested on their
-local complexes.  Relative derived-action descent handles their
-attaching maps, so this is not just an assertion about cohomology
-stalks.  Applying the exact equivalence to complexes and then to
+local complexes.  Relative derived-action descent also descends their attaching maps.  Applying the exact equivalence to complexes and then to
 cartesian coefficient systems yields the adic coefficient comparison.
 
 The augmentation Koszul complex has length $d$ and finite free terms.
@@ -5271,7 +4909,7 @@ An etale trivialization of that base sheaf, together with the regular
 finite-group torsor, trivializes it in the action topos.
 Theorem~\ref{thm:frag-relative-finite-action-descent}, applied to the
 whole constructible sheaf category, then descends the bounded objects
-and attaching morphisms, not just the separate stalk values.
+and attaching morphisms.
 Finite semilinear descent is handled by
 Lemma~\ref{lem:frag-finite-equivariant-rectification}.  Underlying
 perfection is unchanged by inflation.  This proves the selected
@@ -5280,8 +4918,7 @@ stalks or infinitely many strata.
 \end{proof}
 
 
-
-\begin{proposition}[the relative log-fibre coefficient interface]
+\begin{proposition}[The relative log-fibre coefficient interface]
 \label{prop:frag-relative-log-root-interface}
 Let $Y$ be a noetherian split log stratum with characteristic chart
 $\mathbf N\rho\to P$, with $\rho$ primitive and
@@ -5382,8 +5019,13 @@ Rg_{M,e,\ell,*}^{\mathrm{act}}E_r
 \label{eq:frag-actual-root-star-equals-continuous-bar}
 \end{equation}
 The right side is an internal sheaf-valued continuous cochain object.
-For an admissible adic coefficient its derived-cartesian recovery gives
-$Rg_*^{\mathrm{act}}E\simeq\mathsf G_{*,\mathrm{ad}}^{\mathrm{cts}}(E)$.
+For an admissible adic coefficient $E_\bullet$, write
+\[
+ \mathsf G_{*,\mathrm{ad}}^{\mathrm{cts}}(E_\bullet)
+ :=R\varprojlim_r C^*_{\mathrm{cts}}(\mathcal K_\ell,E_r).
+\]
+Its derived-cartesian recovery identifies this object with
+$Rg_{*,\mathrm{ad}}^{\mathrm{act}}E_\bullet$.
 \end{proposition}
 
 \begin{proof}
@@ -5411,13 +5053,12 @@ Proposition~\ref{prop:frag-artin-obstruction}.
 \section{The continuous dualizing module}
 \label{sec:frag-iwasawa}
 
-Continuous cohomology has a finite Iwasawa resolution.  Finite root
-stacks do not: their full bars remain unbounded.  We first describe
-the continuous algebra and its dualizing bimodule, and then show that
-geometric finite-stack traces converge to this dual partner.
+This appendix describes the continuous algebra and dualizing bimodule
+used in Section~\ref{sec:local-finite-root-trace}.  The finite Iwasawa
+resolution computes this continuous object; the full finite-root
+bars and their geometric trace limit are treated in that section.
 
 \subsection{Continuous bar--Iwasawa models and the dualizing module}
-
 
 
 \begin{lemma}[Equivariant bar--Iwasawa algebra and the top orientation]
@@ -5526,7 +5167,7 @@ and hence, after tensoring with $\mathbf Q_\ell$,
  \otimes\mathbf Q_\ell(-e)[-2e].
  \label{eq:frag-orientation-factor}
 \end{equation}
-Thus the determinant line is an object-level adic factor, not a $K_0$ artifact.
+Thus the determinant line gives the stated factor in the adic category.
 
 \begin{proposition}[The base-linear continuous dualizing bimodule]
 \label{prop:frag-continuous-dualizing-bimodule}
@@ -5576,7 +5217,7 @@ to regular multiplication are asserted; no $A^e$-linear coevaluation
 from the base unit with an augmentation action is asserted.  No assertion
 that $A^{*,\mathrm{ad}}_M$ is perfect as a module over its enveloping algebra
 is used.  Thus
-$A^{!,\mathrm{ad}}_{M,e}$, rather than a bare determinant line, is the local
+$A^{!,\mathrm{ad}}_{M,e}$ is the local
 candidate compact-support dualizing bimodule, identified geometrically
 in Corollary~\ref{cor:frag-C2-local-closed} on its geometric domain.
 For every coefficient in the full selected source,
@@ -5587,7 +5228,7 @@ has the dual action; all
 geometric comparison maps preserve these actions under the
 multiplicative star and supported comparisons below.  Formula
 \eqref{eq:frag-orientation-factor-ad} is the constant-character calculation
-of this bimodule, not a replacement for it.
+of this bimodule.
 In particular, this proposition does not assert an $A^e$-linear equivalence
 $A^{*,\mathrm{ad}}_M\simeq A^{!,\mathrm{ad}}_{M,e}$ and does not equip
 $A^{*,\mathrm{ad}}_M$ with a Frobenius or Calabi--Yau structure.  The proven
@@ -5617,7 +5258,7 @@ coevaluation corresponds to the identity.  Its dinaturality for
 left and right multiplication, and evaluation's balancing
 $\operatorname{ev}(\phi a,x)=\operatorname{ev}(\phi,ax)$
 (with the graded conventions), are the required action identities.
-They do not make the base unit into an unspecified $A^e$-module.  Every construction commutes with
+Every construction commutes with
 strict-etale descent and lattice automorphisms; hence the bimodule and its
 trace descend over \(\mathscr S\) with the \(\Delta\)-action.  Applying the
 same bar action to a coefficient module proves the final assertion.
@@ -5648,19 +5289,23 @@ The second identity is the normalized continuous Verdier/Borel--Moore mate,
 including the rank-one orientation shift.
 By Theorem~\ref{thm:frag-theorem-B-local-closed} and
 Corollary~\ref{cor:frag-C2-local-closed}, the same two identities hold for the
-geometric complexes $\mathsf G_*$ and $\mathsf G_!$ on a chart satisfying the
-stated hypotheses.
+rational geometric complexes
+$(Rg_{*,\mathrm{ad}}^{\mathrm{act}}\mathbf Z_\ell)[1/\ell]$ and
+$\mathsf G_!^{\mathrm{tr}}(\mathbf Z_\ell)$ on a geometric-point chart
+satisfying the cited hypotheses, with its specified rank-one carrier.
+The latter is the finite-carrier trace realization.
 \end{remark}
 
 
 \section{Geometric comparison tools}
 \label{sec:frag-analytic-nearby}
 
-The root calculation becomes a realization theorem only after an
-actual generic coefficient has been constructed.  We specify the
-specialization sites, compare ordinary and tame nearby cohomology,
-and construct the local Kummer source.  The final mapping comparison
-establishes full faithfulness on that source.
+This appendix supplies the geometric and site inputs for the
+realization-induced mapping comparison in
+Section~\ref{sec:local-analytic-realization}.  We specify specialization
+sites, construct the log-lisse Kummer source, and compare logarithmic,
+ordinary and tame nearby cohomology.  The completion and analytic-site
+comparisons preserve the products used in that mapping comparison.
 
 \begin{definition}[The actual analytic specialization sites]
 \label{def:frag-analytic-specialization-sites}
@@ -5690,6 +5335,389 @@ $\mu^*F$ and applies $R\nu_*$.  This requires no interchange of $\mu^*$
 with an arbitrary infinite totalization.
 \end{definition}
 
+\subsection{Logarithmic specialization and tube cohomology}
+
+The following results apply to vertical log-smooth charts.  Their
+specialization to the node is used in
+Section~\ref{sec:local-analytic-realization}.
+
+\begin{definition}[The vertical logarithmic coefficient domain]
+\label{def:frag-vertical-log-B-domain}
+Let $X/R$ be a finite-type fs saturated log-smooth scheme, vertical near
+a noetherian locally closed stratum $Y$: the generic log structure is
+trivial on that neighbourhood.  On $Y$ fix a split characteristic chart
+$\mathbf N\rho\to P$ with $\rho$ primitive and
+$L=P^{\mathrm{gp}}/\mathbf Z\rho$ free of rank $d$.  Use the actual
+special formal completion $\widehat X_{/Y}$ and its geometric tube,
+without assuming an entire-torus product.  For a supplied generic open
+$j:U\hookrightarrow X_\eta$, require
+$Y\cap\overline{X_\eta\setminus U}=\varnothing$.
+
+A coefficient for the theorem below is a bounded complex $\mathcal L_r$
+on $X_{\mathrm{ket}}$, in a neighbourhood of $Y$, with finite locally
+constant cohomology and the selected underlying $R_r$-perfectness.  Its
+generic restriction, on the ordinary etale site by verticality, is
+$\mathcal E_r$.  Its restriction $E_r$ to the geometric relative log
+fibre is required to be trivial on the non-$\ell$ relative tame factor.
+For adic coefficients require a derived-cartesian system with the
+uniform amplitude conditions already specified in Theorem~\ref{thm:frag-F-adic-iwasawa}.
+If arithmetic descent is retained, it is the descent supplied by this
+actual prime-to-$p$ log-Kummer source and the chosen geometric base-root
+lift.  We allow no additional wild base-inertia representation on the
+coefficient.  This restriction is imposed on the logarithmic
+neighbourhood of $Y$.  The non-$\ell$
+relative tame factor is discarded by exact invariants; external tame
+base inertia, including its prime-to-$\ell$ part, remains separate
+action data and is not absorbed into $\Gamma$.  The same convention
+applies to dual coefficients and to log-lisse sources used below.
+The extension $\mathcal L_r$ is part of the source data.
+The following statements take values on $Y_{\acute et}$ itself;
+application of a further $Rf_{Y,*}$ is a separate operation on both sides.
+\end{definition}
+
+
+\begin{lemma}[Slices of the geometric logarithmic limit sites]
+\label{lem:frag-log-limit-slices}
+Let $X$ be an fs log scheme over the logarithmic trait.  Use the
+finite logarithmic base extensions and the limiting Kummer etale
+sites defining the geometric total, special and generic topoi
+in \cite[\S8.2, (8.2.1)]{FujiwaraKatoNakayama}.
+If $q:X'\to X$ is Kummer etale, its base changes determine objects
+$Q_\alpha$ of these three topoi $\mathcal X_\alpha$, and canonically
+\[
+ \mathcal X'_\alpha\simeq\mathcal X_\alpha/Q_\alpha,
+ \qquad \alpha\in\{\mathrm{tot},\bar s,\bar\eta\}.
+\]
+Under these equivalences the generic and special structural maps
+for $X'$ are the localizations of those for $X$.
+The identifications commute with further base extension, composition
+of Kummer etale maps, and transport by geometric base automorphisms.
+\end{lemma}
+\begin{proof}
+Work on quasi-compact chart opens and use the finite-presentation
+basis of the Kummer etale sites.  A general Kummer etale object is
+covered by these opens, so the resulting statement glues.
+Let $\lambda$ index the finite logarithmic base extensions.  At each
+level use the fs fibre products and denote the corresponding site
+by $\mathcal C_{\lambda,\alpha}$ and the base change of $q$ by
+$Q_{\lambda,\alpha}$.  Subcanonicity and stability of Kummer etale
+maps under composition and fs base change identify the site over
+$X'_\lambda$ with
+$\mathcal C_{\lambda,\alpha}/Q_{\lambda,\alpha}$.
+Its coverings are precisely the induced Kummer etale coverings.
+
+Here is the passage to the limit explicitly.  The limiting site is
+presented by the filtered category $\mathcal C_{\infty,\alpha}$
+of finite-level objects, with morphisms taken after further base
+extension and the topology generated by finite-level coverings.
+This is the limiting-site convention in the cited definition, not
+the small site of an unqualified underlying scheme limit.
+There is a functor
+\[
+ \operatorname*{colim}_\lambda
+ (\mathcal C_{\lambda,\alpha}/Q_{\lambda,\alpha})
+ \longrightarrow \mathcal C_{\infty,\alpha}/Q_\alpha.
+\]
+An object on the right is a finite-level object $U_\lambda$ together
+with an arrow to $Q_\alpha$.  That arrow is represented at a later
+level, so it gives an object on the left.  A morphism over $Q_\alpha$
+is a finite-level morphism and one triangle equality; both are
+represented at a common later level.  The same observation detects
+equality of two morphisms.  This proves equivalence of the categories.
+For a finite covering family all arrows and their triangles can be
+represented at one level.  The induced covering topology is the
+same on both sides, since both are generated by pullbacks of the
+finite-level coverings.  On the quasi-compact basis finite coverings
+suffice; arbitrary opens and coverings are obtained by gluing.
+Sheafification identifies the topos of this slice site with the
+slice by its representable sheaf, proving the assertion.
+
+The generic and special maps are induced at every level by the
+same fs pullbacks.  Pulling back an arrow $U\to Q$ gives the arrow
+between the corresponding pullbacks, with its triangle unchanged.
+Thus the three site equivalences intertwine those structural maps,
+together with their site functors.  Successive pullbacks supply
+the composition identifications; their associativity follows from
+the universal property of fibre product.  A base automorphism
+transports these same diagrams (and reindexes the finite extensions),
+which gives the asserted geometric-action compatibility.  No formula
+interchanging a derived direct image and a filtered colimit is used.
+\end{proof}
+
+\begin{proposition}[Kummer localization of logarithmic specialization]
+\label{prop:frag-log-specialization-kummer-localization}
+Let $X$ be an fs log scheme over the logarithmic trait and
+$q:X'\to X$ a Kummer etale morphism.  Use the geometric logarithmic
+base change defining nearby cycles, with the integral saturated fibre
+products and limiting Kummer etale topoi of
+\cite[\S8.2, (8.2.1)]{FujiwaraKatoNakayama}.
+For $\mathcal L\in D^+(X_{\mathrm{ket}},R_r)$ there is a canonical
+exchange
+\[
+ q_{\bar s}^*R\Psi_X^{\log}\mathcal L
+ \xrightarrow{\sim}
+ R\Psi_{X'}^{\log}(q^*\mathcal L).
+\]
+It makes the specialization-unit square commute:
+\[
+\begin{array}{ccc}
+ q_{\bar s}^*(\mathcal L|_{X_{\bar s}^{\log}})
+ &\xrightarrow{\ q_{\bar s}^*\mathrm{sp}_{\mathcal L}\ }&
+ q_{\bar s}^*R\Psi_X^{\log}\mathcal L\\
+ \big\Vert&&\big\downarrow\sim\\
+(q^*\mathcal L)|_{(X')_{\bar s}^{\log}}
+ &\xrightarrow{\ \mathrm{sp}_{q^*\mathcal L}\ }&
+ R\Psi_{X'}^{\log}(q^*\mathcal L).
+\end{array}
+\]
+For a covering family of such $q$, the pullbacks on the geometric
+logarithmic special fibre are jointly conservative.  The exchanges
+are compatible with morphisms of coefficients, composition of covers,
+and the retained inertia action.
+\end{proposition}
+
+\begin{proof}
+The Kummer etale topology is subcanonical; composition and fs base
+change preserve Kummer etale maps and their coverings
+\cite[\S2.1--2.3 and Theorem 2.6]{FujiwaraKatoNakayama}.
+Consequently $(X')_{\mathrm{ket}}$ is the slice of
+$X_{\mathrm{ket}}$ by the representable object $X'$: its objects are
+Kummer etale objects over $X$ with a map to $X'$, and its coverings
+are the induced coverings.  This is an equality of the localized
+Kummer etale sites.
+
+Let $\mathcal X$, $\mathcal X_{\bar s}$ and $\mathcal X_{\bar\eta}$
+be the logarithmic total, special and generic topoi in the geometric
+base change, and write $i,j$ for their structural morphisms.
+The defining expression is $R\Psi_X^{\log}\mathcal L
+=i^*Rj_*(\mathcal L|_{\mathcal X_{\bar\eta}})$.
+Lemma~\ref{lem:frag-log-limit-slices} identifies the three topoi
+for $X'$ with the slices by the compatible base changes of $q$,
+including their generic and special structural maps.
+
+Apply Lemma~\ref{lem:frag-slice-derived-base-change} to $j$ and this
+object of $\mathcal X$.  Commutation of inverse images in the
+special-fibre square then gives
+\[
+ q_{\bar s}^*i^*Rj_*
+ \simeq i'^*q_{\mathcal X}^*Rj_*
+ \simeq i'^*Rj'_*q_{\bar\eta}^*.
+\]
+The specialization map is $i^*$ applied to the unit
+$\mathcal L|_{\mathcal X}\to Rj_*j^*(\mathcal L|_{\mathcal X})$.
+The unit clause of the lemma therefore gives the displayed square
+with this very map.  Coverings remain coverings under the geometric
+log base change, so exact inverse images along them are jointly
+conservative on cohomology sheaves.  This proves the descent assertion.
+Composition and inertia compatibility follow from the same site
+pullbacks and adjunction units before forgetting the action.
+\end{proof}
+
+\begin{lemma}[Logarithmic specialization for the actual lisse source]
+\label{lem:frag-log-nearby-geometric-input}
+For an fs log-smooth scheme $X$ over the logarithmic trait and a
+bounded $R_r$-complex $\mathcal L$ on $X_{\mathrm{ket}}$ with finite
+locally constant cohomology, the log-specialization unit
+\[
+ \mathcal L|_{X_{\bar s}^{\log}}
+ \xrightarrow{\sim}R\Psi_X^{\log}\mathcal L
+\]
+is an equivalence.  In addition there is a natural exchange
+\[
+ R\Psi_X(R\varepsilon_{\eta,*}\mathcal L_\eta)
+ \simeq R\varepsilon_{s,\mathrm{rel},*}R\Psi_X^{\log}\mathcal L.
+\]
+These use the geometric logarithmic base change, not the special
+fibre with its absolute log structure.  In the vertical case the
+generic logarithmic forgetful map $\varepsilon_\eta$ is the identity.
+The maps are the specialization unit and the forgetful exchange on
+the indicated actual topoi.
+\end{lemma}
+
+\begin{proof}
+The external local-acyclicity input is the constant-coefficient
+statement of \cite[Theorem 3.2]{NakayamaNearby}, also stated in
+\cite[Theorem 8.3]{FujiwaraKatoNakayama}.  It applies to
+$\mathbf Z/\ell^s$ for every $s$.  A finite constant $R_r$-module
+is a finite direct sum of such cyclic modules, so its unit is an
+equivalence as well.  This is the only coefficient case taken
+from that theorem.
+
+There are three separate steps for the lisse extension of this input.
+First choose a Kummer-etale covering family trivializing a finite
+locally constant coefficient.  Finitely many such coefficients or
+specified maps can be handled on the common refinement obtained by
+finite fibre products of covering families; no single cover for an
+infinite coefficient system is used.  Second, each covering fs log
+scheme remains log smooth over the trait, since Kummer etale is log
+etale and log smoothness is stable under composition.  Saturation
+over the trait is not an extra hypothesis of the cited theorem.
+Third, Proposition~\ref{prop:frag-log-specialization-kummer-localization}
+identifies the pullback of the actual specialization unit with the
+unit on that covering scheme.  The base-changed Kummer-etale covering
+of the geometric logarithmic special fibre is jointly conservative,
+so the unit on the original coefficient is invertible.
+Together with source descent, this step extends the constant-coefficient
+comparison to the selected source.
+
+Finite truncation triangles apply this natural unit to a bounded
+complex with locally constant cohomology.  No splitting of its
+Postnikov extensions or simultaneous trivialization of the whole
+complex is required.
+
+The forgetful exchange is the derived natural transformation of
+\cite[\S8.2, (8.2.3)]{FujiwaraKatoNakayama}, which is stated there
+for $D^+$ coefficients.
+Its construction uses strict closed base change for the forgetful
+map and the geometric logarithmic base limit.  Apply that exchange
+to the present source.  Its unit and pullback naturality are retained
+under the localizations above.  This establishes lisse specialization
+with its natural comparison maps.
+\end{proof}
+
+\begin{theorem}[Tube cohomology of vertical log-lisse Kummer coefficients]
+\label{thm:frag-vertical-log-star}
+For the actual prime-to-$p$ log-Kummer source of
+Definition~\ref{def:frag-vertical-log-B-domain}, with no additional
+wild base-inertia action and with the full retained inertia action, write
+$s:\,]Y[_{\bar\eta}\to Y$ for geometric specialization and
+$\Gamma=\operatorname{Hom}(L,\mathbf Z_\ell(1))$.  There is a natural
+zigzag of equivalences
+\[
+ C^*_{\mathrm{cts}}(\Gamma,E_r)
+ \xrightarrow{\ \gamma\ }
+ i_Y^*R\Psi_X(Rj_*\mathcal E_r)
+ \xrightarrow{\ \beta\ }
+ Rs_*\mathcal E_r^{\mathrm{an}},
+ \qquad
+ i_Y^*R\Psi_X^t(Rj_*\mathcal E_r)
+ \xrightarrow{\sim}i_Y^*R\Psi_X(Rj_*\mathcal E_r).
+\]
+Here $E_r$ is interpreted on the actual root fibre by
+Proposition~\ref{prop:frag-relative-log-root-interface}.
+The first zigzag respects the commutative algebra of the unit and its
+coefficient modules, and the tame comparison preserves these structures.
+The maps are natural for algebraized Kummer refinements, strict-etale
+restrictions, and supplied finite semilinear descent.  They identify
+actual functors on the indicated coefficient source.  Their selected
+adic outputs are uniformly bounded and derived cartesian.
+
+This closes the local star comparison for this vertical lisse domain.
+It does not assert essential surjectivity from every abstract
+cross-stratum action coefficient to $\mathcal L_r$, and supplies no
+exceptional or incidence comparison.
+\end{theorem}
+
+\begin{proof}
+Remove the closure of the generic complement near $Y$, as in Proposition~\ref{prop:frag-ordinary-nearby-boundary-disjoint}.
+The source there is the actual generic restriction of $\mathcal L_r$.
+Let $E_r$ be its restriction to the relative geometric log fibre.
+Apply $R\varepsilon_{Y,\mathrm{rel},*}$ to the specialization unit
+\[
+ E_r\longrightarrow (R\Psi^{\log}\mathcal L_r)|_{\widetilde Y}.
+\]
+Lemma~\ref{lem:frag-log-nearby-geometric-input} makes this an
+equivalence and identifies its target with the restricted ordinary
+nearby complex.  Proposition~\ref{prop:frag-relative-log-root-interface}
+identifies its source with continuous invariants and with the actual
+root structural star.  This constructs $\gamma$ on the entire face
+etale topos, including its maps; it is not a reconstruction from equal
+stalk dimensions.  Proposition~\ref{prop:frag-ordinary-nearby-boundary-disjoint}
+constructs the actual completion comparison $\beta$ and proves it is
+an equivalence.  The rightmost term is therefore cohomology on the
+actual tube, even when that tube is an annulus or a higher toric domain.
+
+For tameness, the geometric logarithmic special fibre is constructed
+using prime-to-$p$ roots of the base parameter.  Its descent action,
+and that of the restriction of the given $X_{\mathrm{ket}}$ coefficient,
+factor through tame base inertia.  Consequently wild inertia acts
+trivially on the cohomology of
+$R\varepsilon_{Y,\mathrm{rel},*}E_r$.  The ordinary comparison just
+constructed is equivariant for the full retained inertia action:
+the specialization unit and logarithmic forgetful exchange are formed
+before forgetting that action and are natural for base automorphisms.
+Thus it proves this assertion for the
+actual nearby complex.  Lemma~\ref{lem:frag-wild-inertia-criterion}
+now makes its tame-invariant inclusion an equivalence.  Here the log extension and verticality ensure the required wild
+inertia triviality.
+
+The specialization unit is the unit of a geometric pullback/right-adjoint
+pair.  The forgetful exchange in the displayed log/ordinary comparison
+is the mate of the strict pullback comparison of those same sites.
+Both are morphisms of the induced lax symmetric-monoidal functors:
+their adjoints are composites of strong tensor inverse images and the
+monoidal counits.  Their invertibility on the present source was proved
+before taking the inverse exchange used in $\gamma$.  Proposition~
+\ref{prop:frag-completion-comparison-monoidal} gives precisely this
+structure for $\beta$.  Invariants have the analogous lax structure
+and their inclusion is monoidal.  These constructions prove the
+algebra/module claims for the specified zigzag, including higher
+multiplication cells.
+They also give the stated naturality under the geometric maps and
+coefficient morphisms.
+
+Finally the continuous augmentation resolution has $d+1$ finite free
+terms.  On an input of amplitude $[a,b]$ it gives output amplitude
+contained in $[a,b+d]$, independent of $r$.  The construction commutes
+with derived coefficient reduction on the selected class.  The natural
+comparison zigzag transports this property to the actual analytic and
+nearby outputs.  Only after this recovery do we take the inverse limit
+in $r$.  No finite group bar has been replaced by a bounded complex
+before continuous passage.  A subsequent direct image from $Y$ to another
+base requires its own boundedness/preservation assertion.
+\end{proof}
+
+\begin{corollary}[Actual tube cohomology and geometric refinement weights]
+\label{cor:frag-log-tube-root-weights}
+For the unit coefficient in Theorem~\ref{thm:frag-vertical-log-star},
+\[
+ R^j s_*R_r\simeq\bigwedge^j(L\otimes R_r)(-j),\qquad 0\le j\le d,
+\]
+with zero in other degrees.  Suppose the supplied compatible fs Kummer
+models over chosen tame base roots induce multiplication by
+$\ell^{m-n}$ on their relative characteristic lattices.  Their actual
+tube pullbacks act on these sheaves by $\ell^{j(m-n)}$.  These are
+geometric refinement maps between the covers.
+\end{corollary}
+
+\begin{proof}
+The theorem identifies the actual derived output with continuous
+invariants by a natural geometric map.  For the trivial coefficient,
+its degree-one cohomology is
+$\operatorname{Hom}_{\mathrm{cts}}(\Gamma,R_r)=L\otimes R_r(-1)$.
+Cup products compute its exterior powers by the augmentation Koszul
+resolution.  The character pairing in the finite Kummer charts sends
+a root refinement to restriction along multiplication by
+$\ell^{m-n}$ on relative inertia, hence to the stated degree-one
+weight and its exterior powers.  Naturality of $\gamma$ and $\beta$
+identifies these maps with actual tube pullbacks.  The bounded degree
+range and eventual vanishing of positive weights at fixed $r$ are
+therefore now geometric assertions in this domain.  They can be used
+in the actual finite-torsor filtration of Proposition~\ref{prop:frag-actual-finite-galois-descent}.
+\end{proof}
+
+\begin{remark}[A horizontal-boundary example]
+\label{rem:frag-horizontal-log-test}
+Consider $X=\operatorname{Spec}R[t]$ with the log structure of
+$\pi t=0$ and $Y=\{\pi=t=0\}$.  Its chart is
+$P=\mathbf N^2$, $\rho=(1,0)$; the base lift is primitive and the
+relative characteristic group has rank one.  Nevertheless, for the
+constant coefficient on the whole generic fibre, smooth base change
+gives $i_Y^*R\Psi_XR_r=R_r$ in degree zero.  Proposition~\ref{prop:frag-ordinary-nearby-boundary-disjoint} identifies this with
+the cohomology of the actual open-disc tube.  Continuous invariants
+of the rank-one relative log inertia instead have a nonzero degree-one
+term $R_r(-1)$.
+
+This log structure has a horizontal boundary and falls outside the
+vertical domain of Theorem~\ref{thm:frag-vertical-log-star}.  The logarithmic generic coefficient corresponds on
+the ordinary generic fibre to $Rj_*R_r$ for $j:\mathbf G_m\to\mathbf A^1$,
+not to the constant sheaf on $\mathbf A^1$.  The horizontal generic
+boundary also meets $Y$.  Thus neither this forgetful direct image nor
+the open-boundary condition may be dropped.
+\end{remark}
+
+
+\subsection{Geometric sources and comparison maps}
 
 
 Fix a geometric generic point $\bar\eta$ and a completed algebraic closure
@@ -5741,9 +5769,9 @@ Rf_{Y,!}\bar i_Y^!\Psi_r(R\bar j_{\eta,!}E_r).
 \end{equation}
 We use $\mathsf N_{!,r}$ for the second, costalk construction.  The superscript
 may be restored when comparing conventions.  Its identification with analytic
-compact support is proved below for geometric closed faces.  These formulas do not assert that nearby cycles
-commute with duality or that restriction to a selected face preserves a
-compact-support comparison.  If $f_Y$ is proper, only the outer $!$ may be
+compact support on the local supported domain is
+Theorem~\ref{thm:frag-S-local-closed}; the needed nearby-cycle
+duality is Proposition~\ref{prop:frag-S-nearby-duality}.  If $f_Y$ is proper, only the outer $!$ may be
 replaced by $*$.
 
 
@@ -5793,7 +5821,7 @@ compactification and the coefficients.
 \end{definition}
 
 
-\begin{proposition}[actual finite Galois descent and its comparison map]
+\begin{proposition}[Actual finite Galois descent and its comparison map]
 \label{prop:frag-actual-finite-galois-descent}
 Let $\pi:U\to S$ be a morphism of the actual coefficient topoi under
 consideration, and let $q:V\to U$ be an actual finite etale $K$-torsor,
@@ -5813,7 +5841,8 @@ adjunction unit further supplies a natural map
  \operatorname{Tot}C^*(K,Rp_*p^*E)
  \simeq R\pi_*\mathcal E.
 \]
-The second map is not asserted to be an equivalence at finite level.
+The second map is the coefficient comparison used in the subsequent
+continuous calculation.
 \end{proposition}
 
 \begin{proof}
@@ -5826,8 +5855,7 @@ $R\pi_*$ commutes with this limit.  The torsor identifications
 $V\times_U\cdots\times_UV=V\times K^a$ identify the resulting
 cosimplicial terms and all face and degeneracy maps with the full
 group-cochain diagram on $Rp_*q^*\mathcal E$.  This proves the first
-formula without identifying $Rp_*q^*\mathcal E$ with its degree-zero
-cohomology.
+formula with the full complex $Rp_*q^*\mathcal E$.
 
 The map in the second formula is induced by the equivariant unit
 $E\to Rp_*p^*E$.  All maps come from the actual cover and the
@@ -5838,12 +5866,12 @@ canonical lax symmetric-monoidal structure; the unit and Cech maps
 respect these structures.  The same augmented descent argument in
 commutative algebra objects and their modules gives the claimed
 multiplicative/module comparisons.  Thus the enhancement belongs to
-the constructed map, not to a chosen cohomology-ring isomorphism.
+the constructed map.
 There is no assertion here that an unbounded finite group bar
 commutes with derived coefficient reduction.
 \end{proof}
 
-\begin{lemma}[algebraic torus cohomology and root weights]
+\begin{lemma}[Algebraic torus cohomology and root weights]
 \label{lem:frag-algebraic-torus-weights}
 Let $S$ be noetherian with $\ell$ invertible and use a split Kummer
 tower.  Let $\pi:T\times_S\mathbf A_S^e\to S$, where
@@ -5895,7 +5923,7 @@ coherence of the deck action retained in Proposition~
 \ref{prop:frag-actual-finite-galois-descent}.
 \end{proof}
 
-\begin{theorem}[an actual algebraic torus star comparison]
+\begin{theorem}[An actual algebraic torus star comparison]
 \label{thm:frag-algebraic-torus-star}
 Use the algebraic product of Lemma~\ref{lem:frag-algebraic-torus-weights}.
 Let $\mathcal E$ be the Kummer local system associated to a finite
@@ -5926,9 +5954,8 @@ F_n:=\operatorname{Tot}C^*(K_n,Rp_{n,*}p_n^*E_n)
 \]
 Take their filtered colimit.  The left side is continuous cochains;
 the right sides are a compatible diagram of equivalences with the
-fixed actual direct image.  It remains to show that the resulting
-map is an equivalence, rather than merely that its endpoints have
-the same expected cohomology.
+fixed actual direct image.  We now prove that this comparison map
+is an equivalence.
 
 Use the quotient Postnikov tower $\tau_{\ge j}$ of
 $Rp_{n,*}p_n^*E_n$, with arrows from $j$ to $j+1$.  It has length
@@ -5963,7 +5990,9 @@ adic class.  Rationalization is performed only afterwards.
 \end{proof}
 
 
-\begin{proposition}[ordinary nearby comparison away from the generic boundary]
+\subsection{Completion comparison and its tensor structure}
+
+\begin{proposition}[Ordinary nearby comparison away from the generic boundary]
 \label{prop:frag-ordinary-nearby-boundary-disjoint}
 Let $X/R$ be the chosen algebraization, $Y\subset X_s$ the selected
 locally closed subscheme, and $j:U\hookrightarrow X_\eta$ the supplied
@@ -5995,8 +6024,8 @@ open neighbourhood on which $Y$ is closed.  This leaves the formal
 completion along $Y$ unchanged, and the entire generic fibre of this
 neighbourhood lies in $U$.  On this neighbourhood the coefficient
 $Rj_*\mathcal E$ restricts to $\mathcal E$ on the generic fibre.
-This explains the use of the boundary condition; the original
-$U$ has not silently been replaced by the whole generic fibre of $X$.
+This uses the boundary condition while keeping the coefficient
+on the specified generic open $U$.
 
 Use the standard comparison morphism from algebraic nearby cycles
 restricted to $Y$ to the formal nearby cycles of the completion
@@ -6027,11 +6056,10 @@ Kummer diagrams.  Applying $Rf_{Y,*}$ proves the facewise assertion.
 The proposition uses this published ordinary comparison in its
 specified domain.  Proposition~\ref{prop:frag-completion-comparison-monoidal}
 identifies this construction with a tensor-compatible specialization
-mate and supplies its algebra/module enhancement; this is not inferred
-solely from the isomorphisms on cohomology sheaves.
+mate and supplies its algebra/module enhancement.
 \end{proof}
 
-\begin{proposition}[the tensor structure of completion comparison]
+\begin{proposition}[The tensor structure of completion comparison]
 \label{prop:frag-completion-comparison-monoidal}
 The ordinary comparison of
 Proposition~\ref{prop:frag-ordinary-nearby-boundary-disjoint} is a
@@ -6078,8 +6106,7 @@ The restriction map for this product is the product of the
 restriction maps, and the map for $V=X$ is the unit map.
 For a permutation or a substitution of finite families, both
 composites are this same restriction of etale objects.  This gives
-the finite-arity symmetry, unit and substitution identities, not
-merely a binary cup-product identity.
+the finite-arity symmetry, unit and substitution identities.
 
 These constructions respect etale coverings and morphisms, so they
 extend by sheafification to inverse images on sheaves of sets.
@@ -6161,7 +6188,7 @@ in \cite[\S\S2--3, Theorem 3.1]{BerkovichFormalII}; the construction
 uses the same generic pullback and specialization topoi.
 Derived adjunction identifies their mate with $\tau$, independently
 of resolutions.  Thus the comparison theorem applies to this specified
-map, not to an isomorphism chosen from its cohomology groups.
+map.
 That theorem supplies invertibility
 on the stated constructible prime-to-residue-characteristic source;
 the preceding construction supplies its multiplicative enhancement.
@@ -6178,7 +6205,7 @@ invertible generic/closed base-change square nor an exceptional
 specialization functor is asserted.
 \end{proof}
 
-\begin{lemma}[the precise passage from ordinary to tame nearby cycles]
+\begin{lemma}[The precise passage from ordinary to tame nearby cycles]
 \label{lem:frag-wild-inertia-criterion}
 Let $P$ be wild inertia, a pro-$p$ group, and $\ell\ne p$.  On smooth
 $P$-action sheaves of $R_r$-modules, invariants are exact.  For a
@@ -6260,8 +6287,7 @@ This published theorem applies to analytic spaces without a
 compactness assumption.  Its degree-zero map is the inverse-image
 unit; the higher maps are its derived cohomology maps.  Finite
 truncation triangles therefore give the asserted equivalence for
-bounded complexes.  Thus this bridge does not depend on the later
-unpublished equivariant extension.  The tensor and mapping assertions
+bounded complexes.  The tensor and mapping assertions
 use the following argument in the selected derived enhancement.
 For dualizable $E$, $R\mathcal Hom(E,F)=E^\vee\otimes^LF$, and
 $R\operatorname{Hom}(E,F)=R\Gamma R\mathcal Hom(E,F)$ determines
@@ -6276,8 +6302,64 @@ limit computes mapping spectra as limits of the finite-precision
 mapping spectra.  Its selected full subcategory has the same maps.
 \end{proof}
 
-\section{Two source obstructions}
+\section{Examples delimiting the coefficient source}
 \label{sec:source-obstructions}
+
+\begin{proposition}[Proper-image presentations cannot lift all root morphisms]
+\label{prop:frag-B-proper-morphism-obstruction}
+Proper-image coefficients need not admit arbitrary
+root-morphism lifting to generic or analytic coefficient maps,
+even for one fixed strict proper map.  In particular the comparison
+of star outputs cannot be promoted to a fully faithful identification
+of the full realized analytic coefficient category with its root
+outputs while retaining all these presentations.
+\end{proposition}
+
+\begin{proof}
+Let $X=\mathbf A^1_R$, with only the vertical log structure, and set
+\[
+ X'=\operatorname{Spec}R\amalg\operatorname{Spec}R,
+ \qquad h=(t=0)\amalg(t=\pi):X'\longrightarrow X.
+\]
+Each component is a closed immersion.  Their disjoint union is a
+finite, strict proper log morphism; $X'$ is fs saturated log smooth
+over the log trait.  Take $Y=X_s=\mathbf A^1_k$.
+Its relative inertia rank is zero.  Both components of $Y'$ map
+to $0\in Y$.
+
+The two log-lisse perfect inputs $(R_r,0)$ and $(0,R_r)$ have root
+outputs
+\[
+ E_0=i_{0,s,*}R_r=E_\pi
+\]
+and actual generic outputs
+\[
+ F_0=i_{0,\bar\eta,*}R_r,\qquad
+ F_\pi=i_{\pi,\bar\eta,*}R_r.
+\]
+Their analytifications on the closed unit-disc tube have disjoint
+closed point supports, since $0\ne\pi$ in $\bar K$.  For disjoint
+closed immersions $i_a,i_b$, exceptional restriction satisfies
+$i_a^!i_{b,*}=0$; adjunction therefore gives
+\[
+ R\operatorname{Hom}_{T_{\acute et}}(F_0^{\mathrm{an}},
+                                      F_\pi^{\mathrm{an}})=0.
+\]
+The same vanishing holds on the algebraic generic fibre.  On the
+root side, the identity of the common nonzero coefficient gives
+\[
+ \operatorname{Hom}_{Y_{\acute et}}(E_0,E_\pi)\supseteq R_r\ne0.
+\]
+Hence that identity cannot lift to a generic or analytic morphism
+between the two prescribed realizations.  Already at degree zero
+full faithfulness and arbitrary morphism lifting are impossible.
+The same obstruction holds for the cartesian integral systems;
+it persists after their $\mathbf Q_\ell$-realization.  No individual
+$R_r$-coefficient is rationalized.
+
+Proper base change still computes the star images in this example;
+the loss occurs in passing from the coefficient to its star image.
+\end{proof}
 
 \begin{proposition}[An obstruction to the unrestricted common coefficient source]
 \label{prop:frag-constructible-source-obstruction}
@@ -6362,7 +6444,7 @@ obstruction in the relative root construction.
 
 \section*{Acknowledgments}
 
-This mathematical paper was generated 100\% by artificial intelligence.  I
+This mathematical paper was prepared with the assistance of artificial intelligence.  I
 first acknowledge the textual data produced by humanity as a whole, which
 provides the linguistic and cultural record from which mathematical expression
 can be learned.  I then thank the accumulated scholarly achievements of
@@ -6382,8 +6464,9 @@ The Stacks Project Authors,
 \bibitem{HHLNMates}
 R.~Haugseng, F.~Hebestreit, S.~Linskens and J.~Nuiten,
 \emph{Lax monoidal adjunctions, two-variable fibrations and the calculus
-of mates}, arXiv:2011.08808, Theorem 3.4.7;
-\url{https://arxiv.org/abs/2011.08808}.
+of mates}, Proc. Lond. Math. Soc. (3) \textbf{127} (2023), no.~4,
+889--957, Theorem 3.4.7;
+\url{https://doi.org/10.1112/plms.12548}.
 
 \bibitem{RozenblyumFilteredColimits}
 N.~Rozenblyum,
@@ -6441,7 +6524,8 @@ Forum Math. Sigma \textbf{10} (2022), e10,
 \bibitem{BerkovichEtale}
 V.~G. Berkovich,
 \emph{\'{E}tale cohomology for non-Archimedean analytic spaces},
-Publ. Math. IH\'{E}S \textbf{78} (1993), 5--161.
+Publ. Math. IH\'{E}S \textbf{78} (1993), 5--161;
+\url{https://doi.org/10.1007/BF02712916}.
 
 \bibitem{NakayamaNearby}
 C.~Nakayama,
@@ -6465,8 +6549,8 @@ Proc. Lond. Math. Soc. (3) \textbf{116} (2018), no.~5, 1187--1243;
 \bibitem{TalpoVistoliKN}
 M.~Talpo and A.~Vistoli,
 \emph{The Kato--Nakayama space as a transcendental root stack},
-arXiv:1611.04041 (2016);
-\url{https://arxiv.org/abs/1611.04041}.
+Int. Math. Res. Not. IMRN \textbf{2018}, no.~19, 6145--6176;
+\url{https://doi.org/10.1093/imrn/rnx079}.
 
 \bibitem{ScherotzkeSibillaTalpoMcKay}
 S.~Scherotzke, N.~Sibilla, and M.~Talpo,
@@ -6519,8 +6603,10 @@ models at the level of profinite shape.
 
 \bibitem{EsnaultKerzPencils}
 H.~Esnault and M.~Kerz,
-\emph{Semi-stable Lefschetz pencils},
-arXiv:2311.15886, Appendix~A.2.
+\emph{Semistable Lefschetz pencils},
+J. reine angew. Math. \textbf{835} (2026), 233--277,
+Appendix~A.2;
+\url{https://doi.org/10.1515/crelle-2025-0084}.
 
 \end{thebibliography}
 
