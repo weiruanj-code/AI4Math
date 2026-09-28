@@ -74,7 +74,7 @@
 \large Quadratic Residual Towers, Haar--Frobenius Comparison, and the
 Unramified Absolute-$A_1$ Theorem}
 \author{YINGFENG JIANG}
-\date{28 August 2026}
+\date{27 September 2026}
 
 \begin{document}
 \maketitle
@@ -163,19 +163,19 @@ by itself is presented here as new.  Kummer local systems have also appeared
 previously in orbital-integral geometry, notably in the Moy--Prasad quotient
 analysis of Cunningham--Hales \cite{CunninghamHalesGood}.
 
-The level isolated here is the representing-object level.
-Hales constructs virtual motivic representatives for definable orbital
-integrals, and the transfer principle controls identities after
-specialization; neither identifies the individual compact $T(\mathcal O)$
-orbits in this quadratic family with one fppf quotient over $U$.  Chen's
-fundamental domains and truncations relate affine-Springer point counts to
-ordinary or weighted orbital integrals, including explicit rank-two
-calculations, but they do not provide the componentwise quotient
-$\mathscr Q_r$ or its determinant-local-system descent.  Kottwitz's explicit
-rank-one formulas supply a numerical consistency check
-\cite{KottwitzOrbital}.  The theorem below proves the uniform represented shell
-and the cohomological Kummer orientation, not a competing recalculation of
-those classical specializations.
+The level isolated here is the representing-object level.  The numerical
+benchmarks are Kottwitz's split orbital-integral formula $q^m$ in
+\cite[\S5.8, (5.8.4)]{KottwitzOrbital} and his unramified elliptic
+fixed-vertex count $1+(q+1)(1+\cdots+q^{m-1})$ in
+\cite[\S5.9, (5.9.7)]{KottwitzOrbital}.  Our contribution lies in the
+relative orbit construction and its descent: the stabilizer computation
+over arbitrary base rings in Lemma~\ref{lem:PGL2-loop-orbit-quotient},
+the represented comparison in
+Theorem~\ref{thm:PGL2-residual-orbit-comparison}, and the quadratic
+orientation descent.  The finite discrete target's Verdier partner is
+then obtained by standard six-functor duality applied to the constructed
+structure morphism, as in
+Theorem~\ref{thm:PGL2-genuine-small-skeletonization}.
 
 The first contribution is more specific and more geometric.  For the universal
 quadratic $PGL_2$ family we represent each compact positive-loop orbit shell
@@ -500,8 +500,9 @@ $\gamma_m$, $m\ge0$, is \emph{central-neutral standard spherical} if:
    \quad(g\in G(F));
    \label{eq:central-neutral-support}
   \end{equation}
-\item $G(F)$ and $T(F)$ carry the maximal-compact volume-one normalization,
-  and the Weyl discriminant has valuation $2m$.
+\item the Haar measures satisfy $\vol_G(K)=1$ and
+  $\vol_T(T(F)_{\max,\mathrm{cpt}})=1$, and the Weyl discriminant
+  has valuation $2m$.
 \end{enumerate}
 These conditions are hypotheses, not automatic properties of an arbitrary
 unramified regular family.
@@ -704,10 +705,15 @@ $A_T^e=A_T^*\otimes^L(A_T^*)^{\mathrm{op}}$, and let
 $(-)^\vee=R\mathcal Hom_{\Qell}(-,\Qell)$ denote coefficient-linear duality,
 internal to $D_c^b(S,\Qell)$, not Verdier duality on $S$.  Write
 $D(A_T^e)$ for the homotopy category of constructible $A_T^e$-modules in
-$\mathscr D_c(S)$.  The projection-formula cup action makes $A_T^!$ a
-dualizable object of this enhanced bimodule category.  All tensor products in
-this theorem and its proof are derived, even when the
-superscript $L$ is suppressed for readability.  Exterior multiplication
+$\mathscr D_c(S)$.  The projection-formula cup action makes $A_T^!$ an
+invertible bimodule for the relative tensor product over $A_T^*$, as the
+formulas below show.  Relative tensors are computed in the ambient derived
+module category admitting the bar construction; the displayed bimodule,
+its inverse, and their relative tensor products remain constructible.
+This is Morita invertibility for $\otimes^L_{A_T^*}$, not perfectness as
+an $A_T^e$-module for $\otimes^L_{A_T^e}$.  All tensor products in this
+theorem and its proof are derived, even when the superscript $L$ is
+suppressed for readability.  Exterior multiplication
 and relative Poincar\'e duality give a canonical equivalence there
 \begin{equation}
  \boxed{
@@ -1321,7 +1327,8 @@ apartment are supplied by $T_x(F_x)/T_x(\mathcal O_{F_x})$.  In both cases
 the compact $L^+T$-orbit is a fundamental shell whose cardinality represents
 the inverse stabilizer volume of the double coset.  This order calculation is
 the equal-characteristic form of the rank-one tube/ball decomposition familiar
-from the explicit orbital formulas in~\cite[Sections~5.8--5.9]{KottwitzOrbital}.
+from the explicit formulas in~\cite[\S5.8, (5.8.4); \S5.9,
+(5.9.7)--(5.9.8)]{KottwitzOrbital}.
 \end{proof}
 
 \begin{lemma}[Full torus stabilizer and orbital support]
@@ -2040,8 +2047,9 @@ interior.  Scalar cellular duality gives
 \end{equation}
 The link complex, rather than a rank-one interior indicator, is used at a
 singular face.  Cellular sheaf--cosheaf duality and subdivision invariance are
-developed in \cite{Curry}; duality and direct image for sheaves on fans are
-also treated in \cite{BresslerLunts}.
+developed in \cite{Curry}; see \cite{CurryErratum} for a correction to the
+poset Kan-extension argument.  Duality and direct image for sheaves on fans
+are also treated in \cite{BresslerLunts}.
 
 Let $\cC$ be a coefficient category with a duality $d$.  We use
 $\Cell_\Sigma(\cC)$ for $\cC$-valued cellular diagrams and write
@@ -2275,8 +2283,13 @@ Put
 \[
  T_H=H\cap T_{\rt}(F),\qquad K_H=H\cap K_{\ad}.
 \]
-Transport the quotient measure through~\eqref{eq:A1-adjoint-quotient} and
-give $K$, $T(F)\cap K$, $K_H$, and $T_H\cap K_H$ volume one.  If the root
+Normalize $\vol_G(K)=1$ and $\vol_T(T_c)=1$, where
+$T_c=T(F)_{\max,\mathrm{cpt}}$.  On $H$ and $T_H$ use the quotient
+Haar measures along $Z(G)(F)$ with its maximal compact subgroup of
+volume one.  Then $\vol_H(K_H)=1$ and $\vol_{T_H}(T_{H,c})=1$, where
+$T_{H,c}=T_H\cap T_{\rt}(F)_{\max,\mathrm{cpt}}=p(T_c)$.
+The homeomorphism~\eqref{eq:A1-adjoint-quotient} preserves the resulting
+quotient measures.  If the root
 torus has Frobenius sign $\chi\in\{1,-1\}$, every allowed positive sphere of
 radius $r$ has total mass
 \begin{equation}
@@ -2292,31 +2305,72 @@ transverse radius is allowed.
 \end{lemma}
 
 \begin{proof}
-The two sides of~\eqref{eq:A1-adjoint-quotient} carry Haar quotient measures,
-so their ratio is constant.  The compact core has mass one on both sides by
-Weil's formula and $p(K)=K_H$, hence the ratio is one.
+Put $Z=Z(G)(F)$ and $Z_c=Z\cap K$.  The latter is the maximal compact
+subgroup of $Z$: the connected center is an unramified torus and the
+remaining finite central subgroup is integral in odd residue characteristic.
+Normalize its Haar measure by $\vol_Z(Z_c)=1$.  The tori $T$ and
+$Z(G)^\circ$ are unramified.  Indeed the central-isogeny description and
+the unramified root torus give unramified character lattices up to finite
+index.  For an unramified torus the valuation map has kernel its maximal
+compact subgroup and image the Frobenius-fixed cocharacter lattice;
+$\lambda(\varpi)$ realizes each such valuation.
 
-In the elliptic case $T_H$ is compact.  Orbit--stabilizer gives
+We verify $p(T_c)=T_{H,c}$.  If $p(t)$ is compact, the valuation of $t$
+maps to zero in the root cocharacter lattice.  It is therefore a
+Frobenius-fixed cocharacter $\lambda$ of $Z(G)^\circ$.  Multiplication
+by $\lambda(\varpi)^{-1}$ changes $t$ to an element of $T_c$ without
+changing its adjoint image.  The reverse inclusion follows from
+compactness.  Both $K\to K_H$ and $T_c\to T_{H,c}$ are thus surjective
+with kernel $Z_c$, the former by Lemma~\ref{lem:A1-central-lifting}.
+Weil's formula gives volume one to both image subgroups.  Transitivity
+of quotient integration along $Z\subset T(F)\subset G(F)$ identifies
+the two quotient measures in~\eqref{eq:A1-adjoint-quotient}.
+In particular this argument makes no use of a radius-zero shell.
+For any $g\in G(F)$, the map
+$T(F)\cap gKg^{-1}\to T_H\cap p(g)K_Hp(g)^{-1}$ is surjective with
+kernel $Z_c$: an integral lift of its conjugate lies in $T(F)$ because
+its adjoint image lies in $T_{\rt}$.  Its two stabilizer volumes agree.
+
+In the elliptic case $T_H=T_{H,c}$ is compact of volume one.  If
+$\Sigma_r$ is an allowed sphere about the fixed vertex, each orbit has
+mass equal to its cardinality, since its stabilizer is an open subgroup
+of this volume-one torus.  Thus
 \[
  \sum_{\mathcal O\subset\Sigma_r}
  \vol(T_H\cap g_{\mathcal O}K_Hg_{\mathcal O}^{-1})^{-1}
- =|\Sigma_r|=(q+1)q^{r-1}.
+ =|\Sigma_r|=(q+1)q^{r-1}\qquad(r\geq1).
 \]
-The sum is essential: for example, the first $SL_2$ elliptic sphere splits
-into two norm-one-torus orbits even though their total mass remains $q+1$.
-In the split case choose a fundamental domain for the translation lattice
-along the apartment.  Its transverse radius-$r$ section has
-$(q-1)q^{r-1}$ vertices.  If $\tau(H)=\mathbf Z/2$, choose
-$h=[g]\in H$ with $\ord_F(\det g)$ odd and put $a=\det g$.  The kernel of
-the determinant square-class map
-$PGL_2(F)\to F^\times/(F^\times)^2$ is $PSL_2(F)$; hence $h$ differs from
-$[\operatorname{diag}(a,1)]$ by an element of $PSL_2(F)\subset H$.  The
-latter diagonal element therefore lies in $H$ and translates the chosen
-apartment by odd length.  If $\tau(H)=0$, only the longitudinal period
-changes.  In either case orbit--stabilizer over a longitudinal fundamental
-domain leaves the transverse orbit-summed mass unchanged.
-The allowed parities are those of
-Lemma~\ref{lem:A1-building-classification}, proving the result.
+When its color is allowed, the fixed vertex has stabilizer $T_H$ and
+mass one; in the odd phase it is absent.  For example, take $SL_2$,
+$q=5$, and an elliptic fixed vertex adjacent to the vertex of $K$.
+In this odd phase the first sphere has two three-point torus orbits.  Their stabilizers have volume $1/3$, so their masses sum to
+$3+3=6$, although $T(F)\cap K$ itself has volume $1/3$.
+
+In the split case choose coordinates identifying the root torus with the
+diagonal torus, and index its apartment vertices by $n\in\mathbf Z$.
+This change of coordinates preserves $H$: it contains $PSL_2(F)$ and
+is the inverse image of a subgroup of the abelian determinant-square-class
+quotient, hence is normal in $PGL_2(F)$.
+The translation image of $T_H$ contains $2\mathbf Z$, since
+$H$ contains $PSL_2(F)$.  If $H$ has an element $[g]$ of odd determinant
+valuation, put $a=\det g$.  The elements $[g]$ and
+$[\operatorname{diag}(a,1)]$ have the same determinant square class;
+their quotient belongs to $PSL_2(F)$.  Hence the latter diagonal element
+belongs to $H$.  The translation lattice is consequently $\mathbf Z$
+in the saturated case and $2\mathbf Z$ in the type-preserving case.
+The kernel of translation is $T_{H,c}$ and fixes the apartment pointwise.
+
+A vertex at transverse distance $r$ with projection $n$ has color
+$n+r$ modulo two, with the origin chosen to have the hyperspecial color.
+For a translation period of length one there is one projection vertex;
+for a period of length two, exactly one of $n=0,1$ has the allowed color
+at each fixed $r$.  Thus in either case a fundamental section of the
+allowed vertices has one core vertex at $r=0$ and
+$(q-1)q^{r-1}$ vertices at $r\geq1$.  Within this section the remaining
+orbits are those of $T_{H,c}$.  A vertex stabilizer has zero translation,
+so it lies in $T_{H,c}$; its inverse volume equals its orbit cardinality.
+Summing gives the asserted transverse mass and core mass one.  Finally,
+Lemma~\ref{lem:A1-building-classification} gives the elliptic parities.
 \end{proof}
 
 Combining Lemma~\ref{lem:A1-shell-transfer} with
@@ -2335,7 +2389,8 @@ the root orientation.
 
 \begin{proposition}[Type-preserving shell coefficients]
 \label{prop:SL2-parity-coefficients}
-At a split point,
+With $\vol_G(K)=\vol_T(T(F)_{\max,\mathrm{cpt}})=1$ in both embedding
+phases, at a split point,
 \begin{equation}
  I_{+,m}=\Lell^m,\qquad W_+(z)=\frac1{1-z}.
  \label{eq:SL2-split-series}
@@ -2543,17 +2598,32 @@ a constant Tate twist, as in Proposition~\ref{prop:strict-non-Tate-Kummer}.
 
 \subsection{Comparison and scope of claim}
 
-The split and unramified-elliptic numerical formulas are classical and agree
-with the rank-one calculations of Kottwitz \cite{KottwitzOrbital}; affine
-Springer geometry in the unramified setting goes much further
-\cite{GKM}.  Hales proves that broad classes of orbital integrals have
-virtual motivic representatives, and transfer principles compare their
-specializations \cite{HalesMotivic,CluckersHalesLoeser}.  Chen's fundamental
-domains and truncations relate affine-Springer point counts to ordinary and
-weighted orbital integrals
-\cite{ChenFundamentalDomain,ChenWeighted,ChenLocalBehavior}.
-Kummer local systems already occur in the orbital-integral setting of
-Cunningham--Hales \cite{CunninghamHalesGood}.
+The numerical input and the relative construction have different roles.
+Kottwitz's split orbital-integral formula
+\cite[\S5.8, (5.8.4)]{KottwitzOrbital} gives $q^m$, while his
+unramified elliptic fixed-vertex count \cite[\S5.9, (5.9.7)]{KottwitzOrbital} gives
+$1+(q+1)(1+\cdots+q^{m-1})$.  Under our normalization
+$\vol_G(K)=\vol_T(T(F)_{\max,\mathrm{cpt}})=1$, the elliptic quotient
+weights are torus-orbit cardinalities; in the split case they are the
+compact-unit orbit cardinalities in a translation fundamental section.
+Lemma~\ref{lem:A1-shell-transfer} proves these measure identifications,
+so the quoted sphere and tube counts give precisely these local
+coefficients.  The parity restriction for $SL_2$ is applied afterwards,
+with the same torus normalization in both phases.
+
+The relative assertions are the arbitrary-ring stabilizer and fppf
+quotient calculation in Lemma~\ref{lem:PGL2-loop-orbit-quotient},
+representability in Theorem~\ref{thm:PGL2-residual-orbit-comparison},
+and descent of the determinant line in the residual tower.  Work on
+affine-Springer geometry and fundamental domains provides related
+background \cite{GKM,ChenFundamentalDomain,ChenWeighted,ChenLocalBehavior};
+we make no theorem-by-theorem priority comparison with those works here.
+Motivic interpolation and transfer are established by
+\cite{HalesMotivic,CluckersHalesLoeser}, and Kummer local systems occur
+in \cite{CunninghamHalesGood}.  The Verdier partner on our finite
+discrete target follows from standard six-functor duality for the
+constructed structure morphism.  Its role is to record the dual of this
+specific relative geometry.
 
 The theorem proved here is narrower.  It is the componentwise identification
 of the compact positive-loop orbit sheaf in the universal quadratic $PGL_2$
@@ -2650,7 +2720,7 @@ function.
 
 \section*{Acknowledgments}
 
-This mathematical paper was generated 100\% by artificial intelligence.  I
+Artificial-intelligence tools assisted in the preparation of this mathematical paper.  I
 first acknowledge the textual data produced by humanity as a whole, which
 provides the linguistic and cultural record from which mathematical expression
 can be learned.  I then thank the accumulated scholarly achievements of
@@ -2670,7 +2740,8 @@ Compos. Math. \textbf{135} (2003), 245--278;
 \bibitem{ChenFundamentalDomain}
 Z.~Chen,
 \emph{On the fundamental domain of affine Springer fibers},
-Math. Z. \textbf{286} (2017), 1255--1306;
+Math. Z. \textbf{286} (2017), no.~3--4, 1323--1356;
+doi:10.1007/s00209-016-1803-x;
 \url{https://arxiv.org/abs/1303.4630}.
 
 \bibitem{ChenWeighted}
@@ -2709,8 +2780,15 @@ Represent. Theory \textbf{8} (2004), 414--457;
 \bibitem{Curry}
 J.~Curry,
 \emph{Dualities between cellular sheaves and cosheaves},
-J. Pure Appl. Algebra \textbf{222} (2018), 966--993;
+J. Pure Appl. Algebra \textbf{222} (2018), 966--993,
+doi:10.1016/j.jpaa.2017.06.001;
 \url{https://arxiv.org/abs/1607.06942}.
+
+\bibitem{CurryErratum}
+J.~Curry,
+\emph{Functors on posets left Kan extend to cosheaves: an erratum},
+arXiv:1907.09416v1 (2019);
+\url{https://arxiv.org/abs/1907.09416v1}.
 
 \bibitem{GKM}
 M.~Goresky, R.~Kottwitz, and R.~MacPherson,
@@ -2728,7 +2806,8 @@ Proc. Amer. Math. Soc. \textbf{133} (2005), 1515--1525;
 R.~E. Kottwitz,
 \emph{Harmonic analysis on reductive $p$-adic groups and Lie algebras},
 in \emph{Harmonic Analysis, the Trace Formula, and Shimura Varieties},
-Clay Math. Proc. \textbf{4}, Amer. Math. Soc., 2005, 393--522.
+Clay Math. Proc. \textbf{4}, Amer. Math. Soc., 2005, 393--522;
+\url{https://www.claymath.org/library/proceedings/cmip04.pdf}.
 
 \bibitem{LaszloOlsson}
 Y.~Laszlo and M.~Olsson,
@@ -2752,7 +2831,9 @@ Cambridge University Press, 2017;
 \bibitem{PappasRapoport}
 G.~Pappas and M.~Rapoport,
 \emph{Twisted loop groups and their affine flag varieties},
-Adv. Math. \textbf{219} (2008), 118--198;
+with an appendix by T.~Haines and M.~Rapoport,
+Adv. Math. \textbf{219} (2008), no.~1, 118--198;
+doi:10.1016/j.aim.2008.04.006;
 \url{https://arxiv.org/abs/math/0607130}.
 
 \bibitem{Stanley}
@@ -2764,7 +2845,9 @@ Adv. Math. \textbf{14} (1974), 194--253.
 X.~Zhu,
 \emph{An introduction to affine Grassmannians and the geometric Satake
 equivalence},
-lecture notes, arXiv:1603.05593;
+in \emph{Geometry of Moduli Spaces and Representation Theory},
+IAS/Park City Math. Ser., vol.~24, Amer. Math. Soc., 2017, 59--154;
+doi:10.1090/pcms/024/02;
 \url{https://arxiv.org/abs/1603.05593}.
 
 \end{thebibliography}
