@@ -1,0 +1,738 @@
+\documentclass[11pt]{article}
+\usepackage[a4paper,margin=29mm]{geometry}
+\usepackage{amsmath,amssymb,amsthm,mathtools}
+\usepackage{microtype}
+\usepackage[hidelinks]{hyperref}
+\setlength{\emergencystretch}{2em}
+
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{corollary}[theorem]{Corollary}
+\theoremstyle{definition}
+\newtheorem{definition}[theorem]{Definition}
+\newtheorem{example}[theorem]{Example}
+\theoremstyle{remark}
+\newtheorem{remark}[theorem]{Remark}
+\newcommand{\R}{\mathbb R}
+\newcommand{\Q}{\mathbb Q}
+\newcommand{\Z}{\mathbb Z}
+\newcommand{\one}{\mathbf 1}
+\newcommand{\Ch}{\mathcal C}
+\newcommand{\NR}{N_{\R}}
+\newcommand{\MR}{M_{\R}}
+\newcommand{\pos}{\operatorname{pos}}
+\newcommand{\Span}{\operatorname{span}_{\R}}
+\newcommand{\aff}{\operatorname{aff}}
+\newcommand{\lin}{\operatorname{lin}}
+\newcommand{\supp}{\operatorname{supp}}
+\newcommand{\ind}{\mathbf 1}
+
+\title{Weighted tropical Chow reconstruction for space curves}
+\author{YINGFENG JIANG}
+\date{October 2, 2026}
+
+\begin{document}
+\maketitle
+
+\begin{abstract}
+We prove that the weighted tropical Chow transform determines a tropical
+curve in $\R^4/\R\one$, without requiring its support to be a fan.
+More generally, the transform is injective on finite rational polyhedral
+one-chains with signed rational weights, whether or not they are balanced.
+The proof separates contributions according to their affine
+three-dimensional spans. For edges outside the coordinate directions,
+small parameters in a suitable incidence cone localize every competing
+source point. For coordinate directions, the remaining contributions
+split into a term independent of a thickness parameter and a thin band.
+The thin band tends to zero locally in $L^1$, while its normalized measure
+converges to the source length measure. This eliminates the remaining
+kernel without any general-position or realizability assumption.
+\end{abstract}
+
+\section{Introduction}
+
+The tropical Chow construction associates to a tropical variety a weighted
+incidence cycle in a tropical Grassmannian. For a curve
+$\Sigma\subset\R^4/\R\one$, this cycle parametrizes tropical lines meeting
+$\Sigma$, with multiplicities determined by a weighted Minkowski sum.
+In the public arXiv version~2 of his paper, Tripoli formulated the
+injectivity problem and proved the space-curve case when the support is
+a fan \cite[Conjecture~3.4 and Theorem~3.9]{Tripoli}.
+All numbered references to that paper below use this same public version.
+
+Our purpose is to remove the fan hypothesis for curves with finitely many
+polyhedral cells. All equalities below retain weights and are taken after
+common subdivision. In particular, positions in the ambient space are
+part of the data.
+
+\begin{theorem}\label{thm:curves}
+Let $\Sigma$ and $\Sigma'$ be finite rational polyhedral tropical curves
+in $\R^4/\R\one$, with positive integral weights. Then
+\[
+ Z_\Sigma=Z_{\Sigma'}\quad\Longrightarrow\quad\Sigma=\Sigma'.
+\]
+The curves may have bounded edges, distinct vertices, and more than one
+connected component.
+\end{theorem}
+
+Finiteness means a finite polyhedral structure, not compact support.
+Thus rays and complete affine lines are allowed. Rational polyhedra are
+taken with respect to the indicated quotient lattices. We work in the
+finite-coordinate tropical tori, without additional strata at infinity.
+
+The proof uses a linear extension of the Chow transform to signed
+polyhedral chains. Such chains are unoriented weighted polyhedra modulo
+subdivision; balancing is not imposed. Write $\Ch_d(V)$ for their
+$\Q$-vector space in a real vector space $V$ with a fixed lattice.
+Section~\ref{sec:transform} defines a map
+\[
+ T:\Ch_1(\NR)\longrightarrow\Ch_3(\MR),\qquad
+ N=\Z^4/\Z\one,\quad M=\Z^6/\Z\one.
+\]
+
+\begin{theorem}\label{thm:chains}
+The map $T$ is injective.
+\end{theorem}
+
+This stronger statement is useful because separating contributions in the
+target does not preserve balancing. We therefore carry out that separation
+in the vector space of chains, and recover Theorem~\ref{thm:curves} by
+restricting to balanced inputs.
+
+In the proof of Lemma~3.8, Tripoli already extends the transform to
+rationally weighted, possibly unbalanced fans supported on the eight rays
+$\R_{\ge0}e_i$ and $\R_{\ge0}(-e_i)$, $i=0,\ldots,3$, all based at the
+origin, and proves its injectivity \cite{Tripoli}. Our extension allows
+arbitrary finite affine one-chains; thin-band recovery handles coordinate
+edges in arbitrary positions.
+
+Although every tropical cycle in a vector space can be expressed as a
+sum of translated fan cycles \cite[Theorem~5.4]{AllermannHampeRau}, this does
+not by itself reduce the question to injectivity on fans. Images of distinct
+translated summands may cancel. Our argument controls precisely these
+overlaps; it does not require choosing a decomposition into fan cycles.
+
+There are two parts to the proof. First, different affine
+three-dimensional spans in the target can meet only in lower dimension.
+Within a suitable span, the contributions of an edge not parallel to a
+coordinate direction come from just one incidence cone. A short-parameter
+argument then rules out cancellation by distant source points.
+Second, for coordinate directions, several cones do contribute to the
+same span. Their weight function has the form
+\[
+ K_t=H+C_t,
+\]
+where $H$ contains all side-cone contributions and does not depend on $t$.
+The central contribution $C_t$ is a thin band swept out by translating
+the source through a segment of length $t$. A boundary limit first removes
+$H$ and then recovers the source measure.
+
+Weights are essential: the injectivity statement for incidence supports
+alone already fails for fan curves
+\cite[Example~3.5]{Tripoli}. The result concerns the full weighted Chow
+cycle, rather than a Chow polytope or its normal complex; see
+\cite{Fink} for the latter construction. Our argument establishes
+uniqueness. It does not assert an algorithm, or a complexity bound, for
+reconstructing an arbitrary input from its output.
+
+\section{The chain transform and the incidence fan}\label{sec:transform}
+
+\subsection{Polyhedral chains and weights}
+
+For a rational affine polyhedron $P$ in a lattice vector space $V$ with
+lattice $L$, put
+\[
+ \lin(P)=\Span(P-P),\qquad L_P=L\cap\lin(P).
+\]
+In particular, the lattice of an affine cell is its direction lattice,
+not the group generated by its affine integral points.
+
+\begin{definition}
+The vector space $\Ch_d(V)$ consists of finite rational linear
+combinations of symbols $[P]$ for rational $d$-dimensional polyhedra,
+modulo subdivision: if $P$ is subdivided into $d$-dimensional cells $P_i$,
+then $[P]=\sum_i[P_i]$. Cells of dimension less than $d$ are discarded.
+Equivalently, an element is a finite polyhedral complex with signed
+rational weights on its $d$-cells, modulo common subdivision and removal
+of zero-weight cells. No orientation or balancing condition is included.
+\end{definition}
+
+For a chosen representative of a one-chain $D$, write $D^{(1)}$ for its
+one-dimensional cells. Such a chain is balanced if, at every vertex $x$,
+\[
+ \sum_{e\ni x}w_e u_{e,x}=0,
+\]
+where $u_{e,x}$ is the primitive direction of $e$ pointing away from $x$.
+One may subdivide complete lines to state this condition. A tropical
+curve in this paper is an effective balanced one-chain with integral
+weights; its vertices carry no additional zero-dimensional weights.
+The support is the closure of the nonzero-weight one-cell interiors.
+At a point in the relative interior of a one-cell, a sufficiently small
+neighborhood of this support consists of that cell alone.
+
+Let $e_i$ denote the images of the standard basis of $\Z^4$ in $N$.
+Use the order $01,02,03,12,13,23$ for the coordinates of $M$, and write
+$E_{ij}$ for its standard generators. Pair subscripts are unordered,
+so $E_{ij}=E_{ji}$ and the same convention applies to pair coordinates.
+Define
+\[
+ \varphi:N\longrightarrow M,\qquad
+ [u_0,u_1,u_2,u_3]\longmapsto[u_i+u_j]_{i<j},
+ \qquad f_i=\varphi(e_i).
+\]
+The map is well defined. It is injective and has saturated image: for
+distinct $i,j$ and a third index $k$,
+\[
+ u_i-u_j=\varphi(u)_{ik}-\varphi(u)_{jk}.
+\]
+Consequently, if $\varphi(u)$ represents an integral point of $M$, all
+differences $u_i-u_j$ are integral, so $u$ represents a point of $N$.
+
+Let $\Gamma_0$ be the tropical incidence fan of lines through the origin,
+with its usual multiplicities. We use the minimum convention for
+tropicalization; in this convention the standard tropical line has rays
+in directions $e_0,e_1,e_2,e_3$. The constant-coefficient incidence space
+may be taken over $\mathbb C$, and rational valuations realized over
+the Puiseux series field. Its explicit incidence cones are given below.
+For a one-cell $e$ and a two-cone $\tau$ of $\Gamma_0$, set
+\[
+ P_{e,\tau}=\varphi(e)+\tau.
+\]
+If this polyhedron has dimension three, define
+\begin{equation}\label{eq:index}
+ m(e,\tau)=
+ \bigl[M\cap\lin(P_{e,\tau}):\varphi(N_e)+M_\tau\bigr].
+\end{equation}
+This is a positive finite integer. For a chain $D=\sum_e w_e[e]$, define
+\begin{equation}\label{eq:transform}
+ T(D)=\sum_{\substack{e\in D^{(1)},\ \tau\in\Gamma_0^{(2)}\\
+                         \dim P_{e,\tau}=3}}
+ w_e w_\tau m(e,\tau)[P_{e,\tau}],
+ \qquad w_\tau=1.
+\end{equation}
+Overlaps in this sum are added after common subdivision.
+
+\begin{lemma}\label{lem:well-defined}
+Formula~\eqref{eq:transform} defines a linear map on $\Ch_1(\NR)$
+and is unchanged by subdivision of the incidence fan. For a balanced
+input it agrees with the weighted Minkowski transform
+$Z_D=\varphi(D)+\Gamma_0$.
+\end{lemma}
+
+\begin{proof}
+On a product $e\times\tau$ with three-dimensional image, the addition
+map $(x,g)\mapsto\varphi(x)+g$ is injective on the direction space:
+both domain and image have dimension three. A subdivision of the product
+therefore subdivides its image, with the same direction lattices and the
+same index~\eqref{eq:index}. Images of subdivision boundaries have
+dimension at most two. If the original image has smaller dimension,
+every subdivided image does too, and all are discarded. This proves
+well-definedness and subdivision invariance; linearity follows from the
+weight formula. On balanced chains the formula is the standard
+full-rank weighted Minkowski sum, as in
+\cite[Section~2, equation~(5) and Definition~2.7]{Tripoli}.
+\end{proof}
+
+\begin{remark}
+For a nonbalanced chain we use the explicit linear map
+\eqref{eq:transform}, not a claim that the input is a tropical cycle.
+There is no additional division by a covering degree in this definition.
+\end{remark}
+
+\subsection{The fifteen cones}
+
+For a partition $\{a,b\}\sqcup\{c,d\}=\{0,1,2,3\}$, write
+\[
+ h_{ab}=e_a+e_b,
+ \qquad H_{ab}=\Span(e_a,e_b).
+\]
+An identity used throughout is
+\begin{equation}\label{eq:identity}
+ \varphi(h_{ab})=f_a+f_b=E_{ab}-E_{cd}.
+\end{equation}
+
+\begin{lemma}\label{lem:fan}
+The fan $\Gamma_0$ admits a structure with the following fifteen maximal
+cones, each of dimension two and weight one:
+\begin{align}
+ \sigma_{ab|cd}&=\pos(E_{ab},E_{cd})
+       &&\text{for the three unordered partitions }ab|cd,
+       \label{eq:central}\\
+ \tau_{ij;k}&=\pos(E_{ij},-f_k)
+       &&\text{for }k\notin\{i,j\}.
+       \label{eq:side}
+\end{align}
+In each case the displayed generators form a basis of the saturated
+direction lattice of the cone.
+\end{lemma}
+
+\begin{proof}
+The incidence linear space has Pl\"ucker coordinates
+$p_{ij}=z_j-z_i$: a line through $[1:1:1:1]$ is spanned by that point
+and $[z_0:z_1:z_2:z_3]$. Set $w_{ij}=\operatorname{val}(z_j-z_i)$
+and normalize $\min_{i<j}w_{ij}=0$. For any three labels, the minimum
+of their three pair valuations is attained at least twice. Thus for
+each $r\ge0$, the relation $i\sim_r j$ defined by $w_{ij}>r$, with
+$i\sim_r i$, is an equivalence relation. Its nontrivial classes form
+nested proper clusters as $r$ increases.
+
+On four labels there are at most two nontrivial proper clusters in
+a maximal such hierarchy. They are either two disjoint two-element
+clusters, or a three-element cluster with a two-element subcluster.
+Indeed, two proper clusters which intersect are nested, a proper cluster
+has at most three labels, and a three-element cluster contains at most
+one two-element cluster in a nested hierarchy. The first pattern
+gives~\eqref{eq:central}.
+For the second, the valuation vector of the three-element cluster
+complementary to $k$ is
+\[
+ \sum_{i<j,\ i,j\ne k}E_{ij}=-f_k,
+\]
+and its subcluster contributes $E_{ij}$, giving~\eqref{eq:side}.
+Hierarchies with fewer clusters give faces. Conversely, the interiors
+of the two representative cones are realized, for rational
+$\alpha,\beta,r,s>0$, by
+\[
+ (z_0,z_1,z_2,z_3)=(0,t^\alpha,1,1+t^\beta),\qquad
+ (z_0,z_1,z_2,z_3)=(0,t^{r+s},1,t^s),
+\]
+respectively. These valuation vectors are
+$\alpha E_{01}+\beta E_{23}$ and $rE_{01}-sf_2$ in $\MR$.
+Permuting the labels and taking closures gives all fifteen cones.
+
+For completeness, their multiplicities can be read from two initial
+ideals. The incidence ideal is generated by the three independent
+linear relations
+\[
+ p_{12}-p_{02}+p_{01},\qquad
+ p_{13}-p_{03}+p_{01},\qquad
+ p_{23}-p_{03}+p_{02}.
+\]
+At an interior point of $\sigma_{01|23}$ its initial ideal is
+\[
+ (p_{12}-p_{02},\ p_{13}-p_{03},\ p_{02}-p_{03}),
+\]
+and at an interior point of $\tau_{01;2}$ it is
+\[
+ (p_{12}-p_{02},\ p_{13}-p_{03},\ p_{23}+p_{02}).
+\]
+The displayed initial forms lie in the respective initial ideals.
+In each case they generate an ideal of three independent linear forms,
+with the same ordinary graded Hilbert series as the incidence ideal.
+Preservation of that Hilbert series under taking weight initial ideals
+shows that these are the entire initial ideals. Both define reduced
+irreducible linear spaces with nonempty coordinate-torus intersections,
+so their torus degenerations have multiplicity one. Permutations of
+labels give the same conclusion for every maximal cone.
+The fan description, including these weights, is also recorded in
+\cite[Section~3.1, Figure~3]{Tripoli}.
+
+For the lattice assertion it suffices, by permutations of the four
+labels, to check $(E_{01},E_{23})$ and $(E_{01},-f_2)$.
+Identify $M$ with $\Z^5$ by subtracting the $23$ coordinate and then
+deleting it. The first pair has a $2\times2$ minor of absolute value
+one in rows $01,02$, and the second in rows $01,03$.
+Thus each pair generates its saturated rank-two lattice.
+\end{proof}
+
+To keep track of the three partitions, consider the quotient map
+\begin{equation}\label{eq:quotient}
+ \pi:\MR\longrightarrow\R^2,\qquad
+ p\longmapsto
+ (p_{01}+p_{23}-p_{02}-p_{13},\,
+  p_{01}+p_{23}-p_{03}-p_{12}).
+\end{equation}
+Its kernel is $\varphi(\NR)$: the inclusion follows from the formula
+for $\varphi$, and both spaces have dimension three. The images of
+$E_{01},E_{02},E_{03}$ are respectively
+$(1,1),(-1,0),(0,-1)$, while complementary pairs have equal images.
+In particular the three partition directions are pairwise noncollinear.
+
+The partition criterion in the following lemma is equivalent to
+\cite[Lemma~3.7]{Tripoli}. Its choice of central cone and separation of
+linear spans follow the proof of \cite[Theorem~3.9]{Tripoli}; we give a
+self-contained argument in our notation. The passage to arbitrary affine
+sources will additionally require grouping by exact affine span
+(Lemma~\ref{lem:separation}) and localizing competing source points through
+the equality $\alpha'+\beta'=\alpha+\beta$
+(Proposition~\ref{prop:ordinary}, equation~\eqref{eq:localization}).
+
+\begin{lemma}\label{lem:ordinary-linear}
+Let $v\in\NR$ be nonzero and not parallel to any $e_i$. There is a
+partition $ab|cd$ such that $v\notin H_{ab}\cup H_{cd}$. For this
+partition the space
+\[
+ U=\Span(\varphi(v),E_{ab},E_{cd})
+\]
+has dimension three, contains none of the $f_i$, and contains exactly
+one maximal cone of $\Gamma_0$, namely $\sigma_{ab|cd}$.
+Moreover,
+\begin{equation}\label{eq:intersection}
+ U\cap\varphi(\NR)=\varphi(\Span(v,h_{ab})).
+\end{equation}
+\end{lemma}
+
+\begin{proof}
+Membership in $H_{ab}$ means that the complementary two coordinates
+of a representative of $v$ are equal. Since $v$ is not a coordinate
+direction, no three of its four coordinates are equal. We can therefore
+partition the four indices into two pairs within each of which the
+coordinates differ. This gives the required partition.
+
+The vectors $v,h_{ab}$ are independent, since $h_{ab}$ belongs to both
+$H_{ab}$ and $H_{cd}$. Equations~\eqref{eq:identity}
+and~\eqref{eq:quotient} give the dimension statement
+and~\eqref{eq:intersection}. If $f_i\in U$, then
+$e_i\in\Span(v,h_{ab})$. As $e_i$ is independent of $h_{ab}$, this
+would imply $v\in H_{ab}$ for $i\in\{a,b\}$, or $v\in H_{cd}$
+otherwise. Hence no side cone is contained in $U$. The quotient
+directions in~\eqref{eq:quotient} exclude the other central cones.
+\end{proof}
+
+\begin{lemma}\label{lem:coordinate-linear}
+For a pair $a,b$ with complementary pair $c,d$, put
+\[
+ U_{ab}=\Span(f_a,f_b,E_{cd}).
+\]
+Then $U_{ab}\cap\varphi(\NR)=\varphi(H_{ab})$, and
+$f_i\in U_{ab}$ if and only if $i\in\{a,b\}$. The maximal cones
+of $\Gamma_0$ contained in $U_{ab}$ are exactly
+\begin{equation}\label{eq:three-cones}
+ \sigma_{ab|cd},\quad
+ \pos(E_{cd},-f_a),\quad\pos(E_{cd},-f_b).
+\end{equation}
+The vectors $f_a,f_b,E_{cd}$ form a basis of $M\cap U_{ab}$.
+Each full-rank pairing of a source direction $e_a$ or $e_b$ with a
+cone in~\eqref{eq:three-cones} has index one
+in~\eqref{eq:index}.
+\end{lemma}
+
+\begin{proof}
+The intersection statement follows by applying $\pi$, and the assertion
+about the $f_i$ follows since any three of the $e_i$ form a basis of
+$N$. The quotient directions restrict possible cones to the partition
+$ab|cd$. Among its side cones, exactly those displayed have their
+coordinate generator in $U_{ab}$.
+
+By symmetry take $ab=01$, $cd=23$. In the quotient coordinates used in
+Lemma~\ref{lem:fan}, the columns $f_0,f_1,E_{23}$ have the minor
+\[
+ \det\begin{pmatrix}
+ 1&1&-1\\1&0&-1\\0&1&-1
+ \end{pmatrix}=1
+\]
+in rows $01,02,12$. Thus they form a basis of the saturated lattice.
+In the basis $f_a,f_b,E_{cd}$, identity~\eqref{eq:identity} reads
+$E_{ab}=(1,1,1)$. Each of the four noncollapsed source--cone pairings
+in~\eqref{eq:three-cones} consequently has determinant $\pm1$.
+Lemma~\ref{lem:fan} identifies the cone lattices with those generated by
+the displayed rays, so these determinants are exactly the required
+indices. The other two pairings collapse to dimension two.
+\end{proof}
+
+\section{Separating contributions and noncoordinate edges}
+
+\begin{lemma}[Affine-span separation]\label{lem:separation}
+Let $B=\sum_{j=1}^r c_j[P_j]\in\Ch_d(V)$, and fix an affine
+$d$-plane $P$. The function
+\[
+ b_P=\sum_{j:\,\aff(P_j)=P}c_j\ind_{P_j}
+\]
+is determined almost everywhere by the chain $B$, independently of
+its representation. Moreover, $B=0$ if and only if $b_P=0$ almost
+everywhere for every affine span occurring in a representation.
+Here measure on $P$ is Lebesgue measure on its direction space.
+\end{lemma}
+
+\begin{proof}
+Every distinct affine $d$-plane $\aff(P_j)$ meets $P$ in dimension at
+most $d-1$, if it meets it at all. Remove these finitely many intersections
+and the boundaries of the polyhedra with affine span $P$. On what
+remains, the displayed sum is exactly the coefficient of $B$ after
+common subdivision. All removed sets have measure zero. Thus a zero
+chain gives a zero function, and subtracting two representations proves
+independence of the representation. Conversely, each full-dimensional
+cell of a common subdivision has one of the finitely many affine spans.
+Its coefficient is the almost-everywhere value of the corresponding
+function. If all these functions vanish, all cell coefficients vanish.
+\end{proof}
+
+\begin{proposition}\label{prop:ordinary}
+If $T(D)=0$, every nonzero edge of $D$ is parallel to some $e_i$.
+\end{proposition}
+
+\begin{proof}
+Suppose that $e$ has nonzero weight $w_e$ and primitive direction $v$
+not parallel to any $e_i$. Choose the partition and the space $U$ from
+Lemma~\ref{lem:ordinary-linear}, and write $h=h_{ab}$.
+Take an interior point $x_0$ of $e$ and a small neighborhood in which
+$D$ is just a constant-weight open segment of $e$. This is possible
+after common subdivision, since the chain has only finitely many cells.
+Let $x$ vary over a smaller open segment about $x_0$, and set
+\[
+ z=\varphi(x)+\alpha E_{ab}+\beta E_{cd},
+ \qquad \alpha,\beta>0,\quad \alpha+\beta<\varepsilon.
+\]
+For $\varepsilon>0$ small enough, these points form a nonempty open
+subset of the affine three-plane $P=\varphi(x_0)+U$.
+
+Any summand of~\eqref{eq:transform} with affine span $P$ must use a
+cone contained in $U$. By Lemma~\ref{lem:ordinary-linear} this cone
+is $\sigma_{ab|cd}$. Consider a competing representation
+\[
+ z=\varphi(y)+\alpha'E_{ab}+\beta'E_{cd},
+ \qquad \alpha',\beta'\ge0,
+\]
+with $y$ on the support of $D$. Applying $\pi$ and using
+\eqref{eq:identity} gives
+\begin{equation}\label{eq:localization}
+ \alpha'+\beta'=\alpha+\beta,\qquad
+ y-x=(\alpha-\alpha')h,\qquad
+ |\alpha-\alpha'|\le\alpha+\beta.
+\end{equation}
+By reducing $\varepsilon$ uniformly on the smaller segment, we force
+$y$ into the neighborhood where the source consists only of $e$.
+Since $v$ and $h$ are independent, the second identity then implies
+$y=x$, $\alpha'=\alpha$, and $\beta'=\beta$.
+
+Thus the sum of contributions with affine span $P$ has, on this open
+set, the single coefficient $w_e m(e,\sigma_{ab|cd})\ne0$.
+All other affine spans can be ignored by
+Lemma~\ref{lem:separation}. This contradicts $T(D)=0$.
+\end{proof}
+
+\section{Thin bands and coordinate edges}
+
+\subsection{A measure lemma}
+
+Consider a finite signed rational one-chain $B$ in $\R^2$ whose edges
+are horizontal or vertical. Its lattice-length measure is the locally
+finite signed Radon measure, understood locally,
+\begin{equation}\label{eq:source-measure}
+ \mu_B=
+ \sum_{(I,\eta)}w_{I,\eta}\,\ind_I(X)\,dX\,\delta_\eta(dY)
+ +\sum_{(\xi,J)}w_{\xi,J}\,\delta_\xi(dX)\,\ind_J(Y)\,dY.
+\end{equation}
+The intervals may be bounded or unbounded. Endpoints have measure zero.
+For $s\in\R$, let $\tau_s(X,Y)=(X+s,Y+s)$, and for $t>0$ put
+\begin{align}
+ C_t(X,Y)={}&
+ \sum_{(I,\eta)}w_{I,\eta}
+       \ind_{\{0<Y-\eta<t\}}\ind_I(X-Y+\eta)\notag\\
+ &+\sum_{(\xi,J)}w_{\xi,J}
+       \ind_{\{0<X-\xi<t\}}\ind_J(Y-X+\xi).
+ \label{eq:central-density}
+\end{align}
+
+\begin{lemma}[Thin-band recovery]\label{lem:thin-band}
+As locally finite signed Radon measures,
+\begin{equation}\label{eq:band-measure}
+ C_t\,dX\,dY=\int_0^t(\tau_s)_*\mu_B\,ds.
+\end{equation}
+As $t\downarrow0$,
+\begin{equation}\label{eq:band-limits}
+ C_t\longrightarrow0\quad\text{in }L^1_{\mathrm{loc}}(\R^2),
+ \qquad
+ t^{-1}C_t\,dX\,dY\longrightarrow\mu_B
+\end{equation}
+against all compactly supported continuous test functions.
+The measure integral in~\eqref{eq:band-measure} is understood by
+testing against compactly supported functions.
+In particular, if $H\in L^1_{\mathrm{loc}}(\R^2)$ is independent of
+$t$ and $H+C_t=0$ for almost every $(X,Y,t)$ with $t>0$, then $B=0$.
+\end{lemma}
+
+\begin{proof}
+For a horizontal edge, the map $(x,s)\mapsto(x+s,\eta+s)$ has
+Jacobian of absolute value one; for a vertical edge the same holds for
+$(y,s)\mapsto(\xi+s,y+s)$. Change of variables gives
+\eqref{eq:band-measure}, including the coefficients in
+\eqref{eq:central-density}.
+
+If $K\subset\R^2$ is compact and $0<t\le1$, then
+\[
+ \int_K|C_t|\,dX\,dY
+ \le \int_0^t|\mu_B|(\tau_{-s}K)\,ds
+ \le t\,|\mu_B|\bigl(K+[-1,0](1,1)\bigr).
+\]
+The last quantity is finite and tends to zero. This proves the first
+limit even when the source has unbounded edges. For a compactly
+supported continuous function $g$,
+\[
+ \frac1t\int g C_t\,dX\,dY
+ =\int\left(\frac1t\int_0^t g(X+s,Y+s)\,ds\right)d\mu_B(X,Y).
+\]
+Uniform continuity on a fixed enlarged compact set shows that this
+converges to $\int g\,d\mu_B$, proving the second limit.
+
+For the last assertion, apply Fubini's theorem on a countable compact
+exhaustion of $\R^2$. It gives a single full-measure set
+$G\subset(0,1)$ such that $H+C_t=0$ almost everywhere on all of
+$\R^2$ for each $t\in G$. Choose $t_n\in G$ decreasing to zero.
+The first limit gives $H=0$ locally in $L^1$.
+Then $C_{t_n}=0$, and the second limit gives $\mu_B=0$.
+After common subdivision, an interior subsegment of any nonzero edge
+can be isolated from all other edges. A nonnegative continuous test
+function supported in this neighborhood and positive on the subsegment
+has a nonzero integral against $\mu_B$, contradicting $\mu_B=0$.
+Hence $B=0$.
+\end{proof}
+
+\subsection{The coordinate chart}
+
+\begin{proposition}\label{prop:coordinate}
+If every edge of $D$ is parallel to some $e_i$ and $T(D)=0$, then $D=0$.
+\end{proposition}
+
+\begin{proof}
+Fix a pair $a,b$ with complement $c,d$, and an affine plane
+$A=o+H_{ab}$ containing at least one source edge parallel to $e_a$
+or $e_b$. Set $P=\varphi(o)+U_{ab}$. By
+Lemma~\ref{lem:coordinate-linear}, the contributions with affine span
+$P$ come exactly from the $e_a$- and $e_b$-parallel edges contained
+in $A$, paired with the three cones in~\eqref{eq:three-cones}, and
+with collapsed pairings omitted. Indeed, any contributing direction
+$f_i$ and cone must lie in $U_{ab}$; its source offset then lies in
+$A$ because $U_{ab}\cap\varphi(\NR)=\varphi(H_{ab})$.
+
+Write points of $A$ as $o+Xe_a+Ye_b$, and let $B$ be the horizontal
+and vertical chain given by these source edges. These coordinates
+normalize lattice length, since $e_a,e_b$ form a basis of
+$N\cap H_{ab}$. Use coordinates on $P$ given by
+\begin{equation}\label{eq:chart}
+ z=\varphi(o)+Xf_a+Yf_b+tE_{cd},\qquad t>0.
+\end{equation}
+All noncollapsed indices are one by
+Lemma~\ref{lem:coordinate-linear}.
+
+In the central cone, identity~\eqref{eq:identity} gives
+\[
+ rE_{ab}+sE_{cd}=r(f_a+f_b)+(r+s)E_{cd}.
+\]
+Thus, at thickness $t=r+s$, its planar displacement is $(r,r)$
+with $0<r<t$. The total central contribution is precisely $C_t$
+from~\eqref{eq:central-density}.
+
+The two side cones give displacements $-r f_a$ and $-r f_b$,
+while their $E_{cd}$ coefficient is $t$. A horizontal source edge
+pairs nontrivially only with the $-f_b$ side, and a vertical source
+edge only with the $-f_a$ side. Their total contribution is
+\begin{equation}\label{eq:background}
+ H(X,Y)=
+ \sum_{(I,\eta)}w_{I,\eta}\ind_I(X)\ind_{\{Y<\eta\}}
+ +\sum_{(\xi,J)}w_{\xi,J}\ind_{\{X<\xi\}}\ind_J(Y).
+\end{equation}
+This is a locally integrable function independent of $t$. It includes
+all distant side-cone contributions, not just those near the point
+being probed.
+
+The weight function of the contributions with affine span $P$ is
+therefore $K(X,Y,t)=H(X,Y)+C_t(X,Y)$, almost everywhere in the chart.
+Since $T(D)=0$, Lemma~\ref{lem:separation} gives $K=0$ almost
+everywhere. Lemma~\ref{lem:thin-band} implies $B=0$.
+
+For a fixed pair there are only finitely many planes $A$ arising from
+the source edges. Repeating the argument for these planes and for pairs
+covering all four indices eliminates every edge of $D$.
+\end{proof}
+
+\begin{proof}[Proof of Theorems~\ref{thm:chains} and~\ref{thm:curves}]
+If $T(D)=0$, Proposition~\ref{prop:ordinary} reduces the support to
+coordinate directions, and Proposition~\ref{prop:coordinate} gives
+$D=0$. This proves Theorem~\ref{thm:chains}. Given the hypotheses of
+Theorem~\ref{thm:curves}, take the signed chain $D=\Sigma-\Sigma'$.
+By Lemma~\ref{lem:well-defined}, its transform is
+$Z_\Sigma-Z_{\Sigma'}=0$, so $D=0$.
+\end{proof}
+
+\begin{remark}
+The thin-band argument uses only local finiteness of the length measure,
+change of variables, and uniform continuity of test functions.
+The conclusion does not require selecting an arbitrary slice of an
+almost-everywhere identity: the sequence of valid slices in
+Lemma~\ref{lem:thin-band} handles this explicitly.
+\end{remark}
+
+\section{A two-vertex example}
+
+Let $v=e_0+e_1$, let $p\in N_{\Q}$, and let $L\in\Q_{>0}$.
+Consider the chain consisting of the bounded edge $[p,p+Lv]$, the two
+rays from $p$ in directions $-e_0,-e_1$, and the two rays from $p+Lv$
+in directions $-e_2,-e_3$, all of weight $m\in\Z_{>0}$.
+It is balanced at both vertices, since
+\[
+ v-e_0-e_1=0,\qquad -v-e_2-e_3=0.
+\]
+The parameters can be recovered without constructing the entire output.
+
+\begin{proposition}\label{prop:example}
+For this family the weighted Chow transform determines $p,L,m$.
+\end{proposition}
+
+\begin{proof}
+Put $d=\varphi(v)$ and $U=\Span(d,E_{02},E_{13})$.
+The split $02|13$ satisfies the hypothesis of
+Lemma~\ref{lem:ordinary-linear}. Thus no $f_i$ belongs to $U$,
+and the only incidence cone contained in $U$ is
+$\sigma_{02|13}$. The output's three-dimensional part with direction
+space $U$ consequently has support closure
+\[
+ S=\varphi(p)+[0,L]d+\pos(E_{02},E_{13}).
+\]
+This extraction is intrinsic to the weighted chain: contributions with
+different direction spaces meet it only in lower dimension, and the
+four unbounded source edges cannot contribute with direction space $U$.
+
+The three vectors $d,E_{02},E_{13}$ are independent, so $S$ is an
+affine image of $[0,L]\times\R_{\ge0}^2$. Its two vertices are
+$\varphi(p)$ and $\varphi(p)+Ld$. The fixed positive direction $d$
+orders these vertices, recovering $p$ and $L$. In the quotient
+coordinates obtained by deleting $23$ after subtraction, the columns
+$d,E_{02},E_{13}$ have a determinant-one minor in rows $03,02,13$.
+The image weight is therefore $m$, recovering the last parameter.
+\end{proof}
+
+\begin{remark}
+The finite hypothesis in the general theorem is used to separate affine
+spans and to isolate source interiors. The theorem does not address
+chains with infinitely many cells, higher-dimensional source varieties,
+or additional projective boundary strata. The example gives an explicit
+recovery procedure only for this family.
+\end{remark}
+
+\section*{Acknowledgments}
+
+This mathematical paper was prepared with the assistance of artificial intelligence.  I
+first acknowledge the textual data produced by humanity as a whole, which
+provides the linguistic and cultural record from which mathematical expression
+can be learned.  I then thank the accumulated scholarly achievements of
+mathematicians throughout history.  I also thank the researchers whose work has
+advanced and refined neural networks through successive generations.  Finally,
+I thank the OpenAI team for the training and development of the models used in
+the preparation of this paper.
+
+\begin{thebibliography}{9}
+
+\bibitem{AllermannHampeRau}
+L.~Allermann, S.~Hampe, and J.~Rau,
+\emph{On rational equivalence in tropical geometry},
+\href{https://arxiv.org/abs/1408.1537v2}{arXiv:1408.1537v2}.
+
+\bibitem{Fink}
+A.~Fink,
+\emph{Tropical cycles and Chow polytopes},
+Beitr. Algebra Geom. \textbf{54} (2013), 13--40.
+\href{https://arxiv.org/abs/1001.4784}{arXiv:1001.4784}.
+
+\bibitem{Tripoli}
+P.~Tripoli,
+\emph{Tropical Chow hypersurfaces},
+Int. Math. Res. Not. IMRN \textbf{2019}, no.~14, 4302--4324.
+\href{https://doi.org/10.1093/imrn/rnx260}{doi:10.1093/imrn/rnx260}.
+The numbered statements cited here are from
+\href{https://arxiv.org/abs/1612.05192v2}{arXiv:1612.05192v2},
+September 19, 2017.
+
+\end{thebibliography}
+\end{document}

@@ -1,146 +1,106 @@
 # AI4Math
 
-An open collection of AI-assisted mathematical research manuscripts. Each
-paper is placed directly in its own top-level directory
-so that source files, compiled PDFs, notes, and future revisions can be
-separated cleanly.
-
-## Repository structure
-
-```text
-AI4Math/
-├── README.md                         # repository-wide index
-├── LICENSE                           # CC BY 4.0
-├── universal_quadratic_pgl2_orbit_shells/
-│   ├── README.md                     # paper summary and search metadata
-│   ├── universal_quadratic_pgl2_orbit_shells.tex
-│   └── universal_quadratic_pgl2_orbit_shells.pdf
-├── three_realization_submission/
-│   ├── README.md                     # paper summary and search metadata
-│   ├── three_realization_submission.tex
-│   └── three_realization_submission.pdf
-├── semistable_morita_refinement/
-│   ├── README.md                     # paper summary and search metadata
-│   ├── semistable_morita_refinement.tex
-│   └── semistable_morita_refinement.pdf
-└── verdier_kernel_skeletonization/
-    ├── README.md                     # paper summary and search metadata
-    ├── verdier_kernel_skeletonization.tex
-    └── verdier_kernel_skeletonization.pdf
-```
+An open collection of AI-assisted mathematical research manuscripts. Each paper
+has its own top-level directory. Publication index updated: October 11, 2026.
+The collection includes completed manuscripts and an explicitly unfinished
+research draft; the descriptions below preserve that distinction.
 
 ## Paper index
 
-### From Represented $PGL_2$ Orbit Shells to Rank-One Orientation Reciprocity
+| Paper | Source | PDF |
+| --- | --- | --- |
+| Relative Quadratic Orbit Shells | [LaTeX](universal_quadratic_pgl2_orbit_shells/universal_quadratic_pgl2_orbit_shells.tex) | [PDF](universal_quadratic_pgl2_orbit_shells/universal_quadratic_pgl2_orbit_shells.pdf) |
+| Local Kummer Realizations and Verdier Duality | [LaTeX](three_realization_submission/three_realization_submission.tex) | [PDF](three_realization_submission/three_realization_submission.pdf) |
+| Morita Coefficients, Incidence, and Semistable Refinement | [LaTeX](semistable_morita_refinement/semistable_morita_refinement.tex) | [PDF](semistable_morita_refinement/semistable_morita_refinement.pdf) |
+| Verdier-Compatible Kernel Skeletonization | [LaTeX](verdier_kernel_skeletonization/verdier_kernel_skeletonization.tex) | [PDF](verdier_kernel_skeletonization/verdier_kernel_skeletonization.pdf) |
+| Exceptional and Completed Root Kernel Calculus: A Single-Transition Problem (research draft) | [LaTeX](global_root_kernel_calculus/global_root_kernel_calculus.tex) | [PDF](global_root_kernel_calculus/global_root_kernel_calculus.pdf) |
+| Supported Morita Descent for Semistable Curves | [LaTeX](supported_morita_descent/supported_morita_descent.tex) | [PDF](supported_morita_descent/supported_morita_descent.pdf) |
+| Weighted Tropical Chow Reconstruction for Space Curves | [LaTeX](tropical_chow_reconstruction/weighted_tropical_chow_reconstruction.tex) | [PDF](tropical_chow_reconstruction/weighted_tropical_chow_reconstruction.pdf) |
+| Cyclic Symmetry and Failure of Block-Permutation Invariance in Dexter Intervals | [LaTeX](dexter_block_permutation/dexter_block_permutation.tex) | [PDF](dexter_block_permutation/dexter_block_permutation.pdf) |
 
-**Quadratic Residual Towers, Haar--Frobenius Comparison, and the Unramified
-Absolute-$A_1$ Theorem**
+### Relative Quadratic Orbit Shells
 
-Folder: [`universal_quadratic_pgl2_orbit_shells/`](universal_quadratic_pgl2_orbit_shells/)
+**Main content:** Quadratic positive-loop orbit shells, residual towers, and
+orientation coefficients in a represented rank-one family.
 
-#### Main content
-
-The paper studies represented positive-loop orbit shells in a universal
-quadratic $PGL_2$ family. It constructs a residual tower, compares quadratic
-order lattices with orbit sheaves, and derives rank-one orientation reciprocity
-with a rational $K_0$ shadow.
-
-#### Scope and limitations
-
-The main geometric statements are restricted to the universal quadratic
-equal-characteristic loop family and represented fppf orbit sheaves. General
-affine-Springer quotients, cross-shell incidence, convolution, Rees completion,
-and unrestricted global tropical realization are not claimed.
-
-The paper directory contains the detailed summary, citation suggestion,
-build instructions, and the latest source/PDF pair.
+**Scope and limitations:** The specified quadratic family and represented
+orbit sheaves; no unrestricted affine-Springer or global convolution theorem.
 
 ### Local Kummer Realizations and Verdier Duality
 
-**Continuous cohomology, nearby cycles, and finite-root traces**
+**Main content:** Local comparisons of root, nearby-cycle, and tube cohomology,
+continuous inertia cochains, finite-root traces, and supported Verdier partners.
 
-Folder: [`three_realization_submission/`](three_realization_submission/)
-
-Files: [compiled PDF (77 pages)](three_realization_submission/three_realization_submission.pdf),
-[LaTeX source](three_realization_submission/three_realization_submission.tex),
-[paper README](three_realization_submission/README.md).
-
-#### Main content
-
-For a fixed semistable node, optional smooth directions, and chosen relative
-Kummer data, the paper compares ordinary root, nearby-cycle, and tube
-cohomology on a selected underlying-perfect integral adic coefficient source.
-The common value is continuous inertia cohomology, and the analytic
-realization is fully faithful on this source. Supported cohomology is built
-from finite-root vector-bundle carriers of the geometric dimension; their
-trace system is identified with the dual of continuous cochains, including
-the geometric shift and Tate twist, and compared with nearby costalks and
-analytic compact support through the specified Verdier pairings. The
-comparisons are natural in coefficients and preserve reduction and module
-actions. Without extra smooth directions, the rational unipotent subsource is
-equivalent to perfect modules over the continuous cochain algebra.
-
-#### Scope and limitations
-
-The results concern the stated local semistable/Kummer chart and selected
-underlying-perfect integral adic coefficient source. The supported comparison
-uses a common dual model; it needs neither a morphism from a carrier to the
-tube nor an exceptional direct image on the bare infinite-root fibre. The
-paper does not claim global weak base-inertia extensions, an unrestricted
-common algebraic coefficient source, or an equivalence with the ordinary
-unrigidified Artin fan. Proper-image and larger coefficient-source issues
-remain explicit obstructions.
+**Scope and limitations:** The stated semistable chart and selected adic
+coefficient source; no unrestricted global log/root equivalence.
 
 ### Morita Coefficients, Incidence, and Semistable Refinement
 
-**A supported comparison for a subdivided annulus**
+**Main content:** Supported Morita coefficients, branch incidence, and
+comparisons under the specified semistable subdivisions.
 
-Folder: [`semistable_morita_refinement/`](semistable_morita_refinement/)
+**Scope and limitations:** The paper's fixed models and coefficient/support
+conditions; no arbitrary global model-independent kernel calculus.
 
-#### Main content
+### Verdier-Compatible Kernel Skeletonization
 
-For a thickness-two nodal model and its explicit blow-up, the paper computes
-the charts, exceptional support, and tube subdivision. It develops supported
-Morita comparisons for geometric and finite logarithmic coefficients, including
-generation, recollement, attaching maps, Verdier partners, minimal diagonal
-kernels, fixed-thickness refinements, and a one-modification bridge to the
-companion Kummer realization.
+**Main content:** One-sided kernel descent for anchored semistable models,
+compatible with convolution, units, and geometric Verdier mates.
 
-#### Scope and limitations
+**Scope and limitations:** The specified generated source and anchored
+models; no general global root-kernel source or unrestricted descent.
 
-The proved comparisons are pairwise or organized over a fixed coarse support
-index. The paper does not claim an unrestricted coherent support profile,
-arbitrary model or base-change independence, full relative-product
-convolution, a general base-inertia/logarithmic comparison, or integral
-supported refinement.
+### Exceptional and Completed Root Kernel Calculus: A Single-Transition Problem
 
-### Verdier-Compatible Kernel Skeletonization under Anchored Semistable Refinement
+**Main content:** An unfinished research draft isolating a unit, convolution,
+and localization problem on one complete nodal support and one root transition.
+It records local calculations and the obstruction to ordinary distribution gluing.
 
-**Anchored semistable models of $xy=t^4$ and one-sided kernel descent**
+**Scope and limitations:** The kernel calculus is not constructed. The recorded
+diagrams do not solve the single-transition problem, and no global realization
+theorem is claimed.
 
-Folder: [`verdier_kernel_skeletonization/`](verdier_kernel_skeletonization/)
+### Supported Morita Descent for Semistable Curves
 
-#### Main content
+**Main content:** Geometric rational nearby-module support profiles on proper
+nodal curves, descent under actual integer-cut refinements, and a one-sided
+kernel counit giving strong convolution and Morita-Verdier comparisons.
+Extensions cover curve rectangles and specified finite etale support spans.
 
-For four fixed anchored semistable models, the paper constructs geometric
-rational unipotent nearby coefficients and complete inverse-image supports.
-It proves one-sided descent for a specified generated kernel source and
-develops a Morita realization compatible with convolution, units, actual
-Verdier mates, and the stated support and refinement comparisons.
+**Scope and limitations:** Fixed trait, specified constructibility profiles,
+geometric rational coefficients, and kernel products over the residue field.
+Independent contraction of arbitrary coupled-kernel endpoints fails;
+higher-dimensional modifications and global root shriek sources are excluded.
+Frozen companion inputs remain in the local project archive; the public release
+contains this manuscript, with links to the current companion papers.
 
-#### Scope and limitations
+### Weighted Tropical Chow Reconstruction for Space Curves
 
-The results are scoped to the stated $xy=t^4$ models, $B=\{2\}$, and the
-specified generated source. The paper does not claim full faithfulness, a
-global root-kernel source, or unrestricted descent for arbitrary supports or
-models. The appendices give local completed-root calculations and an
-obstruction to ordinary distribution gluing; they do not establish a global
-root sheaf or costalk descent category.
+**Main content:** Injectivity of the weighted tropical Chow transform on finite
+rational polyhedral one-chains with signed weights, yielding reconstruction of
+space curves in R^4/R1 without a fan hypothesis. The proof uses affine-span
+separation, local incidence cones, and thin-band length-measure recovery.
+
+**Scope and limitations:** Finite polyhedral structures in the specified
+finite-coordinate tropical tori, with weights and positions retained. No claim
+for infinitely many cells, higher-dimensional sources, or extra boundary strata.
+
+### Cyclic Symmetry and Failure of Block-Permutation Invariance in Dexter Intervals
+
+**Main content:** Cyclic block rotation preserves derived categories over every
+field, while two 288-element Dexter intervals obstruct arbitrary block
+permutation. The specified six permutations form two cyclic derived classes;
+boundary attachment explains the obstruction. An independent Python verifier
+and complete certificate are included in [supplementary](dexter_block_permutation/supplementary/README.md).
+
+**Scope and limitations:** The stated Dexter intervals and boundary comparisons.
+General block-permutation invariance is disproved, and minimality of the
+counterexample is not claimed. The computational certificate does not constitute
+a Lean formalization of the paper.
 
 ## Search keywords
 
-This is the merged search index for all papers in the repository. When adding
-a future paper, append only genuinely new terms that are not already listed.
+This is one merged index. Future papers add only terms not already present.
 
 `PGL2`, `PGL_2`, orbital integrals, affine Springer fibers, quadratic orders,
 positive loop groups, norm-one torus, Kummer realizations, Kummer local
@@ -150,45 +110,46 @@ A1, rational K0, polyhedral skeletonization, shell generating functions,
 nearby cycles, vanishing cycles, continuous cohomology, pro-l inertia,
 continuous cochain algebras, rational unipotent coefficients,
 finite-root vector-bundle carriers, finite-root stacks, infinite root stacks,
-adic coefficients, Artin stacks,
-Iwasawa cohomology, analytic compact support, tame nearby cycles, logarithmic
-geometry, semistable nodes, finite-carrier traces, six operations, derived
-categories, Morita coefficients, supported comparison, semistable refinement,
-subdivided annuli, thickness-two nodal models, exceptional curves, fs log
-blow-ups, Fujiwara--Kato acyclicity, costalk support, cellular Morita data,
-incidence diagrams, integer-cut models, coarse support diagrams, minimal
-diagonal kernels, kernel skeletonization, anchored semistable models,
-one-sided kernel descent, generated kernel sources, complete inverse-image
-supports, geometric unipotent nearby coefficients.
+adic coefficients, Artin stacks, Iwasawa cohomology, analytic compact support,
+tame nearby cycles, logarithmic geometry, semistable nodes, finite-carrier
+traces, six operations, derived categories, Morita coefficients, supported
+comparison, semistable refinement, subdivided annuli, thickness-two nodal
+models, exceptional curves, fs log blow-ups, Fujiwara--Kato acyclicity,
+costalk support, cellular Morita data, incidence diagrams, integer-cut models,
+coarse support diagrams, minimal diagonal kernels, kernel skeletonization,
+anchored semistable models, one-sided kernel descent, generated kernel sources,
+complete inverse-image supports, geometric unipotent nearby coefficients,
+completed root kernel calculus, dual-unit trace systems, distribution gluing
+obstruction, constructibility profiles, loop holonomy, finite etale support
+spans, tropical Chow transform, tropical space curves, weighted reconstruction,
+signed polyhedral chains, Tripoli reconstruction problem, thin-band measures,
+Dyck paths, Dexter order, Dexter intervals, cyclic block rotation,
+block-permutation counterexample, incidence algebras, integral Euler polynomials,
+boundary pullbacks, tilting complexes, pyramid blocks, reproducible certificates.
 
 ## Adding future papers
 
-Create one lowercase, search-friendly directory directly under the repository
-root for each manuscript. Every paper directory should contain:
-
-1. a `README.md` with `Main content`, `Scope and limitations`, and the
-   paper-specific summary, together with the title, status, citation
-   suggestion, and build instructions;
-2. the stable source file(s), normally `.tex` or `.md`;
-3. the latest compiled PDF when one is available.
-
-Then add the same two summary sections to that paper's entry in this root
-README, and add only new search terms to the merged keyword index above. Keep
-review reports, temporary compilation folders, and unrelated drafts outside
-the published paper directory unless they are intentionally part of that
-paper's public record.
+Use one top-level paper directory containing its README, stable LaTeX source,
+and compiled PDF. Add its main content and scope to this index, and append only
+new search keywords. Publish required supplementary verification files with the
+paper; keep local research notes, reviews, build intermediates, and frozen
+companion manuscripts in the local workspace unless separately authorized.
 
 ## License and attribution
 
-Unless a file states otherwise, the original manuscript text, PDFs, LaTeX
-source, and README material in this repository are released under the
-[Creative Commons Attribution 4.0 International license (CC BY 4.0)](https://creativecommons.org/licenses/by/4.0/).
-You may copy, redistribute, translate, adapt, and reuse them, including
-commercially, provided that you provide appropriate attribution, link to the
-license, and
-indicate changes. Third-party works cited by a paper retain their own
-licenses.
+Original manuscript text, PDFs, LaTeX source, README material, and original
+supplementary files are released under [CC BY 4.0](LICENSE). Reuse and adaptation,
+including commercial reuse, are allowed with appropriate attribution, a link
+to the license, and an indication of changes. Cited third-party works retain
+their own licenses.
 
-This collection contains research manuscripts rather than Lean-certified
-formalizations. Mathematical claims should be independently checked before
-being relied upon.
+## Local workspace navigation
+
+The local project was reorganized on October 11, 2026. This repository is
+`D:\AIProject\AIformath\papers`; the full workspace also contains
+`../PROJECT_INDEX.md`, `../PROJECT_PATHS.json`, `../research/`, `../reviews/`,
+and `../archive/`. Those workspace records are not part of this Git repository.
+
+Existing published papers retain their committed source/PDF versions until
+their revisions are separately published. The four newly added source/PDF
+pairs were compiled together for this release.

@@ -1,0 +1,584 @@
+\documentclass[11pt]{article}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern,amsmath,amssymb,amsthm,amscd,mathtools,mathrsfs}
+\usepackage[a4paper,margin=28mm]{geometry}
+\usepackage[colorlinks=true,linkcolor=blue,urlcolor=blue]{hyperref}
+\setlength{\emergencystretch}{2em}
+\newtheorem{proposition}{Proposition}[section]
+\newtheorem{theorem}[proposition]{Theorem}
+\newtheorem{lemma}[proposition]{Lemma}
+\newtheorem{corollary}[proposition]{Corollary}
+\theoremstyle{definition}
+\newtheorem{definition}[proposition]{Definition}
+\theoremstyle{remark}
+\newtheorem{remark}[proposition]{Remark}
+\newtheorem{example}[proposition]{Example}
+\newcommand{\Q}{\mathbf Q_\ell}
+\newcommand{\RHom}{R\operatorname{Hom}}
+\newcommand{\Perf}{\operatorname{Perf}}
+\newcommand{\Sk}{\mathbf{Sk}}
+\newtheorem{problem}[proposition]{Problem}
+\expandafter\def\expandafter\UrlBreaks\expandafter{\UrlBreaks\do\-}
+\newcommand{\mainref}[1]{\textnormal{[Nearby, \nolinkurl{#1}]}}
+\title{Exceptional and Completed Root Kernel Calculus\\
+\large A Single-Transition Problem}
+\author{YINGFENG JIANG}
+\date{26 September 2026 --- research draft; the kernel calculus is not constructed}
+\begin{document}
+\maketitle
+\begin{abstract}
+This research draft separates the unconstructed global root shriek
+interface from the nearby kernel descent theorem.  Ordinary stalkwise
+inverse gluing of the distribution diagonal is impossible.  The actual
+Verdier mate gives a dual-unit trace system with the full dualizing
+complex, which need not be invertible.  We formulate one decisive
+unit--convolution--localization problem on one complete nodal support
+and one actual transition.  The recorded local calculations and finite
+diagrams do not solve that problem.  No global realization theorem is
+claimed.
+\end{abstract}
+
+\section{The single-transition problem}
+Retain $xy=t^4$, $B=\{2\}$ and the four fixed integer-cut models of
+\cite{Nearby}.  First choose the complete support
+$X=u_{\{1,2\},B}^{-1}(E_B)$, containing the newly introduced component
+and its node, and one actual neutralized root-level transition over
+this support.  Retain finite coefficients $\Lambda_r$, independent
+continuous-action and distribution indices, then adic recovery and
+only then rationalization.  No general-root statement is sought.
+
+\begin{problem}[A unit calculus on one complete nodal support]
+\label{problem:unit-calculus}
+\leavevmode\par\noindent
+Construct an exceptional/completed or mixed kernel category on this
+support, with actual continuous mapping spectra, an actual trace
+transition, a specified composition $\star$ and a unit $I_X$.
+On at least one rectangle crossing from an open branch to its node
+(or the reverse), construct and prove the equivalences
+\[
+ I_X\star P\simeq P,\qquad P\star I_X\simeq P,
+\]
+including their naturality and unit identities.  Retain the actual
+open/closed localization triangle and its connecting morphism, and
+prove that the specified transition and unit comparisons respect it.
+Neither quotienting kernel maps by their actions nor defining the
+category by the desired equivalences counts as a construction.
+\end{problem}
+
+A solution must specify the finite predecessors, the variance of every
+transition, the order of completion, the mapping objects, and the
+geometric tensor/Hom and exceptional-pullback operations used to define
+composition.  The actual bar or correspondence maps must prove both
+unit laws on the crossing kernel.  If $I_X$ is naturally
+$\Delta_*\omega_X$, its composition must be proved unital with that
+object.  This is a different presentation until an additional comparison
+with ordinary shriek kernels and their unit has been established.
+Renaming this dual-unit does not supply such a comparison.
+
+The ordinary-pullback obstruction is \mainref{cor:root-diagonal-stalk-obstruction}:
+the degree-zero attaching square would require $\iota c=1$, impossible
+already modulo $\ell$.  The actual mate is instead
+\[
+ (q\times q)_!\Delta_*\omega_Y\longrightarrow\Delta_*\omega_X.
+\]
+The node calculation \mainref{lem:root-nodal-dualizing-correction}
+gives $H^{-2}=\Lambda_r(1)^2$ and $H^{-1}=\Lambda_r$ on a nodal atlas.
+Thus an invertible scalar shift cannot identify this with the ordinary
+unit.  These are two distinct obstacles, not missing higher homotopies.
+
+\section{Dependency boundary and retained evidence}
+The nearby closure, one-sided descent and Morita--Verdier realization
+of \cite{Nearby} remain independent proved manuscript statements on
+their specified domain.  Its completed residual-gerbe unit, normalized
+rectangles, two coarse convolutions and carrier comparison are local
+inputs only.  Full-fibre generators and integration remain unproved.
+The point-valued unit/rectangle source, ambient inertia graph objects,
+and actual-open geometric passage tests in the 27 September revision
+of \cite{Nearby} are three distinct domains.  In particular the graph
+calculation is not membership in that generated source, and the two
+$U=\mathbf G_m$ tests do not supply a common strong realization.
+References to their diagrams below are restricted accordingly.
+First solve Problem~\ref{problem:unit-calculus}; only then address
+full-fibre realization and strong convolution, and subsequently the
+four-model Verdier/refinement diamond.  The diagrams recorded below
+are supporting material for that later stage, not a substitute for
+the missing kernel category or its unit laws.
+
+References of the form [Nearby, label] identify exact statements in
+\nolinkurl{verdier_kernel_skeletonization.tex}; they do not declare new
+assumptions or import a global root interface.  The following sections
+preserve earlier proved local calculations and conditional diagram
+arguments that have been removed from the main manuscript.
+
+\section{Continuous local precursor}
+Use the neutralized residual groups $\Gamma_a=0$ or $\mathbf Z_\ell(1)$,
+$G_n=\Gamma/\ell^n\Gamma$ and $\Lambda_r=\mathbf Z/\ell^r$.
+\begin{definition}[The continuous local kernel categories]
+\label{def:continuous-local-root}
+At fixed $r$, use the unbounded derived category of discrete
+continuous $\Gamma_a\times\Gamma_b$-modules over $\Lambda_r$, where
+$\Gamma_a,\Gamma_b$ are either $0$ or $\Gamma$.  Morphisms are its
+full derived mapping spectra.  These are actual sheaves on the
+relative classifying topoi; no quotient by coefficient actions is
+made.  Put
+\[
+ A_{a,r}=C^*_{\mathrm{cts}}(\Gamma_a,\Lambda_r),\qquad
+ I_{a,r}=C_{\mathrm{lc}}(\Gamma_a,\Lambda_r),
+\]
+where $(g,h)$ acts on $I_{a,r}$ by translation through $h-g$.
+Define the cohomological composition by
+\[
+ L\mathbin{\circledast_c}P
+  =R\Gamma_{\mathrm{cts}}\bigl(\Gamma_b,
+       p_{ab}^*P\otimes_{\Lambda_r}^L p_{bc}^*L\bigr).
+\]
+The outer group actions remain.  Take the full stable idempotent
+closure generated by the $I_{a,r}$ and the constant rectangular
+kernels $\Lambda_r$ on every pair, under this composition and tensor
+with perfect $\Lambda_r$-complexes.  This definition allows the
+infinite-rank discrete modules $I_{a,r}$.
+\end{definition}
+The notation $\circledast_c$ deliberately does not denote a root
+shriek operation.  Continuous group cochains give its functor on
+actual morphisms and Fubini gives its enhanced associators.
+
+\begin{theorem}[Continuous diagonal and cohomological kernel comparison]
+\label{thm:continuous-root-diagonal}
+The actual finite root diagonal kernels have a canonical inflation
+system with colimit $I_{a,r}$, which is the unit for
+$\circledast_c$.  The functor
+\[
+ \mathcal R_{c,r}(P)=
+ R\Gamma_{\mathrm{cts}}(\Gamma_a\times\Gamma_b,P)
+\]
+with its two cochain algebra actions is defined on full kernel
+mapping spectra.  On the generated categories above it has
+canonical equivalences
+\begin{align*}
+ \mathcal R_{c,r}(I_{a,r})&\simeq A_{a,r},\\
+ \mathcal R_{c,r}(\Lambda_r)&\simeq A_{a,r}\otimes_{\Lambda_r}A_{b,r},\\
+ \mathcal R_{c,r}(P)\otimes_{A_{b,r}}^L\mathcal R_{c,r}(L)
+      &\xrightarrow{\sim}\mathcal R_{c,r}(L\circledast_c P).
+\end{align*}
+The first is an equivalence of unit \emph{bimodules}.  These
+constraints preserve units and composition on the actual mapping
+categories.  On the integral cartesian systems generated by these
+kernels the comparisons pass through adic recovery and then
+rationalization.  At the node the first comparison thereby identifies
+the continuous root diagonal with the regular nearby bimodule $H_q$.
+\end{theorem}
+\begin{proof}
+The representable finite diagonal of $BG_n$ is finite etale.
+Its actual shriek kernel is the permutation module
+\[
+ I_{n,r}=\operatorname{Ind}_{\Delta G_n}^{G_n^2}\Lambda_r
+          =\operatorname{Map}(G_n,\Lambda_r),
+ \qquad \operatorname{rank}_{\Lambda_r} I_{n,r}=\ell^n.
+\]
+For $m\geq n$ pullback of functions along $G_m\to G_n$ defines
+an equivariant map from the inflated $I_{n,r}$ to $I_{m,r}$.
+Their colimit is $I_r=C_{\mathrm{lc}}(\Gamma,\Lambda_r)$.
+This is the continuous coinduced module from $\Delta\Gamma$;
+the explicit complement to that diagonal makes coinduction exact
+(it is a filtered colimit of finite products).  Its continuous bar
+Shapiro map, obtained by restriction and evaluation at the identity
+coset, gives
+\[
+ R\Gamma_{\mathrm{cts}}(\Gamma^2,I_r)
+       \xrightarrow{\sim}R\Gamma_{\mathrm{cts}}(\Delta\Gamma,\Lambda_r).
+\]
+The two projection actions of $A_{q,r}$ restrict to the two identical
+identity maps of $\Delta\Gamma\simeq\Gamma$.  Thus this is the
+regular bimodule comparison, including both actions and the module
+map itself.  It is not merely a comparison of cohomology dimensions.
+Equivalently compute on finite bar nerves with $I_{n,r}$ and pass
+to inflation: every continuous cochain with these discrete values
+factors through one finite level.  This justifies the colimit on
+the actual growing kernels independently of the selected-coefficient
+theorem of \cite{Local}.
+
+The same Shapiro map with coefficients proves
+$I_b\circledast_c P=P$ and $P\circledast_c I_a=P$.
+Indeed the tensor with the function module is the corresponding
+coinduced coefficient, and evaluation at the identity coset is the
+unit constraint.  The constant--constant composite is
+$A_{b,r}\otimes\Lambda_r$ on the outer group product.  The complex
+$A_{b,r}$ is perfect over $\Lambda_r$: the two-term augmentation
+resolution of $\Lambda_r$ over $\Lambda_r[[\Gamma_b]]$ computes it.
+These calculations give closure on the identity/rectangle family
+and then on its full thick closure, with all maps retained.
+
+The composition comparison in the theorem is cup product after
+pullback to the three group factors, balanced over $A_{b,r}$,
+followed by continuous-cochain Fubini.  For two rectangles it is
+the Kunneth equivalence computed by the tensor product of the
+finite augmentation resolutions.  With an identity factor it is
+the specified Shapiro/unit map.  Both sides are exact separately
+in $P,L$ and preserve retracts, so these checks prove the comparison
+on their thick closures; the preceding family calculation already
+shows that convolution adds no other types of generators.
+Naturality and composition coherence are those of cup product and
+Shapiro on the same group bar nerves, not choices on isomorphism
+classes.  This also proves that the map is defined on all derived
+kernel morphisms, without claiming full faithfulness.
+
+The basic kernels are flat over $\Lambda_r$ and their reductions
+are the stated basic kernels at the previous precision.  Form the
+full finite stable/retract/convolution closure inside the category
+of derived cartesian systems in $r$.  The cochain outputs of the
+basic kernels are the finite augmentation complexes above, which
+commute with derived reduction; exactness and retracts extend this
+to these generated systems.  Thus the displayed equivalences pass
+through $R\varprojlim_r$ in the derived adic category.  Only then
+invert $\ell$.  The actual local star comparison of \cite{Local}
+identifies $C^*_{\mathrm{cts}}(\Gamma,\mathbf Z_\ell)[1/\ell]$
+with $H_q$ as an algebra, so the regular bimodule comparison becomes
+the asserted nearby unit comparison.  On geometric supports this
+is the local node coefficient of $\Delta_*H$, not a proof of its
+global attachment across every model.
+\end{proof}
+
+\begin{proposition}[The dual of the continuous diagonal is completed]
+\label{prop:root-diagonal-completion}
+The scalar dual of $I_r$ is the pseudocompact module
+\[
+ I_r^\vee=\varprojlim_n\Lambda_r[G_n],
+\]
+with transition maps summing coefficients over quotient fibres.
+Continuous scalar biduality recovers $I_r$; ordinary discrete
+coefficient duality does not keep it in the same finite-coefficient
+class used in \cite{Local}.
+\end{proposition}
+\begin{proof}
+The dual of the pullback map of finite function modules is the
+quotient-fibre sum on distributions.  Derived Hom takes their
+filtered colimit to the inverse limit of their duals.  These inverse
+maps are surjective, so there is no higher inverse-limit term.
+A continuous functional on the resulting profinite module with
+values in the finite discrete ring factors through a finite quotient.
+Its dual is therefore the original colimit of functions.  The
+pairing is evaluation, equivariant for the two contragredient
+actions.  Recovering $r$ gives the completed integral distribution
+module; rationalization must still follow this recovery.  This
+constructs the required local dual pair, but does not supply a
+global six-operation theory mixing all discrete and completed kernels.
+\end{proof}
+
+
+\section{Coefficient branch and later coherence material}
+\subsection{An actual branch calculation and its dual boundary}
+\label{sec:root-branch-calculation}
+The following calculation supplies a coefficient branch face of
+the missing four-model gluing diagram.  It deliberately uses the
+normal-pair Kummer map, not central-gerbe purity.
+
+\begin{lemma}[Continuous Kummer link and its trace-dual boundary]
+\label{lem:root-branch-link}
+Fix one branch coordinate $x$ in one of the four models.  On its
+strictly local smooth branch let $j_n$ be the punctured inclusion
+and $i_n$ the closed inclusion in the Kummer chart
+$x=z_n^{\ell^n}$.  Set
+$L_{n,r}=i_n^*Rj_{n,*}\Lambda_r$, with its actual deck action.
+The pullback comparisons for $z_n=z_m^{\ell^{m-n}}$ give
+\[
+ \operatorname*{hocolim}_n L_{n,r}\simeq E_r
+\]
+as a discrete continuous inertia object, through the actual unit.
+For a selected unipotent branch coefficient $V$, the corresponding
+continuous link is its continuous inertia module, with the sign
+of the specified branch coordinate.  These are natural comparisons
+on the selected mapping category.  Dualizing the finite localization
+diagrams gives their actual trace-dual inverse diagrams and
+connecting arrows.
+\end{lemma}
+\begin{proof}
+The punctured strict branch has cohomology $\Lambda_r$ in degree
+zero and $\Lambda_r(-1)$ in degree one, and no higher cohomology.
+Kummer functoriality sends the degree-one class of $z_n$ to
+$\ell^{m-n}$ times that of $z_m$; it acts identically on degree zero.
+These statements identify the maps of the actual link complexes,
+not an arbitrarily selected splitting.  The maps are induced by
+the same Kummer morphisms as the deck actions.  At fixed $r$ the
+positive-degree system is zero after sufficiently many transitions.
+Filtered colimits in discrete continuous modules are exact, so the
+actual unit $E_r\to\operatorname*{hocolim}_n L_{n,r}$ is an
+equivalence; its degree-zero action is the trivial action.
+For a selected coefficient use its finite-action presentation and
+pull back to a Kummer level trivializing it.  The same calculation
+with that coefficient, together with naturality of the unit, gives
+the stated inertia module.  Alternatively exactness extends this
+natural comparison from the unit to its thick closure.  The two
+branch coordinates may be inverse; their induced inertia map,
+rather than a chosen identification of cohomology lines, records
+that sign.
+
+At each level retain the entire localization triangle and its
+connecting arrow:
+\[
+ j_{n,!}V_n\longrightarrow Rj_{n,*}V_n
+   \longrightarrow i_{n,*}L_{n,r}(V)
+   \xrightarrow{\delta_n}j_{n,!}V_n[1].
+\]
+Open pullback and the adjunction comparison for $Rj_*$ give the
+maps of these actual triangles; the connecting squares are obtained
+from their cofiber diagrams.  Apply geometric Verdier duality to
+those finite diagrams, retaining the smooth-branch dualizing factor
+$\Lambda_r(1)[2]$ on the open side and point duality on the closed
+side.  This gives the inverse diagrams of the actual adjunction
+mates and their trace boundaries.  In particular on the closed
+link they satisfy
+\[
+ R\varprojlim_n D_{\Lambda_r}L_{n,r}(V)
+  \simeq D_{\Lambda_r}\operatorname*{hocolim}_nL_{n,r}(V),
+\]
+with the evaluation pairing.  For a constant coefficient the dual
+of the degree-one transition is again multiplication by
+$\ell^{m-n}$ and is pro-zero at fixed $r$; the surviving degree-zero
+pairing is ordinary evaluation.  Finite source Verdier factors are
+retained in the boundary diagram; this scalar link identity does
+not remove them.  No equality $q^!=q^*$ for arbitrary coefficients
+on a ramified normal pair is used.
+\end{proof}
+
+The lemma compares coefficient links and their dual boundaries for
+the fixed branch charts.  It does not compute the product links of
+the completed diagonal, normalized rectangles, or contraction graph
+kernels.  Those product-link maps, involving distribution limits as
+well as the continuous-action index, are required before a global
+kernel functor can be glued.  In particular a coefficient branch
+comparison cannot be used as a substitute for those kernel maps.
+
+\subsection{One actual diagram for the four compatibility checks}
+\label{sec:root-common-diagram}
+We organize the remaining root comparisons by one diagram, with a
+precise distinction between identities of assembled diagrams and
+invertibility of their interpretation as global kernel operations.
+This avoids assuming the desired coherence in a definition of the
+root source.
+
+At precision $r$, retain the actual finite neutralized root charts
+of the four fixed models, their support products, their diagonal
+and graph correspondences, and their finite Kummer branch charts.
+For an expression in already specified finite coefficients, form
+its relative bar and Kummer Cech diagrams on these actual products.
+Include the open/closed localization arrows, the chosen carrier
+projection, the two refinement paths, and the evaluation arrows.
+Call this diagram $\mathcal B_r$.  Its maps are the actual pullback,
+shriek direct image, units, counits and their Beck--Chevalley mates
+in the fixed enhancement.  In particular the nonrepresentable
+$!$ leg is not replaced by its $*$ leg.  No unspecified global
+normalized coefficient is inserted into $\mathcal B_r$.
+
+There is a distribution-presentation index $\mathbf n$ and a
+continuous-action index $\mathbf m$ dominating it, one entry for
+each inertia factor.  On discrete continuous mapping/cochain faces
+the order is $\operatorname*{hocolim}_{\mathbf m}$ followed by
+$R\varprojlim_{\mathbf n}$.  On their trace-dual faces use the dual
+order prescribed by evaluation.  Derived precision recovery is
+last.  Equal-variance indices may be synchronized by cofinality;
+a direct and an inverse index may not be synchronized this way.
+
+\begin{proposition}[Four faces of the same assembled diagram]
+\label{prop:root-four-faces}
+On the local completed kernel source and the coefficient branch
+faces constructed above, the following comparisons come from
+$\mathcal B_r$, and are compatible wherever their operations have
+already been identified:
+\begin{enumerate}
+\item units and convolution substitution;
+\item localization/cofiber connecting arrows;
+\item evaluation, Verdier mates and carrier traces;
+\item the actual refinement/base-change comparisons and their
+composition simplices.
+\end{enumerate}
+Their common higher compatibility is inherited from the same bar,
+adjunction and trace diagram.  For a global four-model root kernel
+realization, this assertion becomes applicable only after the
+product-link and completion comparison maps have been constructed
+and proved invertible; it does not assert those missing maps.
+\end{proposition}
+\begin{proof}
+For a string of actual correspondences, evaluate its coefficient
+on the full product and use the multiple relative bar.  A
+substitution deletes an intermediate bar by its augmentation;
+inserting the diagonal gives its degeneracy and regular unit.
+Whiskering two deletions in either order is the same two-dimensional
+bar face.  This supplies the first comparison and its associativity
+cells.  In the local completed module model these are exactly the
+evaluations used in Theorem~\mainref{thm:completed-root-shriek}.
+
+Retain an open/closed arrow in that same diagram instead of
+collapsing it to its object values.  Its cofiber vertex and the
+connecting arrow are then functorially determined.  Applying a
+natural comparison $\tau:F\to G$ gives
+$G(\delta)\tau_{Q_2}=\tau_{Q_0}[1]F(\delta)$, with its specified
+homotopy, for the boundary $\delta:Q_2\to Q_0[1]$.
+Finite cones and retracts, and every limit or colimit functor used
+in the assembly, are exact.  Thus this identity survives assembly
+on the specified diagrams.  Lemma~\ref{lem:root-branch-link}
+identifies the actual single-support branch boundary face; no
+identification of a product-kernel boundary follows just from it.
+
+Taking a mate means applying the given adjunctions to this same
+face.  Its evaluation satisfies, for an actual finite refinement,
+\[
+ e_n\circ(t_{m,n}\otimes1)
+       =e_m\circ(1\otimes\operatorname{inf}_{n,m}).
+\]
+For composable structural maps the final pairing uses
+$\operatorname{Tr}_{gf}
+=\operatorname{Tr}_g\circ Rg_!\operatorname{Tr}_f$.
+These are faces of the finite six-operation diagram, including
+$!$ on nonproper projections.  The carrier comparison is precisely
+this pairing followed by the source-augmentation evaluation of
+Theorem~\mainref{thm:selected-carrier-interface}.  Consequently taking
+mates, inserting a unit and contracting another kernel give the
+same evaluation diagram.  Biduality is used on selected perfect
+outputs or on the specified discrete/pseudocompact dual pair, not
+on an unrestricted completed sheaf class.
+
+Finally the refinement simplex is the composition simplex of the
+actual chart maps and their adjunctions.  In local graph coordinates
+it is $R_a\widehat\otimes_{R_b}R_b\to R_a$ and its iterated
+substitution, as in Proposition~\mainref{prop:completed-root-graphs}.
+Its base-change faces are the prescribed Beck--Chevalley maps,
+not arbitrary identifications chosen after comparing stalks.
+Taking a mate of this simplex or inserting the localization arrow
+therefore gives the same simplex in the larger diagram.
+
+Apply the assembly functors to $\mathcal B_r$ \emph{as a diagram}.
+A functor carries simplices and their substitutions to simplices;
+thus all four identities and their mixed cells remain identities.
+This argument does not say that assembly commutes with an arbitrary
+relative tensor or geometric direct image.  Those are additional
+comparison maps.  They are proved for the local unit/rectangle
+words and coefficient faces already used here.  For the still
+missing product links they have not been proved.  Once an actual
+comparison of diagrams has invertible components there as well,
+restriction to the full generated source will retain the common
+cells without four separate choices of coherence data.
+\end{proof}
+
+
+\begin{lemma}[Independent rectangular product-link faces]
+\label{lem:root-rectangular-link-faces}
+For two fixed branch charts and their punctured inclusions
+$j_x,j_y$, use the product-open link
+\[
+ (i_x\times i_y)^*R(j_x\times j_y)_*(V\boxtimes W).
+\]
+This is the link to the product of the two punctured branches, not
+the link to the full punctured neighbourhood of the corner.
+Exterior products of actual finite, underlying-perfect selected
+coefficients have this product-link comparison given by the tensor
+product of the two branch bar diagrams.  Their two restriction orders agree, including the
+localization-arrow faces.  Continuous-action colimits and the
+dual trace diagrams retain this comparison.  With distribution
+coefficients the same statement holds with independent presentation
+indices and the completed exterior product, defined by their
+inverse system; it does not exchange a distribution inverse limit
+with a continuous-action colimit.
+\end{lemma}
+\begin{proof}
+At fixed coefficient presentations the product Kummer torsor is
+the product of the two actual torsors.  Its two Cech directions
+form a bisimplicial diagram.  The scalar product-link map is the
+external-product/Kunneth comparison on those nerves.  The branch
+cohomology has finite amplitude and the coefficients here are
+underlying-perfect, so totalization of this finite-dimensional
+branch calculation gives the comparison with the product link.
+The two orders are identified by the same bisimplicial Fubini map,
+with the Koszul signs; this proves equality of the specified maps.
+Tensor with, or restrict, the actual open/closed arrow before this
+calculation to obtain the localization faces of the same diagram.
+
+Take the continuous-action colimits at fixed presentations first.
+Their tensor comparison is valid since derived tensor preserves
+these colimits separately.  On the dual trace diagrams use derived
+Hom of this equality, with their finite evaluation pairings.
+For distribution coefficients retain the two presentation indices
+and then take their inverse limit; this is the completed exterior
+product, not an uncompleted tensor product of the two limits.
+This proves precisely the claimed comparison.  It applies to
+independent exterior factors and this product-open face.  Other
+corner faces still have to be retained in a full gluing diagram.
+A diagonal or graph imposes a
+relation between the two inertia directions and is not such a
+factorization.  Nor does this lemma construct the missing global
+normalized source factor on a whole refined fibre.
+\end{proof}
+
+
+\section{Finite unit and dual-unit diagrams}
+\begin{lemma}[Unit and dual-unit diagrams on the complete supports]
+\label{lem:root-unit-dual-unit-diagram}
+At finite root precision and level, the preceding adjunction
+construction applies to every actual transition $q:Y\to X$
+between the fixed support charts, including charts meeting more
+than one branch.  With $F_X=\Delta_{X,!}\Lambda_r$ it gives
+\[
+ (q\times q)^*F_X\longrightarrow F_Y,
+ \qquad
+ (q\times q)_!\Delta_{Y,*}\omega_Y
+                  \longrightarrow\Delta_{X,*}\omega_X,
+ \quad \omega_X=D_X\Lambda_r.
+\]
+Composition, restriction of the localization arrow, and the
+Verdier-mate identities belong to the same actual adjunction
+diagram.  These maps are not asserted invertible.  In particular,
+a refinement does not identify its fibre relation with its diagonal.
+The second family is a family of \emph{dual-unit} trace maps; on a
+singular support it is not a family of shriek-unit maps obtained
+by cancelling one constant twist and shift.
+\end{lemma}
+\begin{proof}
+The construction of $\beta$ in
+Proposition~\mainref{prop:root-diagonal-branch-transition} only uses the
+actual diagonal counit and composition of pullbacks.  It does not
+use smoothness.  Diagonals of the finite separated root charts here
+are proper and representable.  Proper duality therefore identifies
+$D F_X=\Delta_{X,*}\omega_X$, giving the second family by taking
+the mate of the first.  The unit/counit identities for three
+composable maps identify the two resulting $\beta$ maps.  Their
+dual identity is trace transitivity.  Retaining the open/closed
+arrow and its cofiber in this natural transformation gives its
+localization and boundary faces.  This is a particular actual
+instance of the diagram in Proposition~\ref{prop:root-four-faces};
+it requires no choice of a new comparison on each branch.  For a
+refinement, the first source still has support on the full inverse
+image of the diagonal.  Nothing in the counit construction asserts
+that this support equals the fine diagonal or that the counit is
+an equivalence.  Finally proper duality gives $\omega_X$ itself,
+not an invertible replacement for it.
+\end{proof}
+
+\section*{Acknowledgments}
+
+This mathematical paper was prepared with the assistance of artificial intelligence.  I
+first acknowledge the textual data produced by humanity as a whole, which
+provides the linguistic and cultural record from which mathematical expression
+can be learned.  I then thank the accumulated scholarly achievements of
+mathematicians throughout history.  I also thank the researchers whose work has
+advanced and refined neural networks through successive generations.  Finally,
+I thank the OpenAI team for the training and development of the models used in
+the preparation of this paper.
+
+\begin{thebibliography}{9}
+\bibitem{Local} Y.~Jiang,
+\emph{Local Kummer Realizations and Verdier Duality},
+local submission source, 22 September 2026.
+\bibitem{Refinement}
+\emph{Morita Coefficients, Incidence, and Semistable Refinement},
+local source consulted 22 September 2026.
+\bibitem{LZEnhanced} Y.~Liu and W.~Zheng,
+\emph{Enhanced six operations and base change theorem for higher
+Artin stacks}, arXiv:1211.5948.
+\bibitem{LZAdic} Y.~Liu and W.~Zheng,
+\emph{Enhanced adic formalism and perverse t-structures for higher
+Artin stacks}, arXiv:1404.1128.
+\bibitem{Nearby}
+\emph{Verdier-Compatible Kernel Skeletonization under Anchored Semistable
+Refinement}, nearby theorem and local-root appendices, 27 September 2026;
+source in \texttt{../verdier\_kernel\_skeletonization/}.
+\end{thebibliography}
+\end{document}

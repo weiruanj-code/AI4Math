@@ -1,0 +1,1865 @@
+\documentclass[11pt]{article}
+\usepackage[T1]{fontenc}
+\usepackage{amsmath,amssymb,amsthm,mathtools}
+\usepackage[margin=1in]{geometry}
+\usepackage[colorlinks=true,allcolors=blue]{hyperref}
+\setlength{\emergencystretch}{2em}
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{corollary}[theorem]{Corollary}
+\newtheorem{problem}[theorem]{Problem}
+\theoremstyle{definition}
+\newtheorem{definition}[theorem]{Definition}
+\newtheorem{remark}[theorem]{Remark}
+\newcommand{\Rep}{\operatorname{Rep}}
+\newcommand{\Hom}{\operatorname{Hom}}
+\newcommand{\End}{\operatorname{End}}
+\newcommand{\Ext}{\operatorname{Ext}}
+\newcommand{\Db}{D^b}
+\title{Cyclic symmetry and failure of block-permutation invariance in Dexter intervals}
+\author{YINGFENG JIANG}
+\date{7 October 2026}
+\begin{document}
+\maketitle
+\begin{abstract}
+Over every field, cyclic rotation of the blocks of a Dyck word
+preserves the bounded derived category of its Dexter interval $J(w)$.
+Arbitrary block permutation does not: an exact computation gives
+two 288-element intervals with distinct integral Euler polynomials.
+For the three blocks $110100$, $11011000$, and $1100$, their six
+permutations consequently give exactly two derived equivalence classes,
+namely the two cyclic orbits. Boundary attachment explains the distinction.
+The lower truncations $L_{uv}$ and $L_{vu}$ for
+$u=110100$, $v=11011000$ are derived equivalent, but no enhanced
+equivalence between them intertwines their
+boundary pullbacks, even after an arbitrary enhanced autoequivalence
+of the base. We prove this using a relative extension criterion and
+the counterexample. Exchanges involving the elementary block and
+transfers between pyramid blocks provide positive supplementary families.
+\end{abstract}
+
+\section{Introduction}
+\label{sec:introduction}
+A Dyck word is a word in $1,0$ with nonnegative prefix heights and total
+height zero. Its blocks are its nonempty factors between consecutive
+returns to height zero. Write $b(x)$ for the number of blocks of $x$.
+We use the Dexter order of \cite{Chapoton}. If a primitive Dyck subpath
+$s$ is preceded by a zero and is followed by a one or by the end of
+the word, it is movable. A cover slides $s$ to the left across any
+positive number of consecutive immediately preceding zeros. Such a
+subpath may be based at positive height; it need not be a whole block.
+
+Let $I(w)=[w_{\min},w]$ and
+\[
+ J(w)=[w_{\min},(1,w,1,0,0)].
+\]
+For a finite poset $P$, $\Rep_k P$ denotes finite-dimensional covariant
+representations, and all equivalences are $k$-linear. The following
+assertion is the block-permutation subproblem explicitly proposed in
+\cite[Section 9, Conjecture 9.1]{Chapoton}.
+\begin{problem}[Block-permutation assertion, disproved below]\label{prob:swap}
+For every field $k$, every pair of nonempty indecomposable Dyck blocks
+$u,v$, and possibly empty block strings $A,B$, does one have
+\[
+ \Db(\Rep_k J(AuvB))\simeq\Db(\Rep_k J(AvuB))?
+\]
+\end{problem}
+The positive symmetry is cyclic rotation: for all nonempty Dyck words
+$u,v$ and every field $k$, Theorem~\ref{thm:rotation} gives
+\[
+ \Db(\Rep_k J(uv))\simeq\Db(\Rep_k J(vu)).
+\]
+In contrast, with $u=110100$, $v=11011000$, and $b=1100$,
+Theorem~\ref{thm:counterexample} separates $J(uvb)$ from $J(vub)$
+by their integral Euler polynomials. Both intervals have 288 points.
+Corollary~\ref{cor:two-cyclic-orbits} combines the
+two results into exactly two equivalence classes for one specified
+three-block multiset. No general classification by cyclic order is claimed.
+
+The distinction is visible in the boundary data. Theorem~\ref{thm:lower-rotation}
+identifies the abstract derived categories of the lower truncations.
+The relative extension criterion, Proposition~\ref{prop:relative-extension},
+then shows that for the counterexample pair their boundary embeddings
+cannot be intertwined by any enhanced equivalence and any enhanced
+base autoequivalence (Corollary~\ref{cor:absolute-boundary-obstruction}).
+Thus the boundary-decorated category contains information absent from
+its abstract derived type. Elementary exchanges and pyramid transfers
+are supplementary positive results, not steps toward the disproved
+universal assertion.
+
+The product decomposition of $I(w)$, the chain decomposition, and the
+canonical shape cut are inputs from \cite[Proposition 4.4 and Section 5.2]{Chapoton}.
+For general finite posets, Ladkani proved that the ordinal sums
+$X\oplus Y$ and $Y\oplus X$ are derived equivalent
+\cite[Corollary 4.15]{LadkaniSheaves}; associativity then gives cyclic
+rotation of any ordinal sum. His Example 4.20 shows that a permutation
+of three summands can fail to preserve derived equivalence.
+Thus cyclic symmetry together with permutation failure has a precedent
+for ordinal sums. The singleton flip-flop mechanism used in
+Appendix~\ref{app:shape} is also known
+\cite[Corollary 1.3]{LadkaniPosets}, and the triangular-algebra tilting
+method has the background of \cite[Theorems 4.5 and 4.9]{LadkaniTriangular}.
+
+Here the objects are the specific Dexter intervals $J(w)$, whose
+mixed relations depend on their projecting boundary coordinates.
+The calculations below identify the cross-chain rules, the target
+mixed bimodules and their multiplication, and the natural boundary
+comparisons needed for rotation and pyramid transfer. The explicit
+block-permutation counterexample concerns these intervals.
+The ordinal-sum results alone do not identify the required Dexter
+objects and boundary data; their relation is not assumed in our proofs.
+Appendix calculations use different examples to explain limitations
+of particular cuts and restricted base corrections.
+
+The paper follows this distinction. Section~\ref{sec:structure} gives
+the chain coordinates and the marked-boundary algebra.
+Section~\ref{sec:rotation} proves cyclic symmetry; Section~\ref{sec:failure}
+then supplies the counterexample and the two cyclic orbits.
+Section~\ref{sec:boundary} proves the abstract lower-truncation
+equivalence, the relative extension criterion, and their incompatible
+boundary consequence, in that order. Section~\ref{sec:positive}
+records the positive supplementary families. Computational details
+and the longer mutation argument are placed in the appendices.
+
+
+\section{Chain coordinates and the marked-boundary algebra}
+\label{sec:structure}
+\subsection{The fibres and their cross-chain arrows}
+For $x=x_1\cdots x_b$ in blocks, put
+\begin{align*}
+ e_i(x)&=(1,x_1,\ldots,x_i,0,x_{i+1},\ldots,x_b,1,0)
+                       &&(0\leq i\leq b),\\
+ e_{b+1}(x)&=(1,x,1,0,0).
+\end{align*}
+We call the first $b+1$ points lower-shape points and the last point
+a top-shape point. This terminology avoids confusing shape labels
+with the prefix and suffix $A,B$.
+
+\begin{lemma}\label{lem:fibres}
+The elements of $J(w)$ are precisely $e_i(x)$ with $x\leq w$ and
+$0\leq i\leq b(x)+1$. Each such chain is complete, and the map
+$q(e_i(x))=x$ is order preserving. The top-shape subposet is $I(w)$.
+\end{lemma}
+\begin{proof}
+The shape subposet of \cite[Lemmas 5.3--5.4]{Chapoton} is a lower
+ideal partitioned by these chains. A cross-chain cover projects to a
+lower cover by Proposition 5.5 of that paper. Thus $q$ is order
+preserving. A point below the top $e_{b(w)+1}(w)$ must project below
+$w$. Conversely the top-shape embedding preserves order, so the
+entire chain above $x\leq w$ lies below that top.
+\end{proof}
+
+A lower cover $a:x\prec y$ has one of two types. An internal cover
+slides a subpath based at positive height and leaves the block count
+unchanged. A merging cover slides a whole block $x_\ell$, with
+$2\leq\ell\leq b(x)$, into its preceding block. Then $b(y)=b(x)-1$;
+we call $\ell$ the merging position. These exhaust the covers:
+a slide cannot cross a one, so a zero-height slide joins exactly two
+adjacent blocks.
+
+\begin{proposition}[Cross-chain cover rule]\label{prop:covers}
+All covers of $J(w)$ are the following, with $x,y\leq w$.
+\begin{enumerate}
+\item The vertical covers $e_i(x)\prec e_{i+1}(x)$.
+\item For an internal cover $x\prec y$, the covers
+$e_i(x)\prec e_i(y)$ for $0\leq i\leq b(x)+1$.
+\item For a merging cover $x\prec y$ at position $\ell$, the covers
+\[
+ e_i(x)\prec e_i(y)\quad(0\leq i<\ell),\qquad
+ e_i(x)\prec e_{i-1}(y)\quad(\ell<i\leq b(x)+1).
+\]
+There is no cross-chain cover over this lower cover with source
+$e_\ell(x)$.
+\end{enumerate}
+\end{proposition}
+\begin{proof}
+Write a lower-shape point as $(1,p,0,q,1,0)$, where $x=pq$ and
+$p$ consists of the first $i$ blocks. Call the zero between $p$ and
+$q$ the inserted zero.
+An internal movable subpath has positive baseline in $x$.
+It cannot end at a zero-height cut, and its preceding zero run cannot
+cross such a cut. Inserting the wrapper therefore preserves its
+movability and its slide, on either side of the cut. The index stays $i$.
+
+Now slide the whole block $x_\ell$ across $t$ zeros in $x$.
+If $i<\ell-1$, the move occurs in $q$ and the cut index is unchanged.
+If $i=\ell-1$, slide it across $t+1$ zeros in the wrapped word:
+the extra zero is the inserted zero. The resulting wrapped prefix
+ends after the merged block, at index $\ell-1$ of $y$.
+If $i>\ell$, the move lies in $p$, and $x_\ell$ is followed there by
+a one. It remains movable; merging reduces the prefix block count
+by one. If $i=\ell$, however, $x_\ell$ is followed by the inserted
+zero. It is not movable. This is precisely the excluded case.
+The top-shape case is the unchanged lower slide inside the wrapper,
+with top index reduced by one when a merge occurs.
+
+For completeness, consider any slide that remains in the shape
+subposet. A slide of the first block of $q$ across just the inserted
+zero is a vertical cover. Sliding it farther gives exactly the
+merging case just described. All remaining slides away from the
+terminal $10$ project to an internal or merging lower cover.
+A slide of that terminal $10$ stays in the shape subposet only when
+$q$ is empty and it crosses just the inserted zero; this is the
+last vertical cover. If $q$ is nonempty, such a slide either leaves
+an earlier return to height zero or produces too many terminal zeros,
+and is neither of the two shapes. A longer terminal slide when
+$q$ is empty also has too many terminal zeros. These observations
+exhaust the movable subpaths. Since the shape subposet is a lower
+ideal, its induced covers are precisely the ambient Dexter covers
+with both endpoints in it. Restricting to $J(w)$ introduces no new
+covers. The stated list is therefore complete.
+\end{proof}
+
+The excluded position cannot be repaired by pretending that every
+cut simply follows its image in the merged word. The correct formula
+for comparability allows vertical motion first.
+For each lower cover $a:x\prec y$ define a monotone map between
+index chains by
+\[
+ f_a(i)=
+ \begin{cases}
+ i,&a\text{ internal},\\
+ i-\mathbf1_{i>\ell},&a\text{ a merge at }\ell.
+ \end{cases}
+\]
+The domains include the top index $b(x)+1$.
+
+\begin{corollary}[Full comparability]\label{cor:threshold}
+For $x\leq y$ let
+\[
+ m_{x,y}(i)=\min_{\pi:x\leadsto y} f_\pi(i),
+ \qquad f_\pi=f_{a_r}\circ\cdots\circ f_{a_1},
+\]
+where $\pi$ runs through saturated lower paths; for $x=y$ use the
+empty path. Then
+\[
+ e_i(x)\leq e_j(y)\quad\Longleftrightarrow\quad
+ x\leq y\ \hbox{and}\ j\geq m_{x,y}(i).
+\]
+\end{corollary}
+\begin{proof}
+Over one lower cover, $f_a(i)$ is the smallest reachable target
+index. The cover rule proves this directly except at $i=\ell$.
+There one first moves vertically to $\ell+1$ and then crosses to
+index $\ell$; if $\ell=b(x)$ the intermediate vertex is the top.
+No smaller target is reachable by the listed covers. Monotonicity
+shows that waiting longer on a fibre cannot improve this minimum.
+Any upper path projects, after deleting vertical steps, to a lower
+saturated path. Its final index is at least the corresponding
+composite $f_\pi(i)$. Conversely each such composite can be attained
+by lifting its covers in order; any larger final index is obtained
+by vertical motion. There are finitely many paths, so the minimum
+is attained.
+\end{proof}
+\begin{remark}
+This formula takes a minimum over paths. It does not assume that
+different lower paths give the same map of chains, and does not
+assert a Grothendieck construction with path-independent transition
+functors.
+\end{remark}
+
+
+\subsection{Incidence algebras and exterior factors}
+Fix the category-algebra convention in which a basis element
+$a_{ts}$ represents $s\leq t$, and $a_{ut}a_{ts}=a_{us}$.
+Covariant representations are left modules. By
+Corollary~\ref{cor:threshold}, the algebra has basis $a_{ts}$ for
+exactly the comparable chain points, and this composition law.
+Equivalently it is the path algebra of the quiver in
+Proposition~\ref{prop:covers}, modulo the differences of all parallel
+paths. Indeed each comparable pair has a path, these relations
+identify all paths with those endpoints, and relations with distinct
+endpoints do not interact. The quotient therefore has precisely the
+claimed basis, including the identity paths.
+
+The lower product decomposition gives
+\[
+ I(AuvB)=I(A)\times I(u)\times I(v)\times I(B),
+\]
+where the empty word contributes a one-point factor. This is an
+actual product of posets, not a claim about $J(AuvB)$.
+\begin{corollary}[Context offsets]\label{cor:context}
+Suppose a cover occurs in one factor of this product, and let $c$
+be the total number of blocks in the current preceding factors.
+An internal move uses the identity index rule. A merging move at
+local position $h$ uses the rule of Proposition~\ref{prop:covers}
+with global merging position $\ell=c+h$. The incidence-algebra
+presentation above includes all arrows and mixed compositions for
+arbitrary $A,B$.
+\end{corollary}
+\begin{proof}
+The block boundaries of the upper word must remain returns to zero
+throughout its lower interval. Thus a cover changes exactly one
+factor. Counting the blocks before that factor gives $\ell=c+h$;
+the complete cover rule and the parallel-path presentation apply.
+\end{proof}
+The offset $c$ depends on the lower element, not only on the fixed
+upper word. Swapping product factors does not by itself transport
+these cover rules. Corollary~\ref{cor:context} supplies the original
+attachments. Transport through a derived equivalence additionally
+requires the boundary comparison in Section~\ref{sec:boundary}.
+
+
+\subsection{Derived conventions and tilting}
+For a vertex $x$ of a finite poset, write
+$P_x=k\operatorname{Hom}(x,-)$. Thus
+$\operatorname{Hom}(P_x,P_y)=k$ exactly when $y\leq x$.
+For a tilting object indexed by a target poset, the algebra to identify
+is its opposite endomorphism algebra. We use the following specified
+finite-algebra functors. For a finite poset $X$, write
+$\mathcal D_X=\Db(\Rep_k X)$ and denote its Serre functor by
+$\mathbb S_X$. It is derived tensor with the $k$-dual of $kX$;
+finite global dimension makes it an autoequivalence. Derived
+Kan extensions along $q:X\to S$ are denoted
+\[
+ \ell_X\dashv Q_X\dashv r_X,\qquad Q_X=q^*.
+\]
+They can be computed by finite poset bar resolutions. Their Serre
+adjunction identity is
+\begin{equation}\label{eq:serre-adjoint}
+ r_X\mathbb S_X\simeq\mathbb S_S\ell_X.
+\end{equation}
+Indeed Serre duality applied to
+$\Hom_X(Q_X V,\mathbb S_X E)$ identifies it with
+$\Hom_S(V,\mathbb S_S\ell_X E)$, naturally in both variables.
+In particular $\ell_X(P_a)=P_{q(a)}$. External tensor products
+and derived Hom below are over the field $k$.
+We use the standard differential graded enhancements by perfect
+module complexes. Enhanced equivalences and functor comparisons
+mean equivalences and isomorphisms of the corresponding derived
+bimodules; in particular they admit external tensor products and
+transport both actions of a gluing bimodule. All functors constructed
+below are represented in this framework. The negative boundary
+statement quantifies over this entire class of enhanced equivalences.
+
+\begin{lemma}[Tilting convention]\label{lem:tilting-principle}
+Let $T$ generate $\mathcal D_X$, satisfy
+$\operatorname{Hom}(T,T[m])=0$ for $m\ne0$, and have
+$\operatorname{End}(T)^{\mathrm{op}}\cong kY$ for a finite poset $Y$,
+respecting the specified vertex idempotents.
+Then there is an enhanced equivalence $\mathcal D_Y\to\mathcal D_X$
+sending the vertex projectives to the specified summands of $T$.
+\end{lemma}
+\begin{proof}
+A projective-complex representative of $T$ gives a
+differential graded endomorphism algebra with cohomology only in
+degree zero. Its truncation provides a quasi-isomorphism zigzag to
+$\End(T)$. The Hom functor is an equivalence on the thick category
+generated by $T$: it is so on the generator and hence on finite
+cones and summands, whose image is the perfect module category.
+Generation and finite global dimension of the identified target
+poset algebra give the claimed bounded equivalence.
+\end{proof}
+
+
+\subsection{Cutting at a word boundary}
+For a nonempty Dyck word $z$, put $S_z=I(z)$ and define two full
+subposets of $J(z)$:
+\[
+ L_z=\{e_i(x):x\leq z,\ 0\leq i\leq b(x)\},\qquad
+ R_z=\{e_i(x):x\leq z,\ 1\leq i\leq b(x)+1\}.
+\]
+Thus $L_z$ removes the top-shape layer, whereas $R_z$ removes the
+bottom layer of every chain. Both carry the restriction $q_z$ of
+$q$. A poset subscript on a derived functor specifies its actual finite
+representation category.
+
+\begin{proposition}[The marked-boundary algebra]\label{prop:boundary-algebra}
+For nonempty Dyck words $u,v$, the poset $J(uv)$ is a two-piece
+poset with lower ideal $D=L_u\times S_v$ and upper filter
+$U=S_u\times R_v$. Its mixed relations are exactly
+\begin{equation}\label{eq:boundary-mixed}
+ (d,y)\leq(x,r)\quad\Longleftrightarrow\quad
+ q_u(d)\leq x\ \text{and}\ y\leq q_v(r).
+\end{equation}
+These are relations of the actual poset, including their incidence
+compositions.
+\end{proposition}
+\begin{proof}
+Write a lower element as $xy$, with $x\leq u$, $y\leq v$, and put
+$a=b(x)$. Partition its chain at $i=a$: the point $e_i(xy)$ belongs
+to $D$ if $i\leq a$, with coordinates $(e_i(x),y)$; otherwise it
+belongs to $U$, with coordinates $(x,e_{i-a}(y))$.
+For a lower cover inside $u$, Proposition~\ref{prop:covers} restricts
+on $D$ to the $L_u$ rule and acts on $U$ without changing the
+$R_v$ index: both $i$ and $a$ decrease by one on a merging move.
+For a lower cover inside $v$, it restricts on $U$ to the $R_v$ rule
+and leaves the $L_u$ index unchanged on $D$. A crossing can leave
+$D$ for $U$, but none can go from $U$ to $D$. This proves the
+claimed induced subposets and ideal/filter properties.
+
+The section $h(x,y)=e_{b(x)+1}(xy)$ is monotone: merges inside $u$
+reduce its index by one, and merges inside $v$ preserve it. It is
+the first point of $U$ in its fibre. Every $d$ lies below the
+section in its own fibre, and $h(x,y)$ lies below every upper-fibre
+point over $(x',y')\geq(x,y)$. Monotonicity of $q$ proves the
+converse implication. This gives \eqref{eq:boundary-mixed}.
+The composition statement follows from the incidence basis, not
+from an independent choice of mixed scalars.
+\end{proof}
+
+
+
+\section{Cyclic rotation}
+\label{sec:rotation}
+\subsection{The two truncations and their relative equivalence}
+\begin{lemma}[An explicit truncation equivalence]\label{lem:truncation}
+There is an equivalence $F_z:\mathcal D_{L_z}\to\mathcal D_{R_z}$
+with a natural isomorphism
+\begin{equation}\label{eq:relative-F}
+ F_z Q_{L_z}\simeq Q_{R_z}\mathbb S_{S_z}.
+\end{equation}
+Consequently
+\begin{align}
+ \ell_{L_z}F_z^{-1}&\simeq\mathbb S_{S_z}^{-1}\ell_{R_z},
+       \label{eq:F-left}\\
+ r_{R_z}F_z\mathbb S_{L_z}&\simeq
+             \mathbb S_{S_z}^{2}\ell_{L_z}.
+       \label{eq:F-right}
+\end{align}
+All these identifications are identities of functors, with their
+maps, not only identities on object classes.
+\end{lemma}
+\begin{proof}
+Work first in $\mathcal C=\mathcal D_{J(z)}$.
+Let $B=Q_{J(z)}:\mathcal D_{S_z}\to\mathcal C$ and let
+$Z:\mathcal D_{S_z}\to\mathcal C$ be extension from the top layer.
+For projectives they are respectively
+\[
+ B(P_x)=P_{e_0(x)},\qquad Z(P_x)=P_{e_{b(x)+1}(x)}.
+\]
+Thus both are fully faithful. The first formula follows because
+$e_0(x)\leq e_i(y)$ exactly when $x\leq y$; the second is extension
+from an upper filter. They have both adjoints on these bounded
+categories. Injectives at top points give the natural identity
+\[
+ \mathbb S_{J(z)}Z\simeq B\mathbb S_{S_z}.
+\]
+Indeed the injective at the top over $x$ has value $k$ exactly on
+points projecting below $x$, with the usual incidence maps.
+
+Use extension by zero to regard $\mathcal D_{L_z}$ and
+$\mathcal D_{R_z}$ as full derived subcategories of $\mathcal C$.
+These embeddings are fully faithful: the sets are respectively a
+lower ideal and an upper filter, and restriction of their
+projective resolutions verifies derived full faithfulness.
+They identify with $Z^\perp$ and $B^\perp$, respectively, by
+evaluation on the top and bottom projectives. Serre duality and
+the displayed identity give
+$Z^\perp={}^\perp B$. Here orthogonality includes all shifts.
+
+For $E\in{}^\perp B$, form the actual counit cone
+\[
+ H_z(E)=\operatorname{Cone}(B B^R E\longrightarrow E).
+\]
+It lies in $B^\perp$. This defines an equivalence
+${}^\perp B\to B^\perp$. To check full faithfulness, apply Hom to
+the two counit triangles: $\Hom(E,B(-)[m])=0$ and
+$\Hom(B(-),H_z(E')[m])=0$ identify the Hom groups with those before
+mutation. An inverse on $G\in B^\perp$ is the fibre of the unit
+$G\to B B^L G$; it belongs to ${}^\perp B$, and the same triangles
+show that the two operations are inverse. These cones and fibres
+are taken in the derived module enhancement.
+
+The exact sequence
+$0\to Z(P_x)\to B(P_x)\to Q_{L_z}(P_x)\to0$
+shows, naturally on the projective generators of $\mathcal D_{S_z}$,
+that
+\[
+ H_z Q_{L_z}\simeq Z_{R_z}[1],
+\]
+where $Z_{R_z}$ is the top-layer projective embedding into $R_z$.
+In $R_z$ the same injective calculation gives
+$\mathbb S_{R_z}Z_{R_z}\simeq Q_{R_z}\mathbb S_{S_z}$.
+Notice that $Q_{R_z}(P_x)=P_{e_1(x)}$; the index $1$ is preserved
+by every lower cover. Set
+\[
+ F_z=\mathbb S_{R_z}H_z[-1].
+\]
+This proves \eqref{eq:relative-F}. Taking left adjoints gives
+\eqref{eq:F-left}. Taking right adjoints first gives
+$r_{R_z}F_z\simeq\mathbb S_{S_z}r_{L_z}$; composing with
+$\mathbb S_{L_z}$ and applying \eqref{eq:serre-adjoint} gives
+\eqref{eq:F-right}. Naturality follows from the actual counit,
+unit and Serre pairings used throughout.
+\end{proof}
+
+
+\subsection{The rotation tilting object}
+The next result treats two factors without exterior strings. The
+factors may themselves have several blocks, so it also proves
+cyclic rotation of an arbitrary block string.
+Its two-piece tilting construction uses the triangular-algebra method
+of \cite[Theorems 4.5 and 4.9]{LadkaniTriangular} as background.
+We compute the actual mixed bimodule and identify the target
+$kJ(vu)$, including multiplication, in the proof below.
+
+\begin{theorem}[Two-factor rotation]\label{thm:rotation}
+For all nonempty Dyck words $u,v$ and all fields $k$ there is an
+equivalence
+\[
+ \Db(\Rep_k J(uv))\simeq\Db(\Rep_k J(vu)).
+\]
+\end{theorem}
+\begin{proof}
+Use Proposition~\ref{prop:boundary-algebra}, with
+$D=L_u\times S_v$ and $U=S_u\times R_v$.
+Let $j_0:\mathcal D_D\to\mathcal D_{J(uv)}$ and
+$i:\mathcal D_U\to\mathcal D_{J(uv)}$ be extension by zero.
+The first is the lower-supported embedding and the second the
+upper-supported embedding. For $E\in\mathcal D_D$ and
+$V\in\mathcal D_U$, the triangular algebra gives
+\begin{align}
+ R\Hom(iV,j_0E)&=0,\label{eq:upper-lower-zero}\\
+ R\Hom(j_0E[-1],iV)&\simeq R\Hom_U(\Phi E,V),\qquad
+ \Phi=\ell_{L_u}\boxtimes Q_{R_v}.
+       \label{eq:cross-hom}
+\end{align}
+Here is a direct justification of the second formula. Derived
+extension of the lower projectives gives a triangle
+$i\Phi E\to j_!E\to j_0E$; its upper restriction is the actual
+mixed bimodule of \eqref{eq:boundary-mixed}. On
+$P_d\boxtimes P_y$ that bimodule gives
+$P_{q_u(d)}\boxtimes Q_{R_v}P_y$, which proves the formula for
+$\Phi$, including its actions, by projective resolutions.
+Adjunction gives $R\Hom(j_!E,iV)=0$, and hence
+\eqref{eq:cross-hom}. The zero in \eqref{eq:upper-lower-zero}
+follows because upper projectives stay projective in the full
+poset and have no maps to a lower-supported object.
+
+Index the desired summands by the marked-boundary decomposition
+of the target $J(vu)$: its lower vertices are
+$(d,x)\in L_v\times S_u$, and its upper vertices are
+$(y,r)\in S_v\times R_u$. Define in the source category
+\begin{align*}
+ T_{d,x}&=i\bigl(\mathbb S_{S_u}^{-1}P_x\boxtimes
+                        F_v\mathbb S_{L_v}P_d\bigr),\\
+ T_{y,r}&=j_0\bigl(F_u^{-1}P_r\boxtimes
+                        \mathbb S_{S_v}^{2}P_y\bigr)[-1].
+\end{align*}
+This is a uniform construction by finite derived tensor products,
+Kan extensions and the counit cones of Lemma~\ref{lem:truncation}.
+It is not specified by assuming the required endomorphism algebra.
+Each factor is a bounded complex over a finite poset algebra.
+
+Inside each family, derived full faithfulness and the equivalences
+$F_z$ and $\mathbb S_X$ identify all Hom complexes with those of the
+corresponding target projectives. The Hom complexes from the first
+family to the second vanish by \eqref{eq:upper-lower-zero}.
+For the remaining direction, \eqref{eq:cross-hom}, the tensor-Hom
+identity over $k$, and \eqref{eq:F-left}--\eqref{eq:F-right} give
+\begin{align*}
+ R\Hom(T_{y,r},T_{d,x})
+ &\simeq R\Hom_{S_u}(\ell_{L_u}F_u^{-1}P_r,
+                         \mathbb S_{S_u}^{-1}P_x)\\
+ &\hspace{1em}\otimes_k
+ R\Hom_{S_v}(\mathbb S_{S_v}^{2}P_y,
+                         r_{R_v}F_v\mathbb S_{L_v}P_d)\\
+ &\simeq \Hom_{S_u}(P_{q_u(r)},P_x)
+                  \otimes_k\Hom_{S_v}(P_y,P_{q_v(d)}).
+\end{align*}
+It is concentrated in degree zero, of dimension one precisely when
+$x\leq q_u(r)$ and $q_v(d)\leq y$. These are exactly the mixed
+relations of the target, in the projective convention.
+
+The displayed comparison is natural in all four variables and in
+the projective maps. It is therefore an isomorphism of the mixed
+bimodule with the target incidence bimodule, not just an equality
+of dimensions. Choose its basis by the tensor of the two canonical
+incidence maps. Composition with maps in either family agrees,
+by this naturality, with incidence multiplication. Products inside
+each family were already identified by the equivalences; there
+are no products of two mixed arrows. Thus, for the sum $T$ of all
+the displayed objects, we have the actual algebra isomorphism
+\[
+ \End(T)^{\mathrm{op}}\cong kJ(vu).
+\]
+The preceding calculations prove $\Hom(T,T[m])=0$ for $m\ne0$.
+
+Each family generates its entire supported category, because it
+is the image of projective generators under equivalences and
+external tensor products. These two supported categories generate
+the full category: every representation has its upper-supported
+subrepresentation and lower-supported quotient, and the same
+statement follows for bounded complexes by truncation. Hence $T$
+is tilting. Lemma~\ref{lem:tilting-principle} gives the enhanced equivalence. All constructions use finite-dimensional
+algebras over $k$, with no characteristic-dependent averaging or
+division. This proves the theorem for every field.
+\end{proof}
+
+\begin{corollary}\label{cor:cyclic}
+Cyclic rotations of the block string of $w$ preserve
+$\Db(\Rep_k J(w))$ over every field. In particular
+Problem~\ref{prob:swap} holds when $A$ and $B$ are empty.
+\end{corollary}
+\begin{proof}
+Cut the string into the two words before and after the desired
+rotation and apply Theorem~\ref{thm:rotation}.
+\end{proof}
+
+
+
+\section{Failure of block-permutation invariance}
+\label{sec:failure}
+\label{sec:counterexample}
+The obstruction in this section concerns the complete intervals $J(w)$,
+not a relative boundary condition or a chosen tilting construction.
+All calculations use integers; the auxiliary prime is unrelated to the
+characteristic of the representation field.
+
+\begin{lemma}[Integral Euler obstruction]\label{lem:euler-polynomial}
+Let $C_P=(1_{x\leq y})$ be the zeta matrix of a finite poset $P$ in a
+linear extension. The polynomial
+\[
+ F_P(t)=\det(tC_P^t-C_P)\in\mathbb Z[t]
+\]
+is invariant under $k$-linear derived equivalence of its incidence
+algebra, for every field $k$.
+\end{lemma}
+\begin{proof}
+The simple classes give an integral basis of $K_0$, and the Euler
+matrix in this basis is $E_P=C_P^{-1}$. Indeed, covariant projectives
+satisfy $\operatorname{Hom}(P_x,S_y)=k\delta_{xy}$ and have dimension
+vectors given by the rows of $C_P$. Incidence algebras have finite
+global dimension, so the Euler form is defined on the bounded derived
+category. A $k$-linear equivalence induces an integral unimodular
+change of basis preserving this form. Consequently
+$\det(tE_P-E_P^t)$ is invariant. Finally,
+\[
+ C_P^t(tE_P-E_P^t)C_P=tC_P^t-C_P,\qquad \det C_P=1.
+\]
+This proves the claim independently of any convention for the sign
+of the Coxeter transformation.
+\end{proof}
+
+\begin{theorem}[Computational counterexample]\label{thm:counterexample}
+Set
+\[
+ u=110100,\quad v=11011000,\quad A=\varnothing,\quad B=1100.
+\]
+These are admissible blocks and exterior strings in
+Problem~\ref{prob:swap}. For every field $k$ there is no $k$-linear
+triangulated equivalence
+\[
+ \Db(\Rep_k J(uvB))\simeq\Db(\Rep_k J(vuB)).
+\]
+In particular the block-permutation assertion of
+\cite[Section 9, Conjecture 9.1]{Chapoton} is false.
+\end{theorem}
+\begin{proof}[Proof by exact finite computation]
+The prefix heights of $u$ and $v$ are positive except at their final
+position, so both are indecomposable. The complete Dexter intervals
+below $1uvB100$ and $1vuB100$ each have 288 vertices and 882 covers.
+Their zeta matrices give the following exact residues:
+\[
+\begin{array}{c|r|r|r}
+ w & |J(w)| & \text{covers} & F_{J(w)}(2)\bmod1009\\ \hline
+ 110100110110001100 & 288 & 882 & 238\\
+ 110110001101001100 & 288 & 882 & 676
+\end{array}
+\]
+The different residues imply different integer polynomials, and
+Lemma~\ref{lem:euler-polynomial} rules out equivalence over every field.
+
+Appendix~\ref{app:certificate} explains the algorithm and checks;
+the self-contained implementation and full interval certificates are
+provided as supplementary files accompanying the manuscript.
+The calculation uses the direct Dexter move rule and does not depend
+on any positive equivalence in this paper.
+\end{proof}
+
+\begin{remark}
+No minimality claim is made.
+The counterexample is outside both supplementary positive ranges:
+it has three non-elementary blocks, of which two are non-pyramid.
+The weaker successes for rotation and special block exchanges therefore
+do not imply the original universal assertion.
+\end{remark}
+
+\begin{corollary}[Two cyclic orbits, two derived types]\label{cor:two-cyclic-orbits}
+Let $u=110100$, $v=11011000$, and $b=1100$. For every field $k$,
+the six intervals obtained by permuting these blocks form exactly
+two $k$-linear derived equivalence classes:
+\[
+ \{J(uvb),J(vbu),J(buv)\},\qquad
+ \{J(vub),J(ubv),J(bvu)\}.
+\]
+\end{corollary}
+\begin{proof}
+Corollary~\ref{cor:cyclic} identifies the three members of each set.
+Theorem~\ref{thm:counterexample} separates the displayed representatives
+$J(uvb)$ and $J(vub)$. Since the three blocks are distinct, the two
+sets exhaust all six permutations. No further computations are needed.
+\end{proof}
+For this multiset the derived category detects the two cyclic orders.
+This statement concerns these six words only.
+
+
+\section{Abstract equivalence and boundary attachment}
+\label{sec:boundary}
+The lower truncations can be equivalent without admitting any
+boundary-compatible equivalence. We first construct the abstract
+equivalence, then show what boundary compatibility would imply,
+and finally use the counterexample to rule it out.
+
+\subsection{Rotating the lower truncation}
+Put
+\[
+ W_z=\{e_i(x):x\leq z,\ 1\leq i\leq b(x)\}\subset L_z.
+\]
+This removes the bottom layer as well as the top-shape layer.
+The pullback $Q_{W_z}$ sends $P_x$ to $P_{e_1(x)}$, so is fully
+faithful. Let $s_z:\mathcal D_{S_z}\to\mathcal D_{L_z}$ be
+extension by zero to the bottom layer. The bottom layer is a lower ideal: a chain index cannot decrease
+from a positive value to zero along a cover. Since
+$Q_{L_z}P_x=P_{e_0(x)}$, Serre sends it to the injective supported
+on bottom vertices over $y\leq x$. This identifies its maps as
+well as its support, and gives
+\begin{equation}\label{eq:bottom-serre}
+ \mathbb S_{L_z}Q_{L_z}\simeq s_z\mathbb S_{S_z}.
+\end{equation}
+In particular $s_z$ has a right adjoint $s_z^R$, and
+\begin{equation}\label{eq:bottom-adjoint}
+ s_z^R\mathbb S_{L_z}^2
+ \simeq\mathbb S_{S_z}r_{L_z}\mathbb S_{L_z}
+ \simeq\mathbb S_{S_z}^2\ell_{L_z}.
+\end{equation}
+The base Serre functor in these identities is retained in the
+mixed Hom calculation below.
+
+\begin{theorem}[Lower-truncation rotation]\label{thm:lower-rotation}
+For nonempty Dyck words $u,v$ there is an enhanced equivalence
+\[
+ \mathcal T_{u,v}:\mathcal D_{L_{vu}}\longrightarrow
+                                  \mathcal D_{L_{uv}}.
+\]
+It has the explicit boundary value
+\begin{equation}\label{eq:lower-boundary-image}
+ \mathcal T_{u,v}Q_{L_{vu}}
+ \simeq\mathcal E_{u,v}
+       (\mathrm{id}_{\mathcal D_{S_u}}\boxtimes
+                              \mathbb S_{L_v}^2Q_{L_v}),
+\end{equation}
+where the base factors on the left are identified with
+$S_u\times S_v$, and $\mathcal E_{u,v}$ is the padding functor
+constructed below. Formula~\eqref{eq:lower-boundary-image} is not
+asserted to be a constant pullback for general $u,v$.
+\end{theorem}
+\begin{proof}
+The lower truncation has three consecutive layers
+\[
+ S_u\times S_v,\qquad W_u\times S_v,\qquad S_u\times W_v.
+\]
+Indeed, over $(x,y)$ with $a=b(x)$, these correspond respectively
+to $i=0$, $1\leq i\leq a$, and $a<i\leq a+b(y)$.
+The induced orders and mixed relations follow by restricting
+Proposition~\ref{prop:boundary-algebra}; between two different
+layers the relation is precisely comparison of the two base
+coordinates. The layer unions in this order are lower ideals.
+
+Define a monotone map
+\[
+ \rho:L_{uv}\longrightarrow S_u\times L_v,
+ \qquad
+ e_i(xy)\longmapsto
+ \begin{cases}
+ (x,e_0(y)),&i\leq b(x),\\
+ (x,e_{i-b(x)}(y)),&i>b(x).
+ \end{cases}
+\]
+The cover rule proves monotonicity. Let
+$\mathcal E_{u,v}=\rho^*$, which is exact.
+It sends $P_x\boxtimes P_{e_0(y)}$ to the bottom projective of
+$L_{uv}$ over $(x,y)$, and sends $P_x\boxtimes P_b$, $b\in W_v$,
+to the projective in its last layer. These are actual representable
+maps, so $\mathcal E_{u,v}$ is derived fully faithful. It retains
+both the first and third layers, filling the middle layer by
+pullback of the first-layer coefficients.
+
+Let $a_0:\mathcal D_{W_u\times S_v}\to\mathcal D_{L_{uv}}$
+be extension by zero to the middle layer. It is derived fully
+faithful. More explicitly, for a middle projective
+$P_a\boxtimes P_y$ there is an exact sequence
+\begin{equation}\label{eq:middle-resolution}
+ 0\longrightarrow i_B(P_{q_u(a)}\boxtimes Q_{W_v}P_y)
+ \longrightarrow P^{L_{uv}}_{(a,y)}
+ \longrightarrow a_0(P_a\boxtimes P_y)\longrightarrow0,
+\end{equation}
+where $i_B$ is extension from the last layer. Both terms on the
+left are projective in the full poset. Their Hom into another
+middle-supported object computes exactly the middle Hom; this
+also proves the full-faithfulness assertion.
+
+There are no derived maps from the image of $\mathcal E_{u,v}$
+to the image of $a_0$: the displayed projective generators of the
+first image evaluate to zero on a middle-supported object.
+The reverse Hom has a useful precise form:
+\begin{equation}\label{eq:three-layer-hom}
+ \begin{split}
+ R\Hom\bigl(a_0(P_a\boxtimes Y),
+               \mathcal E_{u,v}(P_x\boxtimes Z)\bigr)
+ \simeq \Hom_{S_u}(P_{q_u(a)},P_x)
+                         \otimes_k R\Hom_{L_v}(s_vY,Z).
+ \end{split}
+\end{equation}
+To verify this with its maps, first take $Y=P_y$.
+Applying Hom to \eqref{eq:middle-resolution} gives the fibre of
+\[
+ \Hom_{S_u}(P_{q_u(a)},P_x)\otimes Z(e_0(y))
+ \longrightarrow
+ \Hom_{S_u}(P_{q_u(a)},P_x)\otimes
+                 R\Hom_{W_v}(Q_{W_v}P_y,Z|_{W_v}).
+\]
+The map is the actual attachment of $Z$ from its bottom layer.
+The exact sequence
+$0\to i_{W_v}Q_{W_v}P_y\to Q_{L_v}P_y\to s_vP_y\to0$
+identifies this fibre with the right side of
+\eqref{eq:three-layer-hom}. This argument is natural in all
+projective maps and extends to bounded $Y,Z$ by projective
+resolutions.
+
+The target $L_{vu}$ has a lower piece $L_v\times S_u$ and an
+upper piece $S_v\times W_u$. For their vertices define
+\[
+ T_{d,x}=\mathcal E_{u,v}
+                 (P_x\boxtimes\mathbb S_{L_v}^2P_d),\qquad
+ T_{y,a}=a_0(P_a\boxtimes\mathbb S_{S_v}^2P_y).
+\]
+Internal Hom complexes are those of the two target projective
+families. The Hom complexes in one mixed direction vanish as
+above. In the other direction,
+\eqref{eq:three-layer-hom} and \eqref{eq:bottom-adjoint} identify
+$R\Hom(T_{y,a},T_{d,x})$ with
+\[
+ \Hom_{S_u}(P_{q_u(a)},P_x)\otimes_k
+                              \Hom_{S_v}(P_y,P_{q_v(d)}).
+\]
+It is concentrated in degree zero, with exactly the target
+incidence condition. Naturality of the fibre calculation identifies
+both module actions and their compositions. Together with the
+internal algebra identifications, this proves
+$\End(T)^{\mathrm{op}}\cong kL_{vu}$, with no unverified scalar
+multiplication choices.
+
+The two families generate the images of $\mathcal E_{u,v}$ and
+$a_0$. The first image contains the bottom and last-layer
+projectives, and \eqref{eq:middle-resolution} recovers all middle
+projectives. Thus the families generate the full source category
+and form a tilting object. The resulting equivalence sends target
+projectives to the indicated summands. Applying this to the target
+bottom projectives gives \eqref{eq:lower-boundary-image}.
+More explicitly, a base projective $P_x\boxtimes P_y$ is sent to
+$\mathcal E_{u,v}(P_x\boxtimes\mathbb S_{L_v}^2P_{e_0(y)})$.
+For $x\leq x'$ and $y\leq y'$, the map from the primed projective
+to the unprimed one is the image under $\mathcal E_{u,v}$ of the
+representable map in the first factor tensored with
+$\mathbb S_{L_v}^2(P_{e_0(y')}\to P_{e_0(y)})$.
+These are exactly the internal maps of the first tilting family;
+the mixed bimodule identification above is natural for these maps
+on both sides. Thus no separate scalar choices are made on the
+base arrows. The identification is one of bimodules on the base
+projective category and therefore extends to the claimed enhanced
+functor identity by bounded projective resolutions.
+\end{proof}
+
+
+\subsection{Extending a boundary-compatible equivalence}
+\begin{proposition}[One-sided reduction]\label{prop:one-sided}
+For fixed nonempty Dyck words $u,v$, suppose that
+$\mathcal D_{J(uvC)}\simeq\mathcal D_{J(vuC)}$ for every nonempty
+block string $C$. Then the adjacent exchange holds with all
+possibly empty exterior strings $A,B$.
+\end{proposition}
+\begin{proof}
+Put $C=BA$. Theorem~\ref{thm:rotation}, or the identity if $A$ is
+empty, gives
+\[
+ \mathcal D_{J(AuvB)}\simeq\mathcal D_{J(uvBA)},\qquad
+ \mathcal D_{J(AvuB)}\simeq\mathcal D_{J(vuBA)}.
+\]
+Apply the assumed suffix comparison when $BA$ is nonempty.
+When $BA$ is empty use Theorem~\ref{thm:rotation} itself. No
+compatibility between these rotations is required for existence
+of the resulting equivalence.
+\end{proof}
+
+The required suffix bimodule has an exact description. More generally,
+let $w,w'$ be nonempty Dyck words with a specified poset identification
+$S=I(w)\cong I(w')$. For an exchanged pair this is the product-factor
+permutation. All functors to and from $S$ below use the specified
+identification. For a nonempty suffix $C$, put $V=I(C)$.
+By Proposition~\ref{prop:boundary-algebra}, the lower and upper
+pieces of $J(wC)$ are
+\[
+ D_w=L_w\times V,\qquad U=S\times R_C.
+\]
+The upper piece is literally common to the two words after the
+factor identification. The actual mixed derived tensor functor is
+\begin{equation}\label{eq:suffix-bimodule}
+ \Phi_w=\ell_{L_w}\boxtimes Q_{R_C}:
+ \mathcal D_{D_w}\longrightarrow\mathcal D_U.
+\end{equation}
+Thus replacing $L_w$ by a derived-equivalent category without
+controlling $\ell_{L_w}$ does not identify the gluing algebra.
+The following criterion transports this specified gluing bimodule.
+It uses triangular-algebra tilting, as in
+\cite[Theorems 4.5 and 4.9]{LadkaniTriangular}, with the natural
+boundary comparison and the Dexter target identification checked here.
+
+\begin{proposition}[Relative extension criterion]\label{prop:relative-extension}
+Suppose an enhanced equivalence
+$G:\mathcal D_{L_w}\to\mathcal D_{L_{w'}}$ has been constructed,
+an enhanced autoequivalence $K$ of $\mathcal D_S$, and a natural
+isomorphism of functors
+\begin{equation}\label{eq:relative-gate}
+ GQ_{L_w}\simeq Q_{L_{w'}}K:\mathcal D_S\longrightarrow
+                                      \mathcal D_{L_{w'}}.
+\end{equation}
+Then for every nonempty $C$ there is a tilting object in
+$\mathcal D_{J(wC)}$ with opposite endomorphism algebra $kJ(w'C)$.
+The same comparison gives $\mathcal D_{J(AwB)}\simeq
+\mathcal D_{J(Aw'B)}$ for arbitrary exterior block strings $A,B$.
+\end{proposition}
+\begin{proof}
+Taking left adjoints in \eqref{eq:relative-gate} gives a natural
+isomorphism
+\[
+ \ell_{L_w}G^{-1}\simeq K^{-1}\ell_{L_{w'}}.
+\]
+It identifies the mixed functors, with their two module actions:
+\begin{equation}\label{eq:suffix-action}
+ \Phi_w(G^{-1}\boxtimes\mathrm{id})\simeq
+ (K^{-1}\boxtimes\mathrm{id})\Phi_{w'}.
+\end{equation}
+Let $j_!$ be derived extension from the lower piece $D_w$, and let
+$i$ be extension by zero from the upper piece $U$ in $J(wC)$.
+For target lower vertices $(d,y)\in L_{w'}\times V$ and target
+upper vertices $(x,r)\in S\times R_C$, define
+\[
+ T_{d,y}=j_!(G^{-1}P_d\boxtimes P_y),\qquad
+ T_{x,r}=i(K^{-1}P_x\boxtimes P_r).
+\]
+Here $j_!$ is essential: replacing it by lower-supported extension
+by zero would change the mixed Hom and its degree.
+The lower restriction of $j_!E$ is $E$, and its upper restriction
+is $\Phi_wE$. Hence $j_!$ and $i$ are fully faithful, and
+\[
+ R\Hom(j_!E,iW)=0,\qquad
+ R\Hom(iW,j_!E)\simeq R\Hom_U(W,\Phi_wE).
+\]
+Using \eqref{eq:suffix-action}, the remaining mixed calculation is
+\begin{align*}
+ R\Hom(T_{x,r},T_{d,y})
+ &\simeq R\Hom_U(K^{-1}P_x\boxtimes P_r,
+                         K^{-1}P_{q_{w'}(d)}\boxtimes Q_{R_C}P_y)\\
+ &\simeq \Hom_S(P_x,P_{q_{w'}(d)})\otimes_k
+                         \Hom_{R_C}(P_r,Q_{R_C}P_y).
+\end{align*}
+It is concentrated in degree zero, with value $k$ precisely when
+$q_{w'}(d)\leq x$ and $y\leq q_C(r)$. This is the target mixed
+incidence relation in the projective convention. Internal Hom
+complexes are those of the target projectives by full faithfulness.
+Naturality of \eqref{eq:suffix-action} identifies composition with
+both internal algebras. There are no products of two mixed arrows,
+so these comparisons give $\End(T)^{\mathrm{op}}\cong kJ(w'C)$
+including multiplication. All nonzero-degree Hom groups vanish.
+
+The two families generate the images of $j_!$ and $i$. The triangle
+$i\Phi_wE\to j_!E\to j_0E$ then recovers every lower-supported
+object; lower- and upper-supported objects generate the full
+bounded category. Thus $T$ is tilting. For the empty suffix, use
+the lower part $L_w$ and the top layer $S$ of $J(w)$: the same
+calculation has mixed functor $\ell_{L_w}$ and no suffix tensor
+factor. Finally rotate $AwB$ to $wBA$, and $Aw'B$ to $w'BA$,
+by Theorem~\ref{thm:rotation}; omit this rotation when $A$ is empty.
+The suffix result gives the final assertion.
+\end{proof}
+
+\begin{remark}[Boundary data are essential]
+The extension criterion is a sufficient theorem with an explicit
+mixed bimodule, not an assumption imposed to obtain a universal
+exchange. Corollary~\ref{cor:absolute-boundary-obstruction}
+shows that its hypothesis fails for every possible pair $(G,K)$
+in the counterexample. Equality on $K_0$, or separate isomorphisms
+on the values of $GQ$, cannot replace the natural comparison of
+both module actions in \eqref{eq:relative-gate}.
+\end{remark}
+
+
+\subsection{The obstruction for every base correction}
+\begin{corollary}[Abstract equivalence does not preserve boundary type]
+\label{cor:absolute-boundary-obstruction}
+Let $u=110100$, $v=11011000$, and identify
+$S=I(uv)\cong I(vu)$ by permutation of the two product factors.
+For every field $k$ there is an enhanced equivalence
+$\mathcal D_{L_{uv}}\simeq\mathcal D_{L_{vu}}$.
+Nevertheless there is no pair consisting of an enhanced equivalence
+$G:\mathcal D_{L_{uv}}\to\mathcal D_{L_{vu}}$ and an enhanced
+autoequivalence $K:\mathcal D_S\to\mathcal D_S$ with a natural isomorphism
+\[
+ GQ_{L_{uv}}\simeq Q_{L_{vu}}K.
+\]
+\end{corollary}
+\begin{proof}
+The inverse of Theorem~\ref{thm:lower-rotation} gives the abstract
+equivalence. If the stated pair existed, Proposition~\ref{prop:relative-extension}
+with suffix $1100$ would give an equivalence between $J(uv1100)$
+and $J(vu1100)$, contradicting Theorem~\ref{thm:counterexample}.
+The quantifier on $K$ includes all enhanced base autoequivalences,
+not merely products of Serre powers. The enhancement and naturality
+requirements are exactly those of the extension criterion.
+\end{proof}
+
+
+
+\section{Positive supplementary families}
+\label{sec:positive}
+\subsection{Exchanges involving an elementary block}
+The boundary value in Theorem~\ref{thm:lower-rotation} can be corrected when one factor
+is the elementary block $t=10$. This is a genuine exterior-string
+case, not only a rotation of the whole word.
+
+\begin{theorem}[An elementary block with arbitrary exterior strings]
+\label{thm:elementary-context}
+Let $t=10$. For every nonempty Dyck word $u$, every pair of possibly
+empty block strings $A,B$, and every field $k$, there is an equivalence
+\[
+ \mathcal D_{J(AutB)}\simeq\mathcal D_{J(AtuB)}.
+\]
+\end{theorem}
+\begin{proof}
+The base $S_t$ is a point and $L_t$ is the two-point chain $0<1$.
+Its bottom projective $P_0=Q_{L_t}k$ satisfies
+\begin{equation}\label{eq:two-chain-serre}
+ \mathbb S_{L_t}^2P_0\simeq P_1[1].
+\end{equation}
+For an explicit check, $\mathbb S P_1=P_0$ and
+$\mathbb S P_0$ is the bottom simple; applying Serre to the
+projective resolution of that simple gives \eqref{eq:two-chain-serre}.
+
+In $L_{ut}$ the last layer has one point $e_{b(x)+1}(xt)$ over
+each $x\in S_u$. It is a monotone top section, and every point
+projecting below $x$ lies below this section over $x$.
+Let $Z_u:\mathcal D_{S_u}\to\mathcal D_{L_{ut}}$ be extension
+from this top section. Its projectives are those of the last
+layer. Top injectives therefore give, with their actual maps,
+\begin{equation}\label{eq:elementary-top-serre}
+ \mathbb S_{L_{ut}}Z_u\simeq Q_{L_{ut}}\mathbb S_{S_u}.
+\end{equation}
+There is no additional top-shape layer in this assertion: it is
+an identity inside the lower truncation $L_{ut}$.
+
+Equations \eqref{eq:lower-boundary-image} and
+\eqref{eq:two-chain-serre} identify
+\[
+ \mathcal T_{u,t}Q_{L_{tu}}\simeq Z_u[1].
+\]
+Consequently the actual equivalence
+\[
+ H_u=\mathbb S_{L_{ut}}\mathcal T_{u,t}[-1]:
+       \mathcal D_{L_{tu}}\longrightarrow\mathcal D_{L_{ut}}
+\]
+satisfies $H_uQ_{L_{tu}}\simeq Q_{L_{ut}}\mathbb S_{S_u}$.
+Its inverse $G_u=H_u^{-1}$ satisfies the relative comparison
+\[
+ G_u Q_{L_{ut}}\simeq Q_{L_{tu}}\mathbb S_{S_u}^{-1}.
+\]
+These are natural isomorphisms, obtained on base projectives from
+representable and injective maps and then extended through the
+specified derived functors. Thus
+Proposition~\ref{prop:relative-extension} applies with
+$K=\mathbb S_{S_u}^{-1}$. It constructs the suffix tilting object
+and identifies its endomorphism algebra for every nonempty suffix.
+The empty-suffix case is Theorem~\ref{thm:rotation}.
+Proposition~\ref{prop:one-sided} now supplies all $A,B$.
+No step uses division by the characteristic of $k$.
+\end{proof}
+
+\begin{corollary}\label{cor:two-non-elementary}
+If a Dyck word has at most two blocks different from $10$, all
+permutations of its blocks give derived-equivalent $J$ intervals
+over every field.
+\end{corollary}
+\begin{proof}
+Use Theorem~\ref{thm:elementary-context} to move every elementary
+block to the right. With zero or one other block this gives one
+normal form. With two other blocks $u,v$ the two possible forms
+are $uvt^m$ and $vut^m$. Rotate the first to $vt^mu$ using
+Theorem~\ref{thm:rotation}, and move the elementary blocks across
+$u$ using Theorem~\ref{thm:elementary-context}. This gives the
+second form, including the case $m=0$.
+\end{proof}
+
+\begin{remark}[Scope]
+The elementary construction supplies an actual pair $(G,K)$.
+Corollary~\ref{cor:absolute-boundary-obstruction} proves that no such
+pair can exist uniformly for general blocks. The next result
+establishes the additional pyramid family without asserting any
+extension to all indecomposable blocks.
+\end{remark}
+
+
+\subsection{Pyramid transfers and exchanges}
+Write $p_m=1^m0^m$ for $m\geq1$; in particular $p_1=10$.
+
+\begin{theorem}[Pyramid transfer]\label{thm:pyramid-transfer}
+For $a\geq1$, $b\geq2$, every field $k$, and arbitrary exterior
+block strings $A_0,B_0$, there is an equivalence
+\[
+ \mathcal D_{J(A_0p_a p_b B_0)}\simeq
+ \mathcal D_{J(A_0p_{a+1}p_{b-1}B_0)}.
+\]
+\end{theorem}
+\begin{proof}
+Appendix~\ref{app:pyramid-application} identifies the two actual lower
+truncations with the posets of Theorem~\ref{thm:relative-mutation}
+and proves the required natural boundary comparison. Applying
+Proposition~\ref{prop:relative-extension} then gives the assertion
+in every exterior context.
+\end{proof}
+
+\begin{corollary}\label{cor:pyramid-swap}
+Any two pyramid blocks can be exchanged in arbitrary exterior
+strings, over every field. Consequently all block permutations
+are covered for words with at most one non-pyramid block.
+\end{corollary}
+\begin{proof}
+Successive transfers identify both pairs $(p_a,p_b)$ and
+$(p_b,p_a)$ with $(p_{a+b-1},p_1)$ in the same exterior context;
+a pair whose second index is one already has that form.
+For the last assertion, use two-factor rotation to place the
+possible non-pyramid block first. The remaining pyramid blocks
+can be permuted by the proved adjacent exchanges, and rotation
+places the exceptional block at any desired position.
+\end{proof}
+
+\begin{remark}[Scope of the new construction]
+This closes an infinite family containing arbitrarily many
+non-elementary blocks and arbitrary exterior strings. It does
+not settle arbitrary pairs of indecomposable Dyck blocks: their
+lower intervals need not admit the Boolean marked-cut model used
+in the transfer proof. No such model is assumed for a general
+block. The unrestricted Problem~\ref{prob:swap} is false by
+Theorem~\ref{thm:counterexample}; that example has two non-pyramid
+blocks and lies outside this construction.
+\end{remark}
+
+
+
+\appendix
+\section{The exact computational certificate}
+\label{app:certificate}
+This appendix specifies the finite calculation used in
+Theorem~\ref{thm:counterexample}. It requires no chain-coordinate
+formula and no tilting construction.
+Generate all Dyck words of semilength 11 by recursively appending $1$
+when fewer than 11 have been used, and $0$ when the current height is
+positive. Match each opening step to its closing step by a stack.
+For every matched substring $s$, if its preceding letter is $0$ and
+its following letter is $1$ or absent, move $s$ left past each possible
+positive number of consecutive preceding zeros. These are precisely
+the Dexter covers in the definition. Store the resulting incoming
+edges, and take the reverse reachable set from each of the two
+specified upper words. This finite graph has 58786 vertices before
+restricting to either interval; the two restricted cover lists are
+part of the certificate.
+
+An upward move strictly increases the binary word lexicographically.
+Thus sorting the selected vertices gives a linear extension. Starting
+with each vertex itself, accumulate its upward reachable set in
+reverse lexicographic order; this produces $C$. Evaluate $\det(2C^t-C)$
+by integer fraction-free elimination. With previous pivot $d$ (initially
+1) and current pivot $a_{kk}$, each trailing entry is replaced by
+\[
+ a_{ij}\longleftarrow
+ \frac{a_{kk}a_{ij}-a_{ik}a_{kj}}{d}\qquad(i,j>k).
+\]
+Use a row interchange when necessary, record its sign, and take the
+last diagonal entry with that sign. Every division is checked exact.
+Reducing the resulting integers modulo 1009 gives the values
+in Theorem~\ref{thm:counterexample}.
+
+\subsection*{Supplementary files and reproduction}
+The following two files are supplied with the manuscript in the
+\texttt{supplementary/} directory:
+\begin{itemize}
+\item \texttt{verify\_counterexample\_independent.py}, the self-contained
+implementation of the direct move algorithm and integer elimination;
+\item \texttt{independent\_counterexample\_certificate.json}, containing
+both full vertex and cover lists, both integer determinants, and the
+published control results.
+\end{itemize}
+The accompanying \texttt{README.md} records the run instructions.
+The implementation was tested with Python 3.12.10 and uses only the
+standard-library modules \texttt{json} and \texttt{pathlib}.
+From the manuscript directory, run
+\begin{verbatim}
+python supplementary/verify_counterexample_independent.py
+\end{verbatim}
+Equivalently, from the \texttt{supplementary/} directory, run
+\begin{verbatim}
+python verify_counterexample_independent.py
+\end{verbatim}
+Run Python with assertions enabled, without the \texttt{-O} option.
+The script writes the certificate JSON beside itself and overwrites
+that file on each run, independently of the working directory.
+The expected output, in the order
+$(\text{vertices},\text{covers},F(2)\bmod1009)$, is
+\[
+\begin{array}{c|c}
+ w & \text{expected tuple}\\\hline
+ 110100110110001100 & (288,882,238)\\
+ 110110001101001100 & (288,882,676)
+\end{array}
+\]
+The two control intervals each have 27 vertices and
+$F(2)=95869805$. The implementation imports none of the
+chain-coordinate implementations used elsewhere in this paper.
+
+\subsection*{Checks on the computation}
+The computed vertex and cover sets agree exactly with those from
+reverse moves and with Proposition~\ref{prop:covers}. An independent
+modular elimination gives the same residues. As a published control,
+for $J(11011000)$ and $J(11101000)$ this direct implementation gives
+27 vertices and $F(2)=95869805$ in both cases, agreeing with the Coxeter
+polynomial $\Phi_2\Phi_4\Phi_{18}\Phi_{54}$ stated in
+\cite[Section 9]{Chapoton}, after the change from Coxeter to Serre sign.
+The finite computation is an explicit part of this proof, rather than
+a proposed symbolic identification of the characteristic polynomials.
+
+\section{The relative mutation underlying pyramid transfer}
+\label{app:mutation}
+This construction changes a specified family of cross relations.
+Its input is a specified finite poset, not a presumed relative
+equivalence. It will apply to a transfer between two pyramid blocks.
+
+Let $R$ be a finite poset with a least element. Let $A,B$ be finite
+posets with monotone maps $q_A,q_B$ to $R$. Assume that $A$ has a bottom copy
+$\alpha(R)$ and that $B$ has a bottom copy of $R$, both lower ideals,
+with
+\[
+ \alpha(r)\leq a\ \Longleftrightarrow\ r\leq q_A(a),\qquad
+ r\leq b\ \Longleftrightarrow\ r\leq q_B(b),
+ \qquad q_A\alpha=q_B|_R=\mathrm{id}_R.
+\]
+Put $V=B\setminus R$. Form
+\[
+ D=A^0\sqcup\widehat R\sqcup B^0,\qquad
+ U=A^1\sqcup B^1.
+\]
+Within $D$ and $U$, retain the given internal orders and compare
+vertices from an earlier displayed piece to a later displayed
+piece by comparison of their images in $R$, with no relations in
+the reverse direction. Define $P$ with lower ideal $D$ and upper filter $U$
+by the following mixed relations, and no others:
+\begin{align*}
+ a^0\leq (a')^1&\ \Longleftrightarrow\ a\leq a',&
+ a^0\leq b^1&\ \Longleftrightarrow\ q_A(a)\leq q_B(b),\\
+ \widehat r\leq b^1&\ \Longleftrightarrow\ r\leq q_B(b),&
+ b^0\leq (b')^1&\ \Longleftrightarrow\ b\leq b'\text{ and }b'\in V.
+\end{align*}
+Let $P'$ have the same pieces and relations except that its last
+condition is $b\leq b'$, without the requirement $b'\in V$.
+These relations are transitive: internal comparisons use monotonicity
+of $q_A,q_B$, and the restricted last mixed relation is stable under
+postcomposition because $V$ is an upper filter in $B$. Precomposition
+from $A^0$ or $\widehat R$ is covered by the other displayed mixed
+relations. No relation points backwards across the ordered pieces,
+so antisymmetry also holds. Thus both constructions are posets.
+Projection gives monotone maps
+$P,P'\to R\times C_2$, where $C_2=\{0<1\}$ records $D$ or $U$.
+Write $Q_P,Q_{P'}$ for their pullbacks.
+
+\begin{theorem}[Relative two-term mutation]\label{thm:relative-mutation}
+There is an enhanced equivalence $G:\mathcal D_P\to\mathcal D_{P'}$
+with a natural identification
+\begin{equation}\label{eq:mutation-boundary}
+ GQ_P\simeq Q_{P'}
+       (\mathrm{id}_{\mathcal D_R}\boxtimes\mathbb S_{C_2})[-1].
+\end{equation}
+This construction works over every field.
+\end{theorem}
+\begin{proof}
+All projectives in the construction below belong to $P$.
+For $d\in A^0\sqcup\widehat R\sqcup V^0$ define
+\[
+ f(a^0)=a^1,\qquad f(\widehat r)=r^1,\qquad f(v^0)=v^1,
+ \qquad C_d=\operatorname{Cone}(P_{f(d)}\longrightarrow P_d).
+\]
+The arrow is the incidence inclusion. Its restriction to $U$ is
+an isomorphism onto $P_d|_U$, so $C_d$ is the extension by zero of
+the projective at $d$ in $D$. For $r\in R$ put
+\[
+ F_r=\operatorname{Cone}
+   \bigl(P_{r^0}\oplus P_{r^1}
+                      \xrightarrow{(1,1)} P_{\widehat r}\bigr).
+\]
+Thus each displayed cone is a projective complex in degrees $-1,0$.
+There is a natural triangle
+\begin{equation}\label{eq:mutation-F-triangle}
+ P_{r^0}\longrightarrow C_{\widehat r}\longrightarrow F_r
+                              \longrightarrow P_{r^0}[1].
+\end{equation}
+Index a family of objects by the vertices of $P'$ as follows:
+\[
+\begin{array}{c|ccccccc}
+ \text{vertex}&a^0&\widehat r&r^0&v^0&a^1&r^1&v^1\\\hline
+ T_{\text{vertex}}&P_{a^1}[1]&P_{r^1}[1]&F_r&P_{v^1}[1]
+                    &C_{a^0}&C_{\widehat r}&C_{v^0}
+\end{array}
+\qquad(v\in V).
+\]
+We check its entire Hom algebra, including the new $F_r$ terms.
+Let $j_0$ and $i$ be the lower- and upper-supported embeddings.
+For the indicated $d,e$ and $u,t\in U$, the projective resolutions
+above give
+\begin{align*}
+ R\Hom(C_d,C_e)&=\Hom_D(P_d,P_e),\\
+ R\Hom(P_u[1],P_t[1])&=\Hom_U(P_u,P_t),\\
+ R\Hom(P_u[1],C_d)&=0,\\
+ R\Hom(C_d,P_u[1])&=\Hom_U(P_{f(d)},P_u).
+\end{align*}
+All complexes on the right are in degree zero. These comparisons
+include the usual incidence maps.
+
+For the remaining terms, direct application of the same two-term
+resolution gives
+\[
+ R\Hom(C_d,P_{r^0})=0,\qquad
+ R\Hom(C_{\widehat r},C_d)\xrightarrow{\sim}
+                                  R\Hom(P_{r^0},C_d).
+\]
+For $d\in V^0$, the first vanishing is the cancellation of two
+identical incidence maps; for $d\in A^0\sqcup\widehat R$ both
+terms are zero. In the second identity both terms evaluate the
+same lower projective on the bottom of $B$. Applying
+\eqref{eq:mutation-F-triangle} now yields
+\begin{align*}
+ R\Hom(F_r,C_d)&=0,&
+ R\Hom(C_d,F_r)&\simeq\Hom_D(P_d,P_{\widehat r}),\\
+ R\Hom(F_r,F_s)&\simeq\Hom_R(P_r,P_s),&
+ R\Hom(F_r,P_u[1])&\simeq\Hom_U(P_{r^1},P_u).
+\end{align*}
+In the other direction,
+\[
+ R\Hom(P_u[1],F_r)\simeq
+ \begin{cases}
+  k[0],&u=v^1,\ v\in V,\ r\leq q_B(v),\\
+  0,&\text{otherwise}.
+ \end{cases}
+\]
+Indeed $\Hom(P_u,P_{r^0})$ is exactly the missing-bottom mixed
+bimodule, and the two shifts in the triangle cancel.
+These identities prove, for every pair of target vertices,
+\[
+ R\Hom(T_x,T_y)=
+ \begin{cases} k[0],&y\leq x\text{ in }P',\\0,&\text{otherwise}.
+ \end{cases}
+\]
+
+Here is also a multiplication check, to exclude a twisted or
+zero-relation algebra. Let $a_*=\alpha(\min R)$; the least target
+vertex has image $P_{a_*^1}[1]$. Choose maps from every $T_x$ to
+this object as follows: use incidence maps on the shifted upper
+projectives; on $C_d$ use its degree $-1$ component
+$P_{f(d)}\to P_{a_*^1}$; on $F_r$ use the $P_{r^1}$ component.
+Whenever $y\leq x$, composition with the chosen map from $T_y$
+induces an isomorphism
+\[
+ \Hom(T_x,T_y)\longrightarrow\Hom(T_x,P_{a_*^1}[1]).
+\]
+For the families without $F$ this follows from the displayed
+projective resolutions. For maps into $F_r$ from a shifted
+$P_{v^1}$, the representative has components $(1,-1)$; its
+$P_{r^1}$ component is a unit. For maps into $F_r$ from $C_d$,
+that same component generates the quotient: homotopies affect
+only the $P_{r^0}$ component. The maps between two $F$ terms are
+the natural incidence maps of $R$. Maps out of $F$ to an upper
+projective are induced by $C_{\widehat r}$, with this component
+again a unit. This exhausts the nonzero cases. All assertions use
+only cancellation of identity maps and coefficients $1,-1$.
+Normalize the generator $a_{yx}$ by requiring its composite to
+the least object to equal the chosen map from $T_x$. Associativity
+then gives $a_{zy}a_{yx}=a_{zx}$ for $z\leq y\leq x$. Consequently
+$\End(T)^{\mathrm{op}}\cong kP'$ including multiplication.
+
+The shifted upper projectives are summands. Their triangles with
+$C_d$ recover all $P_d$ for $d\in A^0\sqcup\widehat R\sqcup V^0$.
+Triangle~\eqref{eq:mutation-F-triangle} recovers the remaining
+$P_{r^0}$. Hence $T$ generates and is tilting. Let
+$\mathcal T:\mathcal D_{P'}\to\mathcal D_P$ be the resulting
+equivalence, sending the target projectives to this family.
+
+Finally $Q_{P'}(P_r\boxtimes P_0)=P_{\alpha(r)^0}$ and
+$Q_{P'}(P_r\boxtimes P_1)=P_{\alpha(r)^1}$. Their images are
+respectively $Q_P(P_r\boxtimes P_1)[1]$ and
+$Q_P(P_r\boxtimes\operatorname{Cone}(P_1\to P_0))$.
+To check that the algebra normalization preserves all these maps,
+write
+\[
+ X_r=P_{\alpha(r)^1}[1],\qquad Y_r=C_{\alpha(r)^0}.
+\]
+Use the incidence maps on $X_s\to X_r$ and the componentwise
+incidence chain maps on $Y_s\to Y_r$ for $r\leq s$.
+Let $\delta_r:Y_r\to X_r$ be the connecting map, represented by
+the identity on the degree $-1$ term of the cone. The mixed map
+$Y_s\to X_r$ is $X_s\to X_r$ composed with $\delta_s$.
+It equals $\delta_r$ composed with $Y_s\to Y_r$ as a chain map.
+
+Let $h_Z:Z\to P_{a_*^1}[1]$ be the maps used for normalization
+above. On $X_r$ it is the incidence map; on $Y_r$ it is the same
+incidence map on its degree $-1$ term. Hence for each of the
+three displayed types of base arrow $b:Z\to Z'$ one has
+$h_{Z'}b=h_Z$, with coefficient $+1$. These arrows already are
+the normalized incidence generators. No further rescaling of a
+base arrow or of an individual summand is needed. Moreover for
+any normalized arrow $a:W\to Z$, including an arrow involving
+$F_r$, one has $h_{Z'}ba=h_W$; uniqueness of the normalized
+generator shows that the mixed composite is also preserved.
+This checks the base arrows and their compositions with the full
+tilting algebra simultaneously. On $C_2$ the objects $X_r,Y_r$
+and the connecting map are exactly the images of the two
+projectives and their arrow under $\mathbb S_{C_2}^{-1}[1]$.
+Thus the comparison is natural on the base projective
+category, and extends as an enhanced functor identity:
+\[
+ \mathcal T Q_{P'}\simeq
+ Q_P(\mathrm{id}\boxtimes\mathbb S_{C_2}^{-1})[1].
+\]
+Taking $G=\mathcal T^{-1}$ proves \eqref{eq:mutation-boundary}.
+\end{proof}
+
+\subsection{Verification for pyramid blocks}
+\label{app:pyramid-application}
+We now verify Theorem~\ref{thm:pyramid-transfer}, including the
+identification of the actual gluing relations.
+\begin{proof}[Verification of the pyramid transfer]
+The interval $I(p_m)$ is the Boolean poset of compositions of $m$:
+a composition is represented by its concatenation of pyramid
+blocks, and a cover removes one cut between consecutive parts.
+For completeness, a legal downward move on a concatenation of
+pyramids replaces one pyramid by two consecutive pyramids. An
+inner split would leave the moved subpath followed by a zero,
+contrary to the movability condition. Iterating gives only such concatenations;
+conversely each removal of a cut is the legal full slide merging
+two consecutive pyramids. This describes all lower elements and
+covers. In particular, the index rule of
+Proposition~\ref{prop:covers} applies using just the numbers of
+current blocks, independently of their lengths.
+
+Put $x\in I(p_a)$, $z\in I(p_{b-1})$ and
+$R=I(p_a)\times I(p_{b-1})$. On the source base $I(p_a p_b)$,
+mark the first internal cut in $p_b$; on the target base
+$I(p_{a+1}p_{b-1})$, mark the last internal cut in $p_{a+1}$.
+Writing $0$ for an unremoved cut and $1$ for a removed cut,
+both bases are $R\times C_2$. At coordinate $0$ their lower word
+is exactly $x\,10\,z$. At coordinate $1$, it is respectively
+$x\,\lambda(z)$ or $\rho(x)\,z$, where $\lambda$ increases the
+first pyramid of $z$ by one and $\rho$ increases the last pyramid
+of $x$ by one. Neither operation changes the number of blocks.
+The covers within coordinate $1$ therefore identify its lower
+truncation with $L_{p_a p_{b-1}}$ on both sides.
+
+Set
+\[
+ A=L_{p_a}\times I(p_{b-1}),\qquad
+ B=I(p_a)\times W_{p_{b-1}}.
+\]
+Here $A$ has its bottom section and $B$ its index-one bottom
+section, as required in Theorem~\ref{thm:relative-mutation}.
+The coordinate-zero part is $A^0\sqcup\widehat R\sqcup B^0$:
+over $(x,z)$ the three parts have indices
+$i\leq b(x)$, $i=b(x)+1$, and $i>b(x)+1$. The coordinate-one
+part is $A^1\sqcup B^1$, with its cut after $b(x)$.
+
+We check the mixed relations, including the exceptional index.
+On the source, removing the marked cut merges block number
+$\ell=b(x)+2$. All of $A^0$ crosses with its index unchanged;
+$\widehat R$ crosses to the bottom of $B^1$. On $B^0$, local
+index $j>1$ crosses to the same local index in $B^1$, whereas
+$j=1$ is the forbidden index $i=\ell$. It must first increase
+to $j=2$; if this point does not exist, no crossing from that
+fibre exists. Subsequent covers cannot decrease a positive
+local index greater than one to one. Thus the mixed relation on
+$B^0\times B^1$ is exactly $b_0\leq b_1$ in $B$, with
+$b_1\in B\setminus R$. Conversely every such relation is
+obtained by crossing directly for $j>1$, or first increasing to
+two for $j=1$, and then following the covers of $B$. All other
+mixed relations are exactly those in $P$ above, by the marked
+boundary formula.
+
+On the target, the removed cut merges block number $b(x)+1$.
+Its forbidden point is now $\widehat R$, which can always first
+increase to the bottom of $B^0$. Consequently it still reaches
+the bottom of $B^1$. Every point of $B^0$ crosses directly with
+its local index unchanged. The mixed relation on $B^0\times B^1$
+is therefore the full comparison in $B$. The other relations
+are unchanged. This identifies the actual lower truncations
+with $P$ and $P'$ of Theorem~\ref{thm:relative-mutation}, not just
+their fibre counts.
+
+That theorem constructs the relative equivalence, with base
+correction $\mathrm{id}_{\mathcal D_R}\boxtimes\mathbb S_{C_2}[-1]$.
+The generalized relative extension criterion
+(Proposition~\ref{prop:relative-extension}) transports its actual
+mixed bimodule and multiplication to arbitrary exterior strings.
+\end{proof}
+
+\section{The canonical shape cut and its limitations}
+\label{app:shape}
+\subsection{The singleton-cut tilting algebra}
+Put $P=J(w)$, let $D$ be its lower-shape part and $U$ its top-shape
+part, and identify $U=I(w)$. Then $D$ is a lower ideal and $U$ an
+upper filter. The map $f:D\to U$, $f(e_i(x))=x$, is monotone, and
+\begin{equation}\label{eq:mixed}
+ d\leq u\text{ in }P\quad\Longleftrightarrow\quad f(d)\leq u
+ \text{ in }U.
+\end{equation}
+This follows also from \cite[Proposition 5.6]{Chapoton}: the top of
+the chain is the least top-shape point above $d$. Thus the mixed
+bimodule has values
+\[
+ M(u,d)=k\quad\text{if }f(d)\leq u,\qquad M(u,d)=0\text{ otherwise},
+\]
+with all nonzero incidence compositions equal to the corresponding
+basis map. In the order $D,U$, the algebra is
+$\left(\begin{smallmatrix} kD&0\\M&kU\end{smallmatrix}\right)$.
+
+The underlying equivalence is the singleton flip-flop of
+\cite[Corollary 1.3]{LadkaniPosets}. In that result take
+$X=D$, $Y=U$, and the order-preserving map $f:D\to U$:
+its positive and negative mixed relations are exactly the two
+relations below. We retain the explicit tilting calculation to
+specify its object and multiplication in our covariant convention.
+For any finite posets $D,U$ and monotone $f:D\to U$, let $P_f$ retain
+the two internal orders and have mixed relations $d\leq u$ exactly
+when $f(d)\leq u$. Let $P_f^{\mathrm{fl}}$ instead have mixed relations
+$u\leq d$ exactly when $u\leq f(d)$. These rules define posets.
+
+\begin{proposition}[Explicit singleton-cut tilting]\label{prop:tilt}
+For every field $k$, write $P_z=k\Hom_{P_f}(z,-)$. For $d\in D$ put
+\[
+ C_d=\operatorname{coker}(P_{f(d)}\longrightarrow P_d),\qquad
+ T=\bigoplus_{u\in U}P_u\ \oplus\ \bigoplus_{d\in D}C_d[-1].
+\]
+Then $T$ is a tilting object and
+\[
+ \End_{\Db(\Rep_k P_f)}(T)^{\mathrm{op}}\cong kP_f^{\mathrm{fl}}.
+\]
+Consequently the two bounded derived representation categories are
+equivalent.
+\end{proposition}
+\begin{proof}
+The indicated map is the identity on the upper part of $P_d$ and
+zero on its lower part. Equation~\eqref{eq:mixed}, with $P_f$ in
+place of $P$, gives an exact sequence
+\begin{equation}\label{eq:resolution}
+ 0\longrightarrow P_{f(d)}\longrightarrow P_d
+      \longrightarrow C_d\longrightarrow0.
+\end{equation}
+The restriction of $C_d$ to $D$ is the representable at $d$, and
+its restriction to $U$ is zero. This is a length-one projective
+resolution in the full category, not just in a subcategory.
+
+By Yoneda and this resolution, all the derived Hom groups between
+the summands of $T$ are concentrated in degree zero. Their degree-zero
+values are
+\begin{align*}
+ \Hom(P_u,P_v)&=k\quad\Longleftrightarrow\quad v\leq u,\\
+ \Hom(C_d[-1],C_e[-1])&=k\quad\Longleftrightarrow\quad e\leq d,\\
+ \Hom(C_d[-1],P_u)&=\Ext^1(C_d,P_u)
+                  =k\quad\Longleftrightarrow\quad u\leq f(d),\\
+ \Hom(P_u,C_d[-1])&=0.
+\end{align*}
+Unlisted groups are zero. In detail, applying $\Hom(-,P_u)$ to
+\eqref{eq:resolution} gives zero in degree zero from $P_d$ and
+$P_u(f(d))$ in degree one from $P_{f(d)}$.
+Applying $\Hom(-,C_e)$ gives $C_e(d)$ in degree zero and zero in
+degree one. Finally $P_u$ is projective and $C_d(u)=0$.
+These computations also exclude negative degrees after the stated
+shifts. The triangles of \eqref{eq:resolution}, together with the
+$P_u$, recover all $P_d$ from $T$. Since a finite poset algebra has
+finite global dimension, its projectives generate its bounded
+derived category. This proves generation.
+
+It remains to verify multiplication. Use the canonical representable
+maps as bases inside $U$ and inside $D$. For the mixed group use
+the class of $P_{f(d)}\to P_u$ in the Hom complex of
+\eqref{eq:resolution}. If $e\leq d$, the canonical map $C_d\to C_e$
+lifts to the diagram of resolutions with terms
+$P_d\to P_e$ and $P_{f(d)}\to P_{f(e)}$.
+The diagram commutes with coefficient $1$, because $f(e)\leq f(d)$
+and all maps are representable maps. Composition with this diagram
+and composition with $P_u\to P_v$ therefore send a mixed basis class
+to the corresponding basis class, with coefficient $1$ whenever
+the endpoints are comparable. There are no composable pairs of
+mixed arrows. These checks exhaust the products; identity maps are
+preserved. Taking the opposite algebra gives exactly the incidence
+basis and multiplication of $P_f^{\mathrm{fl}}$.
+
+The tilting argument of Lemma~\ref{lem:tilting-principle} gives
+the equivalence. All entries in
+the resolutions and product comparisons are $0$ or $1$, so no
+restriction on the field is used.
+\end{proof}
+
+
+\subsection{Why its target is not the exchanged interval}
+Applying Proposition~\ref{prop:tilt} to the shape cut constructs a
+specific algebra, $kP_f^{\mathrm{fl}}$. Identifying it with
+$kJ(AvuB)$ is an additional assertion and can fail for this choice
+of cut.
+
+\begin{proposition}\label{prop:wrong-target}
+For $w=(10)(1100)$ the flipped shape poset $P_f^{\mathrm{fl}}$ has
+two maximal elements. In particular it is not isomorphic to
+$J((1100)(10))$, and its incidence algebra is not isomorphic to
+that target incidence algebra over any field.
+\end{proposition}
+\begin{proof}
+The lower interval has just $x_0=101010<x_1=101100$. Its sole cover
+merges at position $\ell=3$. The lower-shape part consists of chains
+\[
+ a_0<a_1<a_2<a_3,\qquad b_0<b_1<b_2,
+\]
+where $a_i=e_i(x_0)$ and $b_i=e_i(x_1)$, with additional generating
+relations $a_i<b_i$ for $i=0,1,2$. This follows directly from
+Proposition~\ref{prop:covers}. It has exactly two maximal points,
+$a_3,b_2$. In the flipped poset all upper-shape points lie below
+lower-shape points, so these remain exactly its maximal points.
+Every $J(z)$ has a unique maximum. Moreover, for covariant
+representations, the simple projective modules of a poset algebra
+are exactly those at maximal points: the representable at $z$ is
+simple precisely when nothing is strictly above $z$. Thus the two
+algebras have different numbers of simple projectives, an
+isomorphism invariant over every field.
+\end{proof}
+This is a failure of the full shape-cut candidate, not a
+counterexample to Problem~\ref{prob:swap}. The two nine-element
+intervals themselves are known to be derived equivalent by the
+smaller flip-flop described in \cite[Section 9]{Chapoton}.
+Nor does Proposition~\ref{prop:wrong-target} rule out an additional
+tilting step from the displayed flipped algebra.
+
+
+
+\section{Obstructions for restricted base corrections}
+\label{app:restricted}
+\subsection{A strict comparison}
+The example in this appendix involves $10$ and $1100$, not the
+pair in Corollary~\ref{cor:absolute-boundary-obstruction}.
+\begin{proposition}[A necessary base twist]\label{prop:strict-relative-obstruction}
+Let $w=(10)(1100)$ and $w'=(1100)(10)$, and identify their lower
+intervals $S$ by the product permutation. There is no $k$-linear
+triangle equivalence $G:\mathcal D_{L_w}\to\mathcal D_{L_{w'}}$
+with $GQ_{L_w}\simeq Q_{L_{w'}}$. Thus setting
+$K=\mathrm{id}$ in Proposition~\ref{prop:relative-extension}
+is in general too restrictive.
+\end{proposition}
+\begin{proof}
+Both $S$ are the two-point chain $x_0<x_1$, with $x_0=101010$
+and $x_1=w$ or $w'$. Order the seven vertices of each $L$ as
+$e_0(x_0),\ldots,e_3(x_0),e_0(x_1),\ldots,e_2(x_1)$.
+Proposition~\ref{prop:covers} gives their zeta matrices
+\[
+ C=\begin{pmatrix}
+ 1&1&1&1&1&1&1\\
+ 0&1&1&1&0&1&1\\
+ 0&0&1&1&0&0&1\\
+ 0&0&0&1&0&0&0\\
+ 0&0&0&0&1&1&1\\
+ 0&0&0&0&0&1&1\\
+ 0&0&0&0&0&0&1
+ \end{pmatrix},\qquad C'=C+E_{4,7},
+\]
+where $E_{4,7}$ is a matrix unit. The two pulled-back base
+projectives have the same dimension-vector matrix on both sides:
+\[
+ Q=\begin{pmatrix}1&0\\1&0\\1&0\\1&0\\1&1\\1&1\\1&1\end{pmatrix}.
+\]
+For a zeta matrix $C$, the Euler form in the simple basis is
+$E=C^{-1}$, and the Serre action is
+$\Sigma=E^{-1}E^t=C(C^{-1})^t$. The latter identity follows from
+$\chi(a,b)=\chi(b,\Sigma a)$. Therefore the matrix of
+$\chi(QP_i,\mathbb S_L^4 QP_j)$ is $Q^t E\Sigma^4Q$.
+Direct multiplication of the displayed integer matrices yields
+\[
+ Q^t C^{-1}\bigl(C(C^{-1})^t\bigr)^4Q
+   =\begin{pmatrix}0&-1\\0&-1\end{pmatrix},\qquad
+ Q^t(C')^{-1}\bigl(C'((C')^{-1})^t\bigr)^4Q
+   =\begin{pmatrix}-1&-1\\0&0\end{pmatrix}.
+\]
+An equivalence commutes with Serre functors and preserves the
+Euler form. The proposed strict relative identification would
+therefore identify these matrices entry by entry, a contradiction.
+All entries are Euler characteristics over $k$, so this argument
+works in every characteristic; the integer invariant is not
+reduced modulo the characteristic.
+\end{proof}
+
+\begin{remark}
+This obstruction does not contradict Theorem~\ref{thm:rotation}
+or rule out the extension criterion with a nontrivial $K$.
+For example, in the projective basis of the two-point base chain,
+its Serre action is
+$K_0=\left(\begin{smallmatrix}1&1\\-1&0\end{smallmatrix}\right)$.
+The two fourth-moment matrices above satisfy
+$M=K_0^t M'K_0$. Thus this particular obstruction disappears when
+the base Serre functor is allowed. This equality is a necessary
+numerical check, not a construction of $G$ or of its natural
+compatibility. Theorem~\ref{thm:elementary-context} constructs
+$(G,K)$ when one factor is $10$. For arbitrary factors a uniform
+full-context equivalence is impossible by Theorem~\ref{thm:counterexample}.
+\end{remark}
+
+
+\subsection{Products of Serre powers}
+The elementary-block construction does not extend merely by choosing
+other integer powers of the two base Serre functors. The following
+obstruction concerns the sufficient relative criterion, not the
+original block-permutation problem.
+
+\begin{proposition}\label{prop:factor-serre-obstruction}
+Let $u=1100$, $v=111000$, and identify the bases of $L_{uv}$ and
+$L_{vu}$ with $S=S_u\times S_v$. There is no enhanced equivalence
+$G:\mathcal D_{L_{uv}}\to\mathcal D_{L_{vu}}$ satisfying
+\[
+ GQ_{L_{uv}}\simeq Q_{L_{vu}}
+       (\mathbb S_{S_u}^{p}\boxtimes\mathbb S_{S_v}^{q})[h]
+\]
+for any integers $p,q,h$ and any field $k$.
+\end{proposition}
+\begin{proof}
+For $X=L_{uv}$ or $L_{vu}$, let $C_X$ be its zeta matrix in a
+linear extension and let $Q_X$ be the dimension-vector matrix of
+the pulled-back base projectives. Set
+\[
+ M_n^X=Q_X^t C_X^{-1}
+             \bigl(C_X(C_X^{-1})^t\bigr)^n Q_X.
+\]
+If the proposed relative equivalence exists and its base action
+on the projective Grothendieck basis is $K$, preservation of Euler
+pairings and commutation with Serre give the necessary identities
+\begin{equation}\label{eq:twisted-moments}
+ M_n^{L_{uv}}=K^tM_n^{L_{vu}}K\qquad(n\geq0).
+\end{equation}
+These are integer Euler characteristics, including in positive
+characteristic.
+
+Here $S_u$ is the chain on $1010,1100$, and $S_v$ is the diamond
+with ordered vertices
+\[
+ 101010,\quad 101100,\quad 110010,\quad 111000.
+\]
+In those
+projective bases their Serre matrices are
+\[
+ U=\begin{pmatrix}1&1\\-1&0\end{pmatrix},\qquad
+ V=\begin{pmatrix}
+ 1&1&1&1\\-1&0&-1&0\\-1&-1&0&0\\1&0&0&0
+ \end{pmatrix}.
+\]
+They satisfy $U^3=-I_2$ and $V^3=I_4$. Consequently the congruence
+in \eqref{eq:twisted-moments} for
+$K=(-1)^h U^p\otimes V^q$ depends only on $p,q$ modulo $3$.
+
+Here is an explicit finite certificate for all nine residues.
+Order the base pairs $(x,y)$ lexicographically in the displayed
+orders. For each pair use the vertices $e_i(xy)$ on the source
+and $e_i(yx)$ on the target, with
+$0\leq i\leq b(x)+b(y)$. This gives linear extensions with $36$
+vertices on both sides. In these coordinates $Q_X$ has entry $1$
+exactly when its column base pair is below its row base pair.
+The zeta matrices are obtained from the cover rule of
+Proposition~\ref{prop:covers}; thus no choice of mixed maps enters
+this computation. Matrix multiplication gives the following
+violations of \eqref{eq:twisted-moments}. Entry indices are one-based;
+$M_n=M_n^{L_{uv}}$ and $M'_n=M_n^{L_{vu}}$.
+\[
+\begin{array}{c|c|c|c|r|r}
+ p&q&n&(i,j)&(M_n)_{ij}&(K^tM'_nK)_{ij}\\\hline
+ 0&0&4&(1,4)&-1&0\\
+ 0&1&4&(1,4)&-1&0\\
+ 0&2&4&(1,4)&-1&0\\
+ 1&0&4&(1,4)&-1&0\\
+ 1&1&4&(1,4)&-1&0\\
+ 1&2&4&(1,4)&-1&0\\
+ 2&0&4&(1,1)&0&-1\\
+ 2&1&5&(1,5)&0&-1\\
+ 2&2&4&(1,4)&-1&0
+\end{array}
+\]
+Every residue violates a necessary identity. Periodicity and the
+irrelevance of the overall sign prove the assertion for all
+integer powers and shifts.
+\end{proof}
+
+\begin{remark}
+The proposition excludes this entire factorwise Serre family,
+not arbitrary base autoequivalences. More generally,
+\eqref{eq:twisted-moments} implies simultaneous similarity of
+$A_n=(M_0)^{-1}M_n$: namely $A_n'=KA_nK^{-1}$.
+The matrix $M_0$ is invertible because the pullback is fully faithful
+and the base Euler form is nonsingular. Therefore traces of all
+words in the $A_n$ are necessary invariants independent of $K$.
+Equality of such traces does not identify the corresponding
+boundary functors and cannot replace their natural comparison.
+No counterexample to Problem~\ref{prob:swap} follows here.
+\end{remark}
+
+\begin{remark}[The refined correction is realized]
+For $(u,v)=(1100,111000)$ the base is $C_2^3$. Label its
+coordinates $(a,b,c)$ with the last two belonging to $S_v$.
+The marked coordinate in Theorem~\ref{thm:pyramid-transfer} is $b$;
+under the original target factor ordering its relabeling is
+$\Pi:(a,b,c)\mapsto(c,a,b)$. Thus that theorem constructs an actual
+relative equivalence with base correction
+\[
+ \Pi\circ(\mathrm{id}\boxtimes\mathbb S_{C_2}
+                         \boxtimes\mathrm{id})[-1].
+\]
+Its matrix is $-P(I_2\otimes U\otimes I_2)$, where $P$ denotes
+the coordinate permutation. All the moment identities
+\eqref{eq:twisted-moments} now follow from the natural relative
+comparison. The construction mixes the internal factors of the
+original base, so Proposition~\ref{prop:factor-serre-obstruction}
+does not apply to it. An overall shift by two changes $[-1]$ to
+$[1]$ without changing that matrix.
+\end{remark}
+
+
+
+\section*{Acknowledgments}
+
+This mathematical paper was prepared with the assistance of artificial intelligence.  I
+first acknowledge the textual data produced by humanity as a whole, which
+provides the linguistic and cultural record from which mathematical expression
+can be learned.  I then thank the accumulated scholarly achievements of
+mathematicians throughout history.  I also thank the researchers whose work has
+advanced and refined neural networks through successive generations.  Finally,
+I thank the OpenAI team for the training and development of the models used in
+the preparation of this paper.
+
+\begin{thebibliography}{9}
+\bibitem{Chapoton}
+F.~Chapoton, \emph{Some properties of a new partial order on Dyck paths},
+Algebraic Combinatorics \textbf{3} (2020), 433--463.
+\href{https://doi.org/10.5802/alco.98}{doi:10.5802/alco.98}.
+\bibitem{LadkaniPosets}
+S.~Ladkani, \emph{Universal derived equivalences of posets},
+arXiv:0705.0946v2 (2007).
+\href{https://arxiv.org/abs/0705.0946v2}{arXiv:0705.0946v2}.
+\bibitem{LadkaniSheaves}
+S.~Ladkani, \emph{On derived equivalences of categories of sheaves
+over finite posets}, Journal of Pure and Applied Algebra
+\textbf{212} (2008), 435--451.
+\href{https://doi.org/10.1016/j.jpaa.2007.06.005}{doi:10.1016/j.jpaa.2007.06.005};
+\href{https://arxiv.org/abs/math/0610685v1}{arXiv:math/0610685v1},
+the version used for the cited numbering.
+\bibitem{LadkaniTriangular}
+S.~Ladkani, \emph{Derived equivalences of triangular matrix rings
+arising from extensions of tilting modules}, arXiv:math/0702060v3 (2008).
+\href{https://arxiv.org/abs/math/0702060v3}{arXiv:math/0702060v3}.
+\end{thebibliography}
+\end{document}
