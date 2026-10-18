@@ -1,7 +1,7 @@
 # AI4Math
 
 An open collection of AI-assisted mathematical research manuscripts. Each paper
-has its own top-level directory. Publication index updated: October 11, 2026.
+has its own top-level directory. Publication index updated: October 18, 2026.
 The collection includes completed manuscripts and an explicitly unfinished
 research draft; the descriptions below preserve that distinction.
 
@@ -17,6 +17,7 @@ research draft; the descriptions below preserve that distinction.
 | Supported Morita Descent for Semistable Curves | [LaTeX](supported_morita_descent/supported_morita_descent.tex) | [PDF](supported_morita_descent/supported_morita_descent.pdf) |
 | Weighted Tropical Chow Reconstruction for Space Curves | [LaTeX](tropical_chow_reconstruction/weighted_tropical_chow_reconstruction.tex) | [PDF](tropical_chow_reconstruction/weighted_tropical_chow_reconstruction.pdf) |
 | Cyclic Symmetry and Failure of Block-Permutation Invariance in Dexter Intervals | [LaTeX](dexter_block_permutation/dexter_block_permutation.tex) | [PDF](dexter_block_permutation/dexter_block_permutation.pdf) |
+| Uniform Conditional Moves and Positivity Thresholds in Punctured-Disk Electrical Networks | [LaTeX](punctured_disk_conditional_moves/punctured_disk_conditional_moves.tex) | [PDF](punctured_disk_conditional_moves/punctured_disk_conditional_moves.pdf) |
 
 ### Relative Quadratic Orbit Shells
 
@@ -98,6 +99,25 @@ General block-permutation invariance is disproved, and minimality of the
 counterexample is not claimed. The computational certificate does not constitute
 a Lean formalization of the paper.
 
+### Uniform Conditional Moves and Positivity Thresholds in Punctured-Disk Electrical Networks
+
+**Main content:** Four prescribed opposite-side conditional moves for every
+`n >= 3`, preserving the full electrical response including the observed center.
+The merged manuscript gives birational transformations independent of their
+common exterior, a necessary and sufficient positivity test using signed
+response minors, and explicit thresholds on positive edge/spike degeneration
+rays. The positive realization set is one initial interval, with finite
+endpoints described by deletion of center edges. The
+[combined computational supplement](punctured_disk_conditional_moves/supplementary/README_combined.md)
+contains both the move and ray programs, their dependencies, recorded finite
+checks, and SHA-256 manifests.
+
+**Scope and limitations:** The specified punctured-disk graph families,
+prescribed replacements, positive sources, and natural one-parameter rays.
+The results do not assert arbitrary network rewrites or positivity along
+arbitrary parameter paths. Finite exact checks support reproducibility and
+do not replace the general proofs or provide formal certification.
+
 ## Search keywords
 
 This is one merged index. Future papers add only terms not already present.
@@ -125,7 +145,12 @@ spans, tropical Chow transform, tropical space curves, weighted reconstruction,
 signed polyhedral chains, Tripoli reconstruction problem, thin-band measures,
 Dyck paths, Dexter order, Dexter intervals, cyclic block rotation,
 block-permutation counterexample, incidence algebras, integral Euler polynomials,
-boundary pullbacks, tilting complexes, pyramid blocks, reproducible certificates.
+boundary pullbacks, tilting complexes, pyramid blocks, reproducible certificates,
+punctured-disk electrical networks, resistor networks, conditional local moves,
+conductance recovery, Dirichlet-to-Neumann maps, observed center port,
+circular-planar response cells, signed response minors, staircase separators,
+center-current cones, positivity thresholds, positive degeneration rays,
+non-reentry, center-edge deletion, ABCC Conjecture 4.
 
 ## Adding future papers
 
@@ -145,11 +170,15 @@ their own licenses.
 
 ## Local workspace navigation
 
+The punctured-disk entry publishes the merged October 18 manuscript, replacing
+the former move-only development entry. Review reports and earlier drafts
+remain in the local workspace; they are not bundled as separate public papers.
+
 The local project was reorganized on October 11, 2026. This repository is
 `D:\AIProject\AIformath\papers`; the full workspace also contains
 `../PROJECT_INDEX.md`, `../PROJECT_PATHS.json`, `../research/`, `../reviews/`,
 and `../archive/`. Those workspace records are not part of this Git repository.
 
 Existing published papers retain their committed source/PDF versions until
-their revisions are separately published. The four newly added source/PDF
-pairs were compiled together for this release.
+their revisions are separately published. The latest punctured-disk source/PDF
+pair was compiled for this release.
