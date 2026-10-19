@@ -1,7 +1,7 @@
 # AI4Math
 
 An open collection of AI-assisted mathematical research manuscripts. Each paper
-has its own top-level directory. Publication index updated: October 18, 2026.
+has its own top-level directory. Publication index updated: October 19, 2026.
 The collection includes completed manuscripts and an explicitly unfinished
 research draft; the descriptions below preserve that distinction.
 
@@ -18,6 +18,7 @@ research draft; the descriptions below preserve that distinction.
 | Weighted Tropical Chow Reconstruction for Space Curves | [LaTeX](tropical_chow_reconstruction/weighted_tropical_chow_reconstruction.tex) | [PDF](tropical_chow_reconstruction/weighted_tropical_chow_reconstruction.pdf) |
 | Cyclic Symmetry and Failure of Block-Permutation Invariance in Dexter Intervals | [LaTeX](dexter_block_permutation/dexter_block_permutation.tex) | [PDF](dexter_block_permutation/dexter_block_permutation.pdf) |
 | Uniform Conditional Moves and Positivity Thresholds in Punctured-Disk Electrical Networks | [LaTeX](punctured_disk_conditional_moves/punctured_disk_conditional_moves.tex) | [PDF](punctured_disk_conditional_moves/punctured_disk_conditional_moves.pdf) |
+| Contact Reconstruction and Spectral Balance for Surface Singularities with a Multiple Smooth Tangent Cone | [LaTeX](monodromy_actual_poles/monodromy_actual_poles.tex) | [PDF](monodromy_actual_poles/monodromy_actual_poles.pdf) |
 
 ### Relative Quadratic Orbit Shells
 
@@ -118,6 +119,26 @@ The results do not assert arbitrary network rewrites or positivity along
 arbitrary parameter paths. Finite exact checks support reproducibility and
 do not replace the general proofs or provide formal certification.
 
+### Contact Reconstruction and Spectral Balance for Surface Singularities with a Multiple Smooth Tangent Cone
+
+**Main content:** For surface germs `f = g_e^r + h_(er+1)`, either the
+monodromy characteristic polynomial or the local topological zeta function
+recovers the degrees and every contact order. Coefficient extraction and
+finite Mobius inversion give spectral reconstruction; poles and residues
+give zeta reconstruction. A spectral balance controls equivariant injections
+at fixed degrees, with contact collisions and equal-Milnor-number examples
+of incomparable monodromy. The formulas also yield actual simple poles,
+eigenvalues at the origin, and the stated twisted topological holomorphy.
+Two standard-library exact algebra check scripts accompany the manuscript.
+
+**Scope and limitations:** Complex surface germs in the stated family, with
+`e >= 3`, `r >= 2`, a smooth projective curve `V(g_e)`, and `V(h_(er+1))`
+smooth at its finite intersection with that curve. Classification concerns
+semisimplified Milnor monodromy. This is not a proof of the unrestricted
+monodromy conjecture or a classification of full non-semisimple monodromy.
+The finite script checks use formal contact profiles and do not assert
+their geometric realizability or replace the proofs.
+
 ## Search keywords
 
 This is one merged index. Future papers add only terms not already present.
@@ -150,7 +171,12 @@ punctured-disk electrical networks, resistor networks, conditional local moves,
 conductance recovery, Dirichlet-to-Neumann maps, observed center port,
 circular-planar response cells, signed response minors, staircase separators,
 center-current cones, positivity thresholds, positive degeneration rays,
-non-reentry, center-edge deletion, ABCC Conjecture 4.
+non-reentry, center-edge deletion, ABCC Conjecture 4,
+surface singularities, multiple smooth tangent cones, contact reconstruction,
+contact profiles, Milnor monodromy, monodromy characteristic polynomials,
+local topological zeta functions, actual poles, spectral balance, Milnor numbers,
+contact collisions, Mobius inversion, twisted topological holomorphy,
+Newton cone calculations, A'Campo formula.
 
 ## Adding future papers
 
@@ -180,5 +206,5 @@ The local project was reorganized on October 11, 2026. This repository is
 and `../archive/`. Those workspace records are not part of this Git repository.
 
 Existing published papers retain their committed source/PDF versions until
-their revisions are separately published. The latest punctured-disk source/PDF
+their revisions are separately published. The latest monodromy source/PDF
 pair was compiled for this release.

@@ -1,0 +1,1601 @@
+\documentclass[11pt]{article}
+
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\usepackage{amsmath,amssymb,amsthm,mathtools}
+\usepackage{booktabs,array}
+\usepackage{enumitem}
+\usepackage[a4paper,margin=27mm]{geometry}
+\usepackage[colorlinks=true,linkcolor=blue,citecolor=blue,urlcolor=blue]{hyperref}
+\setlength{\emergencystretch}{2em}
+\numberwithin{equation}{section}
+
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{corollary}[theorem]{Corollary}
+\theoremstyle{definition}
+\newtheorem{example}[theorem]{Example}
+\theoremstyle{remark}
+\newtheorem{remark}[theorem]{Remark}
+
+\newcommand{\CC}{\mathbf C}
+\newcommand{\ZZ}{\mathbf Z}
+\newcommand{\RR}{\mathbf R}
+\newcommand{\PP}{\mathbf P}
+\newcommand{\one}{\mathbf 1}
+\newcommand{\Reg}{\operatorname{Reg}}
+\newcommand{\Aug}{\operatorname{Aug}}
+\newcommand{\mob}{\mu_{\mathrm{Mob}}}
+\DeclareMathOperator{\ord}{ord}
+\DeclareMathOperator{\Res}{Res}
+\DeclareMathOperator{\Tr}{Tr}
+\DeclareMathOperator{\relint}{relint}
+\DeclareMathOperator{\mult}{mult}
+
+\title{Contact Reconstruction and Spectral Balance\\
+for Surface Singularities with a Multiple Smooth Tangent Cone}
+\author{YINGFENG JIANG}
+\date{19 October 2026}
+
+\begin{document}
+\maketitle
+
+\begin{abstract}
+We recover the degrees and all contact orders of surface germs
+$f=g_e^r+h_{er+1}$, $e\ge3$, $r\ge2$, where $V(g_e)\subset\PP^2$
+is smooth and $V(h_{er+1})$ is smooth at its finite intersection
+with $V(g_e)$. The monodromy characteristic polynomial yields
+these data by coefficient extraction and finite M\"obius inversion;
+the local topological zeta function yields them through its
+poles and residues. Thus either invariant determines the other
+and classifies semisimplified Milnor monodromy in this family.
+We also obtain the spectral balance
+$\mu+M_r-M_1=(er)^3-(er)^2+er$, where $M_m$ is the multiplicity
+of an individual primitive $m$th root on $H^2$. At fixed $e,r$,
+it forces every monodromy-equivariant injection to be an
+isomorphism. We realize distinct contact profiles with equal
+Milnor numbers and incomparable monodromy, and describe the
+spectral change in a contact collision. Explicit formulas for
+the two invariants also yield simple actual poles, eigenvalues
+at the origin, and twisted topological holomorphy.
+\end{abstract}
+
+\medskip
+\noindent\textbf{Keywords.}
+Surface singularities; monodromy; topological zeta functions;
+tangency; contact reconstruction.
+
+\section{Introduction}\label{sec:introduction}
+
+We study how finite tangency affects the monodromy of surface
+germs with a multiple smooth tangent cone. The main result
+recovers both degrees and all contact orders from either the
+monodromy characteristic polynomial or the local topological
+zeta function. A spectral balance then governs comparisons
+between the monodromy representations of different profiles.
+
+We work over $\CC$. Let $g_e,h_D\in\CC[x,y,z]$ be nonzero homogeneous
+polynomials of degrees $e,D$, respectively, and set
+\begin{equation}\label{eq:family}
+ f=g_e^r+h_D,\qquad e\ge3,\quad r\ge2,\quad A=er,\quad D=A+1.
+\end{equation}
+Assume that the zero scheme $C=V(g_e)\subset\PP^2$ is smooth,
+that $\mathcal P=C\cap H$ is finite for $H=V(h_D)$, and that
+$H$ is smooth at every point of $\mathcal P$.
+For $p\in\mathcal P$, put
+$q_p=I_p(C,H)$. The finite multiset $\{q_p\}$ is the
+\emph{contact profile}. These germs have isolated critical points,
+as proved in Lemma~\ref{lem:isolated}.
+
+Write $Z_f(s)=Z_{\mathrm{top},0}(f;s)$ for the local topological
+zeta function with standard volume form. Let $F_f$ be the Milnor
+fiber at the origin, $T_f$ its monodromy on $H^2(F_f,\CC)$, and
+\[
+ \Delta_f(t)=\det(1-tT_f\mid H^2(F_f,\CC)).
+\]
+Write $\mu_f$ for its Milnor number.
+Our first result reconstructs the entire profile from either
+one of these invariants.
+
+\begin{theorem}[Reconstruction]\label{thm:main}
+Each of $\Delta_f$ and $Z_f$ uniquely determines
+$(e,r,\{q_p\})$ in the family \eqref{eq:family}.
+For two members, equality of these data is equivalent to
+equality of either invariant and to isomorphism of their
+semisimplified Milnor monodromy. Recovery from $\Delta_f$ uses
+coefficient extraction and finite M\"obius inversion.
+\end{theorem}
+
+For $\Delta_f$, the initial step is visible in a single term. If
+$P_f=(1-t)\Delta_f$ begins as $1-\kappa t^A+\cdots$, then
+\begin{equation}\label{eq:initial-recovery-intro}
+ A=er,\qquad \kappa=e^2-3e+3,\qquad
+ e=\frac{3+\sqrt{4\kappa-3}}2,\qquad r=\frac Ae.
+\end{equation}
+Two further coefficients recover the number of intersection
+points and the number of contacts of order at least two.
+The logarithmic derivative of the remaining contact polynomial
+then recovers each order and its frequency.
+For $Z_f$, the largest actual pole and its residue first
+recover $e,r$; the remaining contact poles and their residues
+recover the higher contact orders and their frequencies;
+B\'ezout gives the number of transverse intersections
+(Proposition~\ref{prop:z-recovery}). The recovered data also
+determine every twisted topological zeta function
+(Corollary~\ref{cor:twisted-recovery}).
+
+A collision of $q$ transverse intersections into one contact of
+order $q$ increases the Milnor number by $q-1$. At the same time
+it decreases the multiplicity of every primitive $r$th root of
+unity by $q-1$. Our second result expresses this compensation
+as a balance valid throughout the family.
+Let $M_m(f)$ denote the algebraic multiplicity of an individual primitive
+$m$th root as an eigenvalue on $H^2(F_f,\CC)$.
+
+\begin{theorem}[Spectral balance and incomparability]\label{thm:balance}
+For every member of \eqref{eq:family},
+\begin{equation}\label{eq:balance-intro}
+ \mu_f+M_r(f)-M_1(f)=A^3-A^2+A.
+\end{equation}
+For two members with the same $e,r$, every monodromy-equivariant injection
+$H^2(F_f,\CC)\hookrightarrow H^2(F_{\widetilde f},\CC)$ is an
+isomorphism. If their contact profiles differ, neither
+direction admits such an injection, also after semisimplification.
+\end{theorem}
+
+This incomparability occurs even at equal Milnor number.
+For $e=4,r=2$, the profiles
+$\{2,4,1^{30}\}$ and $\{3,3,1^{30}\}$ both occur and both give
+$\mu=419$. The first has primitive $20$th eigenvalues and the
+second primitive $30$th eigenvalues, with neither order
+present in the other
+(Example~\ref{ex:equal-mu}).
+
+Both reconstruction procedures start from the same calculation.
+Blowing up the origin gives three local models, over
+$\PP^2\setminus C$, $C\setminus\mathcal P$, and
+$\mathcal P$. Their weighted Newton and monodromy formulas
+assemble into a polynomial contact transform for $\Delta_f$
+and a rational one for $Z_f$.
+
+The resolution formula for the topological zeta function is due
+to Denef and Loeser~\cite{DL92}, and the monodromy computation
+uses A'Campo's formula~\cite{AC75}. The partial-resolution
+formula of Gusein-Zade, Luengo, and Melle-Hern\'andez
+\cite[Theorem~1 and Corollary~1]{GLM97} provides the
+multiplicative assembly; their \S3.5 includes the transverse
+specialization of our monodromy formula. Melle-Hern\'andez's
+formula, recorded in~\cite[\S3.4, Remark~2]{GLM97}, gives the
+Milnor number for arbitrary contacts. Building on these
+forward calculations, we recover the full contact data
+from either invariant and derive the spectral comparison.
+
+Related monodromy results concern Newton nondegenerate surfaces
+\cite{LVP11}, their local motivic zeta functions
+\cite[Theorem~7.2.1]{LPS26}, and generalized suspensions and
+L\^e--Yomdin surfaces~\cite{AGGL26}.
+The present tangent cone is the non-reduced divisor $rC$;
+the surface L\^e--Yomdin class has a reduced tangent cone
+\cite[Definition~7.1]{AGGL26}. Likewise, the lowest-degree
+face polynomial $g_e^r$ and all its first derivatives vanish
+on the nonempty torus part of $C$, while the three models after
+blowing up the origin are Newton nondegenerate. For a broader
+account of the monodromy conjecture, see~\cite{Veys24}.
+
+Sections~\ref{sec:geometry}--\ref{sec:global} compute the local
+models and global invariants. Section~\ref{sec:reconstruction}
+inverts the two contact transforms, placing the pole calculation
+alongside the reconstruction from $Z_f$.
+Section~\ref{sec:collisions} proves spectral balance and treats
+contact collisions and extremal members of the family.
+Section~\ref{sec:twisted} gives the twisted formulas and
+holomorphy. The appendices contain the cone calculations
+and a worked example of reconstruction.
+
+\section{Three local models after blowing up the origin}
+\label{sec:geometry}
+
+\subsection{Contact data}
+
+Write
+\begin{equation}\label{eq:contact-data}
+ \begin{gathered}
+ c=\chi(C)=e(3-e),\qquad \kappa=3-c,\qquad
+ n=eD=\sum_{p\in\mathcal P}q_p,\qquad b=|\mathcal P|,\\
+ n_q=|\{p:q_p=q\}|,\qquad
+ S=\sum_{q\ge2}(q-1)n_q=n-b,\\
+ B=(r-1)D+1,\qquad \beta=3r-2.
+ \end{gathered}
+\end{equation}
+Here $\chi$ denotes Euler characteristic with compact supports;
+$c\le0$ and $b\ge1$.
+
+\subsection{Resolution conventions and isolatedness}
+
+Monodromy is taken along a counterclockwise loop in the base.
+For a log resolution $h:Y\to\CC^3$, let $E_i$ be the components
+of the total transform of $f^{-1}(0)$ and write
+\[
+ \operatorname{div}(f\circ h)=\sum_iN_iE_i,\qquad
+ \operatorname{div}(h^*(dx\wedge dy\wedge dz))
+       =\sum_i(\nu_i-1)E_i.
+\]
+For a nonempty index set $I$, put
+$E_I^\circ=(\bigcap_{i\in I}E_i)\setminus\bigcup_{j\notin I}E_j$.
+Our normalization is
+\begin{equation}\label{eq:z-definition}
+ Z_f(s)=\sum_{\varnothing\ne I}
+  \chi(E_I^\circ\cap h^{-1}(0))
+  \prod_{i\in I}(N_i s+\nu_i)^{-1}.
+\end{equation}
+For a local function $F$, let $\omega$ be a nonzero
+holomorphic top-degree form with
+$\operatorname{Supp}(\operatorname{div}\omega)\subset F^{-1}(0)$.
+On a common log resolution of $F$ and $\omega$, taken to be an
+isomorphism outside $F^{-1}(0)$, use \eqref{eq:z-definition}
+with $\nu_i-1=\ord_{E_i}(h^*\omega)$.
+The form may vanish along $F^{-1}(0)$.
+
+Auxiliary coordinate boundaries with data $(N,\nu)=(0,1)$
+may be used to refine the Euler strata. They are additional
+to the components of the function divisor: their denominator
+factor is $1$, so Euler additivity preserves the sum.
+
+For any local Milnor fiber we take
+\begin{equation}\label{eq:zeta-convention}
+ \zeta(t)=\prod_j\det(1-tT_j\mid H^j)^{(-1)^{j+1}}.
+\end{equation}
+This is the reciprocal of the convention in~\cite{GLM97}.
+In this convention A'Campo's formula reads
+\begin{equation}\label{eq:acampo}
+ \zeta(t)=\prod_{i:N_i>0}(1-t^{N_i})^{
+       -\chi(E_i^\circ\cap h^{-1}(0))}.
+\end{equation}
+In \eqref{eq:acampo}, $E_i^\circ$ removes all other positive
+multiplicity components, including the strict transform.
+
+\begin{lemma}\label{lem:isolated}
+The function $f$ in \eqref{eq:family} is reduced and has an
+isolated critical point at the origin. Its Milnor fiber is
+connected, with reduced cohomology concentrated in degree $2$.
+In particular,
+\begin{equation}\label{eq:zeta-delta}
+ \zeta_f(t)=\bigl((1-t)\Delta_f(t)\bigr)^{-1}.
+\end{equation}
+\end{lemma}
+
+\begin{proof}
+At a nonzero point with $f=df=0$, the homogeneous Euler identity
+and the equation $f=0$ give
+\[
+ A g_e^r+D h_D=0,\qquad g_e^r+h_D=0.
+\]
+Since $D-A=1$, both $g_e$ and $h_D$ vanish. The corresponding
+projective point lies in $\mathcal P$, where $dh_D\ne0$.
+But $r\ge2$ gives $df=dh_D$ at that point, a contradiction.
+
+If the critical locus had a positive dimensional germ through
+the origin, it would contain an analytic curve through the
+origin. The restriction of $f$ to that curve would be constant,
+hence zero, contrary to what was just proved. A repeated
+factor of $f$ would also give a positive dimensional critical
+locus. The Milnor bouquet theorem~\cite{Mil68} now gives the
+cohomology statement and \eqref{eq:zeta-delta}.
+\end{proof}
+
+\subsection{The local equations}
+
+Let $\pi_0:X_1\to\CC^3$ be the blowup of the origin and let
+$E=\pi_0^{-1}(0)\simeq\PP^2$. Near $C$ choose $u$ normal to $E$,
+$v$ an equation for $C$ in $E$, and $w$ along $C$. Then
+\begin{equation}\label{eq:blowup-equation}
+ f\circ\pi_0=u^A(v^r+u h(v,w)),\qquad
+ \pi_0^*(dx\wedge dy\wedge dz)
+   =u^2\cdot\text{unit}\,du\wedge dv\wedge dw.
+\end{equation}
+Outside $C$ the function is $u^A$ times a unit. On
+$C\setminus\mathcal P$, replacing $u$ by $h(v,w)u$ gives
+\[
+ G=u^A(v^r+u).
+\]
+At a point of contact order $q\ge2$, smoothness of $H$ implies
+$\partial_v h(0)\ne0$. The implicit function theorem gives
+$h=\alpha(v,w)(v+\phi(w))$, where $\alpha$ is a unit and
+$\ord_0\phi=q$. A change of the coordinate $w$ makes
+$\phi(w)=w^q$, and the change $u'=\alpha u$ gives
+\begin{equation}\label{eq:tangency-model}
+ \mathcal T_q=u^A(v^r+uv+uw^q).
+\end{equation}
+When $q=1$, take $w'=h-v$ to obtain the same expression.
+These changes multiply the function and the top-degree form by
+units. Their orders and divisor strata on a common resolution
+are therefore unchanged. The three local models are computed
+with the form
+\[
+ \omega=u^2\,du\wedge dv\wedge dw.
+\]
+
+\subsection{Euler assembly}
+
+The three local computations assemble by Euler integration.
+For monodromy this is the partial-resolution formula of
+\cite[Theorem~1 and Corollary~1]{GLM97}.
+
+\begin{lemma}\label{lem:assembly}
+Let $Z_G,Z_q$ be the local topological functions of $G,\mathcal T_q$
+with the form $\omega$, and let $\zeta_G,\zeta_q$ be their
+monodromy zeta functions. Then
+\begin{align}
+ Z_f&=\kappa Z_{u^A}+(c-b)Z_G+\sum_{q\ge1}n_qZ_q,
+       \label{eq:assembly-z}\\
+ \zeta_f&=\zeta_{u^A}^{\,\kappa}
+            \zeta_G^{\,c-b}\prod_{q\ge1}\zeta_q^{\,n_q}.
+       \label{eq:assembly-zeta}
+\end{align}
+\end{lemma}
+
+\begin{proof}
+Choose a log resolution $\rho:Y\to X_1$ of the pulled-back
+function and form, and set $h=\pi_0\rho$.
+The pulled-back form on $Y$ is $h^*(dx\wedge dy\wedge dz)$,
+so its numerical data coincide with those of the original germ.
+For each resolution stratum, Euler Fubini gives
+\[
+ \chi(E_I^\circ\cap h^{-1}(0))
+   =\int_E\chi(E_I^\circ\cap\rho^{-1}(y))\,d\chi(y).
+\]
+Multiplying by its fixed denominator and summing yields the
+Euler integral of the local weighted topological function.
+Local changes of variables preserve it by
+\cite[Proposition~1.3]{AGGL26}. The corresponding normal
+crossings identity will also be used for the twisted functions.
+Blowing up a smooth center of codimension $v$
+having normal crossings with the boundary and contained in
+exactly $k$ of its components replaces their
+linear denominators $L_i$ by an additional denominator
+$L_*=\sum_{i=1}^kL_i+v-k$. The nonzero Euler strata of the
+projective exceptional fiber give
+\begin{equation}\label{eq:snc-identity}
+ \frac1{L_*}\left[
+   \sum_{i=1}^k\prod_{j\ne i}L_j^{-1}
+       +(v-k)\prod_{i=1}^kL_i^{-1}\right]
+       =\prod_{i=1}^kL_i^{-1}.
+\end{equation}
+Boundary components transverse to the center contribute
+common factors on the two sides. The identity therefore
+applies with the orders of the pulled-back form.
+
+For monodromy, on this fixed resolution put
+\[
+ a_N(y)=\sum_{i:N_i=N}
+       \chi(E_i^\circ\cap\rho^{-1}(y)).
+\]
+The local A'Campo expression is
+$\zeta_{f\circ\pi_0,y}=\prod_N(1-t^N)^{-a_N(y)}$.
+Euler Fubini identifies the global exponent with
+$-\int_E a_N\,d\chi$ for each $N$, giving the multiplicative
+Euler integral of these local expressions. Finally stratify
+\[
+ E=(\PP^2\setminus C)\sqcup(C\setminus\mathcal P)
+      \sqcup\bigsqcup_{p\in\mathcal P}\{p\},
+\]
+whose Euler characteristics are $\kappa,c-b,1$. The local
+resolution invariants are constant on these strata, giving
+\eqref{eq:assembly-z} and \eqref{eq:assembly-zeta}.
+\end{proof}
+
+\section{The local tangency calculation}\label{sec:local}
+
+Use the linear functions
+\begin{equation}\label{eq:linear-functions}
+ a=As+3,\quad Q=rDs+3r+1,\quad d=s+1,\quad
+ J=Ds+4,\quad K_q=qBs+q\beta+1.
+\end{equation}
+Three identities used below are
+\begin{equation}\label{eq:linear-identities}
+ Q=ra+rd-(r-1)=rJ-(r-1),\qquad
+ K_q=q(Q-a)+1,\qquad B-(r-1)D=1.
+\end{equation}
+
+\begin{proposition}[Local contact formula]\label{prop:local}
+For the local models in Section~\ref{sec:geometry},
+\begin{align}
+ Z_{u^A}&=\frac1a,&
+ \zeta_{u^A}&=(1-t^A)^{-1},\label{eq:local-monomial}\\
+ Z_G&=\frac{r-1+a^{-1}+d^{-1}}Q,&
+ \zeta_G&=\frac{1-t^{rD}}{1-t^D},\label{eq:local-g}\\
+ Z_q&=\frac{a^{-1}+r/d}{Q}
+       -\frac{(q-1)rsJ}{dQK_q},&
+ \zeta_q&=\frac{1-t^B}{1-t^{qB}}.\label{eq:local-q}
+\end{align}
+\end{proposition}
+
+\begin{proof}
+\emph{The topological function of $\mathcal T_q$.}
+The Newton vertices of $\mathcal T_q$ are
+\[
+ X=(A,r,0),\qquad Y=(D,1,0),\qquad Z=(D,0,q).
+\]
+The primitive facet normals and their numerical data for
+$\omega=u^2du\wedge dv\wedge dw$ are
+\begin{center}
+\begin{tabular}{lrrl}
+\toprule
+Normal & $N$ & $\nu$ & Denominator\\
+\midrule
+$\mathsf U=(1,0,0)$ & $A$ & $3$ & $a$\\
+$\mathsf V=(0,1,0)$ & $0$ & $1$ & $1$\\
+$\mathsf W=(0,0,1)$ & $0$ & $1$ & $1$\\
+$\mathsf R=(r,1,0)$ & $rD$ & $3r+1$ & $Q$\\
+$\mathsf S=(0,q,1)$ & $q$ & $q+1$ & $p_q=qs+q+1$\\
+$\mathsf T=(q(r-1),q,1)$ & $qB$ & $q\beta+1$ & $K_q$\\
+\bottomrule
+\end{tabular}
+\end{center}
+All compact edges have normalized length one. The cross product
+of $Y-X$ and $Z-X$ is $-\mathsf T$, so the compact triangle has
+normalized area one. The edge polynomials are primitive
+binomials, and the triangle polynomial has nonzero $w$-derivative
+on the torus. They are nondegenerate. A regular subdivision of
+the Newton fan consequently gives a toric log resolution near
+the fiber over the origin.
+
+The weighted orbit calculation in Appendix~\ref{app:cones}
+gives
+\begin{equation}\label{eq:local-raw}
+ Z_q=\frac1{K_q}\left[
+  \frac q a+\frac1{aQ}+\frac{r-1}Q-(q-1)
+          +\frac{qr-1+Q^{-1}}d\right].
+\end{equation}
+Using \eqref{eq:linear-identities}, its numerator satisfies
+\[
+ adQK_q Z_q=K_q(d+ra)-(q-1)ra(d-1)(a+d).
+\]
+Since $d-1=s$ and $a+d=J$, this proves the first formula
+in \eqref{eq:local-q}.
+
+\emph{The monodromy of $\mathcal T_q$.}
+In the cone
+dual to $XY$, insert the rays
+\[
+ Q_j=(j(r-1),j,1),\qquad 0\le j\le q.
+\]
+Here $Q_0=\mathsf W$, $Q_q=\mathsf T$, and the cross product
+of consecutive vectors is $(-1,r-1,0)$. These two-dimensional
+cones are regular and can be kept in a regular refinement of
+the full fan.
+
+In A'Campo's formula, the two-dimensional torus orbit of
+$E_{\mathsf T}$ has complement of Euler characteristic $+1$:
+the strict transform is $1+\xi+\eta=0$ in $(\CC^*)^2$.
+An orbit of a two-dimensional cone can remain in a single
+positive multiplicity divisor only if its other ray has
+$N=0$. This forces $\rho_u=0$ and $\rho_v\rho_w=0$,
+so the only such rays are $\mathsf V,\mathsf W$.
+The cones containing $\mathsf V$ give Euler characteristic
+zero. Among the cones containing $\mathsf W$, the sole
+nonzero contribution comes from the edge $XY$. It is
+$\CC^*$ minus one point, has Euler characteristic $-1$,
+and belongs to the divisor $E_{Q_1}$, of multiplicity $B$.
+
+There is no three-dimensional cone with just one positive
+multiplicity ray: that would require both $\mathsf V$ and
+$\mathsf W$, which lie in no common Newton cone. All other
+orbits have an extra torus factor and Euler characteristic
+zero. Also, the strict transform's own open stratum misses
+the fiber, since every orbit over the origin lies in a
+positive multiplicity toric divisor. Thus the divisor Euler
+numbers are $+1$ at $\mathsf T$ and $-1$ at $Q_1$. For $q=1$
+these are the same divisor and the contributions cancel.
+These cases exhaust the fiber orbits relevant to A'Campo's
+formula in every regular refinement preserving the indicated
+two-dimensional cones.
+Formula \eqref{eq:acampo} now gives $\zeta_q$.
+
+\emph{The other two models.}
+For $G$, take a plane resolution in $u,v$ and its product
+with the smooth $w$-direction. The Newton vertices are
+$(A,r)$ and $(D,0)$, with normals $(1,0),(r,1),(0,1)$
+and denominators $a,Q,1$. The two vertex cones have lattice
+indices $1,r$, giving $1/(aQ)$ and $r/Q$; the primitive
+edge gives $-s/(dQ)$ by the orbit computation.
+Their sum is \eqref{eq:local-g}.
+For its monodromy insert the rays $(j,1)$, $1\le j\le r$,
+between $(0,1)$ and $(r,1)$. The divisor at $(r,1)$ has open
+Euler characteristic $-1$, and the divisor at $(1,1)$ has
+an additional point of Euler characteristic $+1$ next to
+the zero multiplicity boundary. Their multiplicities are
+$rD$ and $D$. This gives $\zeta_G$. The monomial formulas
+follow immediately.
+\end{proof}
+
+\section{Contact transforms and global invariants}\label{sec:global}
+
+\subsection{The two contact transforms}
+
+The local formulas express the global invariants through the
+contact polynomial and the rational contact transform:
+\begin{equation}\label{eq:contact-transforms}
+ \Gamma_f(u)=\prod_{q\ge2}(1+u+\cdots+u^{q-1})^{n_q},
+ \qquad
+ U_f(x)=\sum_{q\ge2}\frac{n_q(q-1)}{1+qx}.
+\end{equation}
+The total contact excess is
+$\deg\Gamma_f=U_f(0)=S$.
+
+\begin{theorem}[Contact formulas]\label{thm:formulas}
+The global invariants satisfy
+\begin{align}
+ Z_f(s)={}&\frac{\kappa}{a}
+       +\frac{(c-b)(r-1)}Q+\frac{c}{aQ}
+       +\frac{c+b(r-1)}{dQ}
+       -\frac{rsJ}{dQ}U_f(Bs+\beta),\label{eq:global-z}\\
+ \Delta_f(t)={}&\frac{(1-t^A)^\kappa}{1-t}
+       \left(\frac{1-t^{rD}}{1-t^D}\right)^{b-c}
+       \Gamma_f(t^B).\label{eq:global-delta}
+\end{align}
+In particular,
+\begin{equation}\label{eq:global-mu}
+ \begin{aligned}
+ \mu_f&=A\kappa+(r-1)D(b-c)+B(n-b)-1\\
+      &=A^3-A^2+A-1+c-b.
+ \end{aligned}
+\end{equation}
+\end{theorem}
+
+\begin{proof}
+Insert Proposition~\ref{prop:local} into
+Lemma~\ref{lem:assembly}. For the topological function, the
+coefficients of $1/(aQ)$ combine to $c$, and those of $1/(dQ)$
+combine to $c+b(r-1)$. The remaining contact sum is exactly
+$U_f(Bs+\beta)$. For monodromy, \eqref{eq:assembly-zeta} gives
+\[
+ \zeta_f=(1-t^A)^{-\kappa}
+  \left(\frac{1-t^{rD}}{1-t^D}\right)^{c-b}
+  \prod_{q\ge2}
+       \left(\frac{1-t^B}{1-t^{qB}}\right)^{n_q}.
+\]
+Use \eqref{eq:zeta-delta} to obtain \eqref{eq:global-delta}.
+Its degree is \eqref{eq:global-mu}. Polynomiality is also
+visible directly: the geometric-series quotients are
+polynomials, and $(1-t^A)^\kappa/(1-t)$ is a polynomial.
+Using $n=eD$ and $B-(r-1)D=1$ simplifies the degree formula
+to its second expression.
+\end{proof}
+
+The classical formula of Melle-Hern\'andez
+\cite[\S3.4, Remark~2]{GLM97} gives the same Milnor number:
+$\operatorname{Sing}V(g_e^r)=C$ is disjoint from
+$\operatorname{Sing}H$, and $I_p(V(g_e^r),H)=rq_p$.
+Taking $d=A$, $k=1$, and $\sum_pq_p=eD$ gives
+\eqref{eq:global-mu}.
+
+Let $Z_{\mathrm{tr}},\Delta_{\mathrm{tr}},\mu_{\mathrm{tr}}$
+denote the specialization in which all $n=eD$ intersections
+are transverse. The formulas for
+$\zeta_{\mathrm{tr}}^{-1}=(1-t)\Delta_{\mathrm{tr}}$ and
+$\mu_{\mathrm{tr}}$ agree with~\cite[\S3.5]{GLM97}, taking
+their $d=A$, $k=1$, and a single smooth component of degree
+$e$ and multiplicity $r$. Substituting $b=n-S$ in the
+preceding theorem gives the compact form of the contact contribution:
+\begin{align}
+ Z_f-Z_{\mathrm{tr}}
+   &=\frac{s}{(s+1)Q(s)}
+       \bigl[(r-1)U_f(0)-r(Ds+4)U_f(Bs+\beta)\bigr],
+       \label{eq:compressed-z}\\
+ \frac{\Delta_f(t)}{\Delta_{\mathrm{tr}}(t)}
+   &=\left(\frac{1-t^D}{1-t^{rD}}\right)^S
+       \Gamma_f(t^B),\qquad
+ \mu_f-\mu_{\mathrm{tr}}=S.\label{eq:compressed-delta}
+\end{align}
+Thus a contact changes both the contribution along the curve
+and the local term at the intersection point. The two terms
+in \eqref{eq:compressed-z} record these changes separately.
+The function $U_f$ has positive simple-pole weights; for
+$x>0$ and $k\ge0$,
+\begin{equation}\label{eq:complete-monotonicity}
+ (-1)^kU_f^{(k)}(x)
+   =k!\sum_{q\ge2}
+       \frac{n_q(q-1)q^k}{(1+qx)^{k+1}}\ge0.
+\end{equation}
+
+\subsection{Characters of Milnor monodromy}
+
+To read individual eigenvalues, take a common cyclic group
+$C_M$, where
+$M=\operatorname{lcm}(A,rD,\{qB:n_q>0,\ q\ge2\})$.
+For $N\mid M$, let $\Reg_N$ be the regular representation
+of $C_N$ pulled back to $C_M$. For $qN\mid M$, set
+\[
+ W_{q,N}=\ker(\Reg_{qN}\longrightarrow\Reg_N),
+\]
+where the map sends the basis vector indexed by $j$ to the
+one indexed by $j\bmod N$. A character of order $m$ has
+multiplicity $\one_{m\mid qN}-\one_{m\mid N}$ in $W_{q,N}$.
+
+\begin{proposition}\label{prop:characters}
+The semisimplification of Milnor monodromy has character
+\begin{equation}\label{eq:positive-character}
+ [H^2(F_f,\CC)_{\mathrm{ss}}]
+   =\kappa[\Reg_A]-[\one]+(b-c)[W_{r,D}]
+                 +\sum_{q\ge2}n_q[W_{q,B}].
+\end{equation}
+For every $m\ge1$ its eigenvalue multiplicity is
+\begin{equation}\label{eq:multiplicities}
+ \begin{aligned}
+ M_m(f)={}&\kappa\one_{m\mid A}-\one_{m=1}
+   +(b-c)(\one_{m\mid rD}-\one_{m\mid D})\\
+ &+\sum_{q\ge2}n_q(\one_{m\mid qB}-\one_{m\mid B}).
+ \end{aligned}
+\end{equation}
+In particular,
+\begin{equation}\label{eq:m1-mr}
+ M_1(f)=2-c=2g(C),\qquad M_r(f)=b+3-2c.
+\end{equation}
+\end{proposition}
+
+\begin{proof}
+All roots of \eqref{eq:global-delta} are $M$th roots of unity,
+so the semisimple action factors through $C_M$. Taking
+characteristic polynomials gives \eqref{eq:positive-character},
+and then \eqref{eq:multiplicities}. This is a positive character:
+\[
+ \kappa\Reg_A-\one
+    =(\kappa-1)\Reg_A\oplus\Aug_A,
+\]
+where $\Aug_A$ is the augmentation kernel. The remaining
+coefficients are nonnegative, since $b-c>0$.
+
+For $m=1$ each $W$ term has multiplicity zero and the first
+two terms give $\kappa-1=2-c$. For $m=r$, use
+$r\mid A$, $r\nmid D$, and $r\mid B$, the last identity following
+from $B=r(e(r-1)+1)$. This gives
+$M_r=\kappa+b-c=b+3-2c$.
+\end{proof}
+
+\section{Reconstructing the contact profile}\label{sec:reconstruction}
+
+\subsection{Recovery from monodromy coefficients}
+
+The first step recovers the parameters before separating any
+contact factors. Put
+\[
+ P_f(t)=(1-t)\Delta_f(t).
+\]
+Equation \eqref{eq:global-delta} reads
+\begin{equation}\label{eq:p-factorization}
+ P_f(t)=(1-t^A)^\kappa
+       (1+t^D+\cdots+t^{(r-1)D})^{b-c}\Gamma_f(t^B).
+\end{equation}
+
+\begin{proposition}[Coefficient recovery]\label{prop:coefficient-recovery}
+The coefficients of $\Delta_f$ determine
+\begin{equation}\label{eq:parameter-recovery}
+ \begin{gathered}
+ A=\ord_{t=0}(P_f-1),\qquad
+ \kappa=-[t^A]P_f,\qquad
+ e=\frac{3+\sqrt{4\kappa-3}}2,\qquad r=\frac Ae,\\
+ b=c+[t^{A+1}]P_f,\qquad
+ \theta:=\sum_{q\ge2}n_q=[t^B]P_f,\qquad n_1=b-\theta.
+ \end{gathered}
+\end{equation}
+\end{proposition}
+
+\begin{proof}
+Since $A<D<B$, the first nonconstant term in
+\eqref{eq:p-factorization} is $-\kappa t^A$.
+The identity $\kappa=e^2-3e+3$ gives
+$4\kappa-3=(2e-3)^2$; $e\ge3$ selects the displayed root.
+The coefficient of $t^D$ comes only from the second factor,
+as $2A>D$ and $B>D$, and equals $b-c$.
+
+To read the coefficient of $t^B$, consider the first two factors.
+Every degree in their product has the form $iA+jD$, with
+$i,j\ge0$. If it equaled $B=(r-1)A+r$, then $j\le r-1$,
+whereas reduction modulo $A$ would give $j\equiv r\bmod A$.
+This is impossible because $r<A$. Thus only the linear term
+of $\Gamma_f(t^B)$ contributes at degree $B$, giving
+$[t^B]P_f=\Gamma_f'(0)=\theta$.
+\end{proof}
+
+With $e,r,b$ known, extract $\Gamma_f$ from
+\begin{equation}\label{eq:gamma-extraction}
+ \frac{P_f(t)}{(1-t^A)^\kappa}
+       \left(\frac{1-t^D}{1-t^{rD}}\right)^{b-c}
+       =\Gamma_f(t^B).
+\end{equation}
+The substitution $u\mapsto t^B$ is injective, so this determines
+$\Gamma_f(u)$ uniquely. Its degree is $S=n-b$.
+
+\begin{proposition}[Finite inversion]\label{prop:finite-inversion}
+Write $\Gamma_f(u)=\sum_{j=0}^S\gamma_j u^j$, with
+$\gamma_0=1$, and extend $\gamma_j=0$ for $j>S$. Define
+\begin{equation}\label{eq:log-recurrence}
+ L_m=m\gamma_m-\sum_{j=1}^{m-1}\gamma_jL_{m-j}.
+\end{equation}
+Then the entire profile is recovered by
+\begin{equation}\label{eq:mobius-recovery}
+ n_q=-\frac1q\sum_{d\mid q}\mob(q/d)L_d\quad(q\ge2),
+ \qquad n_1=b-\gamma_1.
+\end{equation}
+It suffices to compute $L_m$ for $m\le S+1$.
+\end{proposition}
+
+\begin{proof}
+Recurrence \eqref{eq:log-recurrence} is coefficient comparison
+in
+$\Gamma_f(u)\sum_{m\ge1}L_m u^m=u\Gamma_f'(u)$.
+On the other hand, the product in \eqref{eq:contact-transforms}
+gives
+\[
+ \frac{u\Gamma_f'(u)}{\Gamma_f(u)}
+   =\sum_{q\ge2}n_q
+       \left(\frac{u}{1-u}-\frac{q u^q}{1-u^q}\right).
+\]
+Consequently
+$L_m=\theta-\sum_{q\mid m,\ q\ge2}qn_q$.
+For $q>1$, M\"obius inversion cancels the constant $\theta$
+and gives \eqref{eq:mobius-recovery}. Finally, an occurring
+$q\ge2$ satisfies $q-1\le S$. If $S=0$, then $\Gamma_f=1$
+and all intersections are transverse.
+\end{proof}
+
+Appendix~\ref{app:example} carries out this recovery for an
+integer-coefficient member of the family.
+
+\paragraph{Lefschetz numbers.}
+The multiplicity of the surface germ is also determined by
+its Lefschetz numbers. Let
+$\Lambda_m=1+\Tr(T_f^m\mid H^2(F_f,\CC))$. The formal identity
+\[
+ -t\frac{P_f'(t)}{P_f(t)}
+       =\sum_{m\ge1}\Lambda_m t^m
+\]
+and the initial term $-\kappa t^A$ give
+$\Lambda_m=0$ for $1\le m<A$ and $\Lambda_A=A\kappa$.
+Thus $A$ is the first index with a nonzero Lefschetz number.
+
+\subsection{Recovery from poles and residues}
+
+To reconstruct from $Z_f$, we locate its poles and compute
+their residues. The residue at the largest pole distinguishes
+the cubic case from degrees $e\ge4$.
+
+\begin{proposition}\label{prop:poles}
+All actual poles of $Z_f$ are simple. Its largest pole
+$\sigma_*$ and corresponding residue $R_*$ are
+\begin{equation}\label{eq:largest-pole}
+ (\sigma_*,R_*)=
+ \begin{cases}
+  (-3/A,-3(e-1)/A),&e\ge4,\\
+  (-1/r,4/r),&e=3.
+ \end{cases}
+\end{equation}
+Every occurring $q\ge2$ gives a distinct actual pole
+$\sigma_q=-(q\beta+1)/(qB)$, with
+\begin{equation}\label{eq:contact-residue}
+ \Res_{s=\sigma_q}Z_f
+  =-\frac{n_q(q-1)r\sigma_q(D\sigma_q+4)}
+          {qB(\sigma_q+1)Q(\sigma_q)}\ne0.
+\end{equation}
+If $e\ge4$, then $\sigma_Q=-(3r+1)/(rD)$ is also an actual
+pole with positive residue.
+\end{proposition}
+
+\begin{proof}
+Formula \eqref{eq:global-z} gives the candidate list
+\begin{equation}\label{eq:candidates}
+ -1,\quad -3/A,\quad -(3r+1)/(rD),\quad
+ \sigma_q\quad(q\ge2,\ n_q>0).
+\end{equation}
+\emph{Degrees $e\ge4$.}
+The strict inequalities
+\begin{equation}\label{eq:pole-order}
+ 0<\frac3A<\frac{3r+1}{rD}<\frac{\beta}{B}
+      <\frac{q\beta+1}{qB}<1
+\end{equation}
+show that the candidate roots are distinct, apart from repeated
+occurrences of the same contact order. The numerators of the
+first two differences are $r(e-3)$, and
+$B-\beta=(r-1)(D-3)$ gives the last inequality.
+Thus every actual pole is simple. At $s=-3/A$,
+$Q(s)=(e-3)/e$, so the residue is
+\[
+ \frac{\kappa+c/Q(-3/A)}A=-\frac{3(e-1)}A.
+\]
+This proves the first case of \eqref{eq:largest-pole}.
+
+The residue at a contact root is \eqref{eq:contact-residue}.
+All its factors are nonzero except possibly $D\sigma_q+4$.
+If that factor vanished, then
+\[
+ D=q\bigl[(r-2)D+4\bigr].
+\]
+For $r\ge3$ the right hand side is larger than $D$.
+For $r=2$ this would say that the odd integer $D=2e+1$
+equals $4q$. Both are impossible.
+
+At the root $\sigma_Q$ of $Q$, set
+\[
+ \delta=\frac{e-3}{D},\qquad
+ \eta=\frac{(3r+1)(r-1)}{rD[rD-(3r+1)]}.
+\]
+At $\sigma_Q$ we have $Bs+\beta=\delta$ and $rJ=r-1$.
+The transverse residue, obtained from \eqref{eq:global-z}
+with $b=n$, is $\eta e(2D+e-3)$. By
+\eqref{eq:compressed-z}, the contact correction has residue
+$-\eta[S-U_f(\delta)]$. Consequently
+\begin{equation}\label{eq:old-positive-residue}
+ \Res_{s=\sigma_Q}Z_f
+    =\eta\bigl[e(D+e-3)+b+U_f(\delta)\bigr]>0.
+\end{equation}
+
+\emph{The cubic case.}
+Now $c=0$, $B=r\beta$, and
+\[
+ a=3(rs+1),\qquad Q=D(rs+1),\qquad D=3r+1.
+\]
+The sole term in \eqref{eq:global-z} with denominator $aQ$
+has coefficient zero. More explicitly, the formula simplifies
+to
+\begin{equation}\label{eq:cubic-formula}
+ Z_f(s)=\frac4{rs+1}-\frac3{s+1}
+       +\sum_{q\ge2}n_q\frac{C_qs}{(s+1)K_q(s)},
+ \qquad
+ C_q=\frac{(q-1)[q(r-1)\beta-D]}D>0.
+\end{equation}
+To obtain it, subtract the transverse formula and use
+$(r-1)K_q-rJ=[q(r-1)\beta-D](rs+1)$.
+For positivity, the smallest possible bracket is bounded below
+by $6r^2-13r+3$, which equals $1$ at $r=2$ and increases for
+$r\ge2$.
+
+The contact roots are now
+$\sigma_q=-1/r-1/(qB)\in(-1,-1/r)$ and $K_q(-1/r)=1$.
+The common root $-1/r$ has residue $4/r$, while every contact
+residue has the simpler expression
+\begin{equation}\label{eq:cubic-contact-residue}
+ \Res_{s=\sigma_q}Z_f
+       =\frac{n_qC_q\sigma_q}{qB(\sigma_q+1)}<0.
+\end{equation}
+Finally, using $\sum qn_q=3D$, the residue at $-1$ is
+\begin{equation}\label{eq:cubic-minus-one}
+ \Res_{s=-1}Z_f
+   =-\frac1D\left[
+       b+3r\sum_{q\ge2}
+          \frac{n_q(q-1)}{q(r-1)\beta-1}\right]<0.
+\end{equation}
+This proves all assertions at the cubic boundary as well.
+\end{proof}
+
+The remaining candidate $-1$ has residue
+\begin{equation}\label{eq:minus-one-residue}
+ \Res_{s=-1}Z_f
+ =\frac{\displaystyle c+b(r-1)+r(D-4)
+       \sum_{q\ge2}\frac{n_q(q-1)}
+                  {q(r-1)(D-3)-1}}
+        {3r+1-rD}.
+\end{equation}
+Together with Proposition~\ref{prop:poles}, this determines the
+pole set: $-1$ is present exactly when this residue is nonzero.
+
+\begin{proposition}\label{prop:z-recovery}
+The rational function $Z_f$ determines $e,r$ and the contact
+profile.
+\end{proposition}
+
+\begin{proof}
+Take the largest actual pole $\sigma_*$ and its residue $R_*$.
+Proposition~\ref{prop:poles} distinguishes the two parameter
+ranges by the sign of $R_*$:
+\begin{equation}\label{eq:z-parameter-recovery}
+ \begin{cases}
+  R_*>0:\quad e=3,\qquad r=-1/\sigma_*;\\
+  R_*<0:\quad e=1+R_*/\sigma_*,
+           \qquad r=-3/(e\sigma_*).
+ \end{cases}
+\end{equation}
+Now all the numerical constants in
+\eqref{eq:linear-functions} are known. Remove the positions
+$-1,-3/A,-(3r+1)/(rD)$ from the pole set. Its remaining
+elements are exactly the occurring contact poles.
+At such a pole $\sigma_q$ with residue $R_q$, use
+\begin{equation}\label{eq:z-contact-recovery}
+ q=-\frac1{B\sigma_q+\beta},\qquad
+ n_q=-\frac{qB(\sigma_q+1)Q(\sigma_q)}
+         {(q-1)r\sigma_q(D\sigma_q+4)}\,R_q.
+\end{equation}
+The denominators are nonzero by
+Proposition~\ref{prop:poles}. Finally
+$n_1=eD-\sum_{q\ge2}qn_q$.
+\end{proof}
+
+\begin{proof}[Proof of Theorem~\ref{thm:main}]
+Propositions~\ref{prop:coefficient-recovery}
+and~\ref{prop:finite-inversion} recover all the data from
+$\Delta_f$, and Proposition~\ref{prop:z-recovery} recovers them
+from $Z_f$. Conversely, the contact formulas determine both
+invariants from those data. This proves the three equivalent
+conditions and the stated recovery procedures. Over $\CC$,
+the characteristic polynomial determines a linear
+automorphism up to semisimplification, which proves the
+classification statement.
+\end{proof}
+
+\subsection{Monodromy and analytic moduli}
+
+\begin{corollary}\label{cor:monodromy}
+Every actual pole $s_0$ of $Z_f$ gives the eigenvalue
+$\exp(2\pi i s_0)$ on the cohomology of $F_f$.
+\end{corollary}
+
+\begin{proof}
+Use the positive character \eqref{eq:multiplicities}.
+For $s_0=-3/A$, the eigenvalue order is
+$m=A/\gcd(A,3)>1$, detected by $\Reg_A$.
+For $s_0=-(3r+1)/(rD)$, it is
+$m=rD/\gcd(rD,3r+1)>1$. If $m\mid D$, then
+$rD\mid(3r+1)D$, which would force $r\mid3r+1$.
+Thus $W_{r,D}$ detects this order.
+For a contact pole, the order is
+$m=qB/\gcd(q\beta+1,qB)$. If $m\mid B$, then
+$qB\mid(q\beta+1)B$, contradicting $q\nmid q\beta+1$.
+It is therefore detected by $W_{q,B}$.
+The order at $-1$ is $1$, with multiplicity $M_1=2-c>0$.
+These cases also cover the common old root when $e=3$.
+All primitive roots of each detected order occur with the
+same multiplicity by \eqref{eq:multiplicities}.
+\end{proof}
+
+\begin{example}[Different curves with the same invariants]
+\label{ex:cubic-moduli}
+Take two smooth plane cubics with different $j$-invariants,
+fix the same $r\ge2$, and choose a degree $3r+1$ curve transverse
+to each. Both profiles consist of $3(3r+1)$ ones, so the
+corresponding $Z_f$ and $\Delta_f$ agree.
+The resulting germs are not analytically contact equivalent.
+Such an equivalence would identify their lowest homogeneous
+terms up to a linear change of coordinates and a nonzero
+scalar. Their tangent-cone supports would then be projectively
+equivalent cubics, contrary to their distinct $j$-invariants.
+\end{example}
+
+\section{Spectral balance and contact collisions}\label{sec:collisions}
+
+\subsection{The balance identity}
+
+\begin{proof}[Proof of Theorem~\ref{thm:balance}]
+Equation~\eqref{eq:m1-mr} gives $M_r-M_1=b+1-c$.
+Adding this to the second expression in \eqref{eq:global-mu}
+proves \eqref{eq:balance-intro}.
+Fix a primitive $r$th root $\lambda$. An equivariant injection
+is injective on the generalized $\lambda$-eigenspaces, so both
+the total dimension $\mu$ and the dimension $M_r$ of this
+individual generalized eigenspace can only increase.
+At fixed $e,r$, the balance identity
+and the fixed value $M_1=2-c$ force equality in both dimensions.
+The injection is therefore an isomorphism. The argument also
+applies to semisimplifications. If the contact profiles differ,
+Theorem~\ref{thm:main} gives distinct characteristic polynomials,
+so neither direction admits such an injection.
+\end{proof}
+
+\begin{example}[Equal Milnor numbers and incomparable monodromy]
+\label{ex:equal-mu}
+The profiles $\{2,4,1^{30}\}$ and $\{3,3,1^{30}\}$ both occur
+with $e=4,r=2$, even on the same smooth quartic $C$.
+To realize them, choose distinct $p_1,p_2\in C$ and prescribe
+$\mathfrak d=2p_1+4p_2$ or $3p_1+3p_2$.
+The line bundle
+$\mathcal L=\mathcal O_C(9)(-\mathfrak d)$ has degree $30$
+on a curve of genus $3$. Riemann--Roch gives
+$h^0(\mathcal L)=28$. Vanishing at either $p_i$ is one
+independent condition, and a double zero at any other point
+$x$ imposes two independent conditions, since
+$H^1(\mathcal L(-2x))=0$.
+The double-zero incidence has dimension at most $27$ as
+$x$ varies in $C$. A general section thus has $30$ simple
+zeros away from $p_1,p_2$, giving the desired divisor on $C$.
+
+The restriction of degree-nine homogeneous polynomials to
+$C$ is surjective, because $H^1(\PP^2,\mathcal O(5))=0$.
+After lifting the section, replace its lift $h_9$ by
+$h_9+g_4k_5$. Degree-five polynomials $k_5$ can adjust the
+two normal derivatives independently. Choose the resulting
+derivatives nonzero at both prescribed contacts. At the other
+intersections, $h_9|_C$ has simple zeros. Thus $H$ is smooth
+at every intersection and both profiles occur in
+\eqref{eq:family}.
+
+Their contact polynomials are
+\[
+ \Gamma_{2,4}(u)=1+2u+2u^2+2u^3+u^4,\qquad
+ \Gamma_{3,3}(u)=1+2u+3u^2+2u^3+u^4.
+\]
+Both have $b=32$, $M_1=6$, and the remaining data are
+\[
+ \begin{array}{c|rrrr}
+       &\mu&M_2&M_{20}&M_{30}\\ \hline
+ f_{2,4}&419&43&2&0\\
+ f_{3,3}&419&43&0&2
+ \end{array}
+ \qquad
+ \frac{\Delta_{2,4}(t)}{\Delta_{3,3}(t)}
+       =\frac{(1-t^{20})(1-t^{40})}{(1-t^{30})^2}.
+\]
+The two representations have equal dimension and admit no
+equivariant injection in either direction.
+\end{example}
+
+\subsection{Contact collisions}
+
+\begin{proposition}[Collision formulas]\label{prop:collision}
+Consider two members with the same $e,r$ whose profiles differ
+by replacing $q$ transverse intersections by one intersection
+of multiplicity $q\ge2$. Denote these members by
+$f_{\mathrm{split}}$ and $f_{\mathrm{tan}}$, respectively.
+Then
+\begin{align}
+ \frac{\Delta_{\mathrm{tan}}(t)}
+      {\Delta_{\mathrm{split}}(t)}
+   &=\frac{1-t^{qB}}{1-t^B}
+        \left(\frac{1-t^D}{1-t^{rD}}\right)^{q-1},
+        \label{eq:collision-delta}\\
+ [H^2_{\mathrm{tan,ss}}]-[H^2_{\mathrm{split,ss}}]
+   &=[W_{q,B}]-(q-1)[W_{r,D}],\label{eq:collision-character}\\
+ \mu_{\mathrm{tan}}-\mu_{\mathrm{split}}&=q-1,\qquad
+ M_{r,\mathrm{tan}}-M_{r,\mathrm{split}}=-(q-1).
+        \label{eq:collision-dimensions}
+\end{align}
+The topological functions satisfy
+\begin{equation}\label{eq:collision-z}
+ Z_{\mathrm{tan}}-Z_{\mathrm{split}}
+   =\frac{(q-1)(r-1)s}{dQ}
+        -\frac{(q-1)rsJ}{dQK_q}.
+\end{equation}
+\end{proposition}
+
+\begin{proof}
+The collision decreases $b$ by $q-1$, adds one factor
+$(1-t^{qB})/(1-t^B)$, and adds $(q-1)/K_q$ to
+$U_f(Bs+\beta)$. Substitution into the global formulas proves
+\eqref{eq:collision-delta}, \eqref{eq:collision-character},
+and \eqref{eq:collision-z}. Taking dimensions and using
+$B-(r-1)D=1$ gives \eqref{eq:collision-dimensions}.
+\end{proof}
+
+The character difference records the new block $W_{q,B}$ and
+the decrease of the $W_{r,D}$ contribution. The net gain in
+dimension is $q-1$, while $M_r$ drops by $q-1$.
+
+\begin{proposition}[Splitting a single contact]\label{prop:splitting}
+Suppose that $H_0$ has one contact of order $q\ge2$ with $C$,
+at $p$, and all its other intersections with $C$ are transverse.
+Choose a linear form $L$ with $L(p)\ne0$ and set
+\begin{equation}\label{eq:splitting-family}
+ h_{D,\tau}=h_{D,0}+\tau L^D,\qquad
+ f_\tau=g_e^r+h_{D,\tau}.
+\end{equation}
+For every sufficiently small $\tau\ne0$, the point $p$ splits
+into $q$ transverse intersections, all other intersections
+remain transverse, and $f_\tau$ satisfies the assumptions
+of \eqref{eq:family}.
+\end{proposition}
+
+\begin{proof}
+Near $p$ use a parameter $w$ on $C$, with $L$ nonvanishing.
+The function $\phi=-h_{D,0}|_C/L^D|_C$ has a zero of order
+$q$ at $w=0$, and $\phi'$ is $w^{q-1}$ times a unit.
+Shrink the disc so that $0$ is its only critical point.
+For every sufficiently small nonzero $\tau$, the equation
+$\phi(w)=\tau$ has $q$ roots by Rouch\'e's theorem, and all
+are simple because their derivatives do not vanish.
+
+The remaining simple intersections persist by the implicit
+function theorem. Compactness of $C$ prevents additional
+zeros outside disjoint neighborhoods of the old intersections.
+At $p$ the normal derivative of $h_{D,0}$ along $C$ is nonzero,
+and remains so near the new roots. At all other roots the
+tangential derivative is nonzero. Thus $H_\tau$ is smooth at
+every intersection, with all the claimed intersection
+multiplicities. Lemma~\ref{lem:isolated} applies to each $f_\tau$.
+\end{proof}
+
+\subsection{Extremal contact profiles}
+
+\begin{proposition}[Extremal Milnor numbers]\label{prop:milnor-bounds}
+At fixed $e,r$,
+\begin{equation}\label{eq:milnor-bounds}
+ \mu_{\mathrm{tr}}\le\mu_f\le\mu_{\mathrm{tr}}+eD-1,
+ \qquad
+ \mu_{\mathrm{tr}}=A\kappa+(r-1)D(eD-c)-1.
+\end{equation}
+Both bounds are attained for every $e\ge3,r\ge2$.
+Equality at the lower bound means that all intersections are
+transverse; equality at the upper bound means that there is
+a single intersection of multiplicity $eD$.
+\end{proposition}
+
+\begin{proof}
+The classical Milnor formula \eqref{eq:global-mu} gives
+$\mu_f-\mu_{\mathrm{tr}}=n-b$, and $1\le b\le n$.
+For the lower bound take $h_D$ to be a product of $D$ general
+linear forms. Their intersections with $C$ are transverse and
+pairwise distinct on $C$, and $H$ is smooth at each of them.
+
+For the upper bound choose
+\[
+ g_e=x^e+y^e+z^e,\qquad
+ \alpha^e=-1,\qquad p=[1:\alpha:0],\qquad
+ \ell=x+\alpha^{e-1}y.
+\]
+On $\ell=0$ one has $g_e=z^e$, so
+$\operatorname{div}_C(\ell)=e\,p$. Set
+\begin{equation}\label{eq:maximal-contact-example}
+ h_D=\ell^D+g_e x^{D-e}.
+\end{equation}
+Its restriction to $C$ has divisor $eD\,p$.
+In the affine chart $x=1$,
+$dh_D(p)=dg_e(p)\ne0$, so $H$ is smooth at its unique
+intersection with $C$. This realizes the upper bound.
+\end{proof}
+
+The maximal-contact member \eqref{eq:maximal-contact-example}
+has exactly one intersection, so it supplies such a family
+for every $e,r$, with $q=eD$.
+
+\section{Twisted topological zeta functions}\label{sec:twisted}
+
+\subsection{The divisibility-filtered formula}
+
+Fix an integer $\ell>1$. On a log resolution define
+\begin{equation}\label{eq:twisted-definition}
+ Z_f^{(\ell)}(s)=
+   \sum_{\substack{\varnothing\ne I\\
+                  \ell\mid N_i\ \text{for every }i\in I}}
+       \chi(E_I^\circ\cap h^{-1}(0))
+            \prod_{i\in I}(N_i s+\nu_i)^{-1}.
+\end{equation}
+This is the twisted topological normalization of
+\cite[Section~1.3, equation~(1.6)]{AGGL26}.
+Write $\delta(N)=\one_{\ell\mid N}$ and $\eta_q=\gcd(D,q)$.
+
+The auxiliary coordinate boundaries $\mathsf V,\mathsf W$
+have $N=0$, so the condition $\ell\mid0$ preserves the Euler
+refinement used in the local calculations.
+
+\begin{theorem}\label{thm:twisted-formula}
+Set
+\begin{equation}\label{eq:twisted-e}
+ E_{q,\ell}(s)=q\delta(r)+r\delta(\eta_q)
+       -\delta(r\eta_q)
+       +Q(s)\bigl[\delta(qB)-q\delta(B)\bigr].
+\end{equation}
+The complete twisted function is
+\begin{equation}\label{eq:global-twisted}
+ Z_f^{(\ell)}
+ =\frac{\kappa\delta(A)}a+\frac{c\delta(r)}{aQ}
+   +\frac{(c-b)[r\delta(D)-\delta(rD)]}{Q}
+   +\sum_{q\ge2}\frac{n_q E_{q,\ell}}{QK_q}.
+\end{equation}
+\end{theorem}
+
+\begin{proof}
+The filter in \eqref{eq:twisted-definition} is compatible with
+the normal crossings change in \eqref{eq:snc-identity}.
+If the old multiplicities at a blowup center are all divisible
+by $\ell$, the new one, their sum, is also divisible, and the
+same identity applies. If exactly one is not divisible, the
+new multiplicity is not divisible and all contributions vanish.
+If at least two are not divisible, every projective stratum
+of nonzero Euler characteristic retains a nondivisible old
+component, so again every contribution vanishes. Thus the
+filtered local functions also assemble by Euler Fubini.
+
+On the regular toric resolution, the strict transform has
+$N=1$ and is excluded. The auxiliary boundaries just described
+are retained for the orbit stratification. Filtering the orbit
+calculation by the saturated-lattice gcds in
+Appendix~\ref{app:filter} gives
+\begin{equation}\label{eq:local-twisted}
+ \begin{aligned}
+ Z_{u^A}^{(\ell)}&=\frac{\delta(A)}a,\\
+ Z_G^{(\ell)}&=\frac{\delta(r)}{aQ}
+                  +\frac{r\delta(D)-\delta(rD)}Q,\\
+ Z_q^{(\ell)}&=\frac{\delta(r)}{aQ}
+                  +\frac{E_{q,\ell}}{QK_q}.
+ \end{aligned}
+\end{equation}
+When $q=1$, $\eta_q=1$ and $E_{1,\ell}=0$.
+Apply \eqref{eq:assembly-z} with these local functions;
+the coefficient of $\delta(r)/(aQ)$ is $c$, giving
+\eqref{eq:global-twisted}.
+\end{proof}
+
+\subsection{Holomorphy}
+
+\begin{theorem}\label{thm:holomorphy}
+If no monodromy eigenvalue at the origin has order divisible
+by $\ell>1$, then $Z_f^{(\ell)}$ is identically zero.
+\end{theorem}
+
+\begin{proof}
+By \eqref{eq:positive-character}, every eigenvalue order
+divides one of
+\[
+ A,\qquad rD,\qquad \{qB:q\ge2,\ n_q>0\}.
+\]
+Conversely, each of these integers itself occurs as an
+eigenvalue order: primitive $A$th, $rD$th, and $qB$th
+characters have positive multiplicity in the corresponding
+positive representation blocks. The hypothesis is therefore
+equivalent to
+\[
+ \ell\nmid A,\qquad \ell\nmid rD,\qquad
+ \ell\nmid qB\quad(q\ge2,\ n_q>0).
+\]
+It gives $\delta(A)=\delta(rD)=0$, and the divisibilities
+$r\mid A$, $D\mid rD$, $\eta_q\mid D$,
+$r\eta_q\mid rD$ give
+$\delta(r)=\delta(D)=\delta(\eta_q)
+=\delta(r\eta_q)=0$.
+For each occurring $q\ge2$ it also gives
+$\delta(qB)=\delta(B)=0$.
+Every term in \eqref{eq:global-twisted} vanishes.
+\end{proof}
+
+At smooth points the monodromy has eigenvalue $1$, so the
+same criterion applies to eigenvalues in a neighborhood
+of the origin.
+
+\begin{example}[The order condition]\label{ex:twisted-order}
+For $e=4,r=2$ with all intersections transverse, one has
+$c=-4,b=36$ and
+\[
+ M_3(f)=0,\qquad Z_f^{(3)}(s)=-\frac{40}{18s+7}.
+\]
+A primitive $18$th root is nevertheless an eigenvalue, and
+$3\mid18$.
+\end{example}
+
+\begin{corollary}\label{cor:twisted-recovery}
+Within the family \eqref{eq:family}, the single polynomial
+$\Delta_f$ determines every twisted function $Z_f^{(\ell)}$.
+\end{corollary}
+
+\begin{proof}
+Recover $e,r,\{q_p\}$ by Theorem~\ref{thm:main}, and use
+\eqref{eq:global-twisted}.
+\end{proof}
+
+\appendix
+\section{Weighted cone calculations}\label{app:cones}
+
+\subsection{Orbit contributions and subdivision}\label{app:subdivision}
+
+We derive the weighted formula of Proposition~\ref{prop:local}.
+For a nonnegative vector $\rho$ set
+\[
+ N(\rho)=\min\{\langle X,\rho\rangle,\langle Y,\rho\rangle,
+                      \langle Z,\rho\rangle\},\qquad
+ \nu(\rho)=3\rho_u+\rho_v+\rho_w.
+\]
+For a regular toric cone with primitive rays $\rho_i$,
+the monomial substitution gives the actual numerical data
+$N(\rho_i),\nu(\rho_i)$. The reduced strict transform
+$\mathcal S$ has data $(1,1)$, and the auxiliary boundaries
+$\mathsf V,\mathsf W$ have data $(0,1)$.
+
+Let $\sigma$ be a regular cone of dimension $k$, and let $\tau$
+be the face selected by its relative interior. Its orbit maps
+to the origin exactly when $\relint(\sigma)$ contains a vector
+with all coordinates positive. Thus all relevant selected
+faces are compact. If $k=3$, the selected face is a vertex
+and the orbit is a point disjoint from the strict transform.
+Its contribution is $\prod_i(N(\rho_i)s+\nu(\rho_i))^{-1}$.
+
+For $k<3$, the orbit is $(\CC^*)^{3-k}$. If
+$\dim\tau<3-k$, the strict-transform equation either has no
+zero or has an additional torus factor. Both the orbit and its
+strict-transform zero set have Euler characteristic zero.
+To see the factor directly, the edge difference vector is
+primitive and the triangle difference lattice is saturated,
+as their normalized volumes are one. They can therefore be
+completed to a basis in the orbit character lattice.
+
+If $\dim\tau=3-k\ge1$, the zero set is one point for an edge,
+and $1+\xi+\eta=0$ in $(\CC^*)^2$ for the triangle.
+Writing $d_\tau=\dim\tau$, its Euler characteristic is
+$(-1)^{d_\tau-1}$. The complement and strict-transform terms
+together contribute
+\[
+ \left[-\chi(\mathcal S\cap O_\sigma)
+      +\frac{\chi(\mathcal S\cap O_\sigma)}{s+1}\right]
+      \prod_i(N(\rho_i)s+\nu(\rho_i))^{-1}
+ =\frac{s}{s+1}(-1)^{d_\tau}
+      \prod_i(N(\rho_i)s+\nu(\rho_i))^{-1}.
+\]
+
+These terms can be merged over nonregular cones while keeping
+their lattice multiplicities. For a simplicial cone $\Delta$,
+write
+\[
+ J_\Delta(s)=
+   \frac{\mult(\Delta)}
+        {\prod_{\rho_i\text{ ray of }\Delta}
+                    (N(\rho_i)s+\nu(\rho_i))}.
+\]
+The multiplicity is the index of its rays in the saturated
+lattice of its span. On a Newton cone $N$ is linear, and,
+for real $s>0$,
+\[
+ J_\Delta(s)=\int_\Delta e^{-sN(x)-\nu(x)}\,dx,
+\]
+with the lattice-normalized measure on that span. The integral
+is additive under subdivisions of the same dimension.
+Equality of the resulting rational functions then follows
+by continuation. In particular, $J_\tau$, the sum over a
+triangulation of the dual cone of $\tau$, is independent of
+that triangulation. The preceding orbit calculation yields
+\begin{equation}\label{eq:weighted-newton}
+ Z_q=J_X+J_Y+J_Z+
+       \frac{s}{s+1}(-J_{XY}-J_{XZ}-J_{YZ}+J_{XYZ}).
+\end{equation}
+This is the Newton face formula specialized to the pulled-back
+volume form; compare the standard-volume version
+in~\cite[Th\'eor\`eme~5.3]{DL92}.
+
+\subsection{The cone table}
+
+Using the normals in the proof of Proposition~\ref{prop:local},
+triangulate the vertex cones as follows:
+\begin{center}
+\begin{tabular}{lll}
+\toprule
+Vertex & Simplicial cones & Multiplicities\\
+\midrule
+$X$ & $(\mathsf U,\mathsf W,\mathsf T)$,
+       $(\mathsf U,\mathsf R,\mathsf T)$ & $q,\ 1$\\
+$Y$ & $(\mathsf W,\mathsf S,\mathsf T)$ & $q^2(r-1)$\\
+$Z$ & $(\mathsf V,\mathsf R,\mathsf T)$,
+       $(\mathsf V,\mathsf T,\mathsf S)$ & $r,\ q(r-1)$\\
+\bottomrule
+\end{tabular}
+\end{center}
+Absolute determinants give the last column. Hence
+\[
+ J_X=\frac q{aK_q}+\frac1{aQK_q},\qquad
+ J_Y=\frac{q^2(r-1)}{p_qK_q},\qquad
+ J_Z=\frac r{QK_q}+\frac{q(r-1)}{p_qK_q}.
+\]
+The two-dimensional lattice indices and the primitive ray
+$\mathsf T$ give
+\[
+ J_{XY}=\frac q{K_q},\qquad
+ J_{XZ}=\frac1{QK_q},\qquad
+ J_{YZ}=\frac{q(r-1)}{p_qK_q},\qquad
+ J_{XYZ}=\frac1{K_q}.
+\]
+In \eqref{eq:weighted-newton}, all terms containing $p_q$ combine
+as
+\[
+ \frac{q(r-1)}{p_qK_q}
+       \left(q+1-\frac{s}{s+1}\right)
+       =\frac{q(r-1)}{(s+1)K_q}.
+\]
+Substituting the remaining terms gives
+\eqref{eq:local-raw}. This identifies the cancellation of the
+apparent denominator $p_q$ before the global assembly.
+
+\subsection{Divisibility on saturated lattices}\label{app:filter}
+
+For a compact face $\tau$, let $C_\tau$ be its dual cone and
+$L_\tau=\operatorname{span}_{\RR}(C_\tau)\cap\ZZ^3$.
+Choose an exponent $v_\tau\in\tau$ and put
+\[
+ m_\tau=\gcd\{\langle v_\tau,\rho\rangle:\rho\in L_\tau\}.
+\]
+The definition is independent of the exponent chosen in the
+face, since all exponent differences annihilate $L_\tau$.
+It uses the linear extension of $N|_{C_\tau}$ to this lattice.
+The primitive rays of a relatively full-dimensional regular
+subcone of $C_\tau$ form a basis of $L_\tau$. Thus all their
+multiplicities are divisible by $\ell$ exactly when
+$\ell\mid m_\tau$, so the divisibility indicator is constant
+on these subcones. By the lattice-normalized subdivision
+additivity in Appendix~\ref{app:subdivision}, their filtered
+cone sum is $\delta(m_\tau)J_\tau$.
+
+For the present triangle these gcds are
+\begin{center}
+\begin{tabular}{lrrrrrrr}
+\toprule
+$\tau$ & $X$ & $Y$ & $Z$ & $XY$ & $XZ$ & $YZ$ & $XYZ$\\
+\midrule
+$m_\tau$ & $r$ & $1$ & $\eta_q$ & $B$ &
+            $r\eta_q$ & $\eta_q$ & $qB$\\
+\bottomrule
+\end{tabular}
+\end{center}
+The vertex rows are the gcds of their coordinates.
+For $XY$, a lattice basis is $(r-1,1,0),(0,0,1)$,
+whose pairings are $B,0$.
+For $XZ$, the rays $\mathsf R,\mathsf T$ are a lattice basis
+because their cross product is primitive. Thus
+$m_{XZ}=\gcd(rD,qB)=r\gcd(D,q)$; here
+$B/r=e(r-1)+1$ is coprime to $D$.
+For $YZ$ use $(1,0,0),(0,q,1)$, with pairings $D,q$.
+The triangle lattice is generated by $\mathsf T$, of
+multiplicity $qB$.
+
+For $\ell>1$ the strict-transform terms are excluded, so the
+orbit signs are $+1$ for vertices, $-1$ for edges, and $+1$
+for the triangle. Since $\delta(1)=0$, the filtered sum is
+\begin{equation}\label{eq:filtered-cones}
+ \begin{aligned}
+ Z_q^{(\ell)}={}&\delta(r)J_X+\delta(\eta_q)J_Z
+      -\delta(B)J_{XY}-\delta(r\eta_q)J_{XZ}\\
+      &-\delta(\eta_q)J_{YZ}+\delta(qB)J_{XYZ}.
+ \end{aligned}
+\end{equation}
+The two $p_q$ terms have the same indicator and cancel.
+Finally
+\[
+ \frac q{aK_q}+\frac1{aQK_q}
+       =\frac1{aQ}+\frac q{QK_q}
+\]
+by $K_q=q(Q-a)+1$, giving the $Z_q^{(\ell)}$ formula
+in \eqref{eq:local-twisted}.
+For $G$, the two vertex gcds are $r,D$ and the edge gcd
+is $rD$; the same two-dimensional calculation gives
+$\delta(r)/(aQ)+(r\delta(D)-\delta(rD))/Q$.
+
+\section{An integer-coefficient example}\label{app:example}
+
+Consider
+\begin{equation}\label{eq:integer-example}
+ \begin{gathered}
+  g=x^4+y^4+z^4,\qquad p_7=x^7+y^7+z^7,\qquad
+  p_5=x^5+y^5+z^5,\\
+  h_9=z^2p_7+gp_5,\qquad f=g^2+h_9.
+ \end{gathered}
+\end{equation}
+\paragraph{Contact profile.}
+On the smooth quartic
+$C=V(g)$,
+$\operatorname{div}_C(h_9)=2\operatorname{div}_C(z)
+                              +\operatorname{div}_C(p_7)$.
+
+The four points with $z=0$ are $[1:t:0]$, $t^4=-1$,
+and the line meets $C$ transversely.
+At these points $p_7=1-t^3\ne0$ and $p_5=1-t\ne0$.
+Thus $h_9|_C$ has order exactly two and
+$dh_9=p_5\,dg\ne0$.
+
+The intersection of $C$ and $V(p_7)$ has no point with a zero
+coordinate. At a nontransverse intersection their gradients
+are proportional, forcing $x^3=y^3=z^3$.
+Set $x=1$. The conditions reduce to
+$y^3=z^3=1$ and $1+y+z=0$, so the only such points are
+\[
+ [1:\omega:\omega^2],\qquad[1:\omega^2:\omega],
+ \qquad \omega^2+\omega+1=0.
+\]
+Their contact orders are exactly two.
+At the first point $\nabla p_7=(7/4)\nabla g$;
+for the tangent vector $v=(0,1,-1)$,
+\[
+ v^{\mathsf t}
+    \left(\operatorname{Hess}(p_7)
+           -\frac74\operatorname{Hess}(g)\right)v
+       =21(\omega^2+\omega)=-21\ne0.
+\]
+The second point is identical by symmetry. At both,
+$p_5=0$ and $dh_9=z^2dp_7\ne0$.
+
+All remaining intersections of $C$ and $V(p_7)$ are transverse.
+There is no common component, since $p_7|_C$ is nonzero at
+the four points with $z=0$. B\'ezout gives total intersection
+number $28$; after the two double points this leaves
+$24$ transverse points, all with $z\ne0$. At these points
+$h_9|_C$ has a simple zero, so $H$ is smooth there as well.
+Consequently
+\[
+ n_2=6,\qquad n_1=24,\qquad b=30,\qquad
+ e=4,\quad r=2,\quad A=8,\quad D=9,\quad B=10.
+\]
+\paragraph{The two invariants.}
+The contact formulas give
+\[
+ \begin{aligned}
+ Z_f(s)&=\frac{-3784s^3-1922s^2+321s+189}
+                {(8s+3)(s+1)(18s+7)(20s+9)},\\
+ \Delta_f(t)&=\frac{(1-t^8)^7}{1-t}
+                   (1+t^9)^{34}(1+t^{10})^6,\qquad
+ \mu_f=421.
+ \end{aligned}
+\]
+The contact pole $-9/20$ has residue $27/1210$.
+The associated primitive $20$th roots have multiplicity six.
+The balance identity reads $421+41-6=456=8^3-8^2+8$.
+
+\paragraph{Reconstruction.}
+Starting from the characteristic polynomial, the product
+$P_f=(1-t)\Delta_f$ begins
+\[
+ P_f(t)=1-7t^8+34t^9+6t^{10}+O(t^{16}).
+\]
+Proposition~\ref{prop:coefficient-recovery} gives $A=8$,
+$\kappa=7$, hence $e=4$, $r=2$, $c=-4$, and $b=-4+34=30$.
+Removing the two determined factors leaves
+\[
+ \frac{P_f(t)}{(1-t^8)^7(1+t^9)^{34}}
+       =(1+t^{10})^6=\Gamma_f(t^{10}).
+\]
+Thus $\Gamma_f(u)=(1+u)^6$. Finite inversion gives
+$n_2=6$ and $n_q=0$ for $q\ge3$; finally $n_1=30-6=24$.
+
+\section*{Acknowledgments}
+
+This mathematical paper was prepared with the assistance of artificial intelligence.  I
+first acknowledge the textual data produced by humanity as a whole, which
+provides the linguistic and cultural record from which mathematical expression
+can be learned.  I then thank the accumulated scholarly achievements of
+mathematicians throughout history.  I also thank the researchers whose work has
+advanced and refined neural networks through successive generations.  Finally,
+I thank the OpenAI team for the training and development of the models used in
+the preparation of this paper.
+
+\begin{thebibliography}{99}
+
+\bibitem{AC75}
+N.~A'Campo,
+\emph{La fonction z\^eta d'une monodromie},
+Comment. Math. Helv. \textbf{50} (1975), 233--248.
+
+\bibitem{AGGL26}
+E.~Artal Bartolo, P.~D.~Gonz\'alez P\'erez,
+M.~Gonz\'alez Villa, and E.~Le\'on Cardenal,
+\emph{Denef--Loeser zeta functions of suspensions and
+L\^e--Yomdin singularities},
+\href{https://arxiv.org/abs/2604.24523v1}{arXiv:2604.24523v1}
+(2026).
+
+\bibitem{DL92}
+J.~Denef and F.~Loeser,
+\emph{Caract\'eristiques d'Euler--Poincar\'e, fonctions z\^eta
+locales et modifications analytiques},
+J. Amer. Math. Soc. \textbf{5} (1992), no.~4, 705--720.
+
+\bibitem{GLM97}
+S.~M.~Gusein-Zade, I.~Luengo, and A.~Melle-Hern\'andez,
+\emph{Partial resolutions and the zeta-function of a singularity},
+Comment. Math. Helv. \textbf{72} (1997), no.~2, 244--256.
+
+\bibitem{LPS26}
+M.~Larson, S.~Payne, and A.~Stapledon,
+\emph{The local motivic monodromy conjecture for simplicial
+nondegenerate singularities},
+\href{https://arxiv.org/abs/2209.03553v3}{arXiv:2209.03553v3}
+(2026).
+
+\bibitem{LVP11}
+A.~Lemahieu and L.~Van Proeyen,
+\emph{Monodromy conjecture for non-degenerate surface singularities},
+Trans. Amer. Math. Soc. \textbf{363} (2011), no.~9, 4801--4829.
+
+\bibitem{Mil68}
+J.~Milnor,
+\emph{Singular Points of Complex Hypersurfaces},
+Annals of Mathematics Studies, vol.~61,
+Princeton University Press, Princeton, NJ, 1968.
+
+\bibitem{Veys24}
+W.~Veys,
+\emph{Introduction to the monodromy conjecture},
+\href{https://arxiv.org/abs/2403.03343v1}{arXiv:2403.03343v1}
+(2024).
+
+\end{thebibliography}
+\end{document}
