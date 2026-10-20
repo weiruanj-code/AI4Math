@@ -2,10 +2,76 @@
 
 An open collection of AI-assisted mathematical research manuscripts. Each paper
 has its own top-level directory. Publication index updated: October 20, 2026.
-The collection includes completed manuscripts and an explicitly unfinished
-research draft; the descriptions below preserve that distinction.
+Selected papers are highlighted below; all manuscripts remain available in the
+complete index, including an explicitly unfinished research draft.
 
-## Paper index
+## Selected papers
+
+### Uniform Bernstein--Sato Factors and Contact Roots
+
+[Paper and files](bernstein_sato_contact_roots/README.md)
+
+**Main content:** A uniform factor of the local Bernstein--Sato polynomial,
+exact contact roots, and an infinite family of roots whose topological poles
+cancel. The uniform factor persists under higher analytic terms.
+
+**Scope and limitations:** The specified multiple-smooth-tangent-cone family.
+Contact and pole results require the two-layer smooth-contact model; neither
+the full Bernstein--Sato polynomial nor the general strong monodromy
+conjecture is established.
+
+### Contact Reconstruction and Spectral Balance
+
+[Paper and files](monodromy_actual_poles/README.md)
+
+**Main content:** Reconstruction of degrees and contact orders from either
+the monodromy characteristic polynomial or the local topological zeta
+function, together with spectral balance and contact-collision examples.
+
+**Scope and limitations:** The stated degree-gap-one surface-germ family
+with smooth contact geometry. Classification concerns semisimplified
+monodromy, not full non-semisimple monodromy or the general monodromy conjecture.
+
+### Uniform Conditional Moves and Positivity Thresholds
+
+[Paper and files](punctured_disk_conditional_moves/README.md)
+
+**Main content:** Response-preserving conditional moves in punctured-disk
+electrical networks, positivity tests using signed response minors, and
+explicit thresholds on positive degeneration rays.
+
+**Scope and limitations:** The prescribed network families, moves, and
+one-parameter rays; not arbitrary network rewrites or parameter paths.
+The linked computational supplement supports reproducibility, not formal
+certification.
+
+### Weighted Tropical Chow Reconstruction for Space Curves
+
+[Paper and files](tropical_chow_reconstruction/README.md)
+
+**Main content:** Injectivity of the weighted tropical Chow transform on
+finite rational polyhedral one-chains with signed weights, giving space-curve
+reconstruction without a fan hypothesis.
+
+**Scope and limitations:** The specified finite-coordinate tropical tori,
+with weights and positions retained; no extension to infinite cell structures,
+higher-dimensional sources, or extra boundary strata is claimed.
+
+### Cyclic Symmetry and Block-Permutation Failure in Dexter Intervals
+
+[Paper and files](dexter_block_permutation/README.md)
+
+**Main content:** Derived equivalence under cyclic block rotation and an
+explicit counterexample to arbitrary block-permutation invariance, with an
+independent verifier and computational certificate.
+
+**Scope and limitations:** The stated intervals and boundary comparisons.
+Minimality is not claimed, and the certificate is not a Lean formalization.
+
+## Complete paper index
+
+The index includes selected papers, earlier companion work, and research drafts.
+Each paper directory contains its own description and scope.
 
 | Paper | Source | PDF |
 | --- | --- | --- |
@@ -21,145 +87,10 @@ research draft; the descriptions below preserve that distinction.
 | Contact Reconstruction and Spectral Balance for Surface Singularities with a Multiple Smooth Tangent Cone | [LaTeX](monodromy_actual_poles/monodromy_actual_poles.tex) | [PDF](monodromy_actual_poles/monodromy_actual_poles.pdf) |
 | Uniform Bernstein--Sato Factors and Contact Roots for Surface Germs with a Multiple Smooth Tangent Cone | [LaTeX](bernstein_sato_contact_roots/bernstein_sato_contact_roots.tex) | [PDF](bernstein_sato_contact_roots/bernstein_sato_contact_roots.pdf) |
 
-### Relative Quadratic Orbit Shells
-
-**Main content:** Quadratic positive-loop orbit shells, residual towers, and
-orientation coefficients in a represented rank-one family.
-
-**Scope and limitations:** The specified quadratic family and represented
-orbit sheaves; no unrestricted affine-Springer or global convolution theorem.
-
-### Local Kummer Realizations and Verdier Duality
-
-**Main content:** Local comparisons of root, nearby-cycle, and tube cohomology,
-continuous inertia cochains, finite-root traces, and supported Verdier partners.
-
-**Scope and limitations:** The stated semistable chart and selected adic
-coefficient source; no unrestricted global log/root equivalence.
-
-### Morita Coefficients, Incidence, and Semistable Refinement
-
-**Main content:** Supported Morita coefficients, branch incidence, and
-comparisons under the specified semistable subdivisions.
-
-**Scope and limitations:** The paper's fixed models and coefficient/support
-conditions; no arbitrary global model-independent kernel calculus.
-
-### Verdier-Compatible Kernel Skeletonization
-
-**Main content:** One-sided kernel descent for anchored semistable models,
-compatible with convolution, units, and geometric Verdier mates.
-
-**Scope and limitations:** The specified generated source and anchored
-models; no general global root-kernel source or unrestricted descent.
-
-### Exceptional and Completed Root Kernel Calculus: A Single-Transition Problem
-
-**Main content:** An unfinished research draft isolating a unit, convolution,
-and localization problem on one complete nodal support and one root transition.
-It records local calculations and the obstruction to ordinary distribution gluing.
-
-**Scope and limitations:** The kernel calculus is not constructed. The recorded
-diagrams do not solve the single-transition problem, and no global realization
-theorem is claimed.
-
-### Supported Morita Descent for Semistable Curves
-
-**Main content:** Geometric rational nearby-module support profiles on proper
-nodal curves, descent under actual integer-cut refinements, and a one-sided
-kernel counit giving strong convolution and Morita-Verdier comparisons.
-Extensions cover curve rectangles and specified finite etale support spans.
-
-**Scope and limitations:** Fixed trait, specified constructibility profiles,
-geometric rational coefficients, and kernel products over the residue field.
-Independent contraction of arbitrary coupled-kernel endpoints fails;
-higher-dimensional modifications and global root shriek sources are excluded.
-Frozen companion inputs remain in the local project archive; the public release
-contains this manuscript, with links to the current companion papers.
-
-### Weighted Tropical Chow Reconstruction for Space Curves
-
-**Main content:** Injectivity of the weighted tropical Chow transform on finite
-rational polyhedral one-chains with signed weights, yielding reconstruction of
-space curves in R^4/R1 without a fan hypothesis. The proof uses affine-span
-separation, local incidence cones, and thin-band length-measure recovery.
-
-**Scope and limitations:** Finite polyhedral structures in the specified
-finite-coordinate tropical tori, with weights and positions retained. No claim
-for infinitely many cells, higher-dimensional sources, or extra boundary strata.
-
-### Cyclic Symmetry and Failure of Block-Permutation Invariance in Dexter Intervals
-
-**Main content:** Cyclic block rotation preserves derived categories over every
-field, while two 288-element Dexter intervals obstruct arbitrary block
-permutation. The specified six permutations form two cyclic derived classes;
-boundary attachment explains the obstruction. An independent Python verifier
-and complete certificate are included in [supplementary](dexter_block_permutation/supplementary/README.md).
-
-**Scope and limitations:** The stated Dexter intervals and boundary comparisons.
-General block-permutation invariance is disproved, and minimality of the
-counterexample is not claimed. The computational certificate does not constitute
-a Lean formalization of the paper.
-
-### Uniform Conditional Moves and Positivity Thresholds in Punctured-Disk Electrical Networks
-
-**Main content:** Four prescribed opposite-side conditional moves for every
-`n >= 3`, preserving the full electrical response including the observed center.
-The merged manuscript gives birational transformations independent of their
-common exterior, a necessary and sufficient positivity test using signed
-response minors, and explicit thresholds on positive edge/spike degeneration
-rays. The positive realization set is one initial interval, with finite
-endpoints described by deletion of center edges. The
-[combined computational supplement](punctured_disk_conditional_moves/supplementary/README_combined.md)
-contains both the move and ray programs, their dependencies, recorded finite
-checks, and SHA-256 manifests.
-
-**Scope and limitations:** The specified punctured-disk graph families,
-prescribed replacements, positive sources, and natural one-parameter rays.
-The results do not assert arbitrary network rewrites or positivity along
-arbitrary parameter paths. Finite exact checks support reproducibility and
-do not replace the general proofs or provide formal certification.
-
-### Contact Reconstruction and Spectral Balance for Surface Singularities with a Multiple Smooth Tangent Cone
-
-**Main content:** For surface germs `f = g_e^r + h_(er+1)`, either the
-monodromy characteristic polynomial or the local topological zeta function
-recovers the degrees and every contact order. Coefficient extraction and
-finite Mobius inversion give spectral reconstruction; poles and residues
-give zeta reconstruction. A spectral balance controls equivariant injections
-at fixed degrees, with contact collisions and equal-Milnor-number examples
-of incomparable monodromy. The formulas also yield actual simple poles,
-eigenvalues at the origin, and the stated twisted topological holomorphy.
-Two standard-library exact algebra check scripts accompany the manuscript.
-
-**Scope and limitations:** Complex surface germs in the stated family, with
-`e >= 3`, `r >= 2`, a smooth projective curve `V(g_e)`, and `V(h_(er+1))`
-smooth at its finite intersection with that curve. Classification concerns
-semisimplified Milnor monodromy. This is not a proof of the unrestricted
-monodromy conjecture or a classification of full non-semisimple monodromy.
-The finite script checks use formal contact profiles and do not assert
-their geometric realizability or replace the proofs.
-
-### Uniform Bernstein--Sato Factors and Contact Roots for Surface Germs with a Multiple Smooth Tangent Cone
-
-**Main content:** For analytic surface germs `f = g_e^r + h_D + R_(>D)`,
-`D = er + k`, the manuscript constructs a uniform degree-`D` factor of the
-local Bernstein--Sato polynomial and a triangular set of exact roots. The
-factor persists under higher analytic terms. For the two-layer family with
-smooth contact geometry, it identifies nontransverse contact roots and proves
-that every local topological zeta pole is a Bernstein--Sato root. An infinite
-family exhibits contact roots beyond the triangular set even when the
-corresponding topological pole cancels.
-
-**Scope and limitations:** The stated complex surface-germ family with
-`e >= 3`, `r >= 2`, `k >= 1`, a smooth plane curve `V(g_e)`, and
-`h_D` not identically zero on that curve. The contact and pole results require
-the two-layer germ and smoothness of `V(h_D)` at its intersections with the
-curve; they are not asserted for arbitrary higher analytic terms. The paper
-does not determine the entire Bernstein--Sato polynomial or prove the
-unrestricted strong monodromy conjecture.
-
 ## Search keywords
+
+<details>
+<summary>Expand the merged search keyword index</summary>
 
 This is one merged index. Future papers add only terms not already present.
 
@@ -201,11 +132,14 @@ Bernstein-Sato polynomials, b-functions, uniform root blocks, contact roots,
 strong monodromy conjecture, compact residue periods, cyclic curve covers,
 Riemann-Roch, holomorphic numerators, pole cancellation.
 
+</details>
+
 ## Adding future papers
 
 Use one top-level paper directory containing its README, stable LaTeX source,
-and compiled PDF. Add its main content and scope to this index, and append only
-new search keywords. Publish required supplementary verification files with the
+and compiled PDF. Add every paper to the complete index; keep its main content
+and scope in its own README. Expand only selected papers on the homepage, and
+append only new search keywords. Publish required supplementary verification files with the
 paper; keep local research notes, reviews, build intermediates, and frozen
 companion manuscripts in the local workspace unless separately authorized.
 
