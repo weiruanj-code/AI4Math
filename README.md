@@ -1,7 +1,7 @@
 # AI4Math
 
 An open collection of AI-assisted mathematical research manuscripts. Each paper
-has its own top-level directory. Publication index updated: October 19, 2026.
+has its own top-level directory. Publication index updated: October 20, 2026.
 The collection includes completed manuscripts and an explicitly unfinished
 research draft; the descriptions below preserve that distinction.
 
@@ -19,6 +19,7 @@ research draft; the descriptions below preserve that distinction.
 | Cyclic Symmetry and Failure of Block-Permutation Invariance in Dexter Intervals | [LaTeX](dexter_block_permutation/dexter_block_permutation.tex) | [PDF](dexter_block_permutation/dexter_block_permutation.pdf) |
 | Uniform Conditional Moves and Positivity Thresholds in Punctured-Disk Electrical Networks | [LaTeX](punctured_disk_conditional_moves/punctured_disk_conditional_moves.tex) | [PDF](punctured_disk_conditional_moves/punctured_disk_conditional_moves.pdf) |
 | Contact Reconstruction and Spectral Balance for Surface Singularities with a Multiple Smooth Tangent Cone | [LaTeX](monodromy_actual_poles/monodromy_actual_poles.tex) | [PDF](monodromy_actual_poles/monodromy_actual_poles.pdf) |
+| Uniform Bernstein--Sato Factors and Contact Roots for Surface Germs with a Multiple Smooth Tangent Cone | [LaTeX](bernstein_sato_contact_roots/bernstein_sato_contact_roots.tex) | [PDF](bernstein_sato_contact_roots/bernstein_sato_contact_roots.pdf) |
 
 ### Relative Quadratic Orbit Shells
 
@@ -139,6 +140,25 @@ monodromy conjecture or a classification of full non-semisimple monodromy.
 The finite script checks use formal contact profiles and do not assert
 their geometric realizability or replace the proofs.
 
+### Uniform Bernstein--Sato Factors and Contact Roots for Surface Germs with a Multiple Smooth Tangent Cone
+
+**Main content:** For analytic surface germs `f = g_e^r + h_D + R_(>D)`,
+`D = er + k`, the manuscript constructs a uniform degree-`D` factor of the
+local Bernstein--Sato polynomial and a triangular set of exact roots. The
+factor persists under higher analytic terms. For the two-layer family with
+smooth contact geometry, it identifies nontransverse contact roots and proves
+that every local topological zeta pole is a Bernstein--Sato root. An infinite
+family exhibits contact roots beyond the triangular set even when the
+corresponding topological pole cancels.
+
+**Scope and limitations:** The stated complex surface-germ family with
+`e >= 3`, `r >= 2`, `k >= 1`, a smooth plane curve `V(g_e)`, and
+`h_D` not identically zero on that curve. The contact and pole results require
+the two-layer germ and smoothness of `V(h_D)` at its intersections with the
+curve; they are not asserted for arbitrary higher analytic terms. The paper
+does not determine the entire Bernstein--Sato polynomial or prove the
+unrestricted strong monodromy conjecture.
+
 ## Search keywords
 
 This is one merged index. Future papers add only terms not already present.
@@ -176,7 +196,10 @@ surface singularities, multiple smooth tangent cones, contact reconstruction,
 contact profiles, Milnor monodromy, monodromy characteristic polynomials,
 local topological zeta functions, actual poles, spectral balance, Milnor numbers,
 contact collisions, Mobius inversion, twisted topological holomorphy,
-Newton cone calculations, A'Campo formula.
+Newton cone calculations, A'Campo formula,
+Bernstein-Sato polynomials, b-functions, uniform root blocks, contact roots,
+strong monodromy conjecture, compact residue periods, cyclic curve covers,
+Riemann-Roch, holomorphic numerators, pole cancellation.
 
 ## Adding future papers
 
@@ -206,5 +229,5 @@ The local project was reorganized on October 11, 2026. This repository is
 and `../archive/`. Those workspace records are not part of this Git repository.
 
 Existing published papers retain their committed source/PDF versions until
-their revisions are separately published. The latest monodromy source/PDF
+their revisions are separately published. The latest Bernstein--Sato source/PDF
 pair was compiled for this release.

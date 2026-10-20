@@ -1,0 +1,1438 @@
+\documentclass[11pt]{article}
+
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\usepackage{amsmath,amssymb,amsthm,mathtools}
+\usepackage{booktabs,array}
+\usepackage{enumitem}
+\usepackage[a4paper,margin=27mm]{geometry}
+\usepackage[colorlinks=true,linkcolor=blue,citecolor=blue,urlcolor=blue]{hyperref}
+\setlength{\emergencystretch}{2em}
+\numberwithin{equation}{section}
+
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{corollary}[theorem]{Corollary}
+\theoremstyle{definition}
+\newtheorem{example}[theorem]{Example}
+\theoremstyle{remark}
+\newtheorem{remark}[theorem]{Remark}
+
+\newcommand{\CC}{\mathbf C}
+\newcommand{\ZZ}{\mathbf Z}
+\newcommand{\PP}{\mathbf P}
+\newcommand{\OO}{\mathcal O}
+\newcommand{\omegao}{\omega_0}
+\newcommand{\bfzero}{b_{f,0}}
+\DeclareMathOperator{\ord}{ord}
+\DeclareMathOperator{\Res}{Res}
+\DeclareMathOperator{\divisor}{div}
+\DeclareMathOperator{\Poles}{Poles}
+\DeclareMathOperator{\mult}{mult}
+
+\title{Uniform Bernstein--Sato Factors and Contact Roots\\
+for Surface Germs with a Multiple Smooth Tangent Cone}
+\author{YINGFENG JIANG}
+\date{20 October 2026}
+
+\begin{document}
+\maketitle
+
+\begin{abstract}
+Let $f=g_e^r+h_D+R_{>D}$ be a convergent analytic germ in three
+variables, where $D=er+k$, $e\ge3$, $r\ge2$, $k\ge1$, the plane
+curve $C=V(g_e)$ is smooth, and $h_D|_C\not\equiv0$.
+We prove that the local Bernstein--Sato polynomial contains the
+uniform factor
+$\prod_{j=0}^{D-1}(s+(3r+k)/(rD)+j/D)$, independently of the
+contact data and the higher analytic terms. Holomorphic numerators
+give a triangular set of exact roots containing this block.
+For the two-layer
+germs $g_e^r+h_D$, with $V(h_D)$ smooth at its intersections with
+$C$, we determine a root for every nontransverse contact order
+$q\ge2$ and prove that every pole of the local topological zeta
+function is a root. An explicit infinite family has a contact root
+outside the triangular set even though the corresponding topological pole
+cancels. The proof combines compact residue periods with a cyclic
+cover of $C$; ramification and Riemann--Roch supply the numerators
+that fill the uniform factor.
+\end{abstract}
+
+\section{Introduction}\label{sec:introduction}
+
+For surface germs whose first two homogeneous layers are
+$g_e^r+h_D$, with a smooth projective curve $C=V(g_e)$,
+we construct a uniform block of $D$ exact Bernstein--Sato
+roots. This block depends only on $e,r,D$ and persists
+under arbitrary higher analytic terms. Nontransverse
+contacts give a second source of roots. In an explicit
+infinite family, a contact root lies outside the entire
+triangular root set even though its topological pole cancels.
+
+Let $g_e,h_D\in\CC[x,y,z]$ be homogeneous of degrees $e,D$.
+For integers $e,r,k$, set
+\begin{equation}\label{eq:degrees}
+ A=er,\qquad D=er+k,\qquad e\ge3,\quad r\ge2,\quad k\ge1.
+\end{equation}
+We assume that $g_e$ defines a smooth plane curve $C\subset\PP^2$
+of degree $e$ and that $h_D|_C\not\equiv0$. The first theorem
+applies to every convergent germ
+\begin{equation}\label{eq:analytic-family}
+ f=g_e^r+h_D+R_{>D},\qquad \ord_0R_{>D}>D.
+\end{equation}
+Write $\bfzero(s)$ for its monic local Bernstein--Sato polynomial:
+it generates the polynomials $b(s)$ for which
+$b(s)f^s=P(s)f^{s+1}$ with $P(s)\in\mathcal D_{\CC^3,0}[s]$.
+Put
+\begin{equation}\label{eq:alpha-R}
+ \alpha_R=\frac{3r+k}{rD}.
+\end{equation}
+
+\begin{theorem}[Uniform factor and triangular root set]
+\label{thm:uniform}
+For every germ \eqref{eq:analytic-family},
+\begin{equation}\label{eq:uniform-factor}
+ \prod_{j=0}^{D-1}\left(s+\alpha_R+\frac jD\right)
+ \ \mid\ \bfzero(s).
+\end{equation}
+More generally, for integers $\ell,j$,
+\begin{equation}\label{eq:triangular-roots}
+ \bfzero\!\left(-\alpha_R-\frac\ell r-\frac jD\right)=0
+ \quad\text{if}\quad
+ \begin{cases}
+  0\le\ell\le r-2,\quad 0\le j<D,\\
+  \ell/r+j/D<1.
+ \end{cases}
+\end{equation}
+\end{theorem}
+
+The factor in \eqref{eq:uniform-factor} depends only on $e,r,k$.
+In particular, the theorem allows arbitrary zero multiplicities
+of $h_D|_C$ and nonisolated germs. The triangular set
+\eqref{eq:triangular-roots} contains the uniform block and
+strictly enlarges it exactly when $r\ge3$ and $r\nmid k$.
+It is obtained from the original
+holomorphic numerators $g_e^\ell p_j$, where $p_j$ has degree $j$.
+Different pairs $(\ell,j)$ may give the same root; throughout the
+paper root sets are counted without repetition.
+
+For the contact results, suppose that
+\begin{equation}\label{eq:two-layer}
+ f=g_e^r+h_D,\qquad H=V(h_D)\text{ is smooth at every point of }
+ P=C\cap H.
+\end{equation}
+Smoothness here means that the local defining equation of
+$H$ has nonzero differential at each point of $P$.
+The set $P$ is finite. Let $q_p=I_p(C,H)$ be the actual
+intersection multiplicity, and define
+\begin{equation}\label{eq:contact-data}
+ B=(r-1)D+k,\qquad \beta=3(r-1)+k,\qquad
+ \alpha_q=\frac{q\beta+k}{qB}.
+\end{equation}
+
+\begin{theorem}[Contact roots]\label{thm:contact}
+For every contact order $q=q_p\ge2$ in \eqref{eq:two-layer},
+\begin{equation}\label{eq:contact-root}
+ \bfzero(-\alpha_q)=0.
+\end{equation}
+\end{theorem}
+
+The contact formula detects candidate exponents even after
+they cancel from the topological zeta function. The following
+family places one of these roots outside the triangular set.
+
+\begin{theorem}[Contact roots after pole cancellation]
+\label{thm:cancelled}
+Suppose that the integers $r,e,k,q$ satisfy
+\begin{equation}\label{eq:cancelled-family}
+ r\ge3,\qquad k=r-1,\qquad e\ge3,\qquad
+ D=r(e+1)-1=4q.
+\end{equation}
+There exist pairs $(C,H)$ as in \eqref{eq:two-layer} with one
+contact of order $q$ and all other intersections transverse.
+For every such pair,
+\begin{equation}\label{eq:cancelled-conclusion}
+ -\frac1q\notin\Poles Z_{\mathrm{top},0}(f;s),\qquad
+ \bfzero(-1/q)=0.
+\end{equation}
+The root $-1/q$ lies outside the triangular set
+\eqref{eq:triangular-roots}.
+\end{theorem}
+
+An infinite subfamily has $r=3$, $k=2$, $e=4m+2$ and
+$q=3m+2$, for integers $m\ge1$. Its first value,
+$(e,r,k,q)=(6,3,2,5)$, has at least $37$ distinct
+Bernstein--Sato roots; see Example~\ref{ex:thirty-seven}.
+
+The pole calculation gives the following application.
+
+\begin{corollary}[Strong topological monodromy for the two-layer family]
+\label{cor:strong}
+Under \eqref{eq:two-layer}, the germ $f$ is reduced and has an
+isolated critical point at the origin. Every pole of
+$Z_{\mathrm{top},0}(f;s)$ is simple, and
+\begin{equation}\label{eq:strong}
+ s_0\in\Poles Z_{\mathrm{top},0}(f;s)
+ \quad\Longrightarrow\quad \bfzero(s_0)=0.
+\end{equation}
+\end{corollary}
+
+\subsection*{Period construction}
+
+The uniform factor comes from a divisor lying over $C$. A cyclic
+cover of $C$ separates its residue into an Euler form in the
+fiber and a differential on a compact curve. The key step is to
+choose $p_j$ so that the latter differential has a nonzero
+period. At a zero of $h_D|_C$ of order $q_x$, its regularity
+condition is
+the explicit inequality
+\[
+ \ord_x(p_j|_C)\ge
+ \left\lfloor\frac{(j+3-e)q_x}{D}\right\rfloor.
+\]
+The low degrees give holomorphic forms directly. For
+$e\ge4$, Riemann--Roch fills the remaining degrees $j<D$.
+For a cubic $C$, a degree-zero line bundle can require a
+differential with simple poles and a nonzero residue period.
+The corresponding original numerator is holomorphic.
+These constructions fill the entire block in
+\eqref{eq:uniform-factor}.
+
+At a contact point, the prescribed residue is a two-dimensional
+Euler form. In the exceptional case where its first parameter
+is $a=1$, the contact root belongs to the curve's uniform block.
+For all other parameters, explicit de Rham identities give a
+nonzero period through a convergent positive integral or a
+logarithmic residue.
+Section~\ref{sec:periods} proves the period criterion,
+Section~\ref{sec:uniform} constructs the uniform roots, and
+Section~\ref{sec:contact} proves the contact theorem.
+Sections~\ref{sec:poles} and \ref{sec:examples} give the
+topological application and the cancellation examples.
+
+\subsection*{Relation with earlier work}
+
+Partial resolutions and their zeta functions are classical
+tools for surface singularities; see Gusein-Zade, Luengo, and
+Melle-Hern\'andez~\cite{GLM97}. Denef and Loeser's Newton
+formula~\cite{DL92} supplies the local orbit calculation used
+here, with the Jacobian of the first blow-up retained. Related
+suspension and L\^e--Yomdin formulas are developed
+in~\cite{AGGL26}. For the degree-gap-one family, the companion
+paper~\cite{Jiang26} computes the topological and monodromy
+invariants and reconstructs the contact orders from either.
+The present paper constructs exact Bernstein--Sato roots for
+arbitrary degree gap and a uniform factor in the broader
+analytic family \eqref{eq:analytic-family}.
+
+Our analytic input is the residue-period argument, in the form
+of the all-numerator criterion of Esterov~\cite[Lemma~7.3]{Est26}.
+Section~\ref{sec:periods} gives its divisor form with a
+holomorphic numerator.
+
+Blanco~\cite[Theorem~B and Proposition~C]{Bla26} constructs
+geometric roots for plane curves on selected rupture divisors
+from holomorphic numerators with $0\le v_i(g)<N_i$ and
+residue conditions, and compares the resulting roots with
+jumping numbers and motivic poles.
+For our three-variable family, ramification of the cyclic curve
+cover and Riemann--Roch supply original numerators and
+nonzero periods for every $j<D$, producing the entire
+uniform factor.
+
+Examples of Bernstein--Sato roots absent from the motivic
+zeta pole set occur in Bath and Veys~\cite[Example~2.13]{BV26}.
+Theorem~\ref{thm:cancelled} supplies an explicit infinite
+contact family, with a nonzero specified residue period and
+a root outside the triangular set \eqref{eq:triangular-roots}.
+
+\section{Compact residue periods and exact roots}\label{sec:periods}
+
+A compact period of the prescribed normal residue detects
+an exact Bernstein--Sato root. The criterion below keeps
+track of the numerator's vanishing order; Euler forms then
+supply the periods. All cycles have complex coefficients
+and finite, hence compact, support.
+
+\subsection{A divisor criterion with a holomorphic numerator}
+
+Let $\pi:Y\to(\CC^n,0)$ be an embedded resolution, an
+isomorphism outside $f^{-1}(0)$, and let $E$ be a prime divisor
+with $\pi(E)=\{0\}$. On a smooth open subset $E^\circ$ meeting
+no other component of the total transform, write
+\begin{equation}\label{eq:divisor-model}
+ f\circ\pi=t^NU(t,y),\qquad
+ \pi^*\omegao=t^{\nu-1}J(t,y)\,dt\wedge dy,
+\end{equation}
+where $\omegao=dx_1\wedge\cdots\wedge dx_n$ and $U,J$ are
+units. In the normal line bundle of $E$, define
+\begin{equation}\label{eq:normal-cover}
+ \widehat E^\circ=\{(y,\tau):\tau^NU(0,y)=1\}.
+\end{equation}
+This definition is intrinsic: if $t_b=c_{ba}t_a+O(t_a^2)$,
+then $\tau_b=c_{ba}\tau_a$ and
+$U_b(0,y)=c_{ba}^{-N}U_a(0,y)$.
+
+\begin{proposition}[Numerator period criterion]\label{prop:criterion}
+Let $p\in\OO_{\CC^n,0}$ and write
+$p\circ\pi=t^mP(t,y)$, with $0\le m<N$. If the form
+\begin{equation}\label{eq:specified-residue}
+ \rho_p=\tau^{\nu+m}J(0,y)P(0,y)\,dy
+\end{equation}
+has a nonzero period on a compact $(n-1)$-cycle in
+$\widehat E^\circ$, then
+\begin{equation}\label{eq:criterion-root}
+ b_{f,0}\!\left(-\frac{\nu+m}{N}\right)=0.
+\end{equation}
+\end{proposition}
+
+\begin{proof}
+Comparing the leading terms of $\pi^*(p\omegao)$ on
+overlapping charts gives
+\[
+ J_b(0,y_b)P_b(0,y_b)\,dy_b
+   =c_{ba}^{-(\nu+m)}J_a(0,y_a)P_a(0,y_a)\,dy_a.
+\]
+Together with $\tau_b=c_{ba}\tau_a$, this proves that
+\eqref{eq:specified-residue} is a global form on
+$\widehat E^\circ$.
+Fix a cycle $\Gamma$ with $c=\int_\Gamma\rho_p\ne0$.
+Its support is covered by finitely many charts
+\eqref{eq:divisor-model}. Choose a smooth tubular map
+$\Phi$ whose normal derivative along $E$ is complex linear,
+and put $\epsilon=z^{1/N}>0$. Uniformly near this support,
+\[
+ \epsilon^{-N}(f\circ\pi)
+       (\Phi(y,\epsilon s\tau))=s^N+O(\epsilon).
+\]
+At $(s,\epsilon)=(1,0)$, the real two-dimensional derivative
+in the complex variable $s$ is invertible. The implicit function
+theorem gives a unique smooth solution
+$s_\epsilon=1+O(\epsilon)$ for which this expression equals
+one. Uniqueness makes the local solutions agree. The resulting
+map to $(f\circ\pi)^{-1}(z)$ satisfies
+\[
+ t=\epsilon\tau+O(\epsilon^2),\qquad
+ y_{\epsilon}=y+O(\epsilon)
+\]
+in tangential $C^1$, uniformly on the fixed support. It sends
+$\Gamma$ to a closed cycle; pushing it by $\pi$ gives a cycle
+$\gamma_z\subset f^{-1}(z)$ whose support tends uniformly to
+the origin.
+
+The relative Gelfand--Leray form in these coordinates is
+\[
+ \frac{\pi^*\omegao}{d(f\circ\pi)}
+ =\frac{t^{\nu-N}J(t,y)}{NU(t,y)+t\partial_tU(t,y)}\,dy.
+\]
+Its denominator is bounded away from zero on the chosen
+neighborhood. Substitution gives, with
+$\alpha_p=(\nu+m)/N$ and $\alpha_0=\nu/N$,
+\begin{equation}\label{eq:period-asymptotics}
+ \begin{split}
+ I_p(z):=\int_{\gamma_z}\frac{p\omegao}{df}
+   &=\frac1N z^{\alpha_p-1}
+        \bigl(c+O(z^{1/N})\bigr),\\
+ I_h(z):=\int_{\gamma_z}\frac{h\omegao}{df}
+   &=O_h(z^{\alpha_0-1})
+       \quad(h\in\OO_{\CC^n,0}).
+ \end{split}
+\end{equation}
+The second estimate applies to every original holomorphic
+numerator $h$.
+
+Take a Bernstein identity $b(s)f^s=\mathcal P(s)f^{s+1}$. Multiplying
+by $p\omegao$ and integrating the derivatives in $\mathcal P(s)$ by
+parts gives
+\begin{equation}\label{eq:green-identity}
+ b(s)p f^s\omegao=f^{s+1}h_s\omegao+d\Xi_s,
+ \qquad h_s=\sum_{a=0}^L s^a h_a,
+\end{equation}
+Here $h_s=\mathcal P(s)^*p$, where the star is the formal adjoint
+with respect to $\omegao$; in particular, every $h_a$ is
+holomorphic in the original space.
+The form $\Xi_s$ is a finite sum of terms
+$f^{s+1-b}\eta_b(s)$ with holomorphic $(n-1)$-forms
+$\eta_b(s)$ polynomial in $s$.
+For such a form, $df\wedge\eta_b=h\omegao$ with $h$
+holomorphic, so its fiber integral has the second bound in
+\eqref{eq:period-asymptotics}.
+
+Integrate \eqref{eq:green-identity} over the chain swept out
+by $\gamma_z$, $0<z\le z_0$. For $\Re s$ sufficiently
+large the lower boundary tends to zero, and
+\begin{equation}\label{eq:mellin-identity}
+ b(s)M_p(s)=\sum_{a=0}^L s^aM_{h_a}(s+1)+B(s),
+ \qquad M_h(s)=\int_0^{z_0}z^sI_h(z)\,dz,
+\end{equation}
+with $B(s)$ entire. Both sides are holomorphic for
+$\Re s>-\alpha_p$, so the identity holds on that half-plane.
+The right side is moreover holomorphic for
+$\Re s>-\alpha_0-1$. Since $m<N$, it is holomorphic near
+$s=-\alpha_p$. The first asymptotic gives
+\[
+ \lim_{u\downarrow0}uM_p(-\alpha_p+u)=c/N\ne0.
+\]
+Multiply \eqref{eq:mellin-identity} by $u$ and let
+$s=-\alpha_p+u$ tend to $-\alpha_p$. This proves
+$b(-\alpha_p)=0$, in particular for $b=\bfzero$.
+\end{proof}
+
+\subsection{Euler forms with compact periods}
+
+All Euler parameters below are rational. A finite Kummer
+cover makes the forms single-valued. The following elementary
+regularization will also specify the cycles.
+
+\begin{lemma}[Positive Euler periods]\label{lem:positive}
+For $m=1,2$, let
+\[
+ M_m=\{z_1\cdots z_{m+1}\ne0,\quad
+              z_1+\cdots+z_{m+1}=1\}.
+\]
+If every $\lambda_i$ is positive and nonintegral, then
+$\prod_i z_i^{\lambda_i-1}dz_1\wedge\cdots\wedge dz_m$
+has a nonzero compact period on its finite Kummer cover.
+\end{lemma}
+
+\begin{proof}
+Truncate the real simplex $z_i>0$ near its faces and choose
+the positive branch. A face has normal monodromy
+$\zeta_i\ne1$. A small normal circle has twisted boundary
+$\zeta_i-1$, so dividing by this scalar supplies a tube
+that cancels the truncated boundary.
+For $m=2$, the remaining corner boundaries are filled by
+two-torus chains. More explicitly, at a corner put
+$a=\zeta_i-1$, $b=\zeta_j-1$. The local boundary complex is
+\[
+ \CC\xrightarrow{c\mapsto(-bc,ac)}\CC^2
+       \xrightarrow{(x,y)\mapsto ax+by}\CC.
+\]
+Every cycle $(x,y)$ in the middle is the image of $y/a$.
+Thus the face tubes and corner chains close the truncated
+simplex to a finite twisted cycle.
+
+Changing the cutoff gives homologous cycles. Positivity of
+the parameters makes the integrals over the added tubes
+tend to zero with the cutoff. The cycle integral therefore
+equals the strictly positive convergent simplex integral.
+Finally, lift the chain to the finite cover and sum its lifts
+with the character coefficients. This produces an ordinary
+complex-coefficient cycle with a nonzero integral.
+\end{proof}
+
+Write $W=1-X-Y$ on $M_2$. The surface and curve Euler forms are
+\begin{equation}\label{eq:euler-forms}
+ \Phi_{a,b,c}=X^{a-1}Y^{b-1}W^{c-1}dX\wedge dY,
+ \qquad
+ \varphi_{a,b}=z^{a-1}(1-z)^{b-1}dz.
+\end{equation}
+
+\begin{lemma}[Euler nonvanishing]\label{lem:euler}
+Each of the following forms has a nonzero compact period
+on its finite Kummer cover:
+\begin{enumerate}[label=\textup{(\roman*)},leftmargin=*]
+\item $\varphi_{a,b}$, if $a\le0$, $b>0$ is nonintegral,
+      and $a+b>0$;
+\item $\Phi_{a,b,c}$, if $a,b>0$ are nonintegral, $c\le0$,
+      and $a+b+c>0$.
+\end{enumerate}
+\end{lemma}
+
+\begin{proof}
+The identities
+\begin{align}
+ d\bigl(z^a(1-z)^b\bigr)
+   &=a\varphi_{a,b}-(a+b)\varphi_{a+1,b},
+       \label{eq:curve-contiguity}\\
+ d\bigl(X^{a-1}Y^{b-1}W^c(XdY-YdX)\bigr)
+   &=(a+b+c)\Phi_{a,b,c+1}-c\Phi_{a,b,c}
+       \label{eq:surface-contiguity}
+\end{align}
+hold on the same cover as the original forms. If the
+nonpositive parameter is nonintegral, iterate until it first
+becomes positive. The resulting cohomology multiplier is
+$(\sigma)_u/(v)_u$, where $v$ is the initial parameter,
+$\sigma$ is the initial sum, and $(x)_u=x(x+1)\cdots(x+u-1)$.
+It is nonzero. Lemma~\ref{lem:positive} applies to the final
+form.
+
+If $v=-m$ is an integer, stop at zero. The multiplier
+is $(-1)^m(\sigma)_m/m!$. For the curve form at $a=0$, a
+small circle around $z=0$ has nonzero integral, since the
+residue is one. For the surface form at $c=0$, the residue
+along $W=0$ is, up to sign,
+$X^{a-1}(1-X)^{b-1}dX$. Its compact period is nonzero by
+Lemma~\ref{lem:positive}. A small normal circle tube over
+that cycle pairs with $\Phi_{a,b,0}$ by $2\pi i$ times this
+period. The normal character is trivial, so the tube closes.
+The nonzero multipliers prove both assertions.
+\end{proof}
+
+Integer changes of a parameter multiply forms by
+single-valued functions, so all these identities take place
+on one cover. If a geometric cover is larger than the
+minimal cover of a form, transfer along the finite \'etale
+map lifts a cycle and multiplies its integral by the degree.
+We will use this to pass between the explicit Euler covers
+and the normal covers of divisors.
+
+\section{The cyclic curve cover and the uniform factor}
+\label{sec:uniform}
+
+On a finite cover, the residue over $C$ separates into an
+Euler form in the fiber and a differential on a compact
+curve. Ramification controls the poles of the curve
+differential, and Riemann--Roch supplies the numerators
+that give its nonzero periods.
+
+\subsection{A divisor over the tangent curve}
+
+Blow up the origin. Near $C$, use a radial coordinate $u_i$,
+the normal coordinate $v_i=g_i$, and a curve coordinate
+$w_i$. With $h_i^0=h_i(0,w_i)$, the pullbacks are
+\begin{equation}\label{eq:first-blowup}
+ \begin{split}
+ f\circ\pi_0
+   &=u_i^A\bigl(v_i^r+u_i^kh_i(v_i,w_i)
+                      +u_i^{k+1}Q_i(u_i,v_i,w_i)\bigr),\\
+ \pi_0^*\omegao
+   &=u_i^2J_i(v_i,w_i)\,du_i\wedge dv_i\wedge dw_i.
+ \end{split}
+\end{equation}
+Set $\eta_i=J_i(0,w_i)dw_i$. Along $C$, a projective
+change of scale $\lambda$ gives
+\begin{equation}\label{eq:curve-transitions}
+ u_b=\lambda u_a,\quad v_b=\lambda^{-e}v_a,\quad
+ h_b^0=\lambda^{-D}h_a^0,\quad
+ \eta_b=\lambda^{e-3}\eta_a.
+\end{equation}
+The last relation is the adjunction formula
+$K_C\simeq\OO_C(e-3)$ in these local frames.
+
+Let $\gamma=\gcd(r,k)$, $r'=r/\gamma$, $k'=k/\gamma$.
+Over $C^\circ=C\setminus P$, where $P$ is the zero set of
+$h_D|_C$, take a toroidal modification containing the
+primitive ray $(r',k')$ in the $(u,v)$ plane. The two
+Cartier divisors $u=0$, $v=0$ make these modifications
+compatible on overlaps. A regular subdivision and a
+resolution away from the open part under consideration
+give a divisor $E_R$ with
+\begin{equation}\label{eq:R-numerics}
+ N_R=\frac{rD}{\gamma},\qquad
+ \nu_R=\frac{3r+k}{\gamma},\qquad
+ \frac{\nu_R}{N_R}=\alpha_R.
+\end{equation}
+The terms containing $h_i-h_i^0$ or $Q_i$ have strictly
+larger weight than $N_R$.
+
+\subsection{Separating the curve and the Euler fiber}
+
+Let $p:\widetilde C\to C$ be the compact normalized cyclic
+cover defined in the line bundle $\OO_C(1)$ by
+\begin{equation}\label{eq:root-curve}
+ H_i^D=h_i^0,\qquad H_b=\lambda^{-1}H_a.
+\end{equation}
+The cover has degree $D$ and may be disconnected. Above
+$C^\circ$ it is \'etale. On this cover put
+\[
+ U=u_iH_i,\qquad V=v_i/H_i^e.
+\]
+The leading function is $U^A(V^r+U^k)$, and the leading
+volume form is
+\begin{equation}\label{eq:trivialized-volume}
+ H_i^{e-3}U^2dU\wedge dV\wedge p^*\eta_i.
+\end{equation}
+Choose integers $L,M$ with $r'M-k'L=1$. A unimodular
+torus chart at $E_R$ is
+\begin{equation}\label{eq:R-chart}
+ U=t^{r'}Z^L,\qquad V=t^{k'}Z^M.
+\end{equation}
+Consequently,
+\begin{equation}\label{eq:R-leading}
+ \begin{split}
+ f\circ\pi&=t^{N_R}Z^{LD}(1+Z^\gamma)
+                   +\text{higher powers of }t,\\
+ \pi^*\omegao&=t^{\nu_R-1}Z^{3L+M-1}dt\wedge dZ
+                   \wedge H_i^{e-3}p^*\eta_i
+                   +\text{higher powers of }t.
+ \end{split}
+\end{equation}
+
+The leading coordinates in \eqref{eq:R-chart} give
+the gluing of the normal cover. Extending
+$H_i$ locally off $C$ gives on overlaps
+$U_b/U_a=1+O(v_a)$ and $V_b/V_a=1+O(v_a)$. Since
+$t=U^MV^{-L}$ and $Z=U^{-k'}V^{r'}$, it follows that
+\begin{equation}\label{eq:normal-gluing}
+ t_b/t_a=1+O(t_a^{k'}),\qquad Z_b/Z_a=1+O(t_a^{k'}).
+\end{equation}
+Thus $Z$ and the first normal coordinate agree along the
+divisor after pullback to $\widetilde C^\circ=p^{-1}(C^\circ)$.
+For
+\begin{equation}\label{eq:Sigma}
+ \Sigma=\{(Z,\tau):Z\ne0,\ Z^\gamma\ne-1,\quad
+         \tau^{N_R}Z^{LD}(1+Z^\gamma)=1\},
+\end{equation}
+we obtain a finite \'etale map of degree $D$
+\begin{equation}\label{eq:product-map}
+ \mathcal M:\widetilde C^\circ\times\Sigma
+                   \longrightarrow\widehat E_R^\circ.
+\end{equation}
+It is the base-change projection induced by the finite \'etale
+cover $\widetilde C^\circ\to C^\circ$.
+
+Let $p_j$ be homogeneous of degree $j$ with nonzero
+restriction $a_j=p_j|_C$. For a nonnegative integer $\ell$,
+use the original holomorphic numerator $g_e^\ell p_j$.
+Its order along $E_R$ is
+\begin{equation}\label{eq:numerator-order}
+ m_{\ell,j}=\frac{\ell D+jr}{\gamma},\qquad
+ \frac{m_{\ell,j}}{N_R}=\frac\ell r+\frac jD.
+\end{equation}
+Since $g_e=u_i^ev_i=U^eV$, the curve factor of its residue
+is independent of $\ell$. Direct substitution in
+\eqref{eq:R-leading} gives
+\begin{equation}\label{eq:residue-product}
+ \mathcal M^*\rho_{g_e^\ell p_j}
+     =\phi_{\ell,j}\wedge\theta_j,\qquad
+ \theta_j=H_i^{e-3-j}p^*(a_{j,i}\eta_i).
+\end{equation}
+The transitions \eqref{eq:curve-transitions} and
+\eqref{eq:root-curve} show that $\theta_j$ is global.
+The fiber factor is the single-valued form on $\Sigma$
+\begin{equation}\label{eq:fiber-single-valued}
+ \phi_{\ell,j}
+   =\tau^{\nu_R+m_{\ell,j}}
+      Z^{(3+j+e\ell)L+(\ell+1)M-1}dZ.
+\end{equation}
+Let $\alpha_{\ell,j}=\alpha_R+\ell/r+j/D$.
+Using the defining equation of $\Sigma$ and
+$rM-kL=\gamma$, its branch expression reduces to
+\begin{equation}\label{eq:fiber-form}
+ \phi_{\ell,j}
+   =Z^{\gamma(\ell+1)/r-1}(1+Z^\gamma)^{-\alpha_{\ell,j}}dZ
+\end{equation}
+up to a fixed nonzero constant.
+Set $Y=Z^{-\gamma}$ and $z=Y/(1+Y)$. The map
+$\Sigma\to M_1$, $z=1/(1+Z^\gamma)$, is finite \'etale.
+Under this map,
+\eqref{eq:fiber-form} becomes a nonzero multiple of
+\begin{equation}\label{eq:fiber-Euler}
+ \varphi_{A_j,B_\ell},\qquad
+ A_j=\frac{3+j-e}{D},\quad B_\ell=\frac{\ell+1}{r},\quad
+ A_j+B_\ell=\alpha_{\ell,j}>0.
+\end{equation}
+The single-valued expression \eqref{eq:fiber-single-valued}
+shows that the Euler character becomes trivial on
+$\Sigma$. Thus each connected component maps to the
+minimal character cover of $\varphi_{A_j,B_\ell}$.
+Transfer to one such component lifts any nonzero period
+to $\Sigma$.
+
+\subsection{Ramification supplies the numerators}
+
+The fiber period is nonzero for every pair in
+\eqref{eq:triangular-roots}: when $A_j\le0$, use
+Lemma~\ref{lem:euler}(i); when $A_j>0$, both $A_j$ and
+$B_\ell$ lie in $(0,1)$, so use Lemma~\ref{lem:positive}.
+We now construct a nonzero period of $\theta_j$ for every
+$0\le j<D$.
+
+For $j\le e-3$, take any nonzero homogeneous $p_j$.
+Its restriction to $C$ is nonzero because $j<e$, and
+$\theta_j$ is a nonzero holomorphic differential on
+$\widetilde C$. It therefore has a nonzero period, which
+can be represented away from the finitely many deleted
+points.
+
+For $j\ge e-2$, put $v=j+3-e>0$ and write
+\[
+ \divisor_C(h_D|_C)=\sum_{x\in P}q_xx,\qquad
+ \sum_xq_x=eD.
+\]
+Set $d_x=\gcd(D,q_x)$. On a normalized branch over $x$,
+a local parameter $z$ satisfies
+$w=z^{D/d_x}\cdot\mathrm{unit}$ and
+$H=z^{q_x/d_x}\cdot\mathrm{unit}$. If $a_j$ vanishes to
+order $n$ at $x$, then
+\begin{equation}\label{eq:ramification-order}
+ \ord_z\theta_j=\frac{D(n+1)-vq_x-d_x}{d_x}.
+\end{equation}
+The ramification contribution $D/d_x-1$ from $p^*\eta_i$
+is included here. Because the remainder of $vq_x$ modulo
+$D$ is a multiple of $d_x$, this order is nonnegative
+exactly when
+\begin{equation}\label{eq:floor-condition}
+ n\ge\left\lfloor\frac{vq_x}{D}\right\rfloor.
+\end{equation}
+Define
+\begin{equation}\label{eq:RR-line-bundle}
+ \Gamma_v=\sum_x\left\lfloor\frac{vq_x}{D}\right\rfloor x,
+ \qquad L_j=\OO_C(j)(-\Gamma_v).
+\end{equation}
+With $g_C=(e-1)(e-2)/2$,
+\begin{equation}\label{eq:RR-degree}
+ \deg L_j\ge ej-ev=e(e-3)=2g_C-2.
+\end{equation}
+
+If $e\ge4$, Riemann--Roch gives
+$h^0(C,L_j)\ge g_C-1>0$. A nonzero section $a_j$ produces
+a nonzero holomorphic $\theta_j$ on the compact normalized
+cover, by \eqref{eq:ramification-order}. It lifts to a
+homogeneous polynomial $p_j$: the restriction sequence
+\begin{equation}\label{eq:homogeneous-lift}
+ 0\longrightarrow\OO_{\PP^2}(j-e)
+ \longrightarrow\OO_{\PP^2}(j)
+ \longrightarrow\OO_C(j)\longrightarrow0
+\end{equation}
+is surjective on sections, since
+$H^1(\PP^2,\OO_{\PP^2}(n))=0$ for every integer $n$.
+
+For $e=3$, the curve is elliptic and $v=j$. A
+positive-degree $L_j$ has a section by Riemann--Roch;
+the same construction applies whenever $H^0(C,L_j)\ne0$.
+It remains to treat $\deg L_j=0$ and
+$H^0(C,L_j)=0$. Equality in \eqref{eq:RR-degree} then
+forces every $jq_x/D$ to be an integer, say $n_x$.
+Since $j>0$, some $n_{x_0}\ge1$. The degree-one bundle
+$L_j(x_0)$ has a one-dimensional section space. A
+nonzero section cannot belong to $H^0(C,L_j)=0$.
+Thus, as a section of $\OO_C(j)$, it vanishes to order
+exactly $n_{x_0}-1$ at $x_0$
+and at least $n_x$ at the other points. Here
+$\Gamma_j-x_0$ is effective, so the section remains
+holomorphic on the original curve and lifts by
+\eqref{eq:homogeneous-lift}. Formula
+\eqref{eq:ramification-order} gives simple poles over
+$x_0$ and holomorphy elsewhere. At each such pole its
+expansion is $(c_z/z+O(1))dz$ with $c_z\ne0$, so a small
+circle has the nonzero period $2\pi i c_z$.
+
+In all cases we have an original polynomial $p_j$ and
+a compact cycle $\gamma_j\subset\widetilde C^\circ$ with
+$\int_{\gamma_j}\theta_j\ne0$.
+
+\subsection{From product periods to roots}
+
+For a pair $(\ell,j)$ in \eqref{eq:triangular-roots}, choose
+the numerator above and a nonzero fiber cycle $\delta_{\ell,j}$
+from \eqref{eq:fiber-Euler}. Transfer to $\Sigma$ if
+necessary. By \eqref{eq:residue-product}, the pushforward
+\[
+ \mathcal M_*(\gamma_j\times\delta_{\ell,j})
+\]
+has nonzero pairing with the specified residue, up to the
+fixed orientation sign. Equation \eqref{eq:numerator-order}
+gives $m_{\ell,j}<N_R$, so
+Proposition~\ref{prop:criterion} yields
+$\bfzero(-\alpha_{\ell,j})=0$.
+Taking $\ell=0$ gives $D$ distinct roots and hence the
+divisibility \eqref{eq:uniform-factor}. This proves
+Theorem~\ref{thm:uniform}.
+
+For $r=2$, the triangular set has only $\ell=0$. If
+$r\mid k$, then $D/r$ is an integer and the reindexing
+$j'=j+\ell D/r$ puts every triangular root in the uniform
+block: the window condition gives $0\le j'<D$.
+For $r\ge3$ and $r\nmid k$, the allowed pair $(\ell,j)=(1,0)$
+gives a root outside that block, since $D/r\notin\ZZ$.
+
+\section{Contact roots}\label{sec:contact}
+
+Assume \eqref{eq:two-layer} and fix $p\in P$ with contact
+order $q\ge2$. We construct the contact period explicitly.
+
+\subsection{The local model and its normal cover}
+
+In \eqref{eq:first-blowup}, smoothness of $H$ gives
+$h(v,w)=a(v,w)(v+w^q)$ after a change of $w$, where $a$
+is a unit. Replacing the radial coordinate by $u a^{1/k}$
+puts the function and the original volume form, up to
+analytic units, in the form
+\begin{equation}\label{eq:contact-model}
+ F=u^A(v^r+u^kv+u^kw^q),\qquad
+ \omega=u^2du\wedge dv\wedge dw.
+\end{equation}
+Let
+\begin{equation}\label{eq:T-data}
+ T'=\bigl(q(r-1),qk,k\bigr),\quad
+ t_q=\gcd(k,q(r-1)),\quad T=T'/t_q.
+\end{equation}
+The compact Newton face is nondegenerate. A regular toric
+subdivision containing $T$ gives a divisor $E_T$
+with
+\begin{equation}\label{eq:T-numerics}
+ N_T=qB/t_q,\qquad \nu_T=(q\beta+k)/t_q,\qquad
+ \nu_T/N_T=\alpha_q.
+\end{equation}
+All three weights of $T$ are positive. Thus the analytic
+units in the model restrict to nonzero constants on its
+divisor torus. Denote the function and volume constants by
+$c_f,c_\omega\ne0$, respectively.
+
+To compute that residue, use the finite monomial map
+\begin{equation}\label{eq:finite-contact-chart}
+ u=t^{q(r-1)}\xi^{-1}\eta^{-(r-1)},\qquad
+ v=t^{qk}\eta^{-k},\qquad w=t^k.
+\end{equation}
+Its exponent matrix has determinant of absolute value $k^2$,
+and direct substitution gives
+\begin{equation}\label{eq:contact-leading}
+ \begin{split}
+ F&=t^{qB}\xi^{-D}\eta^{-B}(1+\xi^k+\eta^k),\\
+ \omega&=\pm k^2t^{q\beta+k-1}\xi^{-4}\eta^{-\beta-1}
+                   dt\wedge d\xi\wedge d\eta.
+ \end{split}
+\end{equation}
+The map factors through a chart of the primitive ray $T$.
+On the divisor torus it is finite \'etale, with normal
+ramification index $t_q$. A normal coordinate $t_0$ at
+$E_T$ satisfies $t_0=t^{t_q}M(\xi,\eta)$ for an invertible
+monomial $M$. Define the auxiliary normal cover by
+\begin{equation}\label{eq:contact-auxiliary-cover}
+ \widehat M_T:\quad
+ \vartheta^{qB}\xi^{-D}\eta^{-B}(1+\xi^k+\eta^k)=1,
+ \qquad \xi,\eta,\vartheta\ne0.
+\end{equation}
+Choose $c_1$ with $c_1^{N_T}=c_f^{-1}$. There is a finite
+\'etale map $\kappa:\widehat M_T\to\widehat E_T^\circ$
+given by $\tau_0=c_1M\vartheta^{t_q}$.
+The specified single-valued form on the auxiliary cover is
+\begin{equation}\label{eq:contact-single-valued}
+ \rho'=\pm k^2\vartheta^{q\beta+k}\xi^{-4}\eta^{-\beta-1}
+                         d\xi\wedge d\eta.
+\end{equation}
+The auxiliary orders are $t_qN_T$ and $t_q\nu_T$.
+Using
+$dt_0/t_0=t_q\,dt/t+d\log M$, the residue computed in
+\eqref{eq:contact-single-valued} satisfies
+\begin{equation}\label{eq:contact-residue-comparison}
+ \rho'=t_q c_\omega^{-1}c_1^{-\nu_T}\kappa^*\rho_{E_T},
+\end{equation}
+up to the common orientation sign.
+
+Set $x=\xi^k$, $y=\eta^k$. The factor $k^2$ cancels the
+Jacobian of this change, and the residue becomes
+\[
+ x^{a-1}y^{b-1}(1+x+y)^{-\alpha_q}dx\wedge dy,
+ \qquad a=\frac{D\alpha_q-3}{k},\quad
+ b=\frac{B\alpha_q-\beta}{k}.
+\]
+The projective change
+$X=x/(1+x+y)$, $Y=y/(1+x+y)$, $W=1/(1+x+y)$ gives
+$\Phi_{a,b,c}$ with
+\begin{equation}\label{eq:contact-Euler}
+ \begin{gathered}
+ a=\frac{D-3+D/q}{B}>0,\qquad b=\frac1q,\\
+ c=-\frac{r[q(e-3)+D]}{qB}<0,\qquad a+b+c=\alpha_q>0.
+ \end{gathered}
+\end{equation}
+These substitutions define a finite \'etale map
+$\widehat M_T\to M_2$. Equation
+\eqref{eq:contact-single-valued} shows that it lifts to
+the minimal Euler character cover. Transfer followed by
+$\kappa_*$ therefore preserves nonvanishing of periods,
+by \eqref{eq:contact-residue-comparison}.
+
+\subsection{Proof of the contact root theorem}
+
+If $r\ge3$, then $0<a<1$. If $r=2$, then $0<a<3/2$;
+its only possible integral value is $a=1$.
+This value occurs exactly when
+\begin{equation}\label{eq:integer-resonance}
+ r=2,\qquad D=q(k+3),\qquad
+ (a,b,c)=(1,1/q,-1),\qquad \alpha_q=1/q.
+\end{equation}
+The identity $2e=(q-1)k+3q$ forces $k,q$ to be even.
+For $j=k/2$,
+\[
+ e-3-j=\frac{(q-2)(k+3)}2\ge0,\qquad
+ \alpha_R+\frac jD=\frac{k+3}{D}=\frac1q.
+\]
+Theorem~\ref{thm:uniform} gives $\bfzero(-\alpha_q)=0$.
+The associated torus form has the explicit primitive
+\begin{equation}\label{eq:exact-contact-form}
+ \Phi_{1,b,c}=d\left(\frac{Y^bW^{c-1}}b\,dW\right),
+ \qquad X=1-Y-W.
+\end{equation}
+
+For all other parameters, $a,b>0$ are nonintegral and
+$c<0$. Lemma~\ref{lem:euler}(ii) supplies a nonzero
+compact Euler period. Transfer followed by $\kappa_*$
+gives a nonzero period of $\rho_{E_T}$, and
+Proposition~\ref{prop:criterion} with numerator $1$
+gives $\bfzero(-\alpha_q)=0$.
+This completes the proof of Theorem~\ref{thm:contact}.
+
+\section{Topological poles and strong monodromy}\label{sec:poles}
+
+For the two-layer family \eqref{eq:two-layer}, the
+topological zeta function is determined by $e,r,k$ and
+the contact orders. We compute it and identify its poles
+among the roots constructed above.
+
+These hypotheses make $f$ reduced with an isolated
+critical point at the origin. Indeed, if $f=df=0$ at a
+nonzero point, the homogeneous Euler identity gives
+\[
+ Ag_e^r+Dh_D=0,\qquad g_e^r+h_D=0.
+\]
+Thus $g_e=h_D=0$, where $df=dh_D\ne0$ by smoothness of
+$H$ at $P$, a contradiction. A positive-dimensional
+critical branch through the origin would have $f$
+constant and hence zero, so the critical point is isolated.
+A repeated factor would produce a positive-dimensional
+critical set, proving reducedness.
+
+Let $(E_i)_{i\in J}$ be the components of the function's
+total transform on a resolution $\pi$, including the strict
+transforms. Their numerical data are
+\[
+ N_i=\ord_{E_i}(f\circ\pi),\qquad
+ \nu_i-1=\ord_{E_i}(\pi^*\omegao).
+\]
+For $\varnothing\ne I\subseteq J$, set
+\[
+ E_I^\circ=\left(\bigcap_{i\in I}E_i\right)
+                       \setminus\bigcup_{j\notin I}E_j.
+\]
+Our convention is
+\begin{equation}\label{eq:zeta-definition}
+ Z_{\mathrm{top},0}(f;s)=
+ \sum_{\varnothing\ne I\subseteq J}
+ \chi(E_I^\circ\cap\pi^{-1}(0))
+                    \prod_{i\in I}\frac1{N_is+\nu_i}.
+\end{equation}
+Here $\omegao=dx\wedge dy\wedge dz$.
+
+\subsection{The complete zeta function}
+
+Write $\chi_C=e(3-e)$, $b=|P|$, and set
+\begin{equation}\label{eq:zeta-denominators}
+ \begin{gathered}
+ a=As+3,\qquad d=s+1,\qquad \mathcal R=rDs+3r+k,\\
+ K_q=qBs+q\beta+k,\qquad
+ \gamma=\gcd(r,k),\quad h=\gcd(k,r-1),\\
+ j_q=\gcd(k,r,q),\qquad t_q=\gcd(k,q(r-1)),\\
+ G_q=\mathcal R(t_q^2-qh^2)
+               -k\bigl(j_q^2+q(r-1)-r\bigr).
+ \end{gathered}
+\end{equation}
+
+\begin{proposition}[Weighted zeta formula]\label{prop:zeta}
+For \eqref{eq:two-layer},
+\begin{equation}\label{eq:global-zeta}
+ \begin{split}
+ Z_{\mathrm{top},0}(f;s)
+   ={}&\frac{3-\chi_C}{a}+\frac{k\chi_C}{a\mathcal R}\\
+     &+\frac{r\chi_C+(\chi_C-b)(r-\gamma^2)s}
+                  {d\mathcal R}
+       +\frac{s}{d\mathcal R}
+                   \sum_{p\in P}\frac{G_{q_p}}{K_{q_p}}.
+ \end{split}
+\end{equation}
+Consequently, every pole is simple and belongs to
+\begin{equation}\label{eq:pole-list}
+ \left\{-1,-\frac3A,-\alpha_R\right\}
+        \cup\{-\alpha_q:q=q_p\ge2\}.
+\end{equation}
+\end{proposition}
+
+\begin{proof}
+After the first blow-up, the three types of strata have
+local models
+\[
+ u^A\quad\text{on }\PP^2\setminus C,\qquad
+ G_k=u^A(v^r+u^k)\quad\text{on }C\setminus P,
+\]
+and $F_{q,k}=u^A(v^r+u^kv+u^kw^q)$ at a point of contact
+order $q$. At a transverse intersection one obtains the
+same model with $q=1$ by taking $w=h-v$.
+All use the volume weight $u^2$.
+The local Newton calculation in Appendix~\ref{app:newton}
+gives
+\begin{equation}\label{eq:local-zeta-summary}
+ \begin{gathered}
+ Z_{G_k}=\frac{k/a+r-\gamma^2s/d}{\mathcal R},\qquad
+ Z_T=\frac{k/a+r/d}{\mathcal R},\\
+ Z_{F_{q,k}}=Z_T+\frac{sG_q}{d\mathcal R K_q}.
+ \end{gathered}
+\end{equation}
+In particular $G_1=0$.
+Euler integration over the strata of the first exceptional
+plane gives
+\begin{equation}\label{eq:zeta-assembly}
+ Z_{\mathrm{top},0}(f;s)
+   =\frac{3-\chi_C}{a}+(\chi_C-b)Z_{G_k}
+                         +\sum_{p\in P}Z_{F_{q_p,k}}.
+\end{equation}
+This is additivity of the finite sum
+\eqref{eq:zeta-definition}, followed by Euler integration
+along the map to the first exceptional divisor. Substituting
+\eqref{eq:local-zeta-summary} proves \eqref{eq:global-zeta}.
+
+The denominator gives \eqref{eq:pole-list}. For the
+relative positions of its values, observe that
+\begin{equation}\label{eq:slope-order}
+ \alpha_R-\frac3A=\frac{k(e-3)}{erD},\qquad
+ \alpha_q-\alpha_R=
+          \frac{k[q(e-3)+D]}{qDB}>0.
+\end{equation}
+The numbers $\alpha_q=\beta/B+k/(qB)$ are distinct for
+distinct $q\ge2$, and $\alpha_R<\alpha_q<1$.
+For $e\ge4$ all entries of \eqref{eq:pole-list} are
+distinct. For $e=3$, we have
+$a=3(rs+1)$ and $\mathcal R=D(rs+1)$; the only term
+that could have a double pole is
+$k\chi_C/(a\mathcal R)$, which vanishes since $\chi_C=0$.
+Thus every pole is simple.
+\end{proof}
+
+\subsection{The first-divisor root}
+
+The first exceptional divisor gives the root $-3/A$
+throughout the analytic family \eqref{eq:analytic-family}.
+
+\begin{proposition}\label{prop:first-root}
+Every germ \eqref{eq:analytic-family} satisfies
+$\bfzero(-3/A)=0$.
+\end{proposition}
+
+\begin{proof}
+The first exceptional divisor has open part $\PP^2\setminus C$
+and data $(A,3)$. One component of its normal cover is
+$\tau^eg_i=1$. Setting $T_i=\tau^{-1}$ identifies it with
+$U=S\setminus B_0$, where
+\[
+ S=\{T^e=g_e(X,Y,Z)\}\subset\PP^3,\qquad B_0=\{T=0\}\simeq C.
+\]
+The projection $p_0:S\to\PP^2$ is finite, and $S$ is
+smooth. With $\Omega_i$ the projective chart area form,
+its specified residue is $\sigma=p_0^*\Omega_i/T_i^3$.
+The numerator and denominator both change by
+$\lambda^{-3}$ on overlaps, so $\sigma$ is global.
+Near $B_0$, write
+$\Omega_i=J(v,w)dv\wedge dw$ and $v=T_i^e$. Then
+\begin{equation}\label{eq:cyclic-surface-form}
+ \sigma=eT_i^{e-4}J(T_i^e,w)dT_i\wedge dw.
+\end{equation}
+For $e\ge4$, this is a nonzero holomorphic two-form on
+the compact surface $S$, with
+$\int_S\sigma\wedge\overline\sigma>0$. If its class
+vanished on $U$, the localization sequence
+\[
+ H^0(B_0,\CC)\longrightarrow H^2(S,\CC)
+                         \longrightarrow H^2(U,\CC)
+\]
+would express $[\sigma]$ as a linear combination of the
+Poincar\'e duals of the components of $B_0$. Pairing with
+$\overline\sigma$ gives zero, since its restriction to
+each curve is zero, a contradiction. Thus $\sigma$ has a
+nonzero compact period in $U$.
+For $e=3$, \eqref{eq:cyclic-surface-form} is logarithmic
+with residue $3\eta$, where $\eta$ is a nonzero holomorphic
+differential on the elliptic curve $C$. A normal circle tube
+over a nonzero period of $\eta$ gives the required period.
+Proposition~\ref{prop:criterion} with numerator $1$ finishes
+the proof.
+\end{proof}
+
+\subsection{From poles to Bernstein--Sato roots}
+
+By Proposition~\ref{prop:zeta}, each actual pole is listed
+in \eqref{eq:pole-list}. Proposition~\ref{prop:first-root}
+handles $-3/A$, Theorem~\ref{thm:uniform} with $j=0$
+handles $-\alpha_R$, and Theorem~\ref{thm:contact} handles
+the contact values. Finally, $\bfzero(-1)=0$: substituting
+$s=-1$ in a Bernstein identity makes its right side
+$P(-1)1$ holomorphic, whereas $b(-1)/f$ cannot be
+holomorphic unless $b(-1)=0$. This proves
+Corollary~\ref{cor:strong}.
+
+\section{Roots beyond the pole set}\label{sec:examples}
+
+In the family below, a contact root has a nonzero period
+even though its topological candidate cancels. We then
+exhibit an actual pole detected by the curve period.
+
+\subsection{An infinite family with a cancelled contact pole}
+
+Assume \eqref{eq:cancelled-family}. Fix a smooth degree-$e$
+curve $C$ and a point $x_0\in C$. There is a section of
+$L=\OO_C(D)$ with a zero of order exactly $q$ at $x_0$
+and only simple zeros elsewhere. Indeed,
+\[
+ \deg L-q-2=eD-q-2>2g_C-2.
+\]
+Riemann--Roch makes one additional vanishing condition
+at $x_0$ a proper hyperplane in $H^0(C,L(-qx_0))$.
+For each $x\ne x_0$, a double zero at $x$ imposes two
+independent conditions. The incidence space of these
+sections as $x$ varies on a curve has codimension at least
+one. A general section has the stated divisor.
+Lift it to $h_D$ using \eqref{eq:homogeneous-lift}.
+Adding $g_e a_{D-e}$ adjusts the normal derivative at
+$x_0$ freely, so $H$ can be chosen smooth there.
+At the other zeros, simplicity along $C$ already implies
+smoothness of $H$. This proves geometric existence.
+
+For these parameters,
+\[
+ B=k(4q+1),\qquad \beta=4k,\qquad
+ \mathcal R=4rq s+4r-1,\qquad
+ K_q=k(4q+1)(qs+1).
+\]
+The lattice indices are $h=t_q=k$ and $j_q=1$. Hence
+\begin{equation}\label{eq:cancelled-G}
+ G_q=-k^2(q-1)(\mathcal R+1),\qquad
+ \frac{G_q}{K_q}=-\frac{4rk(q-1)}{4q+1}.
+\end{equation}
+The contact term in \eqref{eq:global-zeta} has lost its
+$K_q$ denominator. At $s=-1/q$ the other denominators
+satisfy
+\[
+ a=\frac{r-1-q}{q}\ne0,\qquad
+ \mathcal R=-1,\qquad d=1-1/q\ne0;
+\]
+here $q\ge r$. All remaining contacts are transverse and
+have $G_1=0$. Thus the complete zeta function is
+holomorphic at $-1/q$.
+
+The primitive contact ray is
+$T=(q,q,1)$, with
+\[
+ (N_T,\nu_T)=(q(4q+1),4q+1).
+\]
+Its prescribed Euler parameters are
+\[
+ (a,b,c)=\left(\frac1{r-1},\frac1q,-\frac1{r-1}\right).
+\]
+Equation \eqref{eq:surface-contiguity} gives on the same cover
+\begin{equation}\label{eq:cancelled-nonzero}
+ [\Phi_{1/(r-1),1/q,-1/(r-1)}]
+   =-\frac{r-1}{q}
+      [\Phi_{1/(r-1),1/q,1-1/(r-1)}].
+\end{equation}
+All three parameters on the right are positive and
+nonintegral, so its compact period is nonzero.
+The comparison \eqref{eq:contact-residue-comparison}
+gives a nonzero period of the contact residue, and
+Proposition~\ref{prop:criterion} gives $\bfzero(-1/q)=0$.
+
+Finally,
+\[
+ \frac1q-\alpha_R=\frac1{rD}.
+\]
+Membership in \eqref{eq:triangular-roots} would require
+$\ell D+rj=1$ for nonnegative integers $\ell,j$, which
+is impossible. This proves Theorem~\ref{thm:cancelled}.
+
+\begin{example}[At least thirty-seven distinct roots]
+\label{ex:thirty-seven}
+Take $(e,r,k,q)=(6,3,2,5)$ and any pair constructed above.
+The triangular roots are
+\[
+ \left\{-\frac{11+3j}{60}:0\le j\le19\right\}
+ \quad\cup\quad
+ \left\{-\frac{31+3j}{60}:0\le j\le13\right\}.
+\]
+The two numerator progressions differ modulo three, so
+there are $34$ values. The roots $-1/6$, $-1/5$, and
+$-1$ lie outside this set. Thus $\deg\bfzero\ge37$,
+although $-1/5$ is absent from the topological pole set.
+\end{example}
+
+\subsection{An actual pole with an exact contact torus form}
+
+The following integral-coefficient example realizes the
+resonance \eqref{eq:integer-resonance}. Put
+\begin{equation}\label{eq:integer-example}
+ \begin{gathered}
+ g=x^4+y^4+z^4,\quad p_8=x^8+y^8+z^8,\quad
+ p_6=x^6+y^6+z^6,\\
+ f=g^2+z^2p_8+gp_6.
+ \end{gathered}
+\end{equation}
+Here $(e,r,k,D)=(4,2,2,10)$. The four points of
+$C\cap\{z=0\}$ have contact order two, since $p_8\ne0$
+there. At these points $p_6=y^4(y^2-x^2)\ne0$, so
+$H=V(z^2p_8+gp_6)$ is smooth. The remaining intersections
+are the $32$ transverse points of $C\cap V(p_8)$.
+To check transversality, all coordinates at these points
+are nonzero, and the \'etale map
+$[x:y:z]\mapsto[x^4:y^4:z^4]$ reduces the intersection
+to the transverse line and conic
+$U+V+W=0$, $U^2+V^2+W^2=0$.
+Thus $n_2=4$, $n_1=32$, $b=36$, and $\chi_C=-4$.
+
+With $a=8s+3$, $\mathcal R=20s+8$, $d=s+1$, and
+$K_2=24s+12$, formula \eqref{eq:global-zeta} becomes
+\begin{equation}\label{eq:example-zeta}
+ Z_{\mathrm{top},0}(f;s)
+   =\frac7a-\frac8{a\mathcal R}
+       +\frac{80s-8}{d\mathcal R}
+       +\frac{4s(40s+8)}{d\mathcal R K_2}.
+\end{equation}
+Its pole at $-1/2$ has residue $-1$. The corresponding
+contact torus form has parameters $(1,1/2,-1)$ and is
+exact by \eqref{eq:exact-contact-form}.
+On $E_R$, the numerator $p=x$ has order $r/\gamma=1$,
+with $\gamma=\gcd(r,k)=2$ and $(N_R,\nu_R)=(10,4)$.
+Its fiber form has parameters
+$(0,1/2)$, and its curve form is the nonzero holomorphic
+differential $p^*(x_i\eta_i)$. These two periods detect
+the exact root $-(4+1)/10=-1/2$.
+Theorem~\ref{thm:uniform} gives in total the ten roots
+\[
+ -\frac25,-\frac12,-\frac35,-\frac7{10},-\frac45,
+ -\frac9{10},-1,-\frac{11}{10},-\frac65,-\frac{13}{10};
+\]
+the first-divisor root $-3/8$ is an additional one.
+
+\subsection{A degree bound from distinct roots}
+
+The uniform factor, the first-divisor root and the
+distinct contact roots give a lower bound for the degree.
+
+\begin{corollary}\label{cor:degree}
+For every germ \eqref{eq:analytic-family},
+\begin{equation}\label{eq:degree-bound}
+ \deg\bfzero\ge D+\mathbf1_{e\ge4}+\mathbf1_{r\nmid k}.
+\end{equation}
+Under \eqref{eq:two-layer}, let $Q$ be the set of distinct
+contact orders $q\ge2$ and put
+\[
+ \delta_q=D(\alpha_q-\alpha_R)
+          =\frac{k[q(e-3)+D]}{qB}.
+\]
+Then the right side of \eqref{eq:degree-bound} can be
+increased by $\#\{q\in Q:\delta_q\notin\ZZ\}$.
+\end{corollary}
+
+\begin{proof}
+For $e\ge4$, the first-divisor root lies above the entire
+uniform block by \eqref{eq:slope-order}. The block contains
+$-1$ exactly when $D(1-\alpha_R)=D-3-k/r$ is an integer,
+equivalently $r\mid k$. Finally,
+$\alpha_R<\alpha_q<1$ implies that the contact root is
+in the block exactly when $\delta_q$ is an integer.
+Distinct contact orders have distinct roots.
+\end{proof}
+
+For $k=1$, one has $0<\delta_q<1$ for every actual
+$q\ge2$. Thus every distinct nontransverse contact order
+adds a root outside the uniform factor.
+
+\appendix
+\section{The weighted Newton calculation}\label{app:newton}
+
+This appendix proves \eqref{eq:local-zeta-summary}, keeping
+the volume factor $u^2$ from the first blow-up. The
+notation is that of \eqref{eq:zeta-denominators}.
+
+\subsection{Faces, cones, and lattice indices}
+
+The Newton vertices of
+$F_{q,k}=u^A(v^r+u^kv+u^kw^q)$ are
+\[
+ V_0=(A,r,0),\qquad V_1=(D,1,0),\qquad V_2=(D,0,q).
+\]
+Besides the coordinate normals, use the integer rays
+\[
+ \mathsf R=(r,k,0),\quad \mathsf Q=(0,q,1),\quad
+ \mathsf T=(q(r-1),qk,k).
+\]
+For a lattice vector $v$, the numerical functions are
+\[
+ N(v)=\min_i\langle v,V_i\rangle,\qquad
+ \nu(v)=3v_1+v_2+v_3.
+\]
+Thus their linear forms $sN+\nu$ are $\mathcal R$,
+$P_q=qs+q+1$, and $K_q$.
+Ray rescaling multiplies the cone multiplicity and its
+denominator by the same factor. Thus the displayed rays
+compute the cone quotients directly; divisor data use
+primitive generators, as in \eqref{eq:T-numerics}.
+
+All compact faces are nondegenerate on their tori.
+The edges are binomials with normalized lengths
+$h,j_q,1$, respectively. The triangle has normalized
+area $t_q$. Its curve maps by an isogeny of degree
+$t_q$ to $1+x+y=0$, so its Euler characteristic is
+$-t_q$. A regular Newton subdivision therefore gives
+an actual resolution over the local model.
+
+The weighted Denef--Loeser formula~\cite{DL92} is obtained
+from the toric orbits as follows.
+For a simplicial cone $\Delta$ with primitive generators
+$v_i$, write
+$J_\Delta=\mult(\Delta)/\prod_i(sN(v_i)+\nu(v_i))$.
+This expression is additive under subdivisions: on
+the saturated span it is the cone integral of
+$\exp(-sN-\nu)$. The coordinate denominators for the
+standard basis vectors $e_1,e_2,e_3$ are $a,1,1$.
+The coordinate boundaries for $v=0$ and $w=0$ have
+$(N,\nu)=(0,1)$; they refine the orbit stratification
+and contribute denominator factor $1$.
+Write $J_\tau$ for the cone sum attached to a compact
+face $\tau$. The orbit calculation gives
+\begin{equation}\label{eq:weighted-Newton-sum}
+ Z_{F_{q,k}}=\sum_{\dim\tau=0}J_\tau
+       +\frac{s}{d}\sum_{\dim\tau\ge1}
+          (-1)^{\dim\tau}\operatorname{Vol}_{\ZZ}(\tau)J_\tau.
+\end{equation}
+Here normalized volume is lattice length for an edge
+and twice lattice area for a triangle. Indeed, the face
+hypersurface $V_\tau$ in its effective torus has
+$\chi(V_\tau)=(-1)^{\dim\tau-1}\operatorname{Vol}_{\ZZ}(\tau)$.
+The torus has Euler characteristic zero. Its complement
+and its intersection with the strict transform therefore
+give the combined coefficient
+\[
+ -\chi(V_\tau)+\frac{\chi(V_\tau)}d
+    =(-1)^{\dim\tau}\operatorname{Vol}_{\ZZ}(\tau)\frac{s}{d}.
+\]
+A vertex contributes one. Orbits with an extra torus
+factor have Euler characteristic zero. This proves
+\eqref{eq:weighted-Newton-sum} with the original
+volume weight.
+
+The vertex cones admit the decompositions
+\[
+ (e_1,e_3,\mathsf T),(e_1,\mathsf T,\mathsf R);\qquad
+ (e_3,\mathsf Q,\mathsf T);\qquad
+ (e_2,\mathsf R,\mathsf T),(e_2,\mathsf T,\mathsf Q).
+\]
+Their determinants have absolute values
+$qk,k^2,q^2(r-1),rk,q(r-1)$ in that order.
+For the edge cones, the gcds of the cross-product
+coordinates are $qh,kj_q,q(r-1)$; the ray $\mathsf T$
+has lattice index $t_q$. Multiplying by the face
+volumes gives the following table. Only the edge
+and triangle rows are to be multiplied by $s/d$.
+\begin{center}
+\renewcommand{\arraystretch}{1.5}
+\begin{tabular}{@{}ll@{}}
+\toprule
+Face & Contribution before the edge/triangle factor $s/d$\\
+\midrule
+$V_0$ & $\displaystyle\frac{qk}{aK_q}
+                       +\frac{k^2}{a\mathcal R K_q}$\\
+$V_1$ & $\displaystyle\frac{q^2(r-1)}{P_qK_q}$\\
+$V_2$ & $\displaystyle\frac{rk}{\mathcal R K_q}
+                       +\frac{q(r-1)}{P_qK_q}$\\
+$V_0V_1$ & $\displaystyle-\frac{qh^2}{K_q}$\\
+$V_0V_2$ & $\displaystyle-\frac{kj_q^2}{\mathcal R K_q}$\\
+$V_1V_2$ & $\displaystyle-\frac{q(r-1)}{P_qK_q}$\\
+$V_0V_1V_2$ & $\displaystyle\frac{t_q^2}{K_q}$\\
+\bottomrule
+\end{tabular}
+\end{center}
+
+\subsection{Local simplification and the noncompact candidate}
+
+The $P_q$ terms combine as
+\[
+ \frac{q(r-1)}{P_qK_q}\left(q+1-\frac{s}{d}\right)
+          =\frac{q(r-1)}{dK_q}.
+\]
+Consequently,
+\begin{equation}\label{eq:local-F}
+ \begin{split}
+ Z_{F_{q,k}}=\frac1{K_q}\Bigl[{}&
+       \frac{qk}{a}+\frac{k^2}{a\mathcal R}
+       +\frac{rk}{\mathcal R}+\frac{q(r-1)}d\\
+       &+\frac{s}{d}\left(t_q^2-qh^2
+                          -\frac{kj_q^2}{\mathcal R}\right)\Bigr].
+ \end{split}
+\end{equation}
+The two-dimensional version of the same calculation
+for $G_k=u^A(v^r+u^k)$ has vertex terms
+$k/(a\mathcal R)$ and $r/\mathcal R$, and edge term
+$-\gamma^2s/(d\mathcal R)$. Hence
+\begin{equation}\label{eq:local-G}
+ Z_{G_k}=\frac{k/a+r-\gamma^2s/d}{\mathcal R}.
+\end{equation}
+
+For $q=1$ one has $j_1=1$, $t_1=h$, and
+\eqref{eq:local-F} reduces to
+$Z_T=(k/a+r/d)/\mathcal R$. For arbitrary $q$, use
+\[
+ K_q=q(\mathcal R-a)+k,\qquad
+ \mathcal R-ra=k(rs+1)
+\]
+in \eqref{eq:local-F}. Common denominators give
+\begin{equation}\label{eq:local-replacement}
+ Z_{F_{q,k}}=Z_T+
+ \frac{s\{\mathcal R(t_q^2-qh^2)
+            -k(j_q^2+q(r-1)-r)\}}{d\mathcal R K_q}.
+\end{equation}
+Equations \eqref{eq:local-G} and \eqref{eq:local-replacement}
+are exactly \eqref{eq:local-zeta-summary}. For $k=1$,
+all displayed gcds equal one and
+$G_q=-(q-1)r(Ds+4)$, recovering the contact replacement
+formula of~\cite{Jiang26}.
+
+\section*{Acknowledgments}
+
+This mathematical paper was prepared with the assistance of artificial intelligence.  I
+first acknowledge the textual data produced by humanity as a whole, which
+provides the linguistic and cultural record from which mathematical expression
+can be learned.  I then thank the accumulated scholarly achievements of
+mathematicians throughout history.  I also thank the researchers whose work has
+advanced and refined neural networks through successive generations.  Finally,
+I thank the OpenAI team for the training and development of the models used in
+the preparation of this paper.
+
+\begin{thebibliography}{99}
+
+\bibitem{AGGL26}
+E.~Artal Bartolo, P.~D.~Gonz\'alez P\'erez,
+M.~Gonz\'alez Villa, and E.~Le\'on Cardenal,
+\emph{Denef--Loeser zeta functions of suspensions and
+L\^e--Yomdin singularities},
+\href{https://arxiv.org/abs/2604.24523v1}{arXiv:2604.24523v1}
+(2026).
+
+\bibitem{BV26}
+D.~Bath and W.~Veys,
+\emph{The Strong Monodromy Conjecture for a class of
+homogeneous polynomials in three variables},
+\href{https://arxiv.org/abs/2602.20922v1}{arXiv:2602.20922v1}
+(2026).
+
+\bibitem{Bla26}
+G.~Blanco,
+\emph{Topological roots of the Bernstein--Sato polynomial
+of plane curves},
+\href{https://arxiv.org/abs/2406.09034v3}{arXiv:2406.09034v3}
+(2026).
+
+\bibitem{DL92}
+J.~Denef and F.~Loeser,
+\emph{Caract\'eristiques d'Euler--Poincar\'e, fonctions z\^eta
+locales et modifications analytiques},
+J. Amer. Math. Soc. \textbf{5} (1992), no.~4, 705--720.
+
+\bibitem{Est26}
+A.~Esterov,
+\emph{The monodromy conjecture for high-order poles,
+and norms of residue antiderivatives},
+\href{https://arxiv.org/abs/2610.22111v1}{arXiv:2610.22111v1}
+(2026).
+
+\bibitem{GLM97}
+S.~M.~Gusein-Zade, I.~Luengo, and A.~Melle-Hern\'andez,
+\emph{Partial resolutions and the zeta-function of a singularity},
+Comment. Math. Helv. \textbf{72} (1997), no.~2, 244--256.
+
+\bibitem{Jiang26}
+Y.~Jiang,
+\emph{Contact Reconstruction and Spectral Balance for Surface
+Singularities with a Multiple Smooth Tangent Cone},
+manuscript, 19 October 2026.
+
+\end{thebibliography}
+\end{document}
